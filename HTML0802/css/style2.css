@@ -1,0 +1,225 @@
+@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+KR);
+body,section,p,div,ul,li{ /*body, section 등의 모든 테그에 모든 여백 삭제 (상태초기화/ 브라우저에서준 기본요소 지우기)*/
+    padding: 0;
+    margin: 0;
+}
+ul,li{
+    list-style: none; /*ul 테그앞에 들어가는 동그라미 삭제*/
+}
+.clearfix:after{display:block;clear:both;content:".";visibility:hidden;height:0;}
+.clearfix{display:block;}
+body{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #3d3d3d;
+}
+.wrapper{
+    width: 1280px;
+    margin: 0 auto;
+}
+.visual{
+    background-image: url(../images/visual_bg.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 1080px;
+    padding: 394px 0 0 0;
+    box-sizing: border-box;/*width와height와padding 을 동시에 선언해도 사이즈가 늘어나지 않음*/
+}
+.visual p{
+    color: #FFFFFF;
+    font-size: 55px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0 0 41px 0;
+}
+.visual a{
+    color: #FFFFFF;
+    text-decoration: none;
+    border: 1px solid #FFFFFF;
+    border-radius: 20px;/*높이의 절반값*/
+    padding: 11px 40px;
+    display: inline-block;/*a 테그는 인라인 요소 padding과border 둘다 적용하기 위해서 준값*/
+}
+.intro{
+    text-align: center;/*자손요소= 즉 이안에 들어가 있는 모든것들을 가운데 정렬,(나 자신X) 상속이됨*/
+    margin: 122px 0 133px 0;
+}
+.intro strong{
+    font-weight: 700;
+}
+.intro p{
+    color: #3D3D3D;
+    font-size: 55px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 20px 0 41px 0;
+}
+.intro p span{
+    color: #999999;
+}
+.intro a{
+    color: #FFFFFF;
+    text-decoration: none;
+    background-color: #3D3D3D;
+    border-radius: 20px;
+    padding: 11px 40px;
+    display: inline-block;
+}
+.service{
+    background-color: #F4F4F4;
+    padding: 134px 0 134px 0;
+}
+.service strong{
+    font-weight: 700;
+}
+.service p{
+    color: #3D3D3D;
+    font-size: 55px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 20px 0 41px 0;
+}
+.service p span{
+    color: #999999;
+}
+.service a{
+    color: #FFFFFF;
+    text-decoration: none;
+    background-color: #3D3D3D;
+    border-radius: 20px;
+    padding: 11px 40px;
+    display: inline-block;
+}
+.it{
+    background-image: url(../images/it_bg.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 1080px;
+    padding: 348px 0 0 0;
+    box-sizing: border-box;
+}
+.it strong{
+    font-weight: 700;
+    color: #F4F4F4;
+}
+.it p{
+    color: #FFFFFF;
+    font-size: 55px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 20px 0 41px 0;
+}
+.it a{
+    color: #FFFFFF;
+    text-decoration: none;
+    border: 1px solid #FFFFFF;
+    border-radius: 20px;
+    padding: 11px 40px;
+    display: inline-block;
+}
+.bbs{
+    margin: 240px 0 80px 0;
+}
+.bbs p{
+    color: #3D3D3D;
+    font-size: 55px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0 0 75px 0;
+}
+.bbs p span{
+    color: #999999;
+}
+.bbs ul{
+
+}
+.bbs ul li{
+    width: 290px;
+    margin: 0 40px 0 0;
+    float: left;
+}
+.bbs ul li.last{
+    margin: 0; /*li 라는 테그 중에서 last 라는 클래스 명을 갖은 li(스페이스 안하는 이유는 그 안에서 포함되기때문*/
+}/*그래서 여기서li 다음에 스페이스가 아니라 쩜. 으로 해야함*/
+.bbs ul li a{
+    color: #3D3D3D;
+    text-decoration: none;
+    display: block;
+}
+.bbs ul li a img{
+    border: 1px solid #999999;
+    border-radius: 23px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.bbs ul li a strong{
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.25;
+    margin: 27px 0 16px 0;
+}
+.bbs ul li a span{
+    display: block;
+    color: #666666;
+}
+.bbs .more{
+    text-align: center;
+    margin: 106px 0 106px 0;
+}
+.bbs .more a{
+    color: #3D3D3D;
+    text-decoration: none;
+    border: 1px solid #3D3D3D;
+    border-radius: 20px;
+    padding: 11px 40px;
+    display: inline-block;
+}
+.banner{
+    margin: 80px 0 0 0;
+}
+.banner ul{
+    display: flex;
+}
+.banner ul li{
+    width: 620px;
+    height: 146px;
+    border-radius: 23px;
+    padding: 30px 40px 0 40px;
+    box-sizing:  border-box;
+}
+.banner ul li.partner{
+    /*li 태그 중에서 partner 라는 클래스 명을 갖는 li*/
+    background-color: #04C75B;
+    margin: 0 40px 0 0;
+}
+.banner ul li.career{
+    background-color: #08B4EB;
+}
+.banner ul li .tit{
+    float: left;
+}
+.banner ul li .tit strong{
+    color: #FFFFFF;
+    font-weight: 700;
+}
+.banner ul li .tit p{
+    color: #ffffff;
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.25;
+    margin: 17px 0 0 0;
+}
+.banner ul li a{
+    color: #FFFFFF;
+    text-decoration: none;
+    background-color: #3D3D3D;
+    border-radius: 20px;
+    padding: 11px 40px;
+    display: inline-block;
+    float: right;
+    margin: 50px 0 0 0;
+}
