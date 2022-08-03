@@ -1,0 +1,60 @@
+@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+KR);
+body,section,p,div,ul,li,h1,h2,h3,h4,h5,h6,nav{ /*body, section 등의 모든 테그에 모든 여백 삭제 (상태초기화/ 브라우저에서준 기본요소 지우기)*/
+    padding: 0;
+    margin: 0;
+}
+ul,li{
+    list-style: none; /*ul 테그앞에 들어가는 동그라미 삭제*/
+}
+body{
+    color: #3d3d3d;
+    line-height: 1.5;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: -0.05em;
+}
+a{
+    color: #3d3d3d;
+    text-decoration: none;
+}
+.wrapper{
+    width: 1280px;
+    margin: 0 auto;
+}
+header{/*header영역은 대부분 거의 높이를 입력함(대부분100픽셀)*/
+    height: 100px;/*header 영역은 높이가 중요하기때문에 정확한 높이를 주고 시작한다*/
+}
+header h1{
+    float: left;
+    margin: 23px 0 0 0;
+}
+header nav{
+    float: right;
+    margin: 14px 0 0 0;
+}
+header nav ul li{
+    float: left;
+}
+header nav ul li a{
+    display: block;/*여기에 block요소를 준 이유는 a가 inline 요소라서 padding을 적용하기 위해서*/
+    padding: 19px;
+    color: #1D1D1D;
+    font-size: 20px;
+}
+.visual{
+    background-image: url(../images/visual_bg.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 800px;
+}
+.visual strong{
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 400;
+}
+.visual p{
+    color: #ffffff;
+    font-size: 50px;
+    line-height: 1;
+}
