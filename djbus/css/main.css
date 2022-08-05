@@ -67,6 +67,9 @@ header nav ul li a{
     background-repeat: no-repeat;
     height: 800px;
 }
+.visual h2{
+    display: none;
+}/*해당 테그를 사용하지 않은것처럼숨김- 공간을 차지하지않음! 엄청중요함*/
 .visual strong{
     display: block;/*strong 인라인 테그라서 margin 이 적용X, block 요소로 변경*/
     padding: 290px 0 6px 0;

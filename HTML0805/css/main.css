@@ -1,0 +1,66 @@
+@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+KR);
+body,section,p,div,ul,li,h1,h2,h3,h4,h5,h6,nav,button,header,footer{ 
+    padding: 0;
+    margin: 0;
+}
+.clearfix:after{display:block;clear:both;content:".";visibility:hidden;height:0;}
+.clearfix{display:block;}
+body{
+    color: #3d3d3d;
+    line-height: 1.5;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: -0.05em;
+}
+a{
+    color: inherit;/*브라우저가 주는 기본색(파랑색)적용하지않고, 부모요소가 정의한 색상을 따르겠다는 뜻*/
+    text-decoration: none;
+}
+.wrapper{
+    width: 1280px;
+    margin: 0 auto;
+}
+body h1{
+    font-size: 30px;
+    font-weight: 700;
+    margin: 67px 0 0 0;
+}
+body a{
+    display: inline-block;
+    float: left;
+    padding: 10px 43px;
+    margin: 20px 5px 39px 0;
+    border: 1px solid #666666;
+}
+.global h2{
+    margin: 26px 0 10px 0;
+    color: #07B53B;
+    font-size: 20px;
+    font-weight: 700;
+}
+.global a.down{
+    color: #07B53B;
+    border: 1px solid #07B53B;
+}
+.market{
+    background-image: url(../images/market_bg.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 598px;
+    margin: 68px 0 0 0;
+}
+.market h1{
+    color: #ffffff;
+    text-align: center;
+    padding: 60px 0 26px 0;
+}
+.market p{
+    color: #ffffff;
+    text-align: center;
+}
+.market a{
+    margin: 23px 0 41px 549px;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}
