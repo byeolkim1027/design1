@@ -1,0 +1,89 @@
+@import url(https://fonts.googleapis.com/css2?family=Noto+Serif+KR);
+/*main.ccs 에서 default.css 를 삽입 또는 호출*/
+@import url(default.css);
+
+header{
+    height: 100px;
+    padding: 0 40px;
+}
+header h1{
+    float: left;
+    margin: 28px 0 0 0;
+}
+header nav{
+    float: right;
+}
+header nav ul{
+    float: left;
+}
+header nav ul li{
+    float: left;
+}
+header nav ul li a{
+    /*a테그는 패딩테그가 안먹어서 display로 block 을 먼저 주고 안되면 block-inline을 줍니다*/
+    display: block;
+    padding: 35px 15px 20px 15px;
+    color: #1D1D1D;
+    font-size: 22px;
+    font-weight: 700;
+}
+header nav .market{
+    float: left;
+    display: block;
+    padding: 10px 24px 8px 49px;
+    /*아이콘을 백그라운드로 줬기때문에 그거 생각안하고 글자가 어디에위치할지 패딩을 준다*/
+    margin: 25px 0 0 60px;
+    border: 1px solid #13A94F;
+    border-radius: 25px;/*높이의 반절*/
+    background-image: url(../images/market_ico.png);
+    background-position: left 15px top 8px;
+    /*background포지션에는 정확한 위치를 써준후 값을 넣어준다
+    아이콘의 위치를 설정해주는거(아이콘의 박스값을 보고 줘야한다, 이미지말고)*/
+    background-repeat: no-repeat;
+    color: #13A94F;
+    font-size: 20px;
+    font-weight: 700;
+}
+.visual{/*백그라운드 여백주는*/
+   padding: 0 40px;
+   color: #ffffff;
+   font-family: 'Noto Serif KR', serif;
+   text-align: center;
+   text-shadow: 0 0 20px rgba(0,0,0,0.2);
+   /*X값, Y값, 번짐의수, Opacity, 그리고 상속이 되는지 확인해야함*/
+}
+.visual .inner{/*그안에 값을준다*/
+    height: 750px;
+    background-image: url(../images/visual_bg.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.visual strong{
+    display: block;
+    padding: 263px 0 0 0;
+    font-size: 30px;
+    font-weight: 400;
+}
+.visual h2{
+    padding: 0 0 10px 0;
+    font-size: 60px;
+    font-weight: 400;
+}
+.category .tit{
+    margin: 143px 0 36px 0;
+    color: #1D1D1D;
+}
+.category .tit strong{
+    /*만약에 strong테그에다가 여백을 줄거면 margin을 주고 display로 block 요소를 만들어줘야함*/
+    font-weight: 700;
+}
+.category .tit h2{
+    line-height: 1.1;
+    /*행간을 줄여주는 이유는 strong과 h2 사이에 행간에 사에이 발생한 기본여백을 삭제하기위해서*/
+    font-size: 35px;
+    font-weight: 300;
+}
+.category ul li img{
+    border: 1px solid #EDEDED;
+}
