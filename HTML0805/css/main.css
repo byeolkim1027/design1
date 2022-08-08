@@ -26,22 +26,24 @@ body h1{
     font-weight: 700;
     margin: 67px 0 0 0;
 }
-body a{
-    display: inline-block;
-    float: left;
-    padding: 10px 43px;
-    margin: 20px 5px 39px 0;
-    border: 1px solid #666666;
-}
 .global h2{
     margin: 26px 0 10px 0;
     color: #07B53B;
     font-size: 20px;
     font-weight: 700;
 }
+.global a{
+    display: inline-block;
+    float: left;
+    margin: 20px 5px 39px 0;
+    border: 1px solid #666666;
+}
 .global a.down{
     color: #07B53B;
     border: 1px solid #07B53B;
+}
+.global a.more{
+    border: 1px solid #666666;
 }
 .market{
     background-image: url(../images/market_bg.png);
@@ -49,6 +51,7 @@ body a{
     background-repeat: no-repeat;
     height: 598px;
     margin: 68px 0 0 0;
+    text-align: center;
 }
 .market h1{
     color: #ffffff;
@@ -60,7 +63,9 @@ body a{
     text-align: center;
 }
 .market a{
-    margin: 23px 0 41px 549px;
+    display: inline-block;
+    padding: 10px 43px;
+    margin: 23px 0 41px 0;
     color: #ffffff;
     border: 1px solid #ffffff;
 }
