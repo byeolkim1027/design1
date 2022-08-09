@@ -84,6 +84,267 @@ header nav .market{
     font-size: 35px;
     font-weight: 300;
 }
-.category ul li img{
+.category ul li{
+    float: left;
+    /*플롯트는 왼쪽으로 명령을 주면 최대한의 올수잇는만큼만 온다. 그래서 모두다 오게하려면 넓이를 제한해야한다*/
+    width: 240px;
+    margin: 0 20px 0 0;
+}
+.category ul li:last-child{/*li중에 마지막li를 선택*/
+    margin-right: 0;
+    /*어느쪽에 마진을 뺄건지 정확하게 위치를 파악한후 마진을 빼준다*/
+}
+.category ul li a{
+    display: block;
+    /*a 섹션을 온전히 전부다 감싸야한다, 그래서 block테그를 줘서 모두다 감싸게 만든다*/
+}
+.category ul li a img{
+    width: 100%;
     border: 1px solid #EDEDED;
+    box-sizing: border-box;
+    /*내가준 사이즈에 맞게 보더라인까지 맞춰서 사이즈가 맞게된다
+    border line을 주게되면 필수적으로 해야한다, 사이즈맞추기 중요*/
+}
+.category ul li a strong{
+    /*strong은 인라인테그라서 margin이 적용이 안된다, 그래서 display로 block 으로 변경후 테그입력*/
+    display: block;
+    margin: 10px 0 0 0;
+    font-weight: 400;
+}
+.network{
+    height: 805px;
+    margin: 138px 0 0 0;
+    background-image: url(../images/network_bg.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*background에 이미지가 들어가면 포지션,리핏,사이즈,높이 를 줘야한다*/
+    color: #ffffff;
+    /*배경안에 들어가는 글자가 가운데로 오게하려면 network 큰 프레임안에 text-align center를 줘야함*/
+}
+.network strong{
+    display: block;
+    padding: 206px 0 0 0;
+    font-weight: 400;
+}
+.network h2{
+    margin: 5px 0 45px 0;
+    line-height: 1.25;
+    font-weight: 700;
+    font-size: 40px;
+}
+.network a{
+    /*a 는 무조건 inline-block입니다, 그래야 영역이안겹칩니다.
+    만약에 float 를 주면 inline-block을 안줘도 옆으로 딱 붙는다.*/
+    display: block;/*만약에 모든텍스트가 가운데정렬이면 inline block을주고 float를 빼야함*/
+    float: left;/*a 사이의 미묘한 여백이 생겼을때 그걸 없애고 나란히 딱붙혀서 배치*/
+    padding: 12px 25px;
+    margin: 0 5px 0 0;
+    border: 1px solid rgba(255,255,255,0.7);/*검은색rgba는 0,0,0 하얀색rgba는 255,255,255*/
+    border-radius: 6px;
+}
+.community .tit{
+    margin: 143px 0 36px 0;
+    color: #1D1D1D;
+}
+.community .tit strong{
+    font-weight: 700;
+}
+.community .tit h2{
+    line-height: 1.1;
+    font-size: 35px;
+    font-weight: 300;
+}
+.community .list .colgroup1{
+    float: left;
+    width: 630px;
+    margin: 0 20px 0 0;
+}
+.community .list .colgroup2{
+    float: left;
+    width: 630px;
+}
+.community .list ul li{
+    float: left;
+    /*float는 a에게 주는게 아니라 li에게 큰영역을 줘야한다*/
+}
+.community .list ul li a{/*공통되는걸 싹다잡아서 먼저 스타일주고, 다른건 따로따로 준다*/
+    /*이 모든스타일은 a에게 줘야 모든걸감쌀수가 있다*/
+    display: block;
+    width: 305px;
+    height: 203px;
+    padding: 26px 30px 0 30px; /*아래에는 여백안준다,왜냐하면 밑에까지주면 안맞을수도있다*/
+    background-color: #F4F4F4;
+}
+/*em, strong, span 테그들은 다 inline 테그라서 줄바꿈이 안됨, 그래서 싹다 display block을 줘야함*/
+.community .list ul li a em{
+    display: block;
+}
+.community .list ul li a strong{
+    display: block;
+    margin: 0 0 50px 0;
+    font-size: 20px;
+    font-weight: 700;
+    /*제목을 2줄로 제한(고정)하는 스타일*/  
+    line-height: 1.5;
+    height: 3em;/*행간X줄수 단위는 꼭! em 이여아함*/
+    overflow: hidden;  
+}
+.community .list ul li a .date{
+    display: block;
+    /*span 테그 모두를 선언하는게 아니라 .date를 지정해서 클래스에다가 줘야함*/
+    color: #666666;
+}
+.community .list ul li a .date .writer{
+    position: relative;/*조그만한 막대기, 기준이되거나 중심이 되는거에 먼저 relative를준다 */
+    padding: 0 15px 0 0;
+}
+/*이건 날짜와 작성자사이에 조그만한선 만드는것*/
+.community .list ul li a .date .writer::after{
+    position: absolute;/*기준을 relative로 잡고 absoulte를 준 후에 right/top을 지정후 브라우저가서 조정한다*/
+    right: 4px;
+    top: 6px;
+    width: 1px;
+    height: 11px;
+    background-color: #999999;
+    content: "";
+}
+.community .list ul li.green a{
+    margin: 0 20px 0 0;
+    background-color: #13A94F;
+    /*li가 아니라, a 까지 다 써서 background color를줘야한다, 기본값으로 배경색을 a에게 줬기때문*/
+    color: #ffffff;
+}
+.community .list ul li.blue a{
+    margin: 0 20px 0 0;
+    background-color: #005BAE;
+    color: #ffffff;
+}
+.community .list ul li.img01 a{
+    width: 630px;
+    height: 363px;
+    margin: 20px 0 0 0;
+    background-image: url(../images/community02.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #ffffff;
+}
+.community .list ul li.img02 a{
+    width: 630px;
+    height: 363px;
+    margin: 0 0 20px 0;
+    background-image: url(../images/community01.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #ffffff;
+}
+.community .list ul li.date_w a .date{
+    color: rgba(255,255,255,0.7);
+}
+.community .list ul li.date_w a .date .writer::after{
+    background-color: rgba(255,255,255,0.5);
+}
+.community .list ul li.img01 a em,
+.community .list ul li.img02 a em{
+    margin: 225px 0 0 0;
+}
+.community .list ul li.img01 a strong,
+.community .list ul li.img02 a strong{
+    margin: 0 0 8px 0;
+    height: auto;/*제목을 2줄로 임의로 주는걸 풀어주는, 높이고정을 해제*/
+    overflow: hidden;  
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+footer{
+    margin: 143px 0 0 0;
+    color: rgba(255,255,255,0.8);
+}
+footer .f_head{
+    height: 70px;/*header처럼 영역을 정해주고가야함*/
+    background-color: #1A1A1A;
+}
+footer .f_head ul{
+    float: left;
+    margin: 13px 0 0 0;/* height 영역 밖을 벗어나면 안됨, 넘어간다면 여백을 다시 줘야함*/
+}
+footer .f_head ul li{
+    float: left;
+}
+footer .f_head ul li.privacy{
+    font-weight: 700;/*선언을 따로 해야한다 왜냐하면 첫번째 자식이 될지도 아닐지도 몰라서
+                        스타일이 특정하게 들어가는 요소들은 클래스를 정확히 줘야한다*/
+}
+footer .f_head ul li a{
+    display: block;
+    position: relative;/*after준 absoulte의 정렬의 기준*/
+    padding: 11px;
+}
+footer .f_head ul li a::after{/*content라는 속성이 무조건 있어야 이 선언이 구현된다*/
+    /*인라인테그라서 높이랑 넓이만 주면 구현이 안된다.*/
+    display: block;
+    /*after를 감싸는 요소에 a에 position 속성이 있기때문에
+      a를 기준으로 right오른쪽 top 상단으로 정렬 (어디로 기준으로할지 잘 정해야함)*/
+    position: absolute;
+    right: -2px;
+    top: 17px;
+    width: 1px;
+    height: 11px;
+    background-color: rgba(255,255,255,0.3);
+    content: "";
+}
+/*li 안에 첫번째 li 부르고 그 왼쪽에 잇는 패딩을 없애는 작업*/
+footer .f_head ul li:first-child a{
+    padding-left: 0;
+}
+/*li 안에 마지막 li를 부르고 그 마지막에 있는 조그마한 줄 없애는 테그*/
+footer .f_head ul li:last-child a::after{
+    display: none;
+}
+footer .f_head .quest{
+    display: block;
+    float: right;
+    padding: 10px 23px;
+    margin: 12px 0 0 0;
+    border: 1px solid rgba(255,255,255,0.8);
+    border-radius: 5px;
+}
+footer .f_body{
+    background-color: #0A0A0A;
+}
+footer .f_body .info{
+    padding: 47px 0 39px 0;
+}
+footer .f_body .info ul{
+    margin: 0 0 5px 0   ;
+}
+footer .f_body .info ul li{
+    position: relative;
+    float: left;
+    margin: 0 29px 0 0;
+}
+/*위쪽에 있는 f_head 와 같은 속성이있어서 거기서 카피해서 똑같이 넣은다음 브라우저에서 위치조정하면됨*/
+footer .f_body .info ul li::after{
+    display: block;
+    position: absolute;
+    right: -17px;
+    top: 6px;
+    width: 1px;
+    height: 11px;
+    background-color: rgba(255,255,255,0.3);
+    content: "";
+}
+/*li:last-child::after는 li중에 마지막 li의 after 가상요소 
+  순서가 중요함, 마지막 자식들중 다음에 를 지칭하는거이기때문에 선언하는 순서가중요*/
+footer .f_body .info ul li:last-child::after{
+    display: none;
+}
+footer .f_body .copyright{
+    padding: 0 0 175px 0;
+    color: rgba(255,255,255,0.5);
+}
+footer .f_body .copyright p{
+    margin: 0 0 5px 0;
 }

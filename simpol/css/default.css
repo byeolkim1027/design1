@@ -4,6 +4,9 @@
 body,header,footer,div,p,nav,section,h1,h2,h3,h4,h5,h6,button,a,ul,li,address,strong,span,em{
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
+    /*width/height and padding이 결합이 되면 사이즈가 늘어남, 이걸 막는 스타일
+      padding을 줘도 width/height 가 유지가됨*/
 }
 /*a테그에 브라우저가 주는 기본속성 초기화*/
 a{
@@ -20,6 +23,7 @@ ul,li{
 }
 /*모든 테그에서 빼주는걸 먼저써주고, 값을 주는건 그다음에 배치한다*/
 html,body{
+    min-width: 1280px;/*브라우저사이즈가 작아졌을때 배경이 안잘리게 하는테그,(가로스크롤이 생성되었을때 배경이 않잘리기위해*/
     color: #3d3d3d;
     line-height: 1.5;
     font-family: 'Noto Sans KR', sans-serif;
