@@ -1,0 +1,276 @@
+@import url(default.css);
+
+header{
+    height: 100px;
+}
+header h1{
+    float: left;
+    margin: 30px 0 0 0;
+}
+header nav{
+    float: right;
+    margin: 10px 0 0 0;
+}
+header nav ul li{
+    float: left;
+}
+header nav ul li a{
+    display: block;
+    padding: 26px;
+    color: #1D1D1D;
+    font-size: 25px;
+    font-weight: 700;
+}
+.visual{
+    height: 827px;
+    background-image: url(../images/visual_bg.png);
+    background-position: center bottom;/*배경이 위에가 비어있고 밑에는 꽉차있으니 bottom으로 줘야한다*/
+    background-repeat: no-repeat;
+}
+.visual h2{
+    float: right;
+    margin: 79px 0 0 0;
+    line-height: 1.35;
+    letter-spacing: -0.05em;
+    font-size: 60px;
+    font-weight: 700;
+    color: #1D1D1D;
+}
+.visual h2 span{
+    color: #FFFFFF;
+}
+
+.food h2{
+    display: none;
+}
+.food .rowgroup1{
+    margin: 106px 0 100px 0;
+}
+.food .rowgroup1 img{
+    float: left;
+}
+.food .rowgroup1 .menu{
+    float: left;
+    margin: 38px 0 0 40px;
+}
+.food .rowgroup2{
+    position: relative;
+    /*absoulte 정렬의 기준점, rowgroup2의 영역 안에서 left, top 여백을 계산*/
+}
+.food .rowgroup2 .food_img02{
+    float: right;
+}
+.food .rowgroup2 .food_img01{
+    position: absolute;
+    top: 95px;
+}
+.food .rowgroup2 .menu{
+    /*menu를 감싸고 잇는 rowgroup2전체가 position 속성을 가지고 있기때문에 rowgroup2를 기준으로 left, top 위치를 계산*/
+    position: absolute;
+    left: 489px;
+    top: 95px;
+}
+.food .menu h3{
+    margin: 0 0 20px 0;
+    color: #1D1D1D;
+    line-height: 1.2;
+    font-size: 50px;
+    font-weight: 700;
+}
+.food .menu h3 span{
+    color: #FFFFFF;
+}
+
+.drink{
+    height: 750px;
+    margin: 131px 0 131px 0;
+    background-image: url(../images/drink_bg.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;/*배경이 꽉 들어맞는 이미지는 cover 테그를 줘야한다*/
+}
+.drink h2{
+    display: none;
+}
+.drink ul{
+    padding: 91px 0 0 0;
+}
+.drink ul li{
+    float: left;
+    margin: 0 40px 0 0;
+}
+.drink ul li:first-child{
+    margin-top: 60px;
+}
+.drink ul li:last-child{
+    margin-right: 0;
+    margin-top: 60px;
+}
+.drink ul li a{
+    display: block;
+    width: 400px;
+    height: 530px;
+    padding: 0 40px 0 40px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0 0 20px rgba(0,0,0,0.25);
+    color: #FFFFFF;
+}
+.drink ul li.drink01 a{
+    background-image: url(../images/drink01.png);
+}
+.drink ul li.drink02 a{
+    background-image: url(../images/drink02.png);
+}
+.drink ul li.drink03 a{
+    background-image: url(../images/drink03.png);
+}
+/*a테그 안에들어가는 요소들은 다 display block처리를해야 사이즈를 주든 여백을 주든 잘 표현된다*/
+.drink ul li a em{
+    display: block;
+    padding: 324px 0 5px 0;
+}
+.drink ul li a strong{
+    display: block;
+    line-height: 1.25;
+    font-size: 30px;
+    font-weight: 700;
+}
+.drink ul li a span{
+    display: block;
+    padding: 22px 0 0 0;
+}
+
+/*영역을 감싸주는 기준을 잡아줌*/
+.sns .wrapper{
+    position: relative;
+}
+/*left, top 을 0 을줌으로써 영역을 감싸는 동시에 
+tit은 블록테그인데, absolute 를주면 블록테그가 사라진다*/
+.sns .tit{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.sns .tit h2{
+    margin: 0 0 10px 0;
+    line-height: 1.25;
+    font-size: 40px;
+    font-weight: 700;
+    color: #1D1D1D;
+}
+.sns .tit ul{
+    margin: 20px 0 0 0;
+}
+.sns .tit ul li{
+    float: left;
+    margin: 0 7px 0 0;
+}
+.sns .tit ul li a{
+    display: block;
+    width: 55px;
+    height: 55px;
+    border: 1px solid #CCCCCC;
+    border-radius: 28px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    font-size: 0;/*글자를 숨김*/
+}
+/*로고를 가운데에놓기 힘들어서 이미지 대신, 백그라운드로 이미지를 삽입한다.*/
+.sns .tit ul li.kakao a{
+    background-image: url(../images/sns_kakao.png);
+}
+.sns .tit ul li.insta a{
+    background-image: url(../images/sns_insta.png);
+}
+.sns .tit ul li.twitter a{
+    background-image: url(../images/sns_twitter.png);
+}
+.sns .tit ul li.facebook a{
+    background-image: url(../images/sns_facebook.png);
+}
+.sns .list li{
+    float: left;
+    margin: 0 20px 20px 0;
+}
+/*첫번째 li한테 margin 을 왼쪽에 줌으로써 옆으로 밀리게 된다*/
+.sns .list li:first-child{
+    margin-left: 520px;
+}
+/*오른쪽 마진이 없어져야 정렬이 딱맞게 들어간다*/
+.sns .list li:nth-child(3){
+    margin-right: 0;
+}
+/*4번째 li 에서 줄바꿈이 시작되는걸 해주는 요소*/
+.sns .list li:nth-child(4){
+    clear: left;
+}
+.sns .list li:last-child{
+    margin-right: 0;
+}
+/*이미지도 iline 테그라서 행간이 적용이되어서 하단에 여백이 발생한다
+이를 없애기 위해서는 이미지한테 바로 주는게 아니라 그걸 감싸는 요소"a"에게 줘야한다
+-글자크기와 행간 모두를 0 을 주면된다.*/
+.sns .list li a{
+    display: block;
+    font-size: 0;
+    line-height: 0;
+}
+
+footer{
+    margin: 78px 0 0 0;
+    border-top: 1px solid #CCCCCC;
+    text-align: center;
+}
+footer .flogo{
+    margin: 91px 0 57px 0;
+}
+/*li를 가운데 정렬 해야하는데 float가 들어간 요소는 가운데 정렬이 안됨 그래서 
+  display: inline-block으로 인라인 요소로 변경해서 li 좌우로 배치하고 가운데 정렬이 적용됨
+  여백을 정확하게 맞춰야하는 경우가 아니면 이런방법을 사용합니다.*/
+footer .fnav li{
+    display: inline-block;
+    position: relative;
+}
+footer .fnav li::after{
+    position: absolute;
+    right: -3px;
+    top: 7px;
+    width: 1px;
+    height: 10px;
+    background-color: #CCCCCC;
+    content: "";
+}
+footer .fnav li:last-child:after{
+    display: none;
+}
+footer .fnav li a{
+    display: block;
+    padding: 0 12px;/*li를 할때 엔터를 했기때문에 아주 조그마한 여백이 원래 있는데, 
+                    그걸 2px이라고 생각하고 디자인에서 잰 값에서 -2px 빼면 된다*/
+}
+/*얘도 똑같이 여백을 줘야 가운데 정렬이 정확히 맞아 들어간다*/
+footer .finfo{
+    margin: 31px 0 31px 0;
+}
+footer .finfo li{
+    display: inline-block;
+    position: relative;
+    margin: 0 12px;
+}
+footer .finfo li::after{
+    position: absolute;
+    right: -15px;
+    top: 7px;
+    width: 1px;
+    height: 10px;
+    background-color: #CCCCCC;
+    content: "";
+}
+footer .finfo li:last-child:after{
+    display: none;
+}
+footer .copyright{
+    margin: 0 0 254px 0;
+}
