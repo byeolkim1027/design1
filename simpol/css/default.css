@@ -39,3 +39,14 @@ html,body{
 }
 .clearfix::after{display:block;clear:both;content:".";visibility:hidden;height:0;}
 .clearfix{display:block;}
+
+@media screen and (max-width:450px){
+    html,body{
+        min-width: auto;
+        font-size: 13px;
+    }
+    .wrapper{
+        width: auto;
+        margin: 0 20px;
+    }
+}/*media 종료*/
