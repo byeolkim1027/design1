@@ -1,6 +1,75 @@
+@import url(https://fonts.googleapis.com/css2?family=Noto+Serif+KR);
+/*main.ccs 에서 default.css 를 삽입 또는 호출*/
 @import url(default.css);
 
-
+header{
+    height: 100px;
+    padding: 0 40px;
+}
+header h1{
+    float: left;
+    margin: 28px 0 0 0;
+}
+header nav{
+    float: right;
+}
+header nav ul{
+    float: left;
+}
+header nav ul li{
+    float: left;
+}
+header nav ul li a{
+    /*a테그는 패딩테그가 안먹어서 display로 block 을 먼저 주고 안되면 block-inline을 줍니다*/
+    display: block;
+    padding: 35px 15px 20px 15px;
+    color: #1D1D1D;
+    font-size: 22px;
+    font-weight: 700;
+}
+header nav .market{
+    float: left;
+    display: block;
+    padding: 10px 24px 8px 49px;
+    /*아이콘을 백그라운드로 줬기때문에 그거 생각안하고 글자가 어디에위치할지 패딩을 준다*/
+    margin: 25px 0 0 60px;
+    border: 1px solid #13A94F;
+    border-radius: 25px;/*높이의 반절*/
+    background-image: url(../images/market_ico.png);
+    background-position: left 15px top 8px;
+    /*background포지션에는 정확한 위치를 써준후 값을 넣어준다
+    아이콘의 위치를 설정해주는거(아이콘의 박스값을 보고 줘야한다, 이미지말고)*/
+    background-repeat: no-repeat;
+    color: #13A94F;
+    font-size: 20px;
+    font-weight: 700;
+}
+.visual{/*백그라운드 여백주는*/
+   padding: 0 40px;
+   color: #ffffff;
+   font-family: 'Noto Serif KR', serif;
+   text-align: center;
+   text-shadow: 0 0 20px rgba(0,0,0,0.2);
+   /*X값, Y값, 번짐의수, Opacity, 그리고 상속이 되는지 확인해야함*/
+}
+.visual .inner{/*그안에 값을준다*/
+    height: 750px;
+    background-image: url(../images/visual_bg.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.visual strong{
+    display: block;
+    padding: 263px 0 0 0;
+    font-size: 30px;
+    font-weight: 400;
+}
+.visual h2{
+    padding: 0 0 10px 0;
+    font-size: 60px;
+    font-weight: 400;
+}
 .category .tit{
     margin: 143px 0 36px 0;
     color: #1D1D1D;
@@ -42,31 +111,6 @@
     margin: 10px 0 0 0;
     font-weight: 400;
 }
-@media screen and (max-width:450px){
-    .category .tit{
-        margin: 80px 0 60px 0;
-    }
-    .category .tit h2{
-        font-size: 30px;
-    }
-    .category ul li{
-        width: 48%;
-        margin: 0 4% 0 0;
-    }
-    .category ul li:nth-child(2),.category ul li:nth-child(4){
-        margin-right: 0;
-    }
-    .category ul li:last-child{/*li중에 마지막li를 선택*/
-        display: none;
-    }
-    .category ul li a img{
-        width: 100%;
-    }
-    .category ul li a strong{
-        margin: 5px 0 15px 0;
-    }
-}/*media종료*/
-
 .network{
     height: 805px;
     margin: 138px 0 0 0;
@@ -99,26 +143,208 @@
     border: 1px solid rgba(255,255,255,0.7);/*검은색rgba는 0,0,0 하얀색rgba는 255,255,255*/
     border-radius: 6px;
 }
-@media screen and (max-width:450px){
-    .network{
-        height: auto;
-        margin: 100px 0 0 0;
-        padding: 0 0 145px 0;
-    }
-    .network strong{
-        display: block;
-        padding: 132px 0 0 0;
-        font-size: 13px;
-    }
-    .network h2{
-        margin: 5px 0 27px 0;
-        font-size: 30px;
-    }
-    .network a{
-        /*a 는 무조건 inline-block입니다, 그래야 영역이안겹칩니다.
-        만약에 float 를 주면 inline-block을 안줘도 옆으로 딱 붙는다.*/
-        display: block;/*만약에 모든텍스트가 가운데정렬이면 inline block을주고 float를 빼야함*/
-        float: left;/*a 사이의 미묘한 여백이 생겼을때 그걸 없애고 나란히 딱붙혀서 배치*/
-        margin: 0 5px 0 0;
-    }
+.community .tit{
+    margin: 143px 0 36px 0;
+    color: #1D1D1D;
+}
+.community .tit strong{
+    font-weight: 700;
+}
+.community .tit h2{
+    line-height: 1.1;
+    font-size: 35px;
+    font-weight: 300;
+}
+.community .list .colgroup1{
+    float: left;
+    width: 630px;
+    margin: 0 20px 0 0;
+}
+.community .list .colgroup2{
+    float: left;
+    width: 630px;
+}
+.community .list ul li{
+    float: left;
+    /*float는 a에게 주는게 아니라 li에게 큰영역을 줘야한다*/
+}
+.community .list ul li a{/*공통되는걸 싹다잡아서 먼저 스타일주고, 다른건 따로따로 준다*/
+    /*이 모든스타일은 a에게 줘야 모든걸감쌀수가 있다*/
+    display: block;
+    width: 305px;
+    height: 203px;
+    padding: 26px 30px 0 30px; /*아래에는 여백안준다,왜냐하면 밑에까지주면 안맞을수도있다*/
+    background-color: #F4F4F4;
+}
+/*em, strong, span 테그들은 다 inline 테그라서 줄바꿈이 안됨, 그래서 싹다 display block을 줘야함*/
+.community .list ul li a em{
+    display: block;
+}
+.community .list ul li a strong{
+    display: block;
+    margin: 0 0 50px 0;
+    font-size: 20px;
+    font-weight: 700;
+    /*제목을 2줄로 제한(고정)하는 스타일*/  
+    line-height: 1.5;
+    height: 3em;/*행간X줄수 단위는 꼭! em 이여아함*/
+    overflow: hidden;  
+}
+.community .list ul li a .date{
+    display: block;
+    /*span 테그 모두를 선언하는게 아니라 .date를 지정해서 클래스에다가 줘야함*/
+    color: #666666;
+}
+.community .list ul li a .date .writer{
+    position: relative;/*조그만한 막대기, 기준이되거나 중심이 되는거에 먼저 relative를준다 */
+    padding: 0 15px 0 0;
+}
+/*이건 날짜와 작성자사이에 조그만한선 만드는것*/
+.community .list ul li a .date .writer::after{
+    position: absolute;/*기준을 relative로 잡고 absoulte를 준 후에 right/top을 지정후 브라우저가서 조정한다*/
+    right: 4px;
+    top: 6px;
+    width: 1px;
+    height: 11px;
+    background-color: #999999;
+    content: "";
+}
+.community .list ul li.green a{
+    margin: 0 20px 0 0;
+    background-color: #13A94F;
+    /*li가 아니라, a 까지 다 써서 background color를줘야한다, 기본값으로 배경색을 a에게 줬기때문*/
+    color: #ffffff;
+}
+.community .list ul li.blue a{
+    margin: 0 20px 0 0;
+    background-color: #005BAE;
+    color: #ffffff;
+}
+.community .list ul li.img01 a{
+    width: 630px;
+    height: 363px;
+    margin: 20px 0 0 0;
+    background-image: url(../images/community02.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #ffffff;
+}
+.community .list ul li.img02 a{
+    width: 630px;
+    height: 363px;
+    margin: 0 0 20px 0;
+    background-image: url(../images/community01.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #ffffff;
+}
+.community .list ul li.date_w a .date{
+    color: rgba(255,255,255,0.7);
+}
+.community .list ul li.date_w a .date .writer::after{
+    background-color: rgba(255,255,255,0.5);
+}
+.community .list ul li.img01 a em,
+.community .list ul li.img02 a em{
+    margin: 225px 0 0 0;
+}
+.community .list ul li.img01 a strong,
+.community .list ul li.img02 a strong{
+    margin: 0 0 8px 0;
+    height: auto;/*제목을 2줄로 임의로 주는걸 풀어주는, 높이고정을 해제*/
+    overflow: hidden;  
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+footer{
+    margin: 143px 0 0 0;
+    color: rgba(255,255,255,0.8);
+}
+footer .f_head{
+    height: 70px;/*header처럼 영역을 정해주고가야함*/
+    background-color: #1A1A1A;
+}
+footer .f_head ul{
+    float: left;
+    margin: 13px 0 0 0;/* height 영역 밖을 벗어나면 안됨, 넘어간다면 여백을 다시 줘야함*/
+}
+footer .f_head ul li{
+    float: left;
+}
+footer .f_head ul li.privacy{
+    font-weight: 700;/*선언을 따로 해야한다 왜냐하면 첫번째 자식이 될지도 아닐지도 몰라서
+                        스타일이 특정하게 들어가는 요소들은 클래스를 정확히 줘야한다*/
+}
+footer .f_head ul li a{
+    display: block;
+    position: relative;/*after준 absoulte의 정렬의 기준*/
+    padding: 11px;
+}
+footer .f_head ul li a::after{/*content라는 속성이 무조건 있어야 이 선언이 구현된다*/
+    /*인라인테그라서 높이랑 넓이만 주면 구현이 안된다.*/
+    display: block;
+    /*after를 감싸는 요소에 a에 position 속성이 있기때문에
+      a를 기준으로 right오른쪽 top 상단으로 정렬 (어디로 기준으로할지 잘 정해야함)*/
+    position: absolute;
+    right: -2px;
+    top: 17px;
+    width: 1px;
+    height: 11px;
+    background-color: rgba(255,255,255,0.3);
+    content: "";
+}
+/*li 안에 첫번째 li 부르고 그 왼쪽에 잇는 패딩을 없애는 작업*/
+footer .f_head ul li:first-child a{
+    padding-left: 0;
+}
+/*li 안에 마지막 li를 부르고 그 마지막에 있는 조그마한 줄 없애는 테그*/
+footer .f_head ul li:last-child a::after{
+    display: none;
+}
+footer .f_head .quest{
+    display: block;
+    float: right;
+    padding: 10px 23px;
+    margin: 12px 0 0 0;
+    border: 1px solid rgba(255,255,255,0.8);
+    border-radius: 5px;
+}
+footer .f_body{
+    background-color: #0A0A0A;
+}
+footer .f_body .info{
+    padding: 47px 0 39px 0;
+}
+footer .f_body .info ul{
+    margin: 0 0 5px 0   ;
+}
+footer .f_body .info ul li{
+    position: relative;
+    float: left;
+    margin: 0 29px 0 0;
+}
+/*위쪽에 있는 f_head 와 같은 속성이있어서 거기서 카피해서 똑같이 넣은다음 브라우저에서 위치조정하면됨*/
+footer .f_body .info ul li::after{
+    display: block;
+    position: absolute;
+    right: -17px;
+    top: 6px;
+    width: 1px;
+    height: 11px;
+    background-color: rgba(255,255,255,0.3);
+    content: "";
+}
+/*li:last-child::after는 li중에 마지막 li의 after 가상요소 
+  순서가 중요함, 마지막 자식들중 다음에 를 지칭하는거이기때문에 선언하는 순서가중요*/
+footer .f_body .info ul li:last-child::after{
+    display: none;
+}
+footer .f_body .copyright{
+    padding: 0 0 175px 0;
+    color: rgba(255,255,255,0.5);
+}
+footer .f_body .copyright p{
+    margin: 0 0 5px 0;
 }
