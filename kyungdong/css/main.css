@@ -1,0 +1,62 @@
+@import url(default.css);
+
+body h2{
+    font-size: 45px;
+    font-weight: 700;
+    text-align: center;
+}
+.business h2{
+    margin: 80px 0 20px 0;
+}
+.business ul li{
+    float: left;
+    width: 290px;
+    margin: 0 40px 0 0;
+}
+.business ul li:last-child{
+    margin-right: 0;
+}
+.business ul li strong{
+    display: block;
+    margin: 10px 0 10px 0;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.techno{
+    height: 762px;
+    margin: 80px 0 0 0;
+    background-color: #F4F4F4;
+}
+.techno h2{
+    padding: 80px 0 20px 0;
+}
+.techno ul li{
+    float: left;
+    text-align: center;
+}
+.techno ul li:first-child{
+    margin-right: 40px;
+}
+.techno ul li a{
+    display: block;
+    width: 620px;
+    height: 514px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #FFFFFF;
+}
+.techno ul li strong{
+    display: block;
+    padding: 196px 0 0 0;
+    margin: 0 0 8px 0;
+    font-size: 35px;
+    font-weight: 700;
+}
+.techno ul li.techno01 a{
+    background-image: url(../images/tech01.png);
+}
+.techno ul li.techno02 a{
+    background-image: url(../images/tech02.png);
+}
