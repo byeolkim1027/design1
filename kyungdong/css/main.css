@@ -13,6 +13,9 @@ body h2{
     width: 290px;
     margin: 0 40px 0 0;
 }
+.business ul li a{
+    display: block;
+}
 .business ul li:last-child{
     margin-right: 0;
 }
