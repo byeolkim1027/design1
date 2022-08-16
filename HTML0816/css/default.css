@@ -44,7 +44,7 @@ html,body{
     html,body{
         min-width: auto;
         /*디바이스 크기에 맞춰서 알아서 100%
-        pc에서 넓이를 제한했기때문에 넓이 제한풀어주려고 주는 값*/
+          pc에서 넓이를 제한했기때문에 넓이 제한풀어주려고 주는 값*/
         font-size: 13px;
     }
     .wrapper{
@@ -52,5 +52,6 @@ html,body{
         margin: 0 20px;
     }
 }
+
 .clearfix::after{display:block;clear:both;content:".";visibility:hidden;height:0;}
 .clearfix{display:block;}

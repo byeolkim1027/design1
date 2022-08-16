@@ -1,0 +1,116 @@
+@import url(default.css);
+
+.service .tit{
+    text-align: center;
+}
+.service .tit h2{
+    font-size: 50px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin: 50px 0 40px 0;
+}
+.service .tit strong{
+    display: block;/*inline 테그는 무조건적으로 block 테그를 준다*/
+    font-size: 30px;
+    font-weight: 400;
+}
+.service .tit p{
+    margin: 10px 0 98px 0;
+}
+/*p테그 안에서 임의로 줄바꿈을 주기위해서 <span>테그로 묶고 block 을 줌으로써 줄바꿈*/
+.service .tit p span{
+    display: block;
+}
+.service ul li{
+    position: relative;
+    float: left;
+    width: 290px;
+    padding-top: 78px;
+    margin: 0 40px 50px 0;
+}
+.service ul li:nth-child(4),.service ul li:nth-child(8){
+    margin-right: 0;
+}
+/*2줄 이상을 float 으로 정렬할때 두번째줄 첫번째 요소에 거의 무조건적으로 준다*/
+.service ul li:nth-child(5){
+    clear: left;
+}
+/*before 테그가 inline 테그라서 블록을 줘야한다*/
+/*after, before 테그가 적용되면 position: absoulte 또는 relatvie 를 찾아서 줘야한다*/
+.service ul li::before{
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background-color: #3D3D3D;
+    color: #FFFFFF;
+    /*글자를 가운데에 놓으려면 height 관 같은 값을 준다
+      거의 버튼안에 있는 글자를 가운데에 정렬할때 이방법을 쓴다*/
+    line-height: 50px;
+    font-size: 20px;
+    text-align: center;
+    content: "";
+}/*content 는 css 에서 유일하게 글씨를 써줄수있는 도구*/
+.service ul li:nth-child(1)::before{
+    content: "1";
+}
+.service ul li:nth-child(2)::before{
+    content: "2";
+}
+.service ul li:nth-child(3)::before{
+    content: "3";
+}
+.service ul li:nth-child(4)::before{
+    content: "4";
+}
+.service ul li:nth-child(5)::before{
+    content: "5";
+}
+.service ul li:nth-child(6)::before{
+    content: "6";
+}
+.service ul li:nth-child(7)::before{
+    content: "7";
+}
+.service ul li:nth-child(8)::before{
+    content: "8";
+}
+.service ul li h3{
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+@media screen and (max-width:1280px){
+    .service ul li{
+        width: 22%;
+        margin-right:4%;
+    }
+}
+@media screen and (max-width:1024px){
+    .service ul li{
+        width: 48%;
+    }
+    .service ul li:nth-child(){
+
+    }
+
+}
+@media screen and (max-width:640px){
+
+}
+@media screen and (max-width:1280px){
+    html,body{
+        min-width: auto;
+        /*디바이스 크기에 맞춰서 알아서 100%
+          pc에서 넓이를 제한했기때문에 넓이 제한풀어주려고 주는 값*/
+        font-size: 13px;
+    }
+    .wrapper{
+        width: auto;/*넓이를 100% 주면 안됨 무조건 auto*/
+        margin: 0 20px;
+    }
+}
