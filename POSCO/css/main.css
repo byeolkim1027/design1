@@ -240,6 +240,9 @@
         margin: 4px 0 5px 0;
         font-size: 20px;
     }
+    .banner ul li:first-child a .tit{
+        font-size: 20px;
+    }
     .banner ul li a .more{
         font-size: 13px;
     }
