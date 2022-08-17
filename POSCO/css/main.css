@@ -166,6 +166,9 @@
     }
 }/*media종료*/
 
+.banner h2{
+    display: none;
+}
 /*기본으로 많은 갯수의 li를 default로 잡고 길이랑 높이를 재준다*/
 .banner ul li{
     float: left;
