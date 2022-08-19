@@ -1,5 +1,98 @@
 @import url(default.css);
 
+header{
+    /*body를 기준으로 정렬*/
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    /*z-index 숫자가 높은 요소가 위에 배치
+      하단에 다른요소가 z-index를 갖을수 있기 때문에 header를 무조건 상단에 두기위해 한전하게 100
+      즉, contenct 영역에 요소는 z-index를 줘도 100미만의 값을 줘야함*/
+    width: 100%;
+    /*헤더를 wrapper를 준 요소안에 들어오게끔하는 작업*/
+    /*abosolute를 주면 해당요소는 inline테그 처럼 작동된다 
+      width가 내부 요소가 존재하는 만큼 들어감 */
+    height: 100px;
+    /* border-bottom: 1px solid rgba(255,255,255,0.2); */
+    /*header 밑에 밑줄있는거에만 해당됨*/
+}
+header h1{
+    float: left;
+    margin: 32px 330px 0 0;
+    /*메뉴는 눌려야함으로 옆으로 바짝 줘서 마진을 주면 안된다, 옆에 여백을 충분히 두고 마진을 줘야함*/
+    font-size: 0;
+    line-height: 0;
+    /*로고가 글자없이 이미지만 존재함 그래도 글자크기와 행간때문에 여백이 발생
+      이를 없애고, 이미지 자체만으로 높이를 주기위해서*/
+}
+header h1 a{
+    display: block;
+}
+header .gnb{
+    float: left;
+}
+header .gnb button{
+    display: none;/*모바일 메뉴열기버튼*/
+}
+header .gnb ul li{
+    float: left;
+}
+header .gnb ul li a{
+    display: block;
+    padding: 38px 24px 24px 24px;
+    font-size: 20px;
+    color: #fff;
+}
+header .tnb{
+    float: right;
+    margin: 39px 0 0 0;
+}
+header .tnb button{
+    margin: 0 0 0 17px;
+}
+header .tnb button i{
+    color: #fff;
+    font-size: 30px;
+    font-weight: 300;
+}
+header .tnb button span{
+    display: none;
+}
+@media screen and (max-width:640px){
+    header{
+        height: 45px;
+    }
+    header h1{
+        margin: 16px 0 0 0;
+    }
+    header h1 a img{
+        width: 41px;
+        /*모바일에서 로고사이즈가 바뀜/ 넓이만 사이즈 주면됨, 높이까지주면 로고가 찌그러짐*/
+    }
+    header .gnb{
+        float: right;
+        margin: 16px 0 0 0;
+    }
+    header .gnb button{
+        display: block;/*모바일 메뉴열기버튼*/
+    }
+    header .gnb button i{
+        color: #fff;
+        font-size: 20px;
+        font-weight: 300;
+    }
+    header .gnb button span{
+        display: none;
+    }
+    header .gnb ul{
+        display: none;
+    }
+    header .tnb{
+        display: none;
+    }
+}/*media 종료*/
+
 .visual{
     position: relative;/*before의 기준점*/
     height: 900px;
@@ -9,6 +102,7 @@
     background-size: cover;
     color: #fff;
 }
+/*뒤에 배경톤을 좀 다운시켜주는 효과*/
 .visual::before{
     position: absolute;
     left: 0;
@@ -18,3 +112,200 @@
     background-color: rgba(0,0,0,0.4);
     content: "";
 }
+.visual .inner{
+    /*비쥬얼안에 글자가 "before"로 인해서 글자까지 어두워졌을때 
+      글자를 그 배경위로 올리는 작업*/
+    position: relative;
+    z-index: 1;
+}
+.visual h2{
+    padding: 290px 0 33px 0;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.25;
+}
+.visual h2 span{
+    display: block;/*pc에서만 줄바꿈을 주기위해서*/
+}
+@media screen and (max-width:640px){
+    .visual{
+        height: auto;
+        /*모바일에서 보여지는 이미지 위치를 원하는 위치에 주기위해서*/
+        /* background-position: left20% bottom 55%;
+        background-size: auto 120%; */
+    }
+    /*뒤에 배경톤을 좀 다운시켜주는 효과*/
+    .visual::before{
+        /*pc버전과 mobile 버전의 opacity가 다르면 바꿔주는값*/
+        background-color: rgba(0,0,0,0.5);
+    }
+    .visual h2{
+        padding: 178px 0 200px 0;
+        font-size: 25px;
+        line-height: 1.2;
+        text-align: center;
+    }
+    .visual h2 span{
+        display: inline;/*mobile 에서 줄바꿈을 풀어 주기위해서*/
+    }
+    .visual p{
+        display: none;
+    }
+}/*media 종료*/
+
+.foundation .rowgroup1{
+    margin: 138px 0 70px 0;
+}
+.foundation .rowgroup3{
+    margin: 70px 0 138px 0;
+}
+.foundation .f_left img{
+    float: left;
+}
+.foundation .f_left .inner{
+    float: right;
+    margin: 0 20px 0 0;
+}
+.foundation .f_right img{
+    float: right;
+}
+.foundation .f_right .inner{
+    float: left;
+    margin: 0 0 0 20px;
+}
+.foundation .inner{
+    width: 600px;
+}
+.foundation h2{
+    margin: 30px 0 18px 0;
+    font-size: 40px;
+    font-weight: 700;
+}
+.foundation strong{
+    display: block;
+    margin: 0 0 23px 0;
+    font-size: 20px;
+    font-weight: 400;
+}
+.foundation .link{
+    margin: 42px 0 0 0;
+}
+.foundation .link ul li {
+    float: left;
+    width: 150px;/*버튼박스의 넓이크기*/
+    margin: 5px;
+    border: 1px solid #999999;/*테두리는 넓이랑 같은 테그에 준다*/
+    /* box-shadow: 0 0 10px rgba(0,0,0,0.1); */
+    /*x값, y값, blur값, opacity값 = 테두리없이 버튼에 쉐도우만 있으면 이방법 쓰면됨*/
+}
+.foundation .link ul li a{
+    display: block;
+    /* position: relative; */ /*버튼에 아이콘이 들어갈경우 기준점*/
+    line-height: 40px;/*버튼박스의 높이를 a 에 줘야 박스 높이가 잡힌다*/
+    white-space: nowrap;/*줄바꿈금지*/
+    text-align: center;
+}
+/*모든버튼에 아이콘이 들어갈경우 이 방법을 쓰면됨*/
+/* .foundation .link ul li a::after{
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #999999;
+    font-size: 20px;
+    font-weight: 300;
+    font-family: 'Material Symbols Rounded';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    content: \e5d2;
+} */
+@media screen and (max-width:640px){
+    .foundation .rowgroup1{
+        margin: 15px 0 46px 0;
+    }
+    .foundation .rowgroup2{
+        margin: 0 0 46px 0;
+    }
+    .foundation .rowgroup3{
+        margin: px 0 56px 0;
+    }
+    .foundation .f_left img{
+        float: none;
+    }
+    .foundation .f_left .inner{
+        float: none;
+        margin: 0;
+    }
+    .foundation .f_right img{
+        float: none;
+    }
+    .foundation .f_right .inner{
+        float: none;
+        margin: 0;
+    }
+    .foundation .inner{
+        width: auto;
+    }
+    .foundation img{
+        width: 100%;
+        /*모바일에서 보여지는 이미지를 사이즈에 맞게 주기위해서
+          img테그는 넓이나 높이중 하나만 주면 비율에 맞게 줄어듬*/
+    }
+    .foundation h2{
+        margin: 10px 0 2px 0;
+        font-size: 25px;
+    }
+    .foundation strong{
+        margin: 0 0 16px 0;
+        font-size: 13px;
+    }
+    .foundation .link{
+        margin: 36px 0 0 0;
+    }
+    .foundation .link ul li {
+        width: auto;/*고정값을 풀어준다*/
+        margin: 0 5px 0 0; /*마진은 위아래는 주지않는다, 옆으로 슬라이드되야해서*/
+    }
+    .foundation .link ul li a{
+        padding: 0 16px;
+        line-height: 32px;/*버튼박스의 높이를 a 에 줘야 박스 높이가 잡힌다*/
+        text-align: center;
+    }
+
+    /*link의 ul의 li를 좌우로 배치하고 슬라이드 되도록 하기위함 
+      1. ul은 모든 li의 넓이의 합을 넓이로 가지고 있어햐함
+      2. ul은 position:absolute 어야함
+      3. ul을 감싸고 있는 요소는 좌우스크롤을 허용해야함
+      4. ul을 감싸고 있는 요소는 높이를 줘야함(내부 콘텐츠 만큼의)*/
+    
+    .foundation .link{
+        position: relative;
+        overflow: auto;
+        width: calc(100% + 20px);/*넓이높이패딩을 계산해주는 대부분 %와 px를 계산할때*/
+        height: 34px;/*높이를 디자인 보다 조금 더줘야 border가 짤리지않고 잘나타남*/
+    }
+    .foundation .link ul{
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    .foundation .rowgroup1 .link ul{
+        width: 545px;
+    }
+    .foundation .rowgroup2 .link ul{
+        width: 360px;
+    }
+    .foundation .rowgroup3 .link ul{
+        width: 400px;
+    }
+
+}/*media 종료*/

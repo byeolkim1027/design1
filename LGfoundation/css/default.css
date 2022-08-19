@@ -2,7 +2,7 @@
 /*본고딕폰트 스타일 삽입시키는 테그*/
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700&display=swap');
 /*브라우저에서 기본으로 제공하는 모든여백을 빼주는 테그*/
-body,header,footer,div,p,nav,section,h1,h2,h3,h4,h5,h6,button,a,ul,li,address,strong,span,em{
+body,header,footer,div,p,nav,section,h1,h2,h3,h4,h5,h6,button,a,ul,li,address,strong,span,em,i{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -21,6 +21,22 @@ em,address{
 /*항목앞에 동그라미 삭제*/
 ul,li{
     list-style: none;
+}
+button{
+    background-color: transparent;/*뒷배경이 투명하게*/
+    /*none 는 background 라고 줘야한다*/
+    /* background: none; */
+    border: 0;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    /*서체를 상속받아야함- button 은 body에서 
+      적용한 서체를 상속받지 않음- form 관련테그는 모두다그럼*/
+    cursor: pointer;/*마우스오버시에 손바닥모양으로 바꿔줌*/
+
 }
 /*모든 테그에서 빼주는걸 먼저써주고, 값을 주는건 그다음에 배치한다*/
 html,body{
