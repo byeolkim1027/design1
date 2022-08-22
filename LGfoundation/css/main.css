@@ -28,6 +28,9 @@ header h1{
 }
 header h1 a{
     display: block;
+    width: 74px;
+    height: 32px;
+    background: url(../images/logo_w.svg) no-repeat center center / 100%;
 }
 header .gnb{
     float: left;
@@ -65,6 +68,10 @@ header.fixed{
     position: fixed;
     background-color: #fff;
 }
+/*백그라운드 이미지의 크기와 사이즈는 그대로 두고 url 자체 이미지만 바꾸면 됨*/
+header.fixed h1 a{
+    background-image: url(../images/logo.svg);
+}
 header.fixed .gnb ul li a{
     color: #1d1d1d;
 }
@@ -79,9 +86,9 @@ header.fixed .tnb button i{
     header h1{
         margin: 16px 0 0 0;
     }
-    header h1 a img{
+    header h1 a{/*모바일에서 로고사이즈가 작아지기때문에 높이 넓이 바꿔줌*/
         width: 41px;
-        /*모바일에서 로고사이즈가 바뀜/ 넓이만 사이즈 주면됨, 높이까지주면 로고가 찌그러짐*/
+        height: 17px;
     }
     header .gnb{
         float: right;
@@ -405,3 +412,169 @@ header.fixed .tnb button i{
         padding: 0 0 55px 0;
     }
 }/*media 종료*/
+
+.news{
+    margin: 130px 0 138px 0;
+}
+.news h2{
+    display: none;/*웹표준상 section테그는 반드시 heading테그를 포함해야하기때문에 h2를 주고 숨김처리*/
+}
+.news ul li{
+    float: left;
+    width: 290px;
+    margin: 0 40px 0 0;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.news ul li:last-child{
+    margin-right: 0;
+}
+.news ul li a{
+    display: block;
+}
+.news ul li a img{
+    /*모바일에서는 무조건 필요*/
+    width: 100%;/*border-line혹은 boxshadow를 줬을때 혹시 선이 조금이나마 어긋날경우 쓰는 테그*/
+}
+.news ul li a .cate{
+    display: block;
+    margin: 29px 16px 4px 16px;
+    font-weight: 700;
+}
+.news ul li a .tit{
+    display: block;
+    margin: 0 16px 56px 16px;
+    font-size: 20px;
+    font-weight: 400;
+    /*2줄고정*//*제목이 3줄이나 1줄일경우 모두동일하게 하기위해서*/
+    height: 3em;/*행간X줄수*/
+    overflow: hidden;
+}
+.news ul li a .date{
+    display: block;
+    margin: 0 16px 29px 16px;
+    color: #666666;
+}
+@media screen and (max-width:640px){
+    .news{
+        margin: 56px 0 56px 0;
+    }
+    .news ul li{
+        display: none;
+        float: none;
+        width: 100%;/*꽉차게 보여야해서*/
+        margin: 0;
+    }
+    .news ul li:first-child{
+        display: block;
+        /*한개의 li만 나오도록 하기 위해서 모든 li를 display:none로 숨기고 첫번째 li 만 남도록 하는 텍그*/
+    }
+    .news ul li a .cate{
+        margin: 10px 16px 0 16px;
+        font-size: 13px;
+    }
+    .news ul li a .tit{
+        margin: 0 16px 16px 16px;
+        font-size: 13px;
+        /*li가 하나만 보일때는 pc에서 줬던값을 풀어줘야함*/
+        height: auto;/*두줄고정 해제*/
+        overflow: visible;
+    }
+    .news ul li a .date{
+        margin: 0;
+        padding: 0 16px 15px 16px;
+        /*float가 풀려있어서 margin을 0을줘야함 없애면안되고
+          padding으로 줘야함*/
+    }
+}
+
+footer{
+    padding: 77px 0 243px 0;
+    background-color: #292B2E;
+    color: #CCCCCC;
+}
+footer .family{
+    float: right;
+}
+/*이 안에 들어있는 제일 긴 글자를 기준으로 넓이를 고정시키고 테그를 줌*/
+footer .family button{
+    width: 180px;
+    height: 45px;
+    padding: 0 10px 0 15px;
+    border: 1px solid #CCCCCC;
+    /*버튼테그는 높이를 주면 글자가 위아래 가운데 세로정렬을 함
+      a테그 였다면 padiing 이나 line-height로 세로 정렬값을 별도로 주고 display:block 을 줘야함*/
+}
+footer .family button span{
+    float: left;
+}
+footer .family button i{
+    float: right;
+}
+/*왼쪽에 정렬이 원래 되있어도 float:left를 줘야 모든 브라우저에서 구현이 됨*/
+footer .inner{
+    float: left;
+}
+footer .f_nav li{
+    position: relative;
+    float: left;
+}
+footer .f_nav li::after{
+    position: absolute;
+    right: -1px;
+    top: 6px;
+    width: 1px;
+    height: 10px;
+    background-color: rgba(255,255,255,0.2);
+    content: "";
+}
+footer .f_nav li:last-child:after{
+    display: none;/*li중 마지막 li의 after를 숨김*/
+}
+footer .f_nav li .privacy{
+    font-weight: 700;
+}
+footer .f_nav li a{
+    display: block;
+    padding: 0 15px;
+}
+footer .f_nav li:first-child a{
+    padding-left: 0;
+}
+footer .f_info{
+    margin: 34px 0 10px 0;
+    color: rgba(255,255,255,0.3);
+}
+footer .copyright{
+    color: rgba(255,255,255,0.3);
+}
+@media screen and (max-width:640px){
+    footer{
+        padding: 20px 0 87px 0;
+    }
+    footer .family{
+        float: none;
+    }
+    /*이 안에 들어있는 제일 긴 글자를 기준으로 넓이를 고정시키고 테그를 줌*/
+    footer .family button{
+        width: 147;
+        height: 32px;
+    }
+    /*왼쪽에 정렬이 원래 되있어도 float:left를 줘야 모든 브라우저에서 구현이 됨*/
+    footer .inner{
+        float: none;
+    }
+    footer .f_nav{
+        margin: 10px 0 24px 0;
+    }
+    footer .f_nav li::after{
+        top: 6px;
+        width: 1px;
+        height: 7px;
+    }
+    footer .f_nav li a{
+        padding: 0 9px;
+    }
+    footer .f_info{
+        margin: 24px 0 5px 0;
+    }
+}

@@ -13,9 +13,10 @@
 <body>
     <header>
         <div class="wrapper">
-            <h1><a href="#"><img src="images/LG_logo_(2015) 2.svg" alt="LG로고" /></a></h1>
+            <h1><a href="#">LG 로고</a></h1><!--background로 css에서 로고가 들어가도 텍스트를 써줘야한다-->
             <nav class="gnb"><!--gnb:global navigation bar-->
-                <button><i class="material-symbols-rounded">menu</i>
+                <button>
+                    <i class="material-symbols-rounded">menu</i>
                     <span>메뉴 열기</span>
                 </button>
                 <ul>
@@ -111,5 +112,66 @@
             </div>
         </div>
     </section>
+    <section class="news">
+        <div class="wrapper">
+            <h2>news</h2>
+            <ul class="clearfix">
+                <li>
+                    <a href="#">
+                        <img src="images/news01.png" alt="AI배움터 방문한 학생들 사진" />
+                        <span class="cate">연암문화재단</span>
+                        <strong class="tit">그때 그 과학관, 요즘 아이들 위한 ‘AI 배움터’로 변신</strong>
+                        <span class="date">2022-07-05</span>
+                    </a>    
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/news02.png" alt="김밥장사로 전재산을 기부한할머니 사진" />
+                        <span class="cate">복지재단</span>
+                        <strong class="tit">김밥 장사로 평생 모은 재산 기부한 할머니에게 ‘LG의인상’</strong>
+                        <span class="date">2021-09-28</span>
+                    </a>    
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/news03.png" alt="무궁화에 학생들이 물을주는 사진" />
+                        <span class="cate">상록재단</span>
+                        <strong class="tit">’21년도 무궁화 보급사업 실시(전국 초중고등학교 250여곳)</strong>
+                        <span class="date">2021-08-12</span>
+                    </a>    
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/news04.png" alt="LG디스커버리 부산지점 개관한 사진" />
+                        <span class="cate">연암문화재단</span>
+                        <strong class="tit">‘LG디스커버리랩 부산’ 개관…4차산업 AI 교육관 활용</strong>
+                        <span class="date">2021-10-08</span>
+                    </a>    
+                </li>
+            </ul>
+        </div>
+    </section>
+    <!--html 구조 짤때는 mobile에 보여지는 순서가 먼저 중요함-->
+    <footer class="clearfix">
+        <div class="wrapper">
+            <div class="family">
+                <button>
+                    <span>FAMILY SITE</span>
+                    <i class="material-symbols-rounded">expand_less</i>
+                </button>
+            </div>
+            <div class="inner">
+                <ul class="f_nav clearfix"><!--클리어픽스를 준 이유는 여백이 내가 원하는만큼 들어가지않는다
+                                                클리어픽스로 영역을 잡아줘야 여백이 들어감-->
+                    <li class="privacy"><a href="#">개인정보처리방침</a></li>
+                    <li><a href="#">1:1문의</a></li>
+                    <li><a href="#">SITE MAP</a></li>
+                    <li><a href="#">오시는길</a></li>
+                </ul>
+                <address class="f_info">17709 경기도 평택시 진위면 엘지로 222, LG복지재단</address>
+                <div class="copyright">ⓒ LG FOUNDATION ALL RIGHTS RESERVED</div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
