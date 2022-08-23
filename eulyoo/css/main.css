@@ -1,0 +1,69 @@
+@import url(default.css);
+
+header{
+    position: absolute;
+    /*비쥬얼 위로 헤더가 겹쳐서 올라가기 위해서
+    header가 기준점이 없으니, body가 기준점이 된다*/
+    left: 0;
+    top: 0;
+    width: 100%;
+    /*position: absolute 를 주면 요소가 inline-block이 된것처럼 내부에 콘텐츠가
+      존재하는 만큼의 넓이만 갖는다*/
+    height: 100px;
+    color: #fff;
+}
+header h1{
+    float: left;
+    margin: 29px 296px 0 0;
+}
+header h1 a{
+    display: block;
+    width: 220px;
+    height: 36px;
+    background: url(../images/logo.svg) no-repeat center center / 100%;
+    /*영역안에 꽉차게(cover를 주면 짤림)*/
+    font-size: 0;
+    line-height: 0;/*글자를 없애기 위해서 사이즈와 행간을 0을 준다*/
+}
+header .gnb{
+    float: left;
+}
+header .tnb{
+    float: right;
+}
+
+.visual{
+    height: 870px;
+    background: url(../images/visual_bg.png) no-repeat center center / cover;
+    color: #fff;
+    text-align: center;
+}
+.visual h2{
+    padding: 357px 0 19px 0;
+    font-size: 50px;
+    font-weight: 700;
+    color: #B09C84;
+}
+.visual .txt_mobile{
+    display: none;/*모바일에서만 보일 텍스트*/
+}
+@media screen and (max-width:640px){
+    .visual{
+        height: auto;/*글자가 몇줄이 될지모르니 오토로 줘야함*/
+        padding: 0 0 179px 0;
+    }
+    .visual h2{
+        padding: 169px 0 13px 0;
+        font-size: 25px;
+        line-height: 1.2;
+    }
+    .visual h2 span{
+        display: block;
+    }
+    .visual .txt_mobile{
+        display: block;
+    }
+    .visual .txt_pc{
+        display: none;/*모바일에서 안보일 텍스트*/
+    }
+}/*media 종료*/
