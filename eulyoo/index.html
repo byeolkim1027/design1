@@ -27,16 +27,16 @@
                 </nav>
                 <div class="tnb"><!--오른쪽 위쪽 상단에 잇는 아이콘등등-->
                     <ul>
-                        <li><!--눌러서 페이지변환 없이 무언가 목록이 나오는건 버튼/ 다른페이지로 가면 a테그-->
+                        <li class="mypage"><!--눌러서 페이지변환 없이 무언가 목록이 나오는건 버튼/ 다른페이지로 가면 a테그-->
                             <button>
                                 <i class="material-symbols-sharp">person</i>
-                                <span>마이페이지</span>
+                                <span>회원서비스 열기</span><!--정확하게 이게 무슨용도인지 써줘야함-->
                             </button>
                         </li>
-                        <li>
+                        <li class="search">
                             <button>
                                 <i class="material-symbols-sharp">search</i>
-                                <span>검색</span>
+                                <span>검색 열기</span>
                             </button>
                         </li>
                     </ul>
@@ -54,14 +54,84 @@
                 <p class="txt_mobile">한국 현대사와 궤軌를 같이하며 한국<br /> 출판의 기틀을 다져 왔습니다.</p>
             </div>
         </section>
-        <section class="book">
+        <section class="book"><!--book한테 clearfix 줘야 영역이 제대로 잡힌다-->
             <div class="wrapper">
-
+                <div class="tit clearfix"><!--tit한테 css에서 float를 줬기때문에 위쪽-->
+                    <h2>책</h2>
+                    <p>을유문화사에서 발간한 도서목록</p>
+                    <div class="btn"><!--버튼을 묶어줘야한다 왜냐면 모바일에서는 전체가 오른쪽으로 정렬되야해서 -->
+                        <button>
+                            <span>이전책 보기</span>
+                            <i class="material-symbols-sharp">arrow_back_ios</i>
+                        </button>
+                        <button>
+                            <span>다음책 보기</span>
+                            <i class="material-symbols-sharp">arrow_forward_ios</i>
+                        </button>
+                    </div>
+                </div>
+                <div class="list">
+                    <ul class="clearfix">
+                        <li>
+                            <a href="#">
+                                <img src="images/book01.png" alt="현대예술의 거장 스트라빈스키 책 표지" />
+                                <strong class="subject">현대 예술의 거장_스트라빈스키</strong>
+                                <span class="author">정준호</span>
+                                <span class="content">20세기 음악의 흐름을 뒤집은 혁명가이자
+                                    잊히지 않기 위해 평생 몸부림쳤던 한 인간</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="images/book02.png" alt="을유사상고전 서경 책 표지사진" />
+                                <strong class="subject">을유사상고전_서경</strong>
+                                <span class="author">지은이 미상,이세동</span>
+                                <span class="content">수천 년간 지식인들의 사유를 지배해 온
+                                    유교적 이상향의 원류를 만나다</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="images/book03.png" alt="어디서 살것인가 책 표지사진" />
+                                <strong class="subject">어디서 살 것인가</strong>
+                                <span class="author">유현준</span>
+                                <span class="content">우리는 과연 이 도시에서 행복할 수 있을까 우리는 과연 이 도시에서 행복할 수 있을까</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="images/book04.png" alt="수면의 과학 책 표지사진" />
+                                <strong class="subject">수면의 과학</strong>
+                                <span class="author">사쿠라이 다케시 ,장재순</span>
+                                <span class="content">“인간의 모든 행복과 불행은 ‘수면’에서
+                                    비롯된다”</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="images/book05.png" alt="발레리 선집 책 표지사진" />
+                                <strong class="subject">발레리 선집</strong>
+                                <span class="author">폴 발레리 ,박은수(朴恩受)</span>
+                                <span class="content">자신의 본능으로 만드는 데에는 더 많은 해들
+                                    이 소요되었을 것은 더욱 틀림없는 사실이다</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="images/book06.png" alt="마음을 다독이는 한국의 명수필 책 표지사진" />
+                                <strong class="subject">마음을 다독이는 한국의 명수필</strong>
+                                <span class="author">손광성</span>
+                                <span class="content">무미건조한 일상을 청량하게 일깨우고 다독이는
+                                    비둘기빛 같고, 진줏빛 같은 한국의 명수필</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </section>
         <section class="interview">
             <div class="wrapper">
-
+                <h2>인터뷰</h2>
             </div>
         </section>
         <section class="news">

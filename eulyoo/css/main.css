@@ -7,6 +7,7 @@ header{
     left: 0;
     top: 0;
     width: 100%;
+    /* min-width: 1280px; */ /*가로넓이가 줄어들었을때 가로스크롤바가 생길경우*/
     /*position: absolute 를 주면 요소가 inline-block이 된것처럼 내부에 콘텐츠가
       존재하는 만큼의 넓이만 갖는다*/
     height: 100px;
@@ -27,10 +28,80 @@ header h1 a{
 }
 header .gnb{
     float: left;
+    padding: 20px 0 0 0;
+    /*위에서 떨어지는 여백은 gnb 즉 모든 li한테 줘야하기때문에 여기에 패딩값을 준다*/
+}
+header .gnb button{
+    display: none;/*모바일에서만 표시-메뉴 여는 버튼*/
+}
+header .gnb ul li{
+    float: left;
+}
+/*사이즈랑 여백은 a한테 준다- 눌려야 하기때문에*/
+header .gnb ul li a{
+    display: block;
+    padding: 17px;/*a가 눌리는 값이 헤딩을 준값(100px) 넘지않으면됨*/
 }
 header .tnb{
     float: right;
+    margin: 25px 0 0 0;/*상단에서 떨어지는 여백을 tnb에게 통합적으로 준다*/
 }
+header .tnb ul li{
+    float: left;
+}
+header .tnb ul li button span{
+    display: none;/*설명문구 숨김*/
+}
+header .tnb ul li button i{
+    padding: 10px;/*클릭이 되어야 하는 최소한의 패딩*/
+    font-size: 24px;/*아이콘의 크기, 프레임과 합쳐서 총크기*/
+    font-weight: 300;
+}
+@media screen and (max-width:640px){
+    header{
+        height: 45px;
+        /* min-width: auto; */ /*가로넓이가 줄어들었을때 가로스크롤바가 생길경우*/
+    }
+    header h1{
+        margin: 14px 0 0 0;
+    }
+    header h1 a{
+        width: 93px;
+        height: 16px;
+    }
+    header .gnb{
+        float: right;
+        padding: 12px 0 0 10px;
+    }
+    /*  h1->gnb->tnb
+        코딩 순서가 위와 같을때 모든요소에 float;right를 주면 화면에 나타나는 순서는
+        tnb->gnb->h1 이 된다.
+        --->float; right 를 먼저 선언한 요소가 오른쪽 자리를 선점
+    */
+    header .gnb button{
+        display: block;/*모바일에서 표시 해야해서 블록을 줌-메뉴 여는 버튼*/
+    }
+    header .gnb button span{
+        display: none;
+    }
+    header .gnb button i{
+        font-size: 20px;
+        font-weight: 300;
+    }
+    header .gnb ul{
+        display: none;
+    }
+    header .tnb{
+        margin: 12px 0 0 0;/*gnb에서 준 패딩값을 위쪽에만 같은값을 준다*/
+    }
+    header .tnb ul li.mypage{
+        display: none;
+    }
+    header .tnb ul li button i{
+        padding: 0;/*모바일에서는 잘눌려서 0을준다*/
+        font-size: 20px;/*아이콘의 크기, 프레임과 합쳐서 총크기*/
+    }
+}/*media 종료*/
 
 .visual{
     height: 870px;
@@ -39,7 +110,7 @@ header .tnb{
     text-align: center;
 }
 .visual h2{
-    padding: 357px 0 19px 0;
+    padding: 350px 0 15px 0;
     font-size: 50px;
     font-weight: 700;
     color: #B09C84;
@@ -67,3 +138,163 @@ header .tnb{
         display: none;/*모바일에서 안보일 텍스트*/
     }
 }/*media 종료*/
+
+.book{
+    margin: 87px 0 87px 0;
+}
+.book .tit{
+    float: left;
+}
+.book .tit h2{
+    margin: 0 0 15px 0;
+    color: #1D1D1D;
+    font-size: 50px;
+    font-weight: 700;
+}
+.book .tit .btn{
+    margin: 17px 0 0 0;
+}
+.book .tit .btn button{
+    float: left;
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    border: 1px solid #666666;
+}
+.book .tit .btn button span{
+    display: none;
+}
+.book .tit .btn button i{
+    margin: 3px 0 0 5px;/*보더박스 안에 아이콘을 정렬하기 위해서 마진을 준다*/
+    color: #666666;
+    font-size: 24px;
+    font-weight: 300;
+}
+
+/*컨텐츠 영역 밖으로 나가는 리스트- 스크롤(모바일)
+  1. ul을 감싸는 div가 있어야함
+  2. ul을 감싸는 divㄴ느 overflow:auto 이어야함(모바일)
+     넓이와 높이를 입력
+  3.ul 은 li 전체의 넓이를 가져야함(여백포함)->> 모든 li가 한줄로 좌우로 들어가야함
+    ul은 position:absolute 여야함(모바일버전에서)
+    - 좌우로 슬라이드는 abosolute만됨*/
+
+.book .list{
+    /*왼쪽요소 float;left를 주고 
+      오른쪽 요소는 margin-left로 왼쪽요소의 넓이만큼 여백을 준다
+      오른쪽 요소는 block 이다
+      오른쪽 요소가 왼쪽요소를 인지하지 못하고 위로 올라옴
+      그래서 float;left를 주는게 아니라 지운후 margin 으로 준다  */
+    margin-left: 330px;
+}
+/*글자길이가 길어서 옆으로 가지 않는다, 그러니 ul의넓이를 줘야한다*/
+.book .list ul{
+    width: 1980px;/*ul의 총넓이를 줘야 li들이 나란히 옆으로 들어간다*/
+}
+.book .list ul li{
+    float: left;
+    width: 290px;
+    margin: 0 40px 0 0;
+}
+.book .list ul li a{
+    display: block;
+}
+.book .list ul li a img{
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);/*쉐도우는 영역차지 않함/ 단 모바일에선 짤릴수있음*/
+}
+.book .list ul li a .subject{
+    display: block;
+    margin: 21px 0 2px 0;
+    font-size: 20px;
+    font-weight: 700;
+    /*block 이여야 이게 적용이됨
+      무조건 제목이 1줄로 표시되게하는 요소*/
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.book .list ul li a .author{
+    display: block;
+}
+.book .list ul li a .content{
+    display: block;
+    margin: 11px 0 0 0;
+    /*여러줄로 표시를 제한할때*/
+    line-height: 1.5;
+    height: 3em;/*줄수 곱하기 행간*/
+    overflow: hidden;
+}
+@media screen and (max-width:640px){
+    .book{
+        margin: 26px 0 58px 0;
+    }
+    .book .tit{
+        float: none;
+    }
+    .book .tit h2{
+        float: left;
+        margin: 0;
+        font-size: 25px;
+    }
+    .book .tit p{
+        display: none;/*모바일숨김*/
+    }
+    .book .tit .btn{
+        float: right;
+        margin: 0;
+    }
+    .book .tit .btn button{/*버튼 크기 사이즈*/
+        margin: 7px 0 0 0;
+        width: 20px;
+        height: 20px;
+        margin-right: 3px;
+    }
+    .book .tit .btn button i{/*아이콘사이즈는 폰트사이즈로 크기를 준다*/
+        margin: 2px 0 0 4px;/*보더박스 안에 아이콘을 정렬하기 위해서 마진을 준다*/
+        font-size: 15px;
+    }
+    .book .list{
+        /*옆으로 나란히 나열되어있는li들이 보이게끔 스크롤이 생긴다*/
+        overflow-y: hidden;
+        /*가로스크롤바가 생기면 가로스크롤만큼 높이가 줄어서 세로 스크롤이 생길수있기때문, 그걸 방지*/
+        overflow-x: auto;
+        width: calc(100% + 20px);
+        /* calc() 쓰는이유는 대부분 %와 px를 혼용할때 줌
+        list에 100%를 주면 wrapper가 좌우에 여백 20px를 준 안쪽으로 넓이가 생성된다.
+        그런데 오른쪽만 콘텐츠 영역 밖으로 더 나가고자 하면 calc(100% + 20px) */
+        padding: 8px 0 10px 0;
+        margin-left: 0;
+        /*마진을 안줘야 바로 사진이 보인다*/
+    }
+    /*글자길이가 길어서 옆으로 가지 않는다, 그러니 ul의넓이를 줘야한다*/
+    .book .list ul{
+        width: 732px;/*ul의 총넓이를 줘야 li들이 나란히 옆으로 들어간다*/
+    }
+    .book .list ul li{
+        width: 112px;
+        margin-right: 10px;
+    }
+    .book .list ul li a img{
+        width: 100%;/*사이즈에 맞게 꽉맞춰서 들어가게끔 하려고 백프로를 준다*/
+        box-shadow: none;/*모바일에서 쉐도우를 뺌*/
+    }
+    .book .list ul li a .subject{
+        margin: 3px 0 0 0;
+        font-size: 13px;
+        /*block 이여야 이게 적용이됨
+          무조건 제목이 1줄로 표시되게하는 요소*/
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        /*1줄에서 2줄을 허용해야할경우 
+            white-space: normal;
+            line-height: 1.5;
+            height:3em; - 행간 곱하기 줄수*/
+    }
+    .book .list ul li a .author{
+        display: none;
+    }
+    .book .list ul li a .content{
+        display: none;
+    }
+}
