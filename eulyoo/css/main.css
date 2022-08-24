@@ -298,3 +298,118 @@ header .tnb ul li button i{
         display: none;
     }
 }
+
+.interview{
+    padding: 0 0 134px 0;/*백그라운드 색이 온전히 다보이게끔 패딩을 줌*/
+    background-color: #D7CCC0;
+}
+.interview h2{
+    padding: 43px 0 35px 0;
+    color: #1D1D1D;
+    font-size: 50px;
+    font-weight: 700;
+}
+.interview .colgroup{
+    position: relative;/*pic_box의 정렬의 기준점이 되기위해서*/
+}
+.interview .pic_box{
+    position: absolute;
+    left: 0;
+    top: 50px;
+}
+.interview .cnt_box{
+    height: 419px;/*겹쳐지는 이미지(pic_box) 랑 위치를 정해 비율을 줬기때문에 비율에맞게 줄어들고 늘어나고 해야해서 높이를 준다*/
+    margin: 0 0 0 70px;
+    background-color: #402D26;
+    color: #fff;
+}
+.interview .cnt_box .inner{
+    padding: 50px 50px 0 660px;
+}
+.interview .cnt_box h3{
+    margin: 0 0 27px 0;
+    font-size: 30px;
+    font-weight: 700;
+}
+.interview .cnt_box a{
+    display: block;
+    width: 145px;
+    height: 39px;
+    margin: 23px 0 0 0;
+    padding: 0 9px 0 11px;
+    line-height: 39px;
+    /*a속성의 버튼을 디자인할때 글자를 높이의 위아래 가운데 배치하기 위해서는
+      제일 쉬운 방법인 행간을 높이값과 동일하게 주는 것이다*/
+    white-space: nowrap;
+    /*혹시나 버튼안에 2줄이 있을때 그걸 방지하기 위해서- 무조건 1줄로만 보이게할때 이속성을 같이 준다*/
+    border: 1px solid #666666;
+}
+.interview .cnt_box a span{
+    float: left;
+    
+}
+.interview .cnt_box a i{
+    float: right;
+    margin: 10px 0 0 0;
+    font-size: 15px;    
+}
+@media screen and (max-width:640px){
+    .interview{
+        padding: 0;/*백그라운드 색이 온전히 다보이게끔 패딩을 줌*/
+        background-color: transparent;
+    }
+    .interview h2{
+        margin: 32px 0 9px 0;
+        padding: 0;
+        color: #1D1D1D;
+        font-size: 25px;
+    }
+    .interview .pic_box{
+        position: relative;/*pc에서준 요소해지방법*/
+        left: auto;
+        top: auto;
+    }
+    .interview .pic_box img{
+        width: 100%;
+        position: relative;
+        z-index: 1;
+    }
+    .interview .pic_box::after{
+        position: absolute;
+        left: -20px;
+        bottom: 0;
+        width: calc(100% + 40px);
+        height: 60%;
+        background-color: #402D26;
+        content: "";
+    }
+    .interview .cnt_box{
+        width: calc(100% + 40px);
+        height: auto;/**/
+        margin: 0 0 0 -20px;
+        background-color: #402D26;
+        color: rgba(255,255,255,0.8);
+    }
+    .interview .cnt_box .inner{
+        padding: 20px 20px;
+    }
+    .interview .cnt_box h3{
+        margin: 0 0 10px 0;
+        font-size: 20px;
+    }
+    .interview .cnt_box p span{
+        display: none;
+    }
+    .interview .cnt_box a{
+        
+        width: 126px;
+        height: 25px;
+        margin: 45px 0 0 0;
+        padding: 0 9px 0 11px;
+        line-height: 25px;
+    }
+    .interview .cnt_box a i{
+        margin: 5px 0 0 0;  
+        font-size: 13px;
+    }
+}
