@@ -200,7 +200,7 @@ header .tnb ul li button i{
     display: block;
 }
 .book .list ul li a img{
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);/*쉐도우는 영역차지 않함/ 단 모바일에선 짤릴수있음*/
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);/*쉐도우는 영역차지 않함/ 단 모바일에선 짤릴수있음*/
 }
 .book .list ul li a .subject{
     display: block;
@@ -308,6 +308,7 @@ header .tnb ul li button i{
     color: #1D1D1D;
     font-size: 50px;
     font-weight: 700;
+    line-height: 1.2;
 }
 .interview .colgroup{
     position: relative;/*pic_box의 정렬의 기준점이 되기위해서*/
@@ -321,15 +322,19 @@ header .tnb ul li button i{
     height: 419px;/*겹쳐지는 이미지(pic_box) 랑 위치를 정해 비율을 줬기때문에 비율에맞게 줄어들고 늘어나고 해야해서 높이를 준다*/
     margin: 0 0 0 70px;
     background-color: #402D26;
-    color: #fff;
+    color: rgba(255,255,255,0.8);
 }
 .interview .cnt_box .inner{
     padding: 50px 50px 0 660px;
+    
 }
 .interview .cnt_box h3{
     margin: 0 0 27px 0;
     font-size: 30px;
     font-weight: 700;
+}
+.interview .cnt_box p{
+    line-height: 1.2;
 }
 .interview .cnt_box a{
     display: block;
@@ -365,16 +370,16 @@ header .tnb ul li button i{
         font-size: 25px;
     }
     .interview .pic_box{
-        position: relative;/*pc에서준 요소해지방법*/
+        position: relative;/*pc에서준 요소해지방법--> none 이나 0 를 주면 안된다*/
         left: auto;
         top: auto;
     }
     .interview .pic_box img{
         width: 100%;
         position: relative;
-        z-index: 1;
+        z-index: 1;/*뒤에주는 배경색보다 이미지를 먼저 보여지기 위해서*/
     }
-    .interview .pic_box::after{
+    .interview .pic_box::after{/*이미지 뒤에 배경색을 같이 겹쳐지게끔 보여지는 효과를 주기위해서*/
         position: absolute;
         left: -20px;
         bottom: 0;
@@ -384,14 +389,13 @@ header .tnb ul li button i{
         content: "";
     }
     .interview .cnt_box{
-        width: calc(100% + 40px);
+        width: calc(100% + 40px);/*wrapper 바깥까지 바탕색을 깔기위해서*/
         height: auto;/**/
         margin: 0 0 0 -20px;
         background-color: #402D26;
-        color: rgba(255,255,255,0.8);
     }
     .interview .cnt_box .inner{
-        padding: 20px 20px;
+        padding: 20px 20px;/*wrapper 처럼 양옆에 여백을 20을 줘야해서*/
     }
     .interview .cnt_box h3{
         margin: 0 0 10px 0;
@@ -410,6 +414,127 @@ header .tnb ul li button i{
     }
     .interview .cnt_box a i{
         margin: 5px 0 0 0;  
+        font-size: 13px;
+    }
+}
+
+.news{
+    margin: 87px 0 150px 0;
+}
+.news .tit h2{
+    float: left;
+    margin: 0 0 17px 0;
+    color: #1D1D1D;
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+.news .tit .btn{
+    float: right;
+    margin: 19px 0 0 0;
+}
+.news .tit .btn button{
+    float: left;
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    border: 1px solid #666666;
+}
+.news .tit .btn button span{
+    display: none;
+}
+.news .tit .btn button i{
+    margin: 3px 0 0 5px;/*보더박스 안에 아이콘을 정렬하기 위해서 마진을 준다*/
+    color: #666666;
+    font-size: 24px;
+    font-weight: 300;
+}
+.news .list{
+    padding: 17px 0 0 0;/*스크롤이 생겼을때 스크롤바가 li에 딱붙어 있지 않게 하기 위해서*/
+    overflow-x: auto;/*좌우로 스크롤바생기게 하는*/
+    overflow-y: hidden;
+}
+.news .list ul{
+    /*li넓이(290) +여백(40) =330 x li갯수(8)=2640*/
+    width: 2640px;
+    margin: 0 0 0 -330px;/*디자인에서처럼 li 하나가 왼쪽으로 wrapper를 넘어가게끔
+                           margin만 마이너스가 됨, padding은 안됨*/
+}
+.news .list ul li{
+    float: left;
+    width: 290px;
+    margin: 0 40px 0 0; /*last child 여백은 안뺌, 슬라이드할때 여백이 있어야하기때문*/
+}
+.news .list ul li a{
+    display: block;
+}
+.news .list ul li a img{
+    width: 100%;/*모바일을 위해서 미리 백프로 준다*/
+}
+.news .list ul li a .subject{
+    display: block;
+    margin: 14px 0 19px 0;
+    font-size: 20px;
+    font-weight: 700;
+    /*최대 2줄*/
+    line-height: 1.15;
+    max-height: 2.3em;
+    overflow: hidden;
+    /*무조건  2줄
+      line-height: 1.15;
+      height: 2.3em;
+      overflow: hidden;*/
+}
+.news .list ul li a .content{
+    display: block;
+    line-height: 1.15;
+    max-height: 4.6em; /*최대 4줄*/
+    overflow: hidden;
+}
+@media screen and (max-width:640px){
+    .news{
+        margin: 42px 0 40px 0;
+    }
+    .news .tit h2{
+        margin: 0 0 12px 0;
+        font-size: 25px;
+    }
+    .news .tit .btn{
+        margin: 0;
+    }
+    .news .tit .btn button{/*버튼 크기 사이즈*/
+        margin: 7px 0 0 0;
+        width: 20px;
+        height: 20px;
+        margin-right: 3px;
+    }
+    .news .tit .btn button i{/*아이콘사이즈는 폰트사이즈로 크기를 준다*/
+        margin: 2px 0 0 4px;/*보더박스 안에 아이콘을 정렬하기 위해서 마진을 준다*/
+        font-size: 15px;
+    }
+    .news .list{
+        overflow-y: hidden;
+        overflow-x: auto;
+        width: calc(100% + 40px);
+        padding: 17px 0 17px 0;
+        margin: 0 0 0 -20px;
+        /*왼쪽으로 20px 이동
+        1. margin: 0 0 0 -20px;
+        2. position: relative;
+           left: -20px;*/
+    }
+    .news .list ul{
+        /*li넓이(152) +여백(16) =168 x li갯수(8)=1344*/
+        width: 1344px;
+        margin: 0 0 0 0;/*왼쪽으로 나가는 효과 지우기 위해서*/
+    }
+    .news .list ul li{
+        width: 152px;
+        margin: 0 16px 0 0; /*last child 여백은 안뺌, 슬라이드할때 여백이 있어야하기때문*/
+    }
+    .news .list ul li a .subject{
+        display: block;
+        margin: 5px 0 9px 0;
         font-size: 13px;
     }
 }
