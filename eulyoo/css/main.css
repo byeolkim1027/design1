@@ -12,6 +12,7 @@ header{
       존재하는 만큼의 넓이만 갖는다*/
     height: 100px;
     color: #fff;
+    transition: background-color 0.5s;
 }
 header h1{
     float: left;
