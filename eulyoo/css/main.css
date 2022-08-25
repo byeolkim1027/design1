@@ -451,8 +451,7 @@ header .tnb ul li button i{
 }
 .news .list{
     padding: 17px 0 0 0;/*스크롤이 생겼을때 스크롤바가 li에 딱붙어 있지 않게 하기 위해서*/
-    overflow-x: auto;/*좌우로 스크롤바생기게 하는*/
-    overflow-y: hidden;
+   
 }
 .news .list ul{
     /*li넓이(290) +여백(40) =330 x li갯수(8)=2640*/
@@ -536,5 +535,99 @@ header .tnb ul li button i{
         display: block;
         margin: 5px 0 9px 0;
         font-size: 13px;
+    }
+}
+
+footer{
+    padding: 46px 0 181px 0;
+    background-color: #2B2117;
+    color: rgba(255,255,255,0.7);
+}
+footer .f_logo{
+    float: left;
+    padding: 5px 0 0 0;
+}
+footer .f_logo img{
+    /*크기가 헤더 로고랑 다르면 넓이(width)만 주면 된다, 높이는 주지 않아도 된다, 높이는 알아서 들어감*/
+    /*"글자색"을 바꾸려면 rgba (255,255,255,0.8) 이런식으로 하면되는데 
+      object (이미지자체)는 opacity를 줘야한다*/
+    opacity: 0.7;
+}
+footer .f_nav{
+    float: left;
+    margin: 0 76px 0 70px;
+}
+footer .f_nav ul li a{
+    display: block;
+    line-height: 2.66;
+}
+footer .sns{
+    float: right;
+    /*글자없애기*/
+    font-size: 0;
+    line-height: 0;
+}
+footer .sns a{
+    display: inline-block;/*float를 줘도 된다, 하지만 모바일때문에 인라인 블록을 준다*/
+    width: 47px;
+    height: 47px;
+}
+/*클래스 부를때 a의class 를 부를때는 스페이스 없이 붙혀서 선언한다*/
+footer .sns a.insta{
+    background: url(../images/sns_insta.svg) no-repeat center center;
+}
+footer .sns a.facebook{
+    background: url(../images/sns_facebook.svg) no-repeat center center;
+}
+footer .sns a.naver{
+    background: url(../images/sns_naverpost.svg) no-repeat center center;
+}
+footer .copyright{
+    float: left;
+    line-height: 2.66;
+    color: rgba(255,255,255,0.5);
+}
+@media screen and (max-width:640px){
+    footer{
+        padding: 31px 0 76px 0;
+        text-align: center;/*모든걸 가운데 정렬을 주려면/글자는특히 전부 상속받는다*/
+    }
+    footer .f_logo{
+        float: none;
+        padding: 0 0 0 0;
+    }
+    footer .f_logo img{
+        width: 129px;
+    }
+    footer .f_nav{
+        float: none;
+        margin: 20px 0 20px 0;
+    }
+    footer .f_nav ul li a{
+        line-height: 1.92;
+    }
+    footer .sns{
+        float: none;
+    }
+    footer .sns a{
+        width: 30px;
+        height: 30px;
+    }
+    /*클래스 부를때 a의class 를 부를때는 스페이스 없이 붙혀서 선언한다*/
+    footer .sns a.insta{
+        background-size: 24px auto;
+        /*background-size: %로 주면 background가 들어간 영역의 넓이의 몇 %로 적용됨
+          원래 배경 이미지의 비율로 계산 하면 안됨*/
+    }
+    footer .sns a.facebook{
+        background-size: 11px auto;
+    }
+    footer .sns a.naver{
+        background-size: 26px auto;
+    }
+    footer .copyright{
+        float: none;
+        margin: 35px 0 0 0;
+        line-height: 1.15;
     }
 }
