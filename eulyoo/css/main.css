@@ -57,6 +57,14 @@ header .tnb ul li button i{
     font-size: 24px;/*아이콘의 크기, 프레임과 합쳐서 총크기*/
     font-weight: 300;
 }
+/*header에 fixed 클래스가 추가되었을때의 디자인*/
+
+header.fixed{
+    position: fixed;
+    z-index: 100;/*항상 상단의 메뉴가 위로 올라와서 보이게끔 제일 높은값을 준다*/
+    background-color: rgba(94,76,60,0.95);
+}
+
 @media screen and (max-width:640px){
     header{
         height: 45px;
@@ -534,6 +542,9 @@ header .tnb ul li button i{
     .news .list ul li a .subject{
         display: block;
         margin: 5px 0 9px 0;
+        font-size: 13px;
+    }
+    .news .list ul li a .content{
         font-size: 13px;
     }
 }
