@@ -422,3 +422,8 @@ aside button span{
     font-size: 13px;
     font-weight: 700;
 }
+@media screen and (max-width:1400px){
+    aside{
+        display: none;
+    }
+}
