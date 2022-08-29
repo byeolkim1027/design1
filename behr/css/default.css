@@ -54,7 +54,7 @@ html,body{
     word-break: keep-all;
 }
 #wrap{/*id="wrap"*/
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     min-width: 1280px;
     /*브라우저사이즈가 작아졌을때 배경이 안잘리게 하는테그,(가로스크롤이 생성되었을때 배경이 않잘리기위해*/
 }
