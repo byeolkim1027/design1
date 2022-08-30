@@ -13,7 +13,11 @@
 </head>
 <body>
     <div id="wrap">
-        <header>
+        <!--
+            header가 상단에 고정되었을때(class= fixed) - header배경색이 흰색(서브메뉴 X)
+            메뉴에 마우스를 올렸을때(class= open) - header배경색이 흰색(서브메뉴 O)
+        -->
+        <header class="">
             <div class="wrapper">
                 <h1><a href="#n">베어페인트 로고</a></h1>
                 <nav>
@@ -23,7 +27,7 @@
                     </button>
                     <ul>
                         <li>
-                            <a href="#n">BEHR STORY</a>
+                            <a href="#n"><span>BEHR STORY</span></a>
                             <ul><!--2차메뉴시작-->
                                 <li><a href="#n">브랜드 소개</a></li>
                                 <li><a href="#n">BEHR 프리미엄 품질</a></li>
@@ -32,7 +36,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#n">PRODUCT STORY</a>
+                            <a href="#n"><span>PRODUCT STORY</span></a>
                             <ul><!--2차메뉴-->
                                 <li><a href="#n">벽지용 페인트</a></li>
                                 <li><a href="#n">방문용 페인트</a></li>
@@ -42,7 +46,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#n">PAINTING STORY</a>
+                            <a href="#n"><span>PAINTING STORY</span></a>
                             <ul><!--2차메뉴-->
                                 <li><a href="#n">벽지 페인트 칠하기</a></li>
                                 <li><a href="#n">방문 페인트 칠하기</a></li>
@@ -52,7 +56,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#n">WITH BEHR</a>
+                            <a href="#n"><span>WITH BEHR</span></a>
                             <ul><!--2차메뉴-->
                                 <li><a href="#n">본사 오시는 길</a></li>
                                 <li><a href="#n">지역별 매장 안내</a></li>
@@ -151,6 +155,7 @@
             </div>
         </section>
         <section class="service">
+            <h2>BHER</h2>
             <ul class="clearfix">
                 <li class="how">
                     <a href="#n">

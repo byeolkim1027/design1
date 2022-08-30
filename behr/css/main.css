@@ -7,6 +7,18 @@ header{
     width: 100%;/*헤더가 꽉 차게 들어가면 넓이를 무조건 100 프로 준다*/
     height: 100px;
     color: #fff;
+    z-index: 100;/*항상 제일 먼저 제일 위에 있어야 해서 제일 높은값을 준다*/
+}
+header::after{
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100px;/*헤더가 이미 높이 100px 를 가지고 있기때문에 100에서 시작한다*/
+    width: 100%;
+    height: 368px;/*메뉴컨텐츠의 높이에 따라 늘었다 줄었다 해야한다 원래(Jquery) */
+    background-color: #fff;
+    border-bottom: 1px solid #DDDDDD;/*2차메뉴 백그라운드의 밑에 보더라인*/
+    content: "";
 }
 header h1{
     float: left;
@@ -23,6 +35,8 @@ header h1 a{
     line-height: 0;  
 }
 header nav{
+    position: relative;/*z-index가 구현이 되려면 position이 필요하다*/
+    z-index: 110;
     float: right;
     margin: 17px 0 0 0;
 }
@@ -60,9 +74,68 @@ header nav>ul>li>a{/*1차 메뉴*/
     padding: 20px 0;/*눌려야하니까 위아래 100px 넘지않게 패딩을 주고 여백은 nav 전체한테 마진으로 준다*/
     font-size: 20px;
 }
+header nav>ul>li:hover>a{
+    /*hover를 a에 주는게 아니라 li 에 줌으로써 하위메뉴(2차메뉴)에 마우스 오버가 되도 
+      "dot"과 "color"는 없어지지않고 유지가 된다*/
+    color: #DB7843;
+}
+header nav>ul>li>a>span{
+    position: relative;/*hover:before에 들어가는 하나의 점의 기준점*/
+}
+header nav>ul>li:hover>a span::before{/*1차메뉴에 있는 왼쪽 상단에 있는 조그마한 점*/
+    /*a 가 영역이 넓기때문에"dot"이 위치가 같지않다,그러므로
+      span으로 글자를 영역을 새로 잡아주고 그 영역(span)에 효과를 줘서 효과가 일정하게 나오게 한다 */
+    position: absolute;
+    left: 2px;
+    top: -5px;
+    width: 5px;
+    height: 5px;
+    border-radius: 3px;
+    background-color: #DB7843;
+    content:""
+}
 header nav>ul>li>ul{/*2차 메뉴*/
     display: none;
+    padding: 33px 0 0 0;
+    /*
+        1차메뉴와 2차메뉴 사이에는 여백(margin)이 존재하면 안됨
+        padding은 내부 여백으로 테그 영역 자체가 늘어나는것이라 여백이 아님
+        -->여백이 존재하면 1차메뉴에서 2차메뉴로 이동할때(내려갈때)
+            메뉴가 아웃되어버림 
+    */
 }
+header nav>ul>li>ul>li>a{
+    display: block;
+    color: #666666;
+    line-height: 3.34;
+}
+header nav>ul>li>ul>li>a:hover{/*마우스를 ul의 li에 하나하나에 마우스 오버를 했을경우에*/
+    color: #1d1d1d;
+    font-weight: 700;
+    /* text-decoration: underline; */
+}
+
+/*header 가 고정되거나(fixed), 메뉴에 마우스를 오버했을때(open)*/
+header.fixed{
+    position: fixed;
+}
+header.fixed,
+header.open{
+    border-bottom: 1px solid #DDDDDD;
+    background-color: #fff;
+    color: #1d1d1d;
+}
+header.fixed h1 a,
+header.open h1 a{
+    background-image: url(../images/logo_b.svg);
+}
+header.open::after{/*2차메뉴의 백그라운드*/
+    display: block;
+}
+header.open nav>ul>li>ul{/*2차 메뉴*/
+    display: block;
+}
+
 @media screen and (max-width:640px){
     header{
         height: 45px;
@@ -94,6 +167,7 @@ header nav>ul>li>ul{/*2차 메뉴*/
         display: none;
     }
 }
+
 
 .visual{
     height: 870px;
@@ -340,6 +414,9 @@ header nav>ul>li>ul{/*2차 메뉴*/
     }
 }
 
+.service h2{
+    display: none;
+}
 .service ul li{
     float: left;
     width: 33.33%;
@@ -401,6 +478,7 @@ aside{
     position: fixed;
     bottom: 174px;
     right: 50px;
+    z-index: 10;/*제일 밑에 깔려야 하기때문에 최대한 낮은 숫자값을 준다*/
     /*1280 컨텐츠 옆에 붙이는방법
       기본적으로 왼쪽으로 정렬
       left;50%
