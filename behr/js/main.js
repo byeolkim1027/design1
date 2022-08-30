@@ -59,6 +59,6 @@ $(document).ready(function(){
     })
     $('header nav>ul>li:last-child>ul>li:last-child').on('focusout',function(){
         $('header').removeClass('open')
-    })
+    })/*마지막 ul의 li에 또 마지막 ul 하위메뉴 li에서 탭을했을때 하위메뉴가 클로즈 되게끔 하는 선언*/
 })
 
