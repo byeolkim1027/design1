@@ -204,7 +204,7 @@ header.open nav>ul>li>ul{/*2차 메뉴*/
 .product h2{
     position: sticky;
     left: 0;
-    top: 0;
+    top: 115px;/*헤더가 고정됬을때 타이틀을 보여주기위해서 값을 준다*/
     float: left;
     font-size: 60px;
     font-weight: 700;
