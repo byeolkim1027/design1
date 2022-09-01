@@ -1,1 +1,422 @@
-@import url(default.css)
+@import url(default.css);
+
+.header{
+    position: absolute;/*visual 위로 올라가야하기때문에*/
+    left: 0;
+    top: 0;
+    z-index: 100;/*모든 position 들보다 제일 높은값으로 제일위에 올라와야하기때문*/
+    width: 100%;/*넓이를 안주면 쭈그러든다*/
+    height: 100px;    
+    color: #fff;
+}
+.header .logo{
+    float: left;
+    margin: 32px 167px 0 0;
+    font-size: 0;/*h1이라는 테그 자체에 행간과 글자크기가 보이진 않아도 여백을 차지해서 기본값을 빼줘야한다*/
+    line-height: 0;
+}
+.header .gnb{
+    float: left;
+}
+.header .gnb>ul>li{
+    float: left;
+    width: 193px;
+    text-align: center;
+}
+.header .gnb>ul>li>a{
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 100px;
+    /*header의 높이가 100px
+      - 글자를 header위아래 가운데에 정렬시키기 위해서*/
+    white-space: nowrap;
+    /*행간을 많이 줘버렸을경우, 혹시 메뉴가 2줄이 되었을때
+      절대 2줄로 되지 않게 nowrap으로 미연에 방지 한다
+      줄바꿈 금지*/
+}
+.header .gnb>ul>li>ul{
+    /*2차메뉴*/
+    display: none;
+}
+.header .gnb .gnb_open{/*모바일버튼*/
+    display: none;
+}
+.header .gnb .gnb_close{/*모바일버튼*/
+    display: none;
+}
+.header .tnb{
+    float: right;
+    margin: 38px 0 0 0;
+}
+.header .tnb a{
+    display: block;
+    margin-left: 10px;
+    float: left;
+}
+.header .tnb a span{
+    display: none;
+}
+.header .tnb a i{
+    font-size: 30px;
+    font-weight: 300;
+}
+@media screen and (max-width:640px){
+    .header{
+        height: 45px;    
+    }
+    .header .logo{
+        margin: 14px 0 0 0;
+    }
+    .header .logo a img{/*모바일에서 선언을 새로함(img테그를 불러와야해서)*/
+        width: 72px;
+    }
+    .header .gnb{
+        float: right;
+        margin: 13px 0 0 0;
+    }
+    .header .gnb>ul{
+        display: none;
+    }
+    .header .gnb>ul{
+        display: none;
+    }
+    .header .gnb>ul>li>ul{
+        /*2차메뉴*/
+        display: none;
+    }
+    .header .gnb .gnb_open{/*모바일버튼*/
+        display: block;
+    }
+    .header .gnb .gnb_open span{
+        display: none;
+    }
+    .header .gnb .gnb_open i{
+        font-size: 20px;
+    }
+    .header .tnb{
+        display: none;
+    }
+}
+
+.visual{
+    position: relative;
+    height: 1000px;
+    background: url(../images/visual_bg.png) no-repeat center center/cover;
+    background-attachment: fixed;/*뒤에 배경 고정시키는 작업*/
+    color: #fff;
+}
+.visual .inner{
+    position: absolute;
+    left: 0;/*abslute와fixed는 무조건 left 와 top을 줘야한다(위치조정필수)*/
+    top: 50%;/*무조건 50%이여야함 / 컨텐츠의 높이조절은 마진으로*/
+    width: 100%;
+    /* margin: -128px 0 0 0; */
+    /*컨텐츠의 시작이 top에서 "50%=반절"부터 시작하기때문에
+      컨텐츠의 반절이 50프로 에서 위로 즉, 가운데로 올라가야하기때문에 
+      마이너스 컨텐츠의 총 높이의 반절을 준다 마진으로*/
+    transform: translate(0,-128px);/*요즘엔 마진으로 안하고 transform을 쓴다 (좌우,위아래)*/
+}
+.visual h2{
+    margin: 0 0 74px 0;
+    font-size: 50px;
+    font-weight: 100;
+}
+.visual h2 strong{
+    font-weight: 700;
+}
+.visual a{
+    display: inline-block;
+    /*a는 원래 무조건 block 인데 여기서 inline-block을준다 
+      왜냐하면 밑에 border가 글자이상 선이 그어지면 안되서*/
+    padding: 2px 2px 2px 0;/*밑의 border 선을 글자에서 여백을 주기위해서*/
+    font-weight: 700;
+    border-bottom: 1px solid #fff;
+}
+@media screen and (max-width:640px){
+    .visual{
+        height: 760px;
+        background-position: left 65% center;/*배경이미지가 조금 왼편으로 옮기는 작업*/
+    }
+    .visual .inner{
+        /* margin: -128px 0 0 0; */
+        /*컨텐츠의 시작이 top에서 "50%=반절"부터 시작하기때문에
+          컨텐츠의 반절이 50프로 에서 위로 즉, 가운데로 올라가야하기때문에 
+          마이너스 컨텐츠의 총 높이의 반절을 준다 마진으로*/
+        transform: translate(0,10px);/*요즘엔 마진으로 안하고 transform을 쓴다 (좌우,위아래)*/
+    }
+    .visual h2{
+        margin: 0 0 52px 0;
+        font-size: 30px;
+        line-height: 1.16;
+    }
+    .visual h2 span{
+        display: block;
+    }
+}
+
+.care .inner{
+    position: relative;/*class ="more" 의 정렬 기준점이 되기위해서*/
+}
+.care .tit{
+    /*float를 쓰지않고 저 안에 있는 모든 텍스트를 좌우로 정렬하는방법 */
+    /* display: flex;
+        align-items: flex-end; = 텍스트를 위아래 정렬 */
+    margin: 63px 0 81px 0;
+}
+.care .tit h2{
+    float: left;
+    /* display: inline-block;
+    vertical-align: bottom; = 텍스트 정렬을 밑단에서 맞추고 싶을때 */
+    color: #1d1d1d;
+    font-size: 50px;
+    font-weight: 700;
+}
+.care .tit p{
+    float: left;
+    margin: 42px 0 0 20px;
+    /* display: inline-block;
+       vertical-align: bottom; */
+}
+.care .more{
+    position: absolute;
+    right: 0;
+    top: 32px;  
+}
+.care .more a{
+    display: block;
+    width: 128px;
+    height: 24px;
+    line-height: 24px;
+    border-bottom: 1px solid #3d3d3d;
+}
+.care .more a span{
+    float: left;
+}
+.care .more a i{
+    float: right;
+    margin: 6px 0 0 0;
+    font-size: 15px;
+}
+.care .more a:hover{
+    color: #00AE4D;
+    border-bottom-color: #00AE4D;
+}
+.care ul li{
+    float: left;
+    width: 440px;
+    margin: 0 40px 80px 0;
+}
+.care ul li:nth-child(3), .care ul li:nth-child(6){
+    margin-right: 0;
+}
+.care ul li:nth-child(2), .care ul li:nth-child(5){
+    margin-top: 80px;
+}
+.care ul li a{
+    display: block;
+}
+/*
+    마우스 오버시 이미지 확대
+        1. 이미지만 감싸는 별도의 영역 필요
+        2. 해당 영역은 overflow:hidden; 과 높이 설정이 필요(높이만 필요)
+            높이는 100%
+        3. 감싸는 영역에서 font-size:0, line-height:0 으로 이미지 하단에 발생하는 행간을 삭제해야함
+        4. 이미지에 미리 (오버전) transtition을 줘서 자연스럽게 확대되도록 해야함
+        5. 오버후 이미지를 transform:scale3d(확대값,확대값,1)을 준다
+*/
+.care ul li a span{/*이미지 모서리 둥글게하기/ 이미지가 커지는 상황(마우스오버)*/
+    display: block;
+    overflow: hidden;
+    height: 100%;
+    border-radius: 10px;
+    /* 이미지 테그 자체에 행간이 있어서 
+       이미지 하단의 행간을 삭세하려고 감싸는 요소에 준다 */
+    font-size: 0;
+    line-height: 0;
+}
+.care ul li a span img{/*마우스 오버를 주기전에 따로 테그를 불러서 먼저 transition 줘야함*/
+    transition: 0.5s;/*효과가 천천히 나타남*/
+}
+.care ul li a:hover span img{/*이미지에 마우스 오버했을경우 생기는 효과*/
+    transform: scale3d(1.2,1.2, 1);/*scale(x값 y값 z 값)*/
+    /*1.2은 좌우 넓이 배율(120% = 1.2)
+      마지막 1은 축 - 1을 줘야 가운데에서 늘어남*/
+}
+.care ul li a:hover span{/*마우스 오버됬을때 그 뒤에 생기는 쉐도우 효과*/
+    /*img 테그 말고 그걸 감싸는 span 테그에 줘야한다*/
+    box-shadow: 10px 10px 20px rgba(0,0,0,0.1);
+}
+.care ul li a dl{/*항목명이 바뀌지않을때 쓰는 목록테그*/
+    margin: 10px 0 0 20px;
+    line-height: 2;
+}
+.care ul li a dl dt{
+    float: left;
+    font-weight: 700;    
+}
+.care ul li a dl dd{
+    display: block;
+    position: relative;/*before테그의 기준점*/
+    margin: 0 0 0 89px;/*글자포함해서 왼쪽 끝까지 여백 재야함*/
+}
+.care ul li a dl dd::before{/*dd 와 dt 테그 사이의 짝대기 주는 테그*/
+    position: absolute;
+    left: -16px;
+    top: 11px;
+    width: 1px;
+    height: 10px;
+    background-color: #ccc;
+    content: "";
+}
+@media screen and (max-width:640px){
+    .care .tit{
+        margin: 40px 0 16px 0;
+    }
+    .care .tit h2{
+        float: none;        
+        font-size: 30px;
+        line-height: 1.16;
+    }
+    .care .tit p{
+        float: none;
+        margin: 9px 0 0 0;
+    }
+    .care .more{
+        position: relative;
+        right: auto;
+        top: auto;
+        text-align: center;
+        margin: 0 0 60px 0;
+    }
+    .care .more a{
+        display: inline-block;/*인라인블록이여야 가운데 정렬이 된다*/
+        width: 123px;
+        height: 19px;
+        line-height: 19px;
+    }
+    .care .more a i{
+        margin: 3px 0 0 0;
+        font-size: 10px;
+    }
+    .care ul li{
+        float: none;
+        width: auto;
+        margin: 0 0 35px 0;
+    }
+    .care ul li:nth-child(2), .care ul li:nth-child(5){
+        margin-top: 0;
+    }
+    .care ul li:nth-child(4), .care ul li:nth-child(5), .care ul li:nth-child(6){
+        display: none;
+    }
+    .care ul li a span img{
+        width: 100%;/*모바일이라서 넓이에 맞춰서 늘고줄고 한다*/
+    }
+    .care ul li a dl{/*항목명이 바뀌지않을때 쓰는 목록테그*/
+        margin: 10px 0 0 10px;
+        line-height: 1.75;
+    }
+    .care ul li a dl dd::before{/*dd 와 dt 테그 사이의 짝대기 주는 테그*/
+        left: -20px;
+        top: 8px;
+        height: 7px;
+    }
+}
+
+.step{
+    height: 718px;
+    margin: 60px 0 0 0;
+    background: url(../images/step_bg.png) no-repeat center center/cover;
+    color: #fff;
+}
+.step .tit{
+    padding: 134px 0 89px 0;
+}
+.step .tit h2{
+    float: left;
+    font-size: 50px;
+    font-weight: 700;
+}
+.step .tit p{
+    float: left;
+    margin: 42px 0 0 20px;
+}
+.step .ctrl{
+    display: none;
+}
+.step .list ol li{
+    float: left;
+    width: 200px;
+    height: 235px;/*높이가 똑같이 정렬되는 것들은 높이를 무조건 준다*/
+    padding: 17px 20px 0 20px;
+    margin: 0 40px 0 0;
+    background-color: rgba(255,255,255,0.2);
+}
+.step .list ol li:last-child{
+    margin-right: 0;
+}
+.step .list ol li strong{
+    display: block;
+    color: rgba(255,255,255,0.7);
+    font-size: 30px;
+    font-weight: 700;
+}
+.step .list ol li h3{
+    padding-bottom: 15px;
+    font-size: 25px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+.step .list ol li p{
+    margin: 41px 0 0 0;
+    color: rgba(255,255,255,0.7);
+}
+@media screen and (max-width:640px){
+    .step{
+        height: 718px;
+        margin: 60px 0 0 0;
+        background: url(../images/step_bg.png) no-repeat center center/cover;
+        color: #fff;
+    }
+    .step .tit{
+        padding: 134px 0 89px 0;
+    }
+    .step .tit h2{
+        float: left;
+        font-size: 50px;
+        font-weight: 700;
+    }
+    .step .tit p{
+        float: left;
+        margin: 42px 0 0 20px;
+    }
+    .step .ctrl{
+        display: none;
+    }
+    .step .list ol li{
+        float: left;
+        width: 200px;
+        height: 235px;/*높이가 똑같이 정렬되는 것들은 높이를 무조건 준다*/
+        padding: 17px 20px 0 20px;
+        margin: 0 40px 0 0;
+        background-color: rgba(255,255,255,0.2);
+    }
+    .step .list ol li:last-child{
+        margin-right: 0;
+    }
+    .step .list ol li strong{
+        display: block;
+        color: rgba(255,255,255,0.7);
+        font-size: 30px;
+        font-weight: 700;
+    }
+    .step .list ol li h3{
+        padding-bottom: 15px;
+        font-size: 25px;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+    .step .list ol li p{
+        margin: 41px 0 0 0;
+        color: rgba(255,255,255,0.7);
+    }
+}

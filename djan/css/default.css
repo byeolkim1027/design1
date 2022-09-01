@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;700&display=swap');
 
 /*브라우저에서 기본으로 제공하는 모든여백을 빼주는 테그*/
-body,header,footer,div,p,nav,section,h1,h2,h3,h4,h5,h6,button,a,ul,li,address,strong,span,em,i{
+body,header,footer,div,p,nav,section,h1,h2,h3,h4,h5,h6,button,a,ol,ul,li,address,strong,span,em,i,dl,dt,dd{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -19,7 +19,7 @@ em,address{
     font-style: normal;
 }
 /*항목앞에 동그라미 삭제*/
-ul,li{
+ul,ol,li{
     list-style: none;
 }
 button{
@@ -72,7 +72,7 @@ html,body{
         font-size: 13px;
     }
     #wrap{/*id="wrap"*/
-        min-width: auto;       
+        min-width: 320px;/*화면이 너무 줄어들면 차라리 가로스크롤바 생기게끔한다*/       
     }
     .wrapper{
         width: auto;
