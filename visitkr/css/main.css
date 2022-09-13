@@ -1,0 +1,376 @@
+@import url('default.css');
+
+h1{
+    display: none;
+}
+
+.visual{
+    height: 870px;
+    background: url(../images/visual_bg.png) no-repeat center center/cover;/*여백없이 꽉차게하는=cover*/ 
+    color: #FFF;
+    text-align: center;
+}
+.visual h2{
+    position: relative;/*before&after의 정렬기준*/
+    padding: 324px 0 21px 0;
+    font-size: 100px;
+    font-weight: 700;
+    line-height: 1.1;
+}
+.visual h2::before{
+    /*왼쪽요소는 right에 margin-right로 정렬*/
+    position: absolute;
+    right: 50%;/*시작점을 컨텐츠 가운데로부터 시작*/
+    top: 327px;
+    width: 55px;
+    height: 261px;
+    margin-right: 325px;
+    border: 5px solid #FFF;
+    border-right: 0;/*보더라인을 다 준후, right만 zero를 줘야한다!!순서중요!!*/
+    content: "";/*before&after테그의 필수요소*/
+}
+.visual h2::after{
+    /*오른쪽요소는 left에 margin-left로 정렬*/
+    position: absolute;
+    left: 50%;
+    top: 327px;
+    width: 55px;
+    height: 261px;
+    margin-left: 325px;
+    border: 5px solid #FFF;
+    border-left: 0;
+    content: "";/*before&after테그의 필수요소*/
+}
+.visual p{
+    font-size: 20px;
+}
+@media screen and (max-width:640px){
+    .visual{
+        height: auto;
+    }
+    .visual h2{
+        padding: 141px 0 16px 0;
+        font-size: 40px;
+    }
+    .visual h2::before{
+        display: none;
+    }
+    .visual h2::after{
+        display: none;
+    }
+    .visual p{
+        padding: 0 0 140px 0;
+        font-size: 13px;
+    }
+}
+
+.river{
+    margin: 116px 0 0 0;
+}
+.river .inner2{
+    position: relative;
+}
+.river h2{
+    float: left;
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+.river .inner{
+    float: right;
+    width: 730px;
+}
+.river p{
+    margin: 0 0 36px 0;
+}
+.river .more{
+    position: absolute;
+    left: 0;
+    top: 210px;
+}
+/*
+    글자의 오른쪽으로 긴선을 그릴때 right:0 면 오른쪽에서 왼쪽방향으로 선이 생성
+    오른쪽 방향으로 선을 변경하려면 
+    right: -넓이값 + 여백
+    left로 변경해서 주면 글자의 길이에 따라 left값이 변경되어서 안됨
+*/
+.river .more::after{
+    position: absolute;
+    right: -110px;/*글자 바로 뒤 긴선의 시작점을 맞추고 싶으면 넓이만큼 -로 준다*/
+    top: 50%;/*글자 가운데에서 시작할때 반절값을 퍼센트로 준다*/
+    width: 100px;
+    height: 1px;
+    background-color: #666666;
+    content: "";
+}
+@media screen and (max-width:640px){
+    .river{
+        margin: 85px 0 0 0;
+    }
+    .river h2{
+        float: none;
+        font-size: 25px;
+    }
+    .river .inner{
+        float: none;
+        width: auto;
+    }
+    .river p{
+        margin: 16px 0 21px 0;
+    }
+    .river img{
+        width: 100%;/*콘텐츠 영역에 맞게 꽉차게 들어가는/ 원래 이미지사이즈를 버리고*/
+    }
+    .river .more{
+        /*absolute일때는 inline테그같은 넓이를 갖지만
+          relative 로 바뀌게 되면 다시 block요소 같은 넓이 100%를 갖게된다*/
+        position: relative;
+        left: auto;/*해제 하는방법은 0가 아니라 auto를 줘야함*/
+        top: auto;
+        margin: 21px 0 0 0;
+        text-align: center;
+    }
+    /*이 after 테그로 선을 긋는건 안됨*/
+    .river .more::after{
+        display: none;
+    }
+    .river .more a{/*글자넓이와 같은 넓이로 밑선이 그어지기때문에*/
+        display: inline-block;/*padding을 적용하기 위한값*/
+        padding: 0 1px 3px 1px;/*선과 글자 사이의 여백을 주기위해서/ 좌우로 글자보다 조금더 선을 주기위해서*/
+        border-bottom: 1px solid #666666;
+    }
+}
+
+.road{
+    margin: 136px 0 0 0;
+}
+.road .inner{
+    position: relative;
+}
+.road h2{
+    float: left;
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+.road .cnt{
+    float: right;
+    width: 730px;
+    margin: 84px 0 0 0;
+}
+.road ul{
+    margin: 112px 0 0 0;
+}
+.road ul li{
+    float: left;
+    width: 400px;
+    height: 345px;
+    padding: 118px 50px 0 50px;
+    margin: 0 40px 0 0;
+    color: #FFF;
+    text-align: center;
+}
+.road ul li:last-child{
+    margin-right: 0;
+}
+.road ul li.eastsea{
+    background: url(../images/road01.png) no-repeat center center/cover;
+}
+.road ul li.forest{
+    background: url(../images/road02.png) no-repeat center center/cover;
+}
+.road ul li.village{
+    background: url(../images/road03.png) no-repeat center center/cover;
+}
+.road ul li h3{
+    margin: 0 0 11px 0;
+    font-size: 25px;
+    font-weight: 700;
+}
+.road .more{
+    position: absolute;
+    left: 0;
+    top: 210px;
+}
+.road .more::after{
+    position: absolute;
+    right: -110px;/*글자 바로 뒤 긴선의 시작점을 맞추고 싶으면 넓이만큼 -로 준다*/
+    top: 50%;/*글자 가운데에서 시작할때 반절값을 퍼센트로 준다*/
+    width: 100px;
+    height: 1px;
+    background-color: #666666;
+    content: "";
+}
+@media screen and (max-width:640px){
+    .road{
+        margin: 80px 0 0 0;
+    }
+    .road h2{
+        float: none;
+        font-size: 25px;
+    }
+    .road .cnt{
+        float: none;
+        width: auto;
+        margin: 16px 0 0 0;
+    }
+    .road ul{
+        margin: 39px 0 0 0;
+    }
+    .road ul li{
+        float: none;
+        width: auto;
+        height: auto;
+        padding: 37px 20px 43px 20px;/*패딩으로 컨텐츠 사이즈를 조정*/
+        margin: 0;
+        text-align: left;
+    }
+    .road ul li h3{
+        margin: 0 0 8px 0;
+        font-size: 20px;
+    }
+    .road .more{
+        position: relative;
+        left: auto;
+        top: auto;
+        margin: 21px 0 0 0;
+        text-align: center;
+    }
+    .road .more::after{
+        display: none;
+    }
+    .road .more a{/*글자넓이와 같은 넓이로 밑선이 그어지기때문에*/
+        display: inline-block;/*padding을 적용하기 위한값*/
+        padding: 0 1px 3px 1px;/*선과 글자 사이의 여백을 주기위해서/ 좌우로 글자보다 조금더 선을 주기위해서*/
+        border-bottom: 1px solid #666666;
+    }
+}
+
+.garden{
+    position: relative;/*초록색배경이 위로 올라와야해서 기준점이 된다*/
+    margin: 114px 0 0 0;
+}
+.garden .inner{
+    position: relative;
+    background-color: rgba(9,104,124,0.95);
+    width: 50%;/*영역의 반절*/
+    height: 580px;/*높이는 고정값을 줘야함*/
+    margin: 0 0 0 50%;/*inner를 감싸는 garden영역 넓이의 50%를 왼쪽 여백*/
+    color: #FFF;
+    /*z-index는 반드시 position relative 가 필수
+      img 위에 배치 하기 위해서 z-index를 줌 */
+    z-index: 2;
+}
+.garden .inner .inner2{
+    width: 620px;/*컨텐츠 영영을 통째로 넓이로 준다*/
+    padding: 107px 0 0 100px;/*패딩도 넓이에 포함이 되서, 패딩을 줄거면 가로넓이를 더 줘야한다*/
+}
+.garden h2{
+    margin: 0 0 40px 0;
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+.garden img{
+    /*
+        이미지 가운데 정렬
+        1. left 50%로 가운데 시작
+        2. margin-left로 이미지 넓이의 절반을 -minus로 줌
+    */
+    position: absolute;
+    left: 50%;/*이미지를 가운데 정렬시키기 위해서*/
+    top: 0;
+    z-index: 1;/*이게 inner보다 밑에 깔리기때문에 z-index값을 inner 보다 더 적게 준다*/
+    margin-left: -960px;/*이미지 자체 넓이의 반절*/
+}
+.garden .more{
+    position: absolute;
+    left: calc(50% + 100px);/*컨텐츠 중간=50%, 그 이너안에 여백 100px*/
+    top: 417px;/*초록색 컨텐츠 맨 꼭대기 부터 길이를 재야함*/
+    color: #FFF;
+    z-index: 3;/*이미지 위, 청록색 이너 위로 올라와야해서 그중에 제일 큰값을 준다 */
+}
+.garden .more::after{
+    position: absolute;
+    right: -110px;/*글자 바로 뒤 긴선의 시작점을 맞추고 싶으면 넓이만큼 -로 준다*/
+    top: 50%;/*글자 가운데에서 시작할때 반절값을 퍼센트로 준다*/
+    width: 100px;
+    height: 1px;
+    background-color: rgba(255,255,255,0.6);
+    content: "";
+}
+@media screen and (max-width:640px){
+    .garden{
+        margin: 80px 20px 0 20px;/*따로 wrapper로 좌우 20픽셀여백이 없기때문에*/
+    }
+    .garden .inner{
+        background-color: transparent;/*배경색 안보이게 하는것*/
+        width: auto;/*해제*/
+        height: auto;
+        margin: 0;
+        color: #3d3d3d;
+    }
+    .garden .inner .inner2{
+        width: auto;/*해제*/
+        padding: 0;
+    }
+    .garden h2{
+        margin: 0 0 16px 0;
+        font-size: 25px;
+    }
+    .garden img{
+        position: relative;
+        left: auto;
+        top: auto;/*왼 탑 다 해제*/
+        width: 100%;/*영역에 맞게 늘엇다 줄었다*/
+        margin: 21px 0 21px 0;
+    }
+    .garden .more{
+        position: relative;
+        left: auto;
+        top: auto;/*해지하는게 auto*/
+        color: #3d3d3d;
+        z-index: 3;/*해지불가, 그냥 둬야함 */
+        text-align: center;
+    }
+    .garden .more::after{
+        display: none;
+    }
+    .garden .more a{/*위에있는 버튼과 동일해야하기때문에 복사해온다*/
+        display: inline-block;
+        padding: 0 1px 3px 1px;
+        border-bottom: 1px solid #666666;
+    }
+}
+
+.footer{
+    text-align: center;
+    color: #666666;
+}
+.footer ul{/*ul을 인라인블록으로 바꿔야 가운데 정렬이 적용이 된다*/
+    display: inline-block;
+    margin: 62px 0 22px 0;
+}
+.footer ul li{
+    float: left;
+    margin: 0 10px 0 0;
+}
+.footer ul li:last-child{
+    margin-right: 0;
+}
+.footer .copyright{
+    margin: 0 0 81px 0;
+}
+@media screen and (max-width:640px){
+    .footer{
+        margin: 61px 0 0 0;
+        background-color: #F4F4F4;
+    }
+    .footer ul{/*ul 이 이미지로 사용한거라 고유의 여백이있으니 그것도 생각해야함*/
+        margin: 49px 0 11px 0;
+    }
+    .footer .copyright{
+        margin: 0;/*배경색이 있어서 마진은 적용이 안된다, 0으로 바꾼다음 패딩으로 여백을 줘야함*/
+        padding: 0 0 52px 0;
+    }
+}
