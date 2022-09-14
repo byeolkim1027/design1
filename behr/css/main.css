@@ -427,7 +427,7 @@ header.open nav>ul>li>ul{/*2차 메뉴*/
     background-position: center center;
     background-size: cover;
     color: #fff;
-}
+} 
 .service ul li.how{
     background-image: url(../images/service01.png);
 }

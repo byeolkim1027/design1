@@ -1,0 +1,242 @@
+@import url('default.css');
+
+.visual{
+    height: 850px;
+    background: url(../images/visual_bg.png) no-repeat center center/cover;
+    color: #FFF;
+}
+.visual h2{
+    padding: 298px 0 0 0;
+    font-size: 75px;
+    font-weight: 400;
+    line-height: 1;
+}
+.visual h2 span{
+    font-weight: 700;
+}
+@media screen and (max-width:640px){
+    .visual{
+        height: auto;
+    }
+    .visual h2{
+        padding: 107px 0 138px 0;
+        font-size: 35px;
+    }
+    .visual h2 span{
+        font-weight: 700;
+    }
+}
+
+.works{
+    color: #FFF;
+}
+.works .tit{
+    padding: 52px 0 67px 0;
+}
+.works .tit h2{
+    font-size: 50px;
+    font-weight: 700;
+}
+.works .tit p{
+    margin: 10px 0 0 0;
+}
+.works .tit p span{
+    display: block;
+}
+.works ul li{
+    float: left;
+    width: 33.33%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+.works ul li.marketing{
+    background-image: url(../images/works01.png);
+}
+.works ul li.commerce{
+    background-image: url(../images/works02.png);
+}
+.works ul li.biz{
+    background-image: url(../images/works03.png);
+}
+.works ul li a{
+    display: block;
+    height: 300px;
+    padding: 82px 0 0 0;
+}
+.works ul li a span{
+    display: none;
+}
+.works ul li a i{
+    font-size: 50px;
+    font-weight: 300;
+}
+.works ul li a strong{
+    display: block;
+    margin: 14px 0 0 0;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+@media screen and (max-width:640px){
+    .works{
+        position: relative;
+        background-color: #F39800;
+        text-align: center;
+        color: #FFF;
+    }
+    .works .tit{
+        padding: 36px 0 0 0;
+    }
+    .works .tit h2{
+        font-size: 25px;
+    }
+    .works .tit p{
+        margin: 13px 0 25px 0;
+    }
+    .works .tit p span{
+        display: block;
+    }
+    .works ul{
+        position: relative;
+        z-index: 2;
+    }
+    .works ul li{
+        float: none;
+        width: 100%;
+    }
+    .works ul li{
+    }
+    .works ul li a{
+        display: block;
+        height: auto;
+        padding: 29px 101px 37px 101px;
+    }
+    .works ul li a i{
+        font-size: 30px;
+    }
+    .works ul li a strong{
+        margin: 6px 0 0 0;
+        font-size: 20px;
+    }
+}
+.news{
+    margin: 52px 0 0 0;
+}
+.news h2{
+    font-size: 50px;
+    font-weight: 700;
+    text-align: center;
+}
+.news ul{
+    margin: 36px 0 97px 0;
+}
+.news ul li{
+    float: left;
+    width: 400px;
+    margin: 0 40px 0 0;
+}
+.news ul li:last-child{
+    margin-right: 0;
+}
+.news ul li h3{
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.5;
+    height: 3em;
+    overflow: hidden;
+}
+.news ul li span{
+    display: block;
+    margin: 10px 0 10px 0;
+    color: #666666;
+}
+.news ul li p{
+    line-height: 1.5;
+    height: 10.5em;
+    overflow: hidden;
+}
+@media screen and (max-width:640px){
+    .news{
+        margin: 39px 0 0 0;
+    }
+    .news h2{
+        font-size: 25px;
+    }
+    .news ul{
+        margin: 0 0 70px 0;
+    }
+    .news ul li{
+        float: none;
+        width: auto;
+        margin: 22px 0 0 0;
+        padding: 0 0 21px 0;
+        border-bottom: 1px solid #ccc;
+    }
+    .news ul li:last-child{
+        border-bottom: 0;
+    }
+    .news ul li h3{
+        font-size: 17px;
+        line-height: 1.5;
+        height: 3em;
+        overflow: visible;
+    }
+    .news ul li p{
+        line-height: 1.5;
+        height: 6em;
+        overflow: hidden;
+    }
+}
+
+.footer{
+    background-color: #3D3D3D;
+    color: rgba(255,255,255,0.8);
+}
+.footer .f_info{
+    padding: 61px 0 0 0;
+}
+.footer .f_info li{
+    float: left;
+    position: relative;
+    margin: 0 35px 0 0;
+}
+.footer .f_info li::after{
+    position: absolute;
+    right: -18px;
+    top: 6px;
+    width: 1px;
+    height: 10px;
+    background-color: rgba(255,255,255,0.2);
+    content: "";
+}
+.footer .add{
+    display: block;
+}
+.footer .copyright{
+    padding: 0 0 90px 0;
+    margin: 17px 0 0 0;
+    color: rgba(255,255,255,0.6);
+}
+@media screen and (max-width:640px){
+    .footer .f_info{
+        padding: 45px 0 0 0;
+        line-height: 1.8;
+    }
+    .footer .f_info li{
+        margin: 0 29px 0 0;
+    }
+    .footer .f_info li::after{
+        right: -15px;
+        top: 8px;
+        height: 8px;
+    }
+    .footer .add{
+        display: block;
+        line-height: 1.8;
+    }
+    .footer .copyright{
+        padding: 0 0 47px 0;
+        margin: 17px 0 0 0;
+    }
+}
