@@ -50,7 +50,9 @@ $(document).ready(function(){
             header에 menu_open 클래스 삭제
         */
         $('.header .gnb>ul>li>a').on('mouseenter focusin',function(){
-            $('.header').addClass('menu_open')
+            if(pcMobile=='pc'){
+                $('.header').addClass('menu_open')
+            }    
         })
         /*focusin 이 웹접근성때문에 tap 으로 메뉴를 고를수있어야하기때문에*/
         $('.header').on('mouseleave',function(){
@@ -70,7 +72,9 @@ $(document).ready(function(){
             header menu_mobile 클래스 삭제
         */
         $('.header .gnb .open').on('click',function(){
-            $('.header').addClass('menu_mobile')
+            if(pcMobile=='mobile'){
+                $('.header').addClass('menu_mobile')
+            }
         })
         $('.header .gnb .close').on('click',function(){
             $('.header').removeClass('menu_mobile')
@@ -84,8 +88,11 @@ $(document).ready(function(){
             ---> this(클릭된 자기자신) 
         */
         $('.header .gnb>ul>li').on('click', function(e){
-            e.preventDefault()
-            /* 1차 메뉴를 클릭했을때 a href 로 페이지가 자동으로 이동하는 현상 막기*/
-            $(this).toggleClass('sub_open')
+            if(pcMobile=='mobile'){
+                e.preventDefault()
+                /* 1차 메뉴를 클릭했을때 a href 로 페이지가 자동으로 이동하는 현상 막기*/
+                $(this).toggleClass('sub_open')
+            }
+            
         })
 })
