@@ -16,6 +16,11 @@ html,body{
 }
 #wrap{/*id="wrap"*/
     overflow-x: hidden;
+    /*header의 기준점이 되야 헤더가 정확한 위치에 배열이 된다
+      윈도우 사이즈가 줄어들었을때 스크린 크기에 따라 헤더가 따라오는게 아니라
+      1400이전으로 사이즈가 줄어들면 가로스크롤바가 생기면서 원래 위치인 제일 오른쪽에있는
+      컨텐츠가 그자리에 있는다*/
+    position: relative;
     min-width: 1400px;
     /*브라우저사이즈가 작아졌을때 배경이 안잘리게 하는테그,(가로스크롤이 생성되었을때 배경이 않잘리기위해*/
 }
@@ -48,6 +53,10 @@ html,body{
     position: absolute;
     left: 0;
     top: 0;
+    /*z-index가 높은숫자가 위로 올라옴 
+      header 가 제일 위로 올라와야해서 제일 큰값을 줌 
+      즉 header아래 콘텐츠 요소는 z-index가 필요하면100이하의 값을 줌 */
+    z-index: 100;
     /*position absoulte를쓰고난후 block요소처럼 쓰고싶으면 넓이값을 반드시 줘야함*/
     width: 100%;
     height: 100px;
@@ -57,6 +66,7 @@ html,body{
     position: absolute;
     left: 40px;
     top: 20px;
+    z-index: 103;
 }
 .header .logo a{/*a테그가 눌려야해서, a 에 스타일을 준다*/
     display: block;
@@ -71,6 +81,10 @@ html,body{
     /*a테그 안에 써있는 글자를 없애기 위해서*/
     font-size: 0;
     line-height: 0;
+}
+.header .gnb{
+    position: relative;
+    z-index: 102;
 }
 .header .gnb .open{/*모바일에서만 보임*/
     display: none;
@@ -88,17 +102,359 @@ html,body{
     display: flex;
     justify-content: center;/*ul의 넓이안에서 li들을 가운데 정렬하는것*/
 }
+.header .gnb>ul>li{
+    position: relative;
+    width: 150px;
+    text-align: center;
+}
+.header .gnb>ul>li>a{
+    display: block;
+    font-size: 20px;
+    /*헤더 100 준값을 넘어가지않는선에서 값을준다
+      나머지 값은 여백으로 ul에 margin으로 준다*/
+    line-height: 99px;
+}
+/*:hover 효과를 a 가 아니라 li 전체에 줘야 밑에 하위메뉴에 마우스 오버했을때 그 효과가 지속되기위해서*/
+.header .gnb>ul>li:hover>a{
+    font-weight: 700;
+    color: #ED1C24;
+}
+.header .gnb>ul>li:hover>a>span{
+    position: relative;
+}
+.header .gnb>ul>li:hover>a>span::after{
+    position: absolute;
+    left: 0;
+    bottom: -35px;
+    width: 100%;
+    height: 2px;
+    background-color: #3d3d3d;
+    content: "";
+}
 .header .gnb>ul>li>ul{
     display: none;/*2차메뉴*/
+    position: absolute;
+    left: 0;
+    top: 99px;/*a 가 가지고있는 높이값을 준다/ 나머지 여백은 패딩으로*/
+    width: 100%;/*엡솔루트는 인라인테그로 바껴서 넓이를 줘야 가운데 정렬이 됨*/
+    height: 270px;
+    padding: 37px 0 0 0;
+    /*
+        1차 메뉴 a와 ul 위아래 사이에는 여백이 존재하면 안됨(메뉴가 아웃이됨)
+        ul이 정확하게 a 밑에 배치될수 있도록 줘야함
+        하지만 실제 디자인에서 a와 ul 사이에 여백이 존재한다면 
+        2차메뉴 ul 상단에 padding값으로 주면된다
+        padding은 내부 여백이라 실제 여백으로 판단하지 않는다
+
+        2차메뉴는 ul의 높이가 일정하게 하는게좋음(2차 메뉴 컨텐츠 숫자에 상관없이)
+        마우스가 2차메뉴 좌우로 이동을 해도 메뉴가 아웃이 되지 말아야함
+        -->높이값을 주면됨
+    */
+}
+.header .gnb>ul>li>ul>li>a{
+    display: block;
+    line-height: 2.6;
+}
+.header .gnb>ul>li>ul>li>a:hover{
+    color: #ED1C24;
 }
 .header .lang{/*언어를 오른쪽으로 엡솔루트로 정렬*/
     position: absolute;
+    z-index: 103;/*before 테그보다 높은숫자(102) 값을 줘야함*/
     right: 40px;
     top: 36px;
 }
-.header .lang ul{
-    display: none;
+.header .lang button{
+    /*button내부 요소 i와 span테그를 좌우정렬, 위아래 가운데 배치하는 선언*/    
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 95px;
+    height: 32px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 20px;
+}
+.header .lang button span{
+    color: rgba(255,255,255,0.8);
+}
+.header .lang button i{
+    font-size: 15px;
+    color: rgba(255,255,255,0.6);
 }
 .header .lang .close{
     display: none;
 }
+.header .lang ul{
+    display: none;
+    /*포지션 엡솔루트를 줘야 블록요소에서 인라인요소로 간다*/
+    position: absolute;
+    left: 0;
+    top: 32px;/*버튼의 높이만큼 값을 주면 됨*/
+    width: 95px;
+    height: 81px;
+    border-radius: 21px;
+    background-color: rgba(255,255,255,0.2);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    color: #3d3d3d;
+    text-align: center;
+}
+.header .lang ul li:first-child{
+    margin: 11px 0 0 0;
+    /*버튼박스 안에있는 a 테그(KOR/ENG) 글자 위에 여백을 주는방법*/
+}
+.header .lang ul li a{
+    display: block;
+    line-height: 2;
+}
+.header .lang ul li a:hover,.header .lang ul li.active a{
+    color: #ED1C24;
+    font-weight: 700;
+}
+
+/* lang 가 열렸을때
+   이걸 jquery 에서 클래스를 선언해서 효과를 주고 빼고를 한다 */
+.header .lang.lang_open ul{
+    display: block;
+}
+.header .lang.lang_open .open{
+    display: none;
+}
+.header .lang.lang_open .close{
+    display: flex;
+}
+
+/* 메뉴에 마우스 오버했을때 */
+.header.menu_open{
+    color: #3d3d3d;
+}
+.header.menu_open::before{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 101;/*헤더보다 높은숫자(100)이상 줘야함*/
+    width: 100%;
+    height: 407px;
+    background-color: #FFF;
+    content: "";
+}
+.header.menu_open .logo a{
+    background-image: url(../images/common/main_wlogo.svg);
+}
+.header.menu_open .gnb>ul>li>ul{
+    display: block;/*2차메뉴 보이게 하는*/
+}
+.header.menu_open .lang button{
+    border: 1px solid #666;
+}
+.header.menu_open .lang button span{
+    color: #3d3d3d;
+}
+.header.menu_open .lang button i{
+    color: #666;
+}
+@media screen and (max-width:640px){
+    .header{
+        height: 45px;
+    }
+    .header .logo{/*로고를 플로트 말고 엡솔루트로 왼쪽 정렬*/
+        left: 19px;
+        top: 9px;
+    }
+    .header .logo a{/*a테그가 눌려야해서, a 에 스타일을 준다*/
+        width: 60px;
+        height: 20px;
+    }
+    .header .gnb .open{/*모바일에서만 보임*/
+        display: block;
+        float: right;
+        padding: 13px 27px 11px 20px;/*버튼 크기를 키우기 위해*/
+    }
+    .header .gnb .open i{
+        font-size: 20px;
+    }
+    .header .gnb .close{/*모바일에서만 보임*/
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 0;
+        /*코딩 순서상 메뉴 뒤에 있지만 오른쪽 상단에 배치하기 위해서*/
+        padding: 13px 20px 11px 20px;
+    }
+    .header .gnb .close i{
+        font-size: 20px;
+    }
+    .header .gnb>ul{
+        display: none;
+        padding: 74px 20px 0 20px;/*ul들을 디자인대로 위치조정을 하기 위해서 */
+    }
+    .header .gnb>ul>li{
+        width: auto;
+        text-align: left;
+    }
+    .header .gnb>ul>li>a{
+        display: block;
+        position: relative;/*이걸 기준으로 after테그를 써서 아이콘 삽입함*/
+        line-height: 50px;
+    }
+    .header .gnb>ul>li>a::after{/*css에서 아이콘 부르는 방법*/
+        position: absolute;
+        right: 0;
+        top: 14px;
+        font-family: 'Material Symbols Sharp';
+        font-weight: normal;
+        font-style: normal;
+        font-size: 20px;
+        line-height: 1;
+        letter-spacing: normal;
+        text-transform: none;
+        display: inline-block;
+        white-space: nowrap;
+        word-wrap: normal;
+        direction: ltr;
+        -webkit-font-feature-settings: 'liga';
+        -webkit-font-smoothing: antialiased;
+        content: "\e145";
+        /*"content"는 필수요소
+          구글에 있는 "code" 카피하고 + reverse slash로 삽입해야 구현됨*/
+    }
+    .header .gnb>ul>li>ul{
+        display: none;/*2차메뉴*/
+        position: relative;/*해제*/
+        left: auto;
+        top: auto;/*a 가 가지고있는 높이값을 준다/ 나머지 여백은 패딩으로*/
+        width: auto;/*엡솔루트는 인라인테그로 바껴서 넓이를 줘야 가운데 정렬이 됨*/
+        height: auto;
+        padding: 12px 0 12px 40px;
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        /*
+            1차 메뉴 a와 ul 위아래 사이에는 여백이 존재하면 안됨(메뉴가 아웃이됨)
+            ul이 정확하게 a 밑에 배치될수 있도록 줘야함
+            하지만 실제 디자인에서 a와 ul 사이에 여백이 존재한다면 
+            2차메뉴 ul 상단에 padding값으로 주면된다
+            padding은 내부 여백이라 실제 여백으로 판단하지 않는다
+    
+            2차메뉴는 ul의 높이가 일정하게 하는게좋음(2차 메뉴 컨텐츠 숫자에 상관없이)
+            마우스가 2차메뉴 좌우로 이동을 해도 메뉴가 아웃이 되지 말아야함
+            -->높이값을 주면됨
+        */
+    }
+    .header .gnb>ul>li>ul>li>a{
+        display: block;
+        font-size: 15px;
+        line-height: 2.3;
+    }
+    
+    /*서브메뉴열렸을때*/
+    .header .gnb>ul>li.sub_open>ul{
+        display: block;
+    }
+    .header .gnb>ul>li.sub_open>a{
+        font-weight: 700;
+        color: #ED1C24;
+    }
+    .header .gnb>ul>li.sub_open>a::after{
+        content: "\e15b";
+    }
+
+    .header .lang{/*언어를 오른쪽으로 엡솔루트로 정렬*/
+        display: none;
+        z-index: 103;/*before 테그보다 높은숫자(102) 값을 줘야함*/
+        right: auto;
+        left: 91px;/*랭귀지 위치조절하는값*/
+        top: 12px;
+    }
+    .header .lang button{
+        /*button내부 요소 i와 span테그를 좌우정렬, 위아래 가운데 배치하는 선언*/    
+        display: none;
+    }
+    .header .lang button span{
+        color: #3d3d3d;
+    }
+    .header .lang ul{
+        display: block;
+        /*ENG/ KOR 다보여야해서 block요소*/
+        position: relative;/*모든것을 해지하는값*/
+        left: auto;
+        top: auto;
+        width: auto;
+        height: auto;
+        border-radius: 0;
+        background-color: transparent;
+        box-shadow: none;
+        text-align: center;
+    }
+    .header .lang ul li:first-child{
+        position: relative;
+        margin: 0 10px 0 0;
+        /*오른쪽에 여백준다 KOR이랑ENG 조금 떨어트려야해서*/
+    }
+    .header .lang ul li:first-child::after{/*랭귀지 사이의 조그만한 선*/
+        position: absolute;
+        right: -6px;
+        top: 6px;
+        width: 1px;
+        height: 8px;
+        background-color: #ccc;
+        content: "";
+    }
+    .header .lang ul li{
+        float: left;
+    }
+    .header .lang ul li a{
+        line-height: 1.5;/*원래 두배였던 행간을 다시 원래대로바꾼다*/
+    }
+    
+    /* lang 가 열렸을때
+       이걸 jquery 에서 클래스를 선언해서 효과를 주고 빼고를 한다 */
+    .header .lang.lang_open ul{
+        display: block;
+    }
+    .header .lang.lang_open .open{
+        display: none;
+    }
+    .header .lang.lang_open .close{
+        display: flex;
+    }
+    
+    /*
+        모바일에서 메뉴가 열리면 
+        header .menu_mobile 클래스 추가
+            1. gnb open 숨김
+               gnb close 나타남
+            2. 흰색 배경이 전체에 꽉차게 들어감
+            3. gnb ul 나타남
+            4. logo 이미지가 변경(색상)
+            5. lang 나타남
+    */
+    .header.menu_mobile{
+        color: #3d3d3d;
+    }
+    .header.menu_mobile::before{
+        position: fixed;
+        /*absolute는 헤더 영역에 맞춰서 들어감/ 그래서 fixed로 해야 body영역 맞춰들어감*/
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #FFF;
+        content: "";
+    }
+    .header.menu_mobile .logo a{
+        background-image: url(../images/common/main_wlogo.svg);
+    }
+    .header.menu_mobile .gnb .open{/*모바일 메뉴 열렷을때 안보임*/
+        display: none;
+    }
+    .header.menu_mobile .gnb .close{/*모바일 메뉴 열렸을때 보임*/
+        display: block;
+    }
+    .header.menu_mobile .gnb>ul{
+        display: block;
+        /*메뉴들이 좌우로 있을필요가 없고 위아래로 정렬되야하기때문에 block 을 줘서 해제*/
+    }
+    .header.menu_mobile .lang{/*언어를 오른쪽으로 엡솔루트로 정렬*/
+        display: block;
+    }
+
+}/*header반응형 종료*/

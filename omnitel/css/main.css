@@ -28,6 +28,9 @@
 }
 
 .works{
+    position: relative;
+    background-color: #F39800;
+    text-align: center;
     color: #FFF;
 }
 .works .tit{
@@ -99,13 +102,11 @@
     }
     .works ul{
         position: relative;
-        z-index: 2;
+        
     }
     .works ul li{
         float: none;
         width: 100%;
-    }
-    .works ul li{
     }
     .works ul li a{
         display: block;

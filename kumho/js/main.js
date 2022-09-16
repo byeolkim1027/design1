@@ -18,4 +18,5 @@ $(document).ready(function(){
         console.log('window의 높이' + winH)
     })
 
+    
 })/*document. ready 종료*/
