@@ -1,0 +1,68 @@
+@import url('default.css');
+h1{
+    display: none;
+}
+
+.visual{
+    height: 870px;
+    background: url(../images/visual_bg.png) no-repeat center center/cover;
+    color: #FFF;
+}
+.visual h2{
+    padding: 285px 0 0 0;
+    font-size: 50px;
+    font-weight: 400;
+    line-height: 1.2;
+}
+.visual h2 span{
+    font-weight: 700;
+}
+@media screen and (max-width:640px){
+    .visual{
+        height: auto;
+        background-position: left 50% center;
+        text-align: left;
+    }
+    .visual h2{
+        padding: 158px 0 202px 0;
+        font-size: 25px;
+        width: 100%;
+    }
+}
+
+.about{
+    margin: 95px 0 184px 0;
+    text-align: center;
+}
+.about h2{
+    font-size: 50px;
+    font-weight: 700;
+}
+.about .tit p {
+    margin: 23px 0 90px 0;
+}
+.about .tit p span{
+    display: block;
+}
+.about ul li{
+    float: left;
+    width: 290px;
+    margin: 0 40px 0 0;
+}
+.about ul li:last-child{
+    margin-right: 0;
+}
+.about ul li i{
+    font-size: 80px;
+    background-color: #f4f4f4;
+    height: 150px;
+    width: 150px;
+    border-radius: 75px;
+    line-height: 150px;
+}
+.about ul li p {
+    margin: 19px 0 0 0;
+}
+.about ul li p span{
+    display: block;
+}
