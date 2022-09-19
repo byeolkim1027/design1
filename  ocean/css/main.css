@@ -181,4 +181,7 @@ h1{
     .footer{
         padding: 55px 0 55px 0;
     }
+    .footer .copyright{
+        width: 320px;
+    }
 }
