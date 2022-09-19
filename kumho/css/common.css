@@ -317,6 +317,13 @@ html,body{
         /*"content"는 필수요소
           구글에 있는 "code" 카피하고 + reverse slash로 삽입해야 구현됨*/
     }
+
+    /*hover이 요소를 클릭해도 스타일이 적용됨
+      그래서 모바일에서 해제를 해줘야함*/
+
+    .header .gnb>ul>li:hover>a>span::after{
+        display: none;/*pc버전에서 마우스 오버했을때 나타나는 밑줄없애는효과*/
+    }
     .header .gnb>ul>li>ul{
         display: none;/*2차메뉴*/
         position: relative;/*해제*/
