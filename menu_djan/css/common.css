@@ -186,7 +186,7 @@ html, body {
     .header .gnb>ul>li>a::after{
         position: absolute;
         right: 0;
-        top: 15px;
+        top: 20px;
         color: #666;
         font-family: 'Material Symbols Rounded';
         font-weight: normal;
