@@ -66,3 +66,119 @@ h1{
 .about ul li p span{
     display: block;
 }
+@media screen and (max-width:640px){
+    .about{
+        margin: 53px 0 34px 0;
+    }
+    .about h2{
+        font-size: 30px;
+    }
+    .about .tit p {
+        margin: 14px 0 39px 0;
+    }
+    .about .tit p span{
+        display: inline;
+    }
+    .about ul li{
+        float: left;
+        width: 152px;
+        margin: 0 16px 41px 0;
+    }
+    .about ul li:last-child,.about ul li:nth-child(2){
+        margin-right: 0;
+    }
+    .about ul li i{
+        font-size: 45px;
+        height: 90px;
+        width: 90px;
+        border-radius: 45px;
+        line-height: 90px; 
+    }
+    .about ul li p {
+        margin: 9px 0 0 0; 
+    }
+    .about ul li p span{
+        display: inline;
+    }
+}
+
+.service h2{
+    font-size: 50px;
+    text-align: center;
+}
+.service ul{
+    margin: 46px 0 117px 0;
+}
+.service ul li{
+    float: left;
+    width: 33.33%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    color: #FFF;
+    text-align: center;
+}
+.service ul li.ad{
+    background-image: url(../images/service_01.png);
+}
+.service ul li.web{
+    background-image: url(../images/service02.png);
+}
+.service ul li.mobile{
+    background-image: url(../images/service03.png);
+}
+.service ul li.sns{
+    background-image: url(../images/service04.png);
+}
+.service ul li.promotion{
+    background-image: url(../images/service05.png);
+}
+.service ul li.video{
+    background-image: url(../images/service06.png);
+}
+.service ul li a{
+    display: block;
+    height: 250px;
+    padding: 71px 50px 0 50px;
+}
+.service ul li a strong{
+    display: block;
+    font-size: 30px;
+    font-weight: 700;
+}
+.service ul li a span{
+    display: block;
+}
+@media screen and (max-width:640px){
+    .service h2{
+        font-size: 30px;
+    }
+    .service ul{
+        margin: 20px 0 70px 0;
+    }
+    .service ul li{
+        width: 50%;
+    }
+    .service ul li a{
+        height: 90px;
+        padding: 27px 20px 0 20px;
+    }
+    .service ul li a strong{
+        font-size: 20px;
+    }
+    .service ul li a span{
+        display: none;
+    }
+}
+
+.footer{
+    padding: 63px 0 63px 0;
+    background-color: #202020;
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+}
+@media screen and (max-width:640px){
+    .footer{
+        padding: 55px 0 55px 0;
+    }
+}
