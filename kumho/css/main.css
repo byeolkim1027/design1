@@ -47,3 +47,177 @@
         margin: 13px 0 0 0;
     }
 }
+
+.biz .tit{
+    margin: 75px 0 43px 0;
+}
+.biz .tit h2{
+    float: left;
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1.16;
+}
+.biz .tit a{
+    float: right;
+    display: block;
+    margin: 50px 0 0 0;
+}
+.biz .tit a span{
+    display: block;
+    float: left;
+    margin: 0 12px 0 0;
+}
+.biz .tit a i{
+    float: left;
+    font-size: 20px;
+    color: #666;
+}
+.biz .list ul{
+    /*display flex는 하위요소들이 특별하게 여러줄을 허용하지 않는한 무조건 한줄
+      단, li들의 넓이가 내가 준값이 아니라 멋대로 한줄에 맞춰서 사이즈가 바뀐다
+      (무조건 한줄에 넣어야하기때문에 flex가 임의로 넓이를 조절함)*/
+    display: flex;
+}
+.biz .list ul li{
+    width: 25%;
+}
+.biz .list ul li.active{
+    width: 50%;
+}
+.biz .list ul li a{
+    display: flex;
+    position: relative;/* before / after 정렬기준점*/
+    flex-direction: column;
+    justify-content: flex-end;
+    /*a 안에 있는 strong 과 span 테그를 세로배치& 아래 정렬하는 테그*/
+    height: 700px;
+    padding: 0 0 90px 30px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #FFF;
+}
+.biz .list ul li a::before{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    /*strong과 span 테그가 위에 배치되어야 해서 
+        before= z-index:1
+        strong과span을 z-index:2 줘서 순서조정
+    */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0);
+    content: "";
+}
+.biz .list ul li.arch a{
+    background-image: url(../images/main/biz_arc.png);
+}
+.biz .list ul li.civil a{
+    background-image: url(../images/main/biz_civil.png);
+}
+.biz .list ul li.house a{
+    background-image: url(../images/main/biz_house.png);
+}
+.biz .list ul li.plant a{
+    background-image: url(../images/main/biz_plant.png);
+}
+.biz .list ul li a strong{
+    display: block;
+    position: relative;
+    z-index: 2;
+    /* z-index는 position값이 필수*/
+    margin: 0 0 18px 0;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 1;
+}
+.biz .list ul li a span{
+    display: block;
+    position: relative;
+    z-index: 2;
+}
+/*
+    li가 앞으로 클래스가 추가 되거나, 마우스가 오버되었을때
+    값이 변함을 자연스럽게 주기위해서 쓰는 테그 
+    transition:0.5s = 0.5초 동안 자연스럽게 변함
+    --->변화의 값을 주기전 선택자에 transition을 준다는것
+
+    1. li넓이변화
+    2. a/strong,span 테그의 글자크기/ 글자색상 변함
+    3. a 에 배경이미지 어두워짐
+
+*/
+.biz .list ul li,
+.biz .list ul li a,
+.biz .list ul li a strong,
+.biz .list ul li a span,
+.biz .list ul li a::before{
+    transition: 0.7s;
+}
+/*
+    하나의 li에 마우스를 올렸을때
+    --> 오버한 li 하나의 넓이가 늘어나는 효과를 주면
+        반드시 감싸는 요소에 display:flex 효과를 줘서 li가 좌우로 정렬되게 해야하고
+        오버했을때 오버한 요소의 넓이값만 늘려주는게 에니메이션에 자연스럽게 들어감
+*/
+.biz .list ul.over li.active{
+    width: 50%;
+}
+.biz .list ul.over li.active a strong{
+    font-size: 60px;
+}
+.biz .list ul.over li.active a span{
+    font-size: 17px;
+}
+.biz .list ul.over li:not(.active) a{
+    /*li들 중에서 active 클래스가 없는 li만 선택
+      -> 컨텐츠 안에있는 글자 색을 투명하게 하는*/
+    color: rgba(255,255,255,0.7);
+}
+.biz .list ul.over li:not(.active) a::before{
+    /* 마우스 오버 했을때 오버가 안된 li 의 배경색을 더 어둡게 만듬*/
+    background-color: rgba(0,0,0,0.4);
+}
+@media screen and (max-width:640px){
+    .biz .tit{
+        margin: 20px 0 26px 0;
+    }
+    .biz .tit h2{
+        float: none;
+        font-size: 20px;
+    }
+    .biz .tit a{
+        display: none;
+    }
+    .biz .list ul{
+        /*pc버전에서 ul에 flex가 들어가서 li들이 좌우로 들어갔었는데
+          mobile에서 block 으로 변경이 되서 li들이 좌우로 배치된게 취소
+          -->li는 block요소라 위아래로 배치됨*/
+        display: block;
+    }
+    .biz .list ul li{
+        width: auto;
+    }
+    .biz .list ul li a{
+        display: block;
+        /*display:flex, flex-direction, justify-content 속성이 선언이 되어있었는데
+          display:block 으로 변경하면 적용이 안됨
+          해제할 필요없음*/
+        height: auto;
+        padding: 46px 0 57px 20px;
+    }
+    .biz .list ul li a::before{
+        background-color: rgba(0,0,0,0.2);
+        /*모바일 버전에서 배경색이 조금더 어두워지는값*/
+    }
+    .biz .list ul li a strong{
+        margin: 0 0 9px 0;
+        font-size: 20px;
+    }
+}
+
+.news .inner{
+    position: relative;/*"more"의 기준점이 된다*/
+}

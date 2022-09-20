@@ -122,10 +122,90 @@
             </div>
         </section>
         <section class="biz">
-
+            <div class="tit clearfix">
+                <div class="wrapper">
+                    <h2>Area of Business</h2>
+                    <a href="contents/businessSrch.html">
+                        <span>사업실적보기</span>
+                        <i class="material-symbols-sharp">trending_flat</i>
+                    </a>
+                    <!--사업분야의 더보기가 아니라 관련링크이기 때문에 html 코딩 순서상 ul li 하단에 배치하지 않아도됨-->
+                </div>
+            </div>
+            <!--
+                하나의 li에 마우스를 오버하면 오버한 li의 사이즈가 커짐
+                - 오버하지 않은 나머지 li 들은 배경이 어두워짐, 글자가 투명해짐, 넓이 줄어듬
+                    1. 전체를 감싸는 ul 에 over라는 클래스 추가
+                    2. 마우스를 오버한 li 에만 active 클래스 추가 
+                    3. 오버하지 않은 나머지 li의 스타일 - not 선택자 
+            -->
+            <div class="list">
+                <ul>
+                    <li class="arch">
+                        <a href="contents/Architecture.html">
+                            <strong>Architecture</strong>
+                            <span>빌딩 개발에서 도시개발로 이어지는<br />금호건설의 건축사업</span>
+                        </a>
+                    </li>
+                    <li class="civil">
+                        <a href="contents/Civil.html">
+                            <strong>Civil</strong>
+                            <span>도시와 국토를 잇는 공간 예술,<br />금호건설의 토목사업</span>
+                        </a>
+                    </li>
+                    <li class="house">
+                        <a href="contents/housing.html">
+                            <strong>Housing</strong>
+                            <span>전국 곳곳에서 신주거단지 조성으로<br />고객의 높은 신뢰를 얻어온 금호</span>
+                        </a>
+                    </li>
+                    <li class="plant">
+                        <a href="contents/Plant Enviroment.html">
+                            <strong>Plant<br />Enviroment</strong>
+                            <span>산업발전의 기틀을 다지는 환경경영을<br />실천하는 환경/플랜트산업</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            </div>
         </section>
         <section class="news">
-
+            <div class="wrapper">
+                <div class="inner"><!-- 더보기a테그의 정렬기준-->
+                    <h2>KUMHO E&C News</h2>
+                    <ul>
+                        <li><!--블록테그는 블록테그끼리/ 인라인테그는 인라인테그끼리
+                                block = h3, p, div
+                                inline = strong, span, em-->
+                            <a href="contents/reportList.html">
+                                <strong class="subject">금호건설, 제5회 어울림 음악회 개최…"취약계층 아동 지원 취지"</strong>
+                                <span class="cnt">어울림 음악회는 문화 취약계층 아동들을 지원하기 위해 기획된 음악공연으로 금호건설이 3년간 진행해 온 후원사업이다. 제1회 어울림 음악회를 시작으로 지난해에는순차적으로 음악회를 개최한 바 있다.</span>
+                                <span class="date">2022-07-20</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="contents/reportList.html">
+                                <strong class="subject">금호건설, 성남 분당구·인천 서구서 주택사업 잇단 수주</strong>
+                                <span class="cnt">금호건설은 지난달 21일 성남시 분당구 야탑동 민간 참여 공동주택 사업의 우선협상대상자로 선정된 데 이어, 이튿날인 22일 인천 서구 왕길역 공동주택 신축공사 계약을 체결했다.</span>
+                                <span class="date">2022-08-01</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="contents/reportList.html">
+                                <strong class="subject">건설 전분야 풍부한 경험...공항공사에선 업계 최고 평가</strong>
+                                <span class="cnt">대표 주택 브랜드인 ‘어울림’은 ‘생활과의 어울림, 자연과의 어울림, 사람과의 어울림’이란 뜻이다. 자연 친화적인 고품질 주택을 건설하겠다는 금호건설의 의지를 담고 있다.</span>
+                                <span class="date">2022-06-29</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="more"><!-- 모바일에서 a테그를 가운데 정렬시키기 위해서 div로 감쌈-->
+                        <a href="contents/reportList.html">
+                            <span>뉴스 더보기</span>
+                            <i class="material-symbols-sharp">trending_flat</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </section>
         <section class="link">
 
