@@ -56,6 +56,7 @@
     font-size: 60px;
     font-weight: 700;
     line-height: 1.16;
+    color: #1d1d1d;
 }
 .biz .tit a{
     float: right;
@@ -65,7 +66,7 @@
 .biz .tit a span{
     display: block;
     float: left;
-    margin: 0 12px 0 0;
+    margin: 0 20px 0 0;
 }
 .biz .tit a i{
     float: left;
@@ -182,7 +183,7 @@
 }
 @media screen and (max-width:640px){
     .biz .tit{
-        margin: 20px 0 26px 0;
+        margin: 40px 0 26px 0;
     }
     .biz .tit h2{
         float: none;
@@ -220,4 +221,258 @@
 
 .news .inner{
     position: relative;/*"more"의 기준점이 된다*/
+}
+.news h2{
+    margin: 75px 0 66px 0;
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1.16;
+    color: #1d1d1d;
+}
+.news ul{
+    display: flex;
+    justify-content: space-between;
+    /*첫번째 li와 마지막 li를 컨텐츠 영역 양 끝에 보내고 사이의 여백을 동일하게 주는 방식*/
+}
+.news ul li{
+    position: relative;
+    width: 420px;
+}
+.news ul li::after{
+    position: absolute;
+    right: -27px;
+    top: 19px;
+    width: 1px;
+    height: 165px;
+    background-color: #ccc;
+    content: "";
+}
+.news ul li:last-child::after{
+    display: none;
+}
+.news ul li a{
+    display: flex;
+    flex-direction: column;
+    /* 내부에 있는 strong,span 테그가 block 요소로 변함*/
+}
+.news ul li a .subject{
+    font-size: 20px;
+    font-weight: 700;
+    /*제목 2줄 고정*/
+    line-height: 1.5;
+    height: 3em;
+    overflow: hidden;    
+}
+.news ul li a .cnt{
+    margin: 19px 0 30px 0;
+    /*내용 3줄 고정*/
+    line-height: 1.5;
+    height: 4.5em;
+    overflow: hidden;
+}
+.news ul li a .date{
+    color: #666;
+}
+.news .more{
+    position: absolute;
+    right: 0;
+    top: 50px;
+}
+.news .more a{
+    display: flex;
+}
+.news .more a span{
+    margin: 0 20px 0 0;
+}
+.news .more a i{
+    font-size: 20px;
+    color: #666;
+}
+@media screen and (max-width:640px){
+    .news h2{
+        margin: 40px 0 30px 0;
+        font-size: 20px;
+    }
+    .news ul{
+        flex-direction: column;
+        /*기존 display:flex에 flex-direction:column 을 줘서 좌우에서 위아래로 교체
+          li 들이 한줄씩 배치됨
+          justify-content:space-between 은 그냥 둬도 큰변화가없어서 유지*/
+    }
+    .news ul li{
+        width: auto;
+        /*li사이의 선을 after로 했으면 = margin (총 li끼리의 여백)
+                        border로 했으면 = padding(li와 보더사이의 여백)
+        ---> 대신 padding 값을 주면 첫번째 li 와 제목의사이의 여백 잘 재야함*/
+        margin-bottom: 40px;
+        /* padding: 20px 0 20px 0; */
+        
+        /*
+            border가 존재하는경우 padding 과 margin 을 동시에 주면 
+            padding까지는 해당요소의 사이즈가 늘어난다고 생각해서
+            padding 여백 밖으로 border가 생성
+            \
+            margin은 외부여백이라 border 밖으로 여백이 발생함
+        */
+    }
+    .news ul li::after{
+        right: 0;
+        top: auto;
+        bottom: -20px;
+        width: 100%;
+        height: 1px;
+    }
+    .news ul li a .subject{
+        margin: 0 0 10px 0;
+        font-size: 15px;
+        /*제목 2줄 고정---->해제(전체제목이 나타남)*/
+        height: auto;
+        overflow: visible;    
+    }
+    .news ul li a .cnt{
+        display: none;
+    }
+    .news .more{    
+        position: relative;
+        right: auto;
+        top: auto;
+        display: flex;
+        justify-content: center;
+        /*
+            a는 display;flex임 . flex는 절대 text-align;center로 정렬이 안됨
+            가운데로 정렬하기 위해서는 감싸는 요소또한 display;flex로 가운데 정렬을 줘야함
+        */
+    }
+    .news .more a{
+        margin: 6px 0 0 0;/*li자체에 여백이 있으니 나머지 여백을 a 에다가 줌*/
+        justify-content: space-between;
+        align-items: center;
+        /*a영역 안에서 위아래 가운데, span은 왼쪽끝, i는 오른쪽끝으로 배치*/
+        width: 96px;
+        height: 21px;
+        border-bottom: 1px solid #666;        
+    }
+    .news .more a span{
+        margin: 0;
+    }
+    .news .more a i{
+        font-size: 15px;
+    }
+}
+
+.link{
+    height: 375px;
+    margin: 115px 0 0 0;
+    background: url(../images/main/link_bg.png) no-repeat center center/cover;
+}   
+.link h2{
+    padding: 75px 0 35px 0;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1.3;
+    color: #FFF;
+}
+.link h2 span{
+    display: block;/*pc 에서만 줄바꿈*/
+}
+.link ul{
+    display: flex;
+    justify-content: space-between;
+}
+.link ul li{
+    width: 440px;
+    background-color: #FFF;
+    transition: 0.2s;/*li에 효과가 들어갈거라고 숫자(초)를 줌*/
+}
+.link ul li a{
+    display: flex;
+    align-items: center;
+    height: 95px;
+}
+.link ul li a i{
+    margin: 0 26px 0 51px;/*아이콘과 옆에 글씨사이 여백(위아래는 여백 주지않음)*/
+    font-size: 40px;
+}
+.link ul li a h3{
+    font-size: 20px;
+    font-weight: 700;
+}
+.link ul li a p{
+    color: #666;
+}
+/*
+    li에 마우스를 오버했을때 
+    li가 왼쪽상단으로 통째로 이동하고 그림자 효과
+
+    -->마우스 오버나 스크롤을 내릴때 
+       object에 효과를 줄때(위치가 이동되는), 
+       반드시 다른 요소에 영향을 끼치는 속성으로 조정하면 안됨(margin/padding 사용 못함)
+       transform:translate(위아래값,좌우값)
+       이나, position같은 값을 줘야함
+*/
+.link ul li:hover{
+    transform: translate(-10px,-10px);
+    box-shadow: 20px 20px 20px rgba(0,0,0,0.2);
+}
+@media screen and (max-width:640px){
+    .link{
+        height: auto;
+        margin: 75px 0 0 0;
+        padding: 0 0 95px 0;
+    }   
+    .link h2{
+        padding: 87px 0 53px 0;
+        font-size: 20px;
+        line-height: 1.25;
+    }
+    .link h2 span{
+        display: inline;/*mobile에서 강제줄바꿈 없음*/
+    }
+    .link ul li{
+        width: calc(33.33% - 11px);
+        /*
+            li와 li 사이에 여백이 들어간경우
+             1. width를 대충 2개라면 여백 빼고 48% (3개면 31%) 정도줌
+                -나머지는 여백으로 들어감
+                -브라우저 사이즈에 따라 여백과 li의 넓이가 변동
+             2. 여백을 고정으로 주고자 할때(li의 넓이만 변경)(위에 계산값)
+                width에 계산 calc
+                li가 3개라면 100/3=33.33%
+                li사이 여백의 합(16px + 16px = 32px) /li의 갯수로 나눔
+                = 1개의 li가 감당해야하는 여백이 11px
+                width:calc(33.33% - 11px)
+        */
+    }
+    .link ul li a{
+        flex-direction: column;/*컨텐츠 안에 있는 내용을 위아래 배치*/
+        height: 112px;/*li들이 좌우로 배치되면, 모바일이더라도 높이값을 줘야함*/
+    }
+    .link ul li a i{
+        margin: 17px 0 10px 0;/*아이콘과 옆에 글씨사이 여백(위아래는 여백 주지않음)*/
+        font-size: 30px;
+    }
+    .link ul li a h3{
+        display: none;
+    }
+    .link ul li a p{
+        padding: 0 12px;
+        text-align: center;
+    }
+    .link ul li a p span{
+        display: block;/*모바일에서 강제적으로 줄바꿈*/
+    }
+    /*
+        li에 마우스를 오버했을때 
+        li가 왼쪽상단으로 통째로 이동하고 그림자 효과
+    
+        -->마우스 오버나 스크롤을 내릴때 
+           object에 효과를 줄때(위치가 이동되는), 
+           반드시 다른 요소에 영향을 끼치는 속성으로 조정하면 안됨(margin/padding 사용 못함)
+           transform:translate(위아래값,좌우값)
+           이나, position같은 값을 줘야함
+    */
+    .link ul li:hover{
+        transform: translate(-10px,-10px);
+        box-shadow: 20px 20px 20px rgba(0,0,0,0.2);
+    }
 }
