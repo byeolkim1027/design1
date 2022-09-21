@@ -166,3 +166,7 @@
       초기에 컨텐츠가 없으면 header/footer 에 열리는 컨텐츠가 짤린는 현상이 발생한다
       그래서 최소 높이를 주고 시작함*/
 }
+.container .sub_tit h2{
+    font-size: 50px;
+    font-weight: 700;
+}
