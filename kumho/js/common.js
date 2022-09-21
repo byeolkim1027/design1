@@ -95,4 +95,18 @@ $(document).ready(function(){
             }
             
         })
-})
+
+        /*
+            .footer .family .btn_open 을 클릭하면
+            .footer .family 에 .open 클래스 추가
+            .footer .family .btn_close 를 클릭하면
+            .footer .family 에서 .open 클래스 삭제 
+        */
+       $('.footer .family .btn_open').on('click',function(){
+            $('.footer .family').addClass('open')
+       })
+       $('.footer .family .btn_close').on('click',function(){
+        $('.footer .family').removeClass('open')
+   })
+
+})//document.ready 종료테그

@@ -244,14 +244,16 @@
             </div>
         </section>
         <footer class="footer">
-            <div class="wrapper">
-                    <div class="family">
-                        <div class="inner"><!--모바일버젼에서 가운데 정렬시키기위해서-->
-                            <button class="btn_open" title="그룹사 바로가기 열기"><!--새창으로 이동하는게 아니라, 버튼테그로 한다-->
-                                <span>그룹사 바로가기</span>
-                                <i class="material-symbols-sharp">trending_flat</i>
-                            </button>
-                        </div>
+            <!--wrapper 와 동일한 넓이를 가진 position;relative 가 있는 요소는 
+                cnt_wrap이라고 클래스를 줌-->
+            <div class="wrapper cnt_wrap">
+                <!-- family가 열리면 open 클래스 추가(jqeury)-->
+                <div class="family">
+                    <div class="inner"><!--모바일버젼에서 가운데 정렬시키기위해서-->
+                        <button class="btn_open" title="그룹사 바로가기 열기"><!--새창으로 이동하는게 아니라, 버튼테그로 한다-->
+                            <span>그룹사 바로가기</span>
+                            <i class="material-symbols-sharp">trending_flat</i>
+                        </button>
                         <ul><!--family 사이트는 모두 다른 사이트라서 target="_blank"써줘야함-->
                             <li><a href="#n" target="_blank" title="새창으로 열림">금호고속</a></li>
                             <li><a href="#n" target="_blank" title="새창으로 열림">금호터미널</a></li>
@@ -268,6 +270,15 @@
                             <i class="material-symbols-sharp">close</i>
                         </button>
                     </div>
+                </div>
+                <ul class="f_nav">
+                    <li><a href="#n">제보실</a></li>
+                    <li><a href="#n">고객센터</a></li>
+                    <li><a href="#n">OB사랑방</a></li>
+                    <li><a href="#n">Contact Us</a></li>
+                    <li><a href="#n">개인정보처리방침</a></li>
+                </ul>
+                <div class="copyright">copyright(c) KUMHO E&C ALL RIGHTS RESERVED</div>
             </div>
         </footer>
     </div>
