@@ -82,16 +82,29 @@ $(document).ready(function(){
 
         /*
             1차 메뉴를 클릭해서  
+                ---> li를 클릭할때 실행을 하면 하위메뉴를 클릭할때도 이벤트가 발생
+                     1차 메뉴를 클릭하는것과 하위메뉴를 클릭하는것 구분하기
+                     이 이벤트는 1차메뉴를 클릭할때만 작동해야함
+                     -> 1차메뉴를 클릭하는 이벤트를 1차 메뉴의 a에 줘야함
+                        ---->class는 a를 감싸는 li에 줘야함.
+                        
                 - 닫혀있으면 li에 sub_open 클래스 추가
                 - 열려있으면 li에 sub_open 클래스 삭제
             ---> toggle
-            ---> this(클릭된 자기자신) 
+            ---> this(클릭된 자기자신)
+            
+            <li>                                    --->$(this).parents('li')
+                <a href="#n">1차메뉴</a>            ---> 이벤트 대상 $(this)
+                <ul>
+                    <li><a href="#n">2차메뉴</a></li>
+                </ul>
+            </li>
         */
-        $('.header .gnb>ul>li').on('click', function(e){
+        $('.header .gnb>ul>li>a').on('click', function(e){
             if(pcMobile=='mobile'){
                 e.preventDefault()
                 /* 1차 메뉴를 클릭했을때 a href 로 페이지가 자동으로 이동하는 현상 막기*/
-                $(this).toggleClass('sub_open')
+                $(this).parents('li').toggleClass('sub_open')
             }
             
         })

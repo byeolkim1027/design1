@@ -120,6 +120,11 @@ html,body{
       나머지 값은 여백으로 ul에 margin으로 준다*/
     line-height: 99px;
 }
+/*서브페이지 열었을때 어떤 서브페이지가 열려있는지 표시해줌
+  만약 모바일은 효과가 다르다면 따로 호출해서 0 값을 준다*/
+.header .gnb>ul>li.now>a{
+    font-weight: 700;
+}
 /*:hover 효과를 a 가 아니라 li 전체에 줘야 밑에 하위메뉴에 마우스 오버했을때 그 효과가 지속되기위해서*/
 .header .gnb>ul>li:hover>a{
     font-weight: 700;
@@ -161,6 +166,8 @@ html,body{
     display: block;
     line-height: 2.6;
 }
+/*모바일/ pc 버전에서 어떤 메뉴를 보고있는지 메뉴버튼을 열었을때 보이는효과*/
+.header .gnb>ul>li>ul>li.now>a,
 .header .gnb>ul>li>ul>li>a:hover{
     color: #ED1C24;
 }

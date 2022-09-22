@@ -55,6 +55,11 @@
 }
 
 .lnb{
+    position: relative;
+    z-index: 90;
+    /*헤더보다(100값)보다는 적은값을 주고 다른
+      컨텐츠보다는 올라와야해서 값을 90을줌
+      컨텐츠에 z-index를 주면 절대 90이상을 주면 안됨*/
     height: 50px;
     line-height: 50px;
     /*높이가 제한되고 요소들이 좌우로 배치되어있는 디자인은 
@@ -91,7 +96,7 @@
     align-items: center;
     /*button 안에 있는 span과 i 테그를 좌우끝/위아래 가운데 에 배치*/
     width: 100%;
-    padding: 0px 23px;
+    padding: 0 23px;
 }
 .lnb .menu .depth button i{
     font-size: 20px;
@@ -102,14 +107,14 @@
     left: 0;
     top: 50px;
     width: 100%;
-    padding: 14px 0 14px 0;
+    padding: 14px 0;
     background-color: #FFF;
     box-shadow: 0 5px 10px rgba(0,0,0,0.1);
     color: #3d3d3d;
 }
 .lnb .menu .depth ul li a{
     display: block;
-    padding: 0 0 0 23px;
+    padding: 0 0 0 23px;/*a의 버튼이 잘 클릭되야해서 왼쪽여백을 준다(위아래 여백은 ul자체에 준다)*/
     line-height: 2.5;/*행간을 lnb 자체에서 상속받아서 다시 원래디자인대로 줘야함*/
 }
 .lnb .menu .depth ul li.now a,
@@ -144,7 +149,7 @@
     text-align: center;
 }
 .lnb .lnb_btn ul li:last-child{
-    border-right: 1px solid rgba(255,255,255,0.5);;
+    border-right: 1px solid rgba(255,255,255,0.5);
 }
 .lnb .lnb_btn ul li button{
     width: 100%;
@@ -158,6 +163,78 @@
 .lnb .lnb_btn ul li button i{
     margin: 13px 0 0 0;
 }
+@media screen and (max-width:640px){
+    .lnb{
+        height: 35px;
+        line-height: 35px;
+        /*높이가 제한되고 요소들이 좌우로 배치되어있는 디자인은 
+          높이만큼 행간을 줌*/
+    }
+    .lnb .wrapper{
+        margin: 0;/*wrapper의 기본 여백을 lnb에서는 삭제(메뉴bar가 화면 꽉차게 들어가야해서)*/
+    }
+    .lnb .menu{
+        width: calc(100% - 35px);/* calc(100% - lnb_btn값)*/
+    }
+    .lnb .menu .home{
+        width: 35px;
+        border-left: 0;
+    }
+    .lnb .menu .home i{
+        margin: 8px 0 0 0;
+        font-size: 20px;
+    }
+    /*
+            home - 35px
+            1차메뉴 depth
+            2차메뉴 depth
+        lnb_btn - 35px
+
+        lnb_wrap - 100%
+            - menu 100% - 35px
+                -자식에게는 menu의 넓이가 100%
+                -home 35px 고정
+                -depth 1차메뉴 : (100% - 35px) 의 절반
+                -depth 2차메뉴
+            - lnb_btn 35px 고정
+
+        home, lnb_btn 의 넓이는 고정
+        depth 의 넓이는 가변 - 전체넓이(100%)에서 home, lnb_btn 의 넓이를 뺀 나머지의 절반씩
+    */
+    .lnb .menu .depth{
+        width: calc((100% - 35px) / 2)
+        /*menu는 벌써 위에서 lnb_btn값을 빼놨으니까
+          calc((100% - home의 값) / depth 의 갯수)*/
+    }
+    .lnb .menu .depth button{
+        padding: 0 15px 0 21px;
+    }
+    .lnb .menu .depth ul{
+        top: 35px;
+        padding: 10px 0;
+    }
+    .lnb .menu .depth ul li a{
+        padding: 0 0 0 22px;
+        line-height: 2.3;/*행간을 lnb 자체에서 상속받아서 다시 원래디자인대로 줘야함*/
+    }
+    .lnb .lnb_btn ul li.print{
+        display: none;
+    }
+    .lnb .lnb_btn ul li{
+        width: 35px;
+        border-left: 0;
+    }
+    .lnb .lnb_btn ul li:last-child{
+        border-right: 0;
+    }
+    .lnb .lnb_btn ul li button{
+        height: 35px;/*lnb 높이값을 같이 준다*/
+    }
+    .lnb .lnb_btn ul li button i{
+        margin: 8px 0 0 0;
+        font-size: 20px;
+    }
+}
 
 .container{
     min-height: 300px;
@@ -166,7 +243,25 @@
       초기에 컨텐츠가 없으면 header/footer 에 열리는 컨텐츠가 짤린는 현상이 발생한다
       그래서 최소 높이를 주고 시작함*/
 }
+.container .sub_tit{
+    margin: 100px 0 75px 0;
+}
 .container .sub_tit h2{
     font-size: 50px;
     font-weight: 700;
+}
+.container #contents{
+    margin: 0 0 150px 0;
+}
+@media screen and (max-width:640px){
+    .container .sub_tit{
+        margin: 28px 0 22px 0;
+    }
+    .container .sub_tit h2{
+        font-size: 30px;
+        text-align: center;
+    }
+    .container #contents{
+        margin: 0 0 89px 0;
+    }
 }
