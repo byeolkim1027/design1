@@ -1,0 +1,228 @@
+@import url('default.css');
+
+.visual{
+    color: #FFF;
+    height: 800px;
+    width: 100%;
+}
+.visual .colgroup1{
+    float: right;
+    margin: 0 0 0 50%;
+    background: url(../images/visual_bg01.png) no-repeat center center/cover;
+}
+.visual .colgroup2{
+    float: left;
+    margin: 0 50% 0 0 ;
+    background: url(../images/visual_bg02.png) no-repeat center center/cover;
+    text-align: left;
+}
+
+.social{
+    background: url(../images/social_bg.png) no-repeat center center/cover;
+    color: #FFF;
+    height: 800px;
+    text-align: center;
+}
+.social .tit{
+    padding: 207px 0 70px 0;
+}
+.social .tit strong{
+    position: relative;
+    font-weight: 700;
+}
+.social .tit strong::before{
+    position: absolute;
+    left: 0;
+    top: -5px;
+    width: 56px;
+    height: 1px;
+    background-color: #FFF;
+    content: "";
+}
+.social .tit h2{
+    margin: 11px 0 6px 0;
+    font-size: 50px;
+    font-weight: 700;
+}
+.social .tit p span{
+    display: block;
+}
+.social ul{
+    display: flex;
+    justify-content: space-evenly;
+}
+.social ul li a{
+    display: block;
+}
+.social ul li a i{
+    display: block;
+    font-size: 50px;
+    font-weight: 300;
+}
+.social ul li a strong{
+    display: block;
+    margin: 8px 0 0 0;
+    font-size: 17px;
+    font-weight: 400;
+}
+@media screen and (max-width:640px){
+    .social{
+        height: auto;
+    }
+    .social .tit{
+        padding: 71px 0 42px 0;
+    }
+    .social .tit strong::before{
+        top: -3px;
+        width: 48px;
+    }
+    .social .tit h2{
+        margin: 9px 0 6px 0;
+        font-size: 25px;
+    }
+    .social .tit p span{
+        display: none;
+    }
+    .social ul{
+        display: flex;
+        justify-content: space-between;
+        padding: 0 0 89px 0;
+    }
+    .social ul li{
+        width: 18%;
+    }
+    .social ul li a i{
+        display: block;
+        font-size: 30px;
+    }
+    .social ul li a strong{
+        display: block;
+        margin: 5px 0 0 0;
+        font-size: 13px;
+    }
+}
+
+.recruit{
+    background: url(../images/recurit_bg.png) no-repeat center center/cover;
+    color: #FFF;
+    height: 800px;
+}
+.recruit .tit{
+    padding: 136px 0 83px 0;
+    text-align: center;
+}
+.recruit .tit strong{
+    position: relative;
+    font-weight: 700;
+}
+.recruit .tit strong::before{
+    position: absolute;
+    left: 0;
+    top: -5px;
+    width: 56px;
+    height: 1px;
+    background-color: #FFF;
+    content: "";
+}
+.recruit .tit h2{
+    margin: 11px 0 6px 0;
+    font-size: 50px;
+    font-weight: 700;
+}
+.recruit ul li{
+    float: left;
+    width: 230px;
+    color: #3D3D3D;
+    margin: 0 20px 0 0;
+    background-color: #FFF;
+}
+.recruit ul li a{
+    display: block;
+    height: 316px;
+    padding: 51px 51px 60px 30px;
+}
+.recruit ul li a .subject{
+    display: block;
+    font-size: 25px;
+    font-weight: 700;
+}
+.recruit ul li a .cnt{
+    display: block;
+    margin: 25px 0 56px 0;
+}
+.recruit ul li:first-child{
+    width: 510px;
+    margin: 0 40px 0 0;
+    color: #FFF;
+}
+.recruit ul li:last-child{
+    margin-right: 0;
+}
+.recruit ul li.hiring{
+    background: url(../images/recruit01.png) no-repeat center center/cover
+}
+.recruit ul li a .more{
+    display: block;
+    width: 91px;
+    height: 22px;
+    line-height: 22px;
+}
+.recruit ul li a .more span{
+    float: left;
+}
+.recruit ul li a .more i{
+    float: right;
+    margin: 3px 0 0 0;
+    font-size: 16px;
+}
+@media screen and (max-width:640px){
+    .recruit{
+        height: auto;
+    }
+    .recruit .tit{
+        padding: 70px 0 23px 0;
+    }
+    .recruit .tit strong::before{
+        top: -3px;
+        width: 48px;
+    }
+    .recruit .tit h2{
+        margin: 10px 0 6px 0;
+        font-size: 25px;
+    }
+    .recruit ul li{
+        float: left;
+        width: 31%;
+        color: #3D3D3D;
+        margin: 0 16px 0 0;
+    }
+    .recruit ul li a{
+        display: block;
+        height: 60px;
+        padding: 20px 20px;
+    }
+    .recruit ul li a .subject{
+        font-size: 20px;
+    }
+    .recruit ul li a .cnt{
+        display: none;
+    }
+    .recruit ul li:first-child{
+        width: auto;
+        height: 146px;
+        margin:  0 0 16px 0;
+    }
+    .recruit ul li:first-child a{
+        padding: 22px 132px 29px 20px;
+    }
+    .recruit ul li:first-child a .cnt{
+        display: block;
+    }
+    .recruit ul li:last-child{
+        margin-right: 0;
+    }
+    .recruit ul li a .more{
+        display: none;
+    }
+
+}
