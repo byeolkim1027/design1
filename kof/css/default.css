@@ -3,7 +3,7 @@
 
 
 /*브라우저에서 기본으로 제공하는 모든여백을 빼주는 테그*/
-body,header,footer,div,p,nav,section,h1,h2,h3,h4,h5,h6,button,a,ol,ul,li,address,strong,span,em,i,dl,dt,dd{
+body,header,footer,div,p,nav,section,h1,h2,h3,h4,h5,h6,button,a,ol,ul,li,address,strong,span,em,i,dl,dt,dd,form,fieldset,legend,input,textarea,select{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -23,11 +23,8 @@ em,address{
 ul,ol,li{
     list-style: none;
 }
-button{
-    background-color: transparent;/*뒷배경이 투명하게*/
-    /*none 는 background 라고 줘야한다*/
-    /* background: none; */
-    border: 0;
+/* form 테그가 문자스타일을 상속받지 않아서 강제로 상속받게 하기 */
+form,input,select,textarea,button{
     color: inherit;
     font-family: inherit;
     font-size: inherit;
@@ -36,6 +33,17 @@ button{
     letter-spacing: inherit;
     /*서체를 상속받아야함- button 은 body에서 
       적용한 서체를 상속받지 않음- form 관련테그는 모두다그럼*/
+}
+fieldset{
+    border: 0;
+}
+legend{
+    display: none;/* form 테그의 legend는 타이틀로 숨김처리 */
+}
+button{
+    background-color: transparent;/*뒷배경이 투명하게*/
+    /*none 는 background 라고 줘야한다*/
+    /* background: none; */
+    border: 0;
     cursor: pointer;/*마우스오버시에 손바닥모양으로 바꿔줌*/
-
 }
