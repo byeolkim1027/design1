@@ -15,7 +15,7 @@ html,body{
     word-break: keep-all;/*단어별 줄바꿈*/
 }
 #wrap{/*id="wrap"*/
-    overflow-x: hidden;
+    overflow: hidden;
     /*header의 기준점이 되야 헤더가 정확한 위치에 배열이 된다
       윈도우 사이즈가 줄어들었을때 스크린 크기에 따라 헤더가 따라오는게 아니라
       1400이전으로 사이즈가 줄어들면 가로스크롤바가 생기면서 원래 위치인 제일 오른쪽에있는
@@ -54,4 +54,257 @@ html,body{
     position: relative;
 }
 
+.header {
+    position: absolute;/*visual 위에 메뉴가겹쳐서 올라와야 하기때문에*/
+    left: 0;
+    top: 0;
+    z-index: 300;
+    /*
+        header와 서브메뉴(lnb)와 footer에서 pull down 메뉴가 중복될때
+        header 가 제일 위로 올라와야해서 제일 높은숫자
+        header - 300
+        lnb - 200
+        footer - 100
+    */
+    width: 100%;
+    height: 100px;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    color: #FFF;    
+}
+.header .logo{
+    float: left;
+    margin: 32px 0 0 50px;
+}
+.header .logo a{
+    display: block;
+    width: 163px;
+    height: 36px;
+    background-image: url(../images/common/logo_w.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain; /*정해진 사이즈에 꽉차게 이미지가 들어가야해서contain을준다*/
+    font-size: 0;
+    line-height: 0;
+}
+@media screen and (min-width:641px){
+    /* 브라우저사이즈를 641 이상에서만 적용하는 스타일 
+        pc와 mobile 의 스타일을 아예 따로 두는값*/
+    .header .gnb{
+        float: right;
+        margin: 0 36px 0 0;
+    }
+    .header .gnb .gnb_open{/*모바일에서보이는 메뉴 아이콘*/
+        display: none;
+    }
+    .header .gnb .gnb_close{/*모바일에서보이는 close 아이콘*/
+        display: none;
+    }
+    .header .gnb>ul>li{
+        float: left;
+        width: 195px;
+    }
+    .header .gnb>ul>li>a{/*1차메뉴*/
+        display: block;
+        line-height: 100px;/*header와 같은 행간을 줘서 잘 눌리게(헤더의 중간정렬되게)*/
+        font-size: 20px;
+        text-align: center;
+    }
+    .header .gnb>ul>li{
+        position: relative;/*2차메뉴 정렬의 기준*/
+    }
+    .header .gnb>ul>li>ul{/*2차메뉴*/
+        display: none;
+        position: absolute;/*있다가 없다가 하는 요소들은 absolute 가 필요함*/
+        left: 0;
+        top: 100px;/*header의 높이값부터 시작/1차메뉴 높이*/
+        width: 100%;
+        height: 480px;/*.header.menu_open::before높이값 (580px) - 1차메뉴 높이값(100px)*/
+        padding: 25px 0 0 0;/*위쪽만 여백을 패딩으로 주고, 좌우는 a 한테 줘야함*/
+        border-left: 1px solid #ededed;
+    }
+    .header .gnb>ul>li>ul>li{
+        position: relative;
+    }
+    .header .gnb>ul>li>ul>li>a{
+        display: block;
+        padding: 0 0 0 25px;/*a 영역이 잘 눌리게 ul 전체 말고 a 각각에 여백을 줘야한다*/
+        line-height: 3;
+    }
+    /*마우스 오버했을때*/
+    .header .gnb>ul>li:hover>a{/*1차메뉴에 마우스오버시*/
+        color: #006CB7;
+        font-weight: 700;
+    }
+    .header .gnb>ul>li:hover>ul{
+        background-color: #006CB7;
+        color: #FFF;
+    }
+    .header .gnb>ul>li>ul>li>a:hover{
+        font-weight: 700;
+    }
+}/*gnb의 pc 스타일*/
 
+/*header가 고정됬을때 & 메뉴가 열렸을때*/
+.header.fixed{
+    position: fixed;
+    /* 무조건 body와만 정렬- 넓이 100% 여도 - 1400px 이하에서 window넓이만큼만 인식해서 깨짐*/
+    min-width: 1400px;/*최소넓이*/
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    background-color: #fff;
+}
+.header.fixed,.header.menu_open{
+    color: #3d3d3d;    
+}
+.header.fixed .logo a,.header.menu_open .logo a{
+    background-image: url(../images/common/logo.svg);
+}
+.header.menu_open::before{/*메뉴 열렸을때 뒤에 배경*/
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    /*position 유무에 따라서 position값을 가지고 있는게 무조건 위에 나타난다 
+        이때 position값을 가지고있는 요소를 position값을 가지고 있지 않는 요소 아래로 내리는 방법은
+        z-index: -1 을 주면 일반요소 밑에 깔리게 된다*/
+    width: 100%;
+    height: 580px;
+    background-color: #FFF;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);/*메뉴가 스크롤 되서 내려와도 흰색배경이랑 구분되 보이게*/
+    content: "";
+}
+.header.menu_open::after{/*1차메뉴 밑에있는 border line*/
+    position: absolute;
+    left: 0;
+    top: 100px;
+    width: 100%;
+    height: 1px;
+    background-color: #ededed;
+    content: "";
+}
+.header.menu_open .gnb>ul>li>ul{/*2차메뉴보임*/
+    display: block;
+}
+@media screen and (max-width:640px){
+    .header {
+        height: 60px; 
+    }
+    .header .logo{
+        margin: 19px 0 0 20px;
+    }
+    .header .logo a{
+        width: 98px;
+        height: 22px;
+    }
+    .header .gnb{
+        float: right;/*gnb 영역이 많이 잡혀서 오른쪽으로 보내야 영역충돌이 안되고 로고가 잘클릭된다*/
+        overflow-y: auto;/*모바일 메뉴가 길어지면 메뉴가 스크롤 되도록 하는값*/
+    }
+    .header .gnb button{/*open 버튼 close버튼 동시에 들어가야하니까 감싸고있는 button 테그에 준다*/
+        height: 60px;/*모바일의 header높이*/
+        padding: 0 20px;/*위아래는 height으로 영역을 잡아주고 좌우는 padding 으로 준다*/
+    }
+    .header .gnb button span{
+        display: none;/*웹표준때문에 써놨던 설명글자 숨기기*/
+    }
+    .header .gnb button i{
+        font-size: 20px;
+    }
+    .header .gnb>ul{
+        display: none;
+        margin: 70px 20px 50px 20px;/*메뉴 전체목록의 여백*/
+    }
+    .header .gnb>ul>li{
+        border-top: 1px solid #ededed;
+    }
+    .header .gnb>ul>li:last-child{
+        border-bottom: 1px solid #ededed;
+    }
+    .header .gnb>ul>li>a{
+        display: block;
+        position: relative;/* 아이콘 정렬 기준점 */
+        padding: 0 0 0 20px;
+        font-size: 20px;
+        line-height: 3;
+    }
+    .header .gnb>ul>li>a::after{/*1차메뉴 뒤에 있는 아이콘 구현하기*/
+        position: absolute;
+        right: 0;
+        top: 23px;
+        color: #ccc;
+        font-size: 15px;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        display: inline-block;
+        font-style: normal;
+        font-variant: normal;
+        line-height: 1;
+        text-rendering: auto;
+        font-weight: 900;
+        font-family: "Font Awesome 6 Free";
+        content: "\f107";
+    }
+    .header .gnb>ul>li>ul{
+        padding: 28px 0;
+        background-color: #006CB7;
+        color: #FFF;
+    }
+    .header .gnb>ul>li>ul{
+        display: none;
+    }
+    .header .gnb>ul>li>ul>li>a{
+        display: block;
+        padding: 0 0 0 40px;/**/
+        font-size: 15px;
+        line-height: 2.5;
+    }
+    .header .gnb .gnb_close{
+        display: none;
+        position: fixed;/*모바일에서 메뉴를 내렸을때 X close 하는 아이콘이 따라 내려올수있게*/
+        right: 0;
+        top: 0;
+        color: #3d3d3d;
+    }
+    /*서브메뉴가 열렸을때*/
+    .header .gnb>ul>li.sub_open>a{/*1차메뉴가 열렸을때*/
+        color: #006CB7;
+        font-weight: 700;
+    }
+    .header .gnb>ul>li.sub_open>a::after{
+        color: #006CB7;
+        content: "\f106";
+    }
+    .header .gnb>ul>li.sub_open>ul{/*2차메뉴 보임*/
+        display: block;
+    }
+    /*메뉴가 열렸을때*/
+    .header.menu_mobile .gnb{
+        position: fixed;
+        /*
+            fixed는 무조건 body랑만 정렬함
+            absolute 를 주게되면 header 높이인 60px로만 꽉차게 들어감
+        */
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #FFF;
+        color: #1d1d1d;
+    }
+    .header.menu_mobile .gnb .gnb_open{
+        display: none;
+    }
+    .header.menu_mobile .gnb>ul{/* ">"이 부호를 써야 딱 저 테그한테만 block 요소를 준다*/
+        display: block;
+    }
+    .header.menu_mobile .gnb .gnb_close{
+        display: block;
+    }
+
+    /*header 고정*/
+    .header.fixed{
+        min-width: 350px;/*모바일 버전 wrap의최소넓이*/
+    }
+    .header.fixed,.header.menu_open{
+        color: #3d3d3d;    
+    }
+}/*header 모바일 스타일*/

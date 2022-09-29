@@ -126,3 +126,135 @@
         font-size: 13px;
     }
 }
+
+.part{
+    margin: 90px 0 0 0;
+    /*h2가 아니라 전체 part에게 상단여백을 준다
+        전체가 움직여야 하고, "더보기"처럼 absolute 가 들어가는거때문에*/
+}
+.part h2{
+    position: relative;
+    margin: 0 0 40px 0;
+    /*h2와 ul사이의 여백은 웬만하면 h2한테 준다
+      상단 여백은 h2 말고 part 전체 섹션에 여백을 준다*/
+    font-size: 40px;
+    font-weight: 700;
+    color: #1d1d1d;
+}
+.part h2::before{
+    position: absolute;
+    left: 6px;
+    top: 0;
+    width: 43px;
+    height: 3px;
+    background-color: #1d1d1d;
+    content: "";
+}
+.part .list ul{
+    /*(li 넓이 =440px + 여백=40px + li의 갯수=5) = 2400px*/
+    width: 2400px;/*모든 li의 넓이값+여백을 포함한 넓이*/
+    margin-left: -480px;/*li 하나의 넓이(440px) + 여백(40px)= -minus로 값을 준다*/
+    /*왼쪽으로 li들을 영역 밖으로 넘어가게 하기위해서*/
+}
+.part .list ul li{
+    float: left;
+    width: 440px;
+    margin: 0 40px 0 0;
+}
+.part .list ul li a{
+    display: block;
+}
+.part .list ul li a .pic{
+    overflow: hidden;/*마우스 오버했을때 이미지가 확대되는데 영역밖으로 나가지 않도록*/
+    font-size: 0;/*img테그를 글자로 인식해서 이미지 하단에 발생하는 조그마한 여백 없앰*/
+    line-height: 0;
+}
+.part .list ul li a h3{
+    margin: 10px 0 20px 0;
+    font-size: 20px;
+    font-weight: 700;
+}
+.part .list ul li a p{/*2줄 고정*/
+    line-height: 1.5;
+    height: 3em;
+    overflow: hidden;
+}
+.part .list ul li a .pic img{
+    width: 100%;/*임의로 사이즈에 맞게 pc와 mobile 동시에 꽉차게 들어가게끔 하는 효과*/
+    transition: 0.5s;/*마우스 효과가 들어가기전에 부드럽게 효과주는값*/
+}
+/*마우스 오버했을때*/
+.part .list ul li a:hover .pic img{
+    transform: scale3d(1.2,1.2,1);
+}
+.part .more{
+    position: absolute;
+    right: 0;
+    top: 15px;
+    display: flex;/*span 따로 i 따로 좌우 양옆으로 주는값*/
+    justify-content: space-around;
+    align-items: center;
+    width: 152px;/*감싸는 배경 혹은 보더가 있을때만 높이넓이값을 준다*/
+    height: 40px;
+    background-color: #ededed;
+    border-radius: 20px;
+}
+.part .more i{
+    color: #666;
+    font-size: 15px;
+}
+@media screen and (max-width:640px){
+    .part{
+        margin: 40px 0 0 0;
+        /*h2가 아니라 전체 part에게 상단여백을 준다
+            전체가 움직여야 하고, "더보기"처럼 absolute 가 들어가는거때문에*/
+    }
+    .part h2{
+        margin: 0 0 28px 0;
+        /*h2와 ul사이의 여백은 웬만하면 h2한테 준다
+          상단 여백은 h2 말고 part 전체 섹션에 여백을 준다*/
+        font-size: 20px;
+        line-height: 1.2;
+    }
+    .part h2::before{
+        left: 4px;
+        top: -5px;
+        width: 21px;
+    }
+    .part .list{/*ul을 감싸는 .list에 이 값을 줘야 li 들이 옆으로 움직이게 하는값*/
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding-bottom: 10px;/*스크롤바가 글자(p테그)랑 겹치는걸 막기위해서 */
+    }
+    .part .list ul{
+        /*(li 넓이 =207px + 여백=16px * li의 갯수=5) = 1115px - 마지막 li여백값 16px = 1099px*/
+        width: 1099px;/*모든 li의 넓이값+여백을 포함한 넓이*/
+        margin-left: 0;/*pc와 다르게 왼쪽으로 넘어가는거 없이 1번째 li부터 시작*/
+    }
+    .part .list ul li{
+        width: 207px;
+        margin: 0 16px 0 0;
+    }
+    .part .list ul li:last-child{
+        margin-right: 0;
+    }
+    .part .list ul li a h3{
+        margin: 10px 0 5px 0;
+        font-size: 17px;
+    }
+    .part .more{
+        top: 3px;
+        justify-content: center;
+        width: 20px;/*감싸는 배경 혹은 보더가 있을때만 높이넓이값을 준다*/
+        height: 20px;
+        border: 1px solid #666;
+        background-color: transparent;
+        border-radius: 10px;
+    }
+    .part .more span{
+        display: none;/*"더보기" 글자 숨기기*/
+    }
+    .part .more i{
+        font-size: 10px;
+    }
+}
