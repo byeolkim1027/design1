@@ -308,3 +308,27 @@ html,body{
         color: #3d3d3d;    
     }
 }/*header 모바일 스타일*/
+
+/*common.css 모든 페이지에서 호출 
+  .top 이라고만 클래스를 주고 호출을 하면 다른컨텐츠에서 top 이라고 클래스명을 주면 해당 스타일이 적용됨
+  --> 유일 무이한 클래스 이름을 주던가
+  --> aside 라는 테그 + 흔한 테그 이름 붙혀서 사용*/
+aside.top{
+    display: none;/*스크롤을 내리면 보이게 하려고 처음엔 안보이게 한다(jqauery로 보이게함)*/
+    position: fixed;
+    right: 35px;
+    bottom: 150px;
+    z-index: 250;/*foot값:300 heaer값:100 그 위로 올라와야 하니까 그 중간값인 250을준다*/
+}
+aside.top button{/*눌려야해서 top말고 button 자체에 사이즈를 준다*/
+    width: 40px;
+    height: 40px;
+    background-color: #0051A7;
+    color: #FFF;
+}
+aside.top span{
+    display: none;
+}
+aside.top i{
+    font-size: 16px;
+}

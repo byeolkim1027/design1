@@ -722,13 +722,30 @@
         float: none;
         width: auto;
         margin: 0 0 10px 0;
+        /* !!좌우로 똑같이 들어가면!!
+            
+            .banner ul li
+            float:left 유지
+            [li 와 li 사이 중간여백의 합 = 16px / li 의 수]
+            width: calc(50% - 8px)
+            margin: 0 0 10px 0
+
+            .banner ul li a
+            padding: 위쪽만 값을 준다
+            text align : center
+
+            .banner ul li a i
+            position : absolute -> relative 
+            top : auto
+            right: auto -> 해제 값
+        */
     }
     .banner ul li:last-child{
         margin-bottom: 0;
     }
     .banner ul li a{
-        height: 95px;/*ul li의 높이를 가져와야함*/
-        padding: 20px 0 0 20px;/*li한테 주면 안됨 무조건 a 한테 여백을 줘야함*/
+        height: auto;/*반드시 모바일에서 높이를 풀어줘야함(밑에 여백은 패딩으로줘야함)*/
+        padding: 20px 0 20px 20px;/*li한테 주면 안됨 무조건 a 한테 여백을 줘야함*/
     }
     .banner ul li a i{
         display: none;
