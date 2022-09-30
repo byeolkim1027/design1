@@ -203,6 +203,13 @@
     color: #666;
     font-size: 15px;
 }
+.part .more:hover{
+    background-color: #003D92;
+    color: #FFF;
+}
+.part .more:hover i{
+    color: rgba(255,255,255,0.6);
+}
 @media screen and (max-width:640px){
     .part{
         margin: 40px 0 0 0;
@@ -256,5 +263,227 @@
     }
     .part .more i{
         font-size: 10px;
+    }
+}
+
+.notice{
+    height: 550px;
+    /* 가장 큰 요소인 "공지사항 > 리스트"가 absolute임 그래서 다 겹쳐짐
+        절대 높이를 알수가 없으니, 제일 큰 요소인 notice가 높이를 준다 */
+    margin: 90px 0 0 0;
+}
+.notice ul.notice_wrap{
+    position: relative;/*.detail 과 .more 의 정렬의 기준점*/
+}
+.notice ul.notice_wrap>li{
+    float: left;
+    margin: 0 50px 0 0;
+}
+.notice ul li h2{/*기본값은 색이 연한걸로 준다 왜냐면 마우스 오버됬을때 색이 진하게 되기때문(탭)*/
+    color: #999;
+    font-size: 40px;
+    font-weight: 700;
+}
+.notice ul li.active h2{
+    position: relative;
+    color: #1d1d1d;
+}
+.notice ul li.active h2::before{
+    position: absolute;
+    left: 6px;
+    top: 0;
+    width: 43px;
+    height: 3px;
+    background-color: #1d1d1d;
+    content: "";
+}
+.notice ul li .detail{
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100px; /*밑에 있는 ul li (list) 들이 상단에서(공지사항/보도자료)부터 떨어지는값 */
+    width: 100%;
+}
+.notice ul li.active .detail{
+    display: block;
+}
+.notice ul li .detail ul{
+    /* 모든 li 넓이(440px) + 여백(40px) * li의 숫자(5개)*/
+    width: 2400px;
+    margin-left: -480px;/*하나의 li 와 여백값을 마이너스로 주면 왼쪽으로 li가 넘어간다*/
+}
+.notice ul li .detail ul li{/*li 를감싸고 있는 박스 사이즈 색깔*/
+    float: left;
+    width: 440px;
+    margin: 0 40px 0 0;
+    border-width: 1px;/*마우스 오버했을때 배경색이 바뀌기때문에 따로따로 선언한다*/
+    border-style: solid;
+    border-color: #ddd;
+    transition: transform 0.3s;
+    /*
+        li에 마우스 오버 효과가 들어갈거라서 미리 준다
+        transition 자연스럽게 변하는 효과
+            - 하나의 속성에만 적용 (속성명 초수)
+    */
+}
+.notice ul li .detail ul li a{
+    display: block;
+    height: 360px;/*li의 높이값만 가져야 같은 a가 잘눌리게끔 구성이 짜여진다*/
+    padding: 40px 30px 0 30px;/*박스와 안에있는내용물 사이의 여백*/
+}
+.notice ul li .detail ul li a .date{
+    display: block;
+    color: #666;
+}
+.notice ul li .detail ul li a h3{
+    margin: 25px 0 15px 0;
+    font-size: 20px;
+    font-weight: 700;
+    /* 무조건 2줄수 제한*/
+    overflow: hidden;
+    line-height: 1.5;
+    height: 3em;
+}
+.notice ul li .detail ul li a p{
+    margin: 0 0 70px 0;
+    /*무조건 3줄 제한*/
+    overflow: hidden;
+    line-height: 1.5;
+    height: 4.5em;
+}
+.notice ul li .detail ul li a .btn{
+    display: flex;
+    align-items: center;
+    color: #666;
+}
+.notice ul li .detail ul li a .btn i{
+    margin: 0 0 0 25px;
+    font-size: 12px;
+}
+
+/*공지사항에 마우스 오버 했을때*/
+.notice ul li .detail ul li:hover{
+    border-color: #003D92;
+    background-color: #003D92;
+    color: #FFF ;
+    /*오버했을때 li가 왼쪽상단으로 이동
+        - 다른요소에 영향을 끼치면 안됨*/
+    transform: translate(-10px,-10px);/*(좌우,상하)*/
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.1);/*(x값, y값, blur값, 색값)*/
+}
+/*만약에 위쪽에서 색이나 스타일을 따로 준게 있다면 똑같이 호출해서 또 한번더 바꿔준다*/
+.notice ul li .detail ul li:hover a .date{
+    color: rgba(255,255,255,0.6)
+}
+.notice ul li .detail ul li:hover a .btn{
+    color: rgba(255,255,255,0.6)
+}
+.notice ul li .more{
+    /*값을 위에있는 .part 에있는걸 똑같이 준다
+        - display :none 을 주고 값들을 다 주고 
+        - .active 가 들어간 클래스가있을때 보여주는걸 하면된다
+        - 대신 display:block 이 아니라 flex를 똑같이 줘야한다*/
+    position: absolute;
+    right: 0;
+    top: 15px;
+    display: none;    
+    justify-content: space-around;
+    align-items: center;
+    width: 152px;/*감싸는 배경 혹은 보더가 있을때만 높이넓이값을 준다*/
+    height: 40px;
+    background-color: #ededed;
+    border-radius: 20px;
+}
+.notice ul li .more i{
+    color: #666;
+    font-size: 15px;
+}
+.notice ul li .more:hover{
+    background-color: #003D92;
+    color: #FFF;
+}
+.notice ul li .more:hover i{
+    color: rgba(255,255,255,0.6);
+}
+.notice ul li.active .more{
+    display: flex;
+}
+@media screen and (max-width:640px){
+    .notice{
+        height: 345px;
+        margin: 40px 0 0 0;
+    }
+    .notice ul.notice_wrap>li{
+        margin: 0 15px 0 0;
+    }
+    .notice ul li h2{/*기본값은 색이 연한걸로 준다 왜냐면 마우스 오버됬을때 색이 진하게 되기때문(탭)*/
+        font-size: 20px;
+    }
+    .notice ul li.active h2::before{
+        left: 4px;
+        top: -5px;
+        width: 21px;
+    }
+    .notice ul li .detail{
+        top: 55px; /*밑에 있는 ul li (list) 들이 상단에서(공지사항/보도자료)부터 떨어지는값 */
+        padding: 0 0 10px 0;
+        overflow-x: auto;/*li 들이 좌우로 움직이게끔 좌우값을 auto로 줘서 임의로 준 ul값 전부 다 들어가게끔*/
+        overflow-y: hidden;
+    }
+    .notice ul li .detail ul{
+        /*(li 넓이 =207px + 여백=16px * li의 갯수=5) = 1115px - 마지막 li여백값 16px = 1099px*/
+        width: 1099px;/*모든 li의 넓이값+여백을 포함한 넓이*/
+        margin-left: 0;/*하나의 li 와 여백값을 마이너스로 주면 왼쪽으로 li가 넘어간다*/
+    }
+    .notice ul li .detail ul li{/*li 를감싸고 있는 박스 사이즈 색깔*/
+        width: 207px;
+        margin: 0 16px 0 0;
+    }
+    .notice ul li .detail ul li:last-child{
+        margin-right: 0;
+    }
+    .notice ul li .detail ul li a{
+        height: 210px;/*li의 높이값만 가져야 같은 a가 잘눌리게끔 구성이 짜여진다*/
+        padding: 20px 15px 0 15px;/*박스와 안에있는내용물 사이의 여백*/
+    }
+    .notice ul li .detail ul li a h3{
+        margin: 15px 0 10px 0;
+        font-size: 15px;
+        /* 무조건 2줄수 제한*/
+        overflow: hidden;
+        line-height: 1.5;
+        height: 4.5em;
+    }
+    .notice ul li .detail ul li a p{
+        margin: 0;
+        /*무조건 3줄 제한*/
+        overflow: hidden;
+        line-height: 1.5;
+        height: 3em;
+    }
+    .notice ul li .detail ul li:hover{
+        transform: translate(0,0);/*(좌우,상하)*/
+        box-shadow: 0 0 0 rgba(0,0,0,0.1);/*(x값, y값, blur값, 색값)*/
+    }
+    .notice ul li .detail ul li a .btn{
+        display: none;
+    }
+    .notice ul li .more{
+        top: 3px;
+        justify-content: center;
+        width: 20px;/*감싸는 배경 혹은 보더가 있을때만 높이넓이값을 준다*/
+        height: 20px;
+        border: 1px solid #666;
+        background-color: transparent;
+        border-radius: 10px;
+    }
+    .notice ul li  .more span{
+        display: none;/*"더보기" 글자 숨기기*/
+    }
+    .notice ul li .more i{
+        font-size: 10px;
+    }
+    .notice ul li.active .more{
+        display: flex;
     }
 }
