@@ -225,7 +225,7 @@
     }
     .part h2::before{
         left: 4px;
-        top: -5px;
+        top: -8px;
         width: 21px;
     }
     .part .list{/*ul을 감싸는 .list에 이 값을 줘야 li 들이 옆으로 움직이게 하는값*/
@@ -449,14 +449,14 @@
     .notice ul li .detail ul li a h3{
         margin: 15px 0 10px 0;
         font-size: 15px;
-        /* 무조건 2줄수 제한*/
+        /* 무조건 3줄수 제한*/
         overflow: hidden;
         line-height: 1.5;
         height: 4.5em;
     }
     .notice ul li .detail ul li a p{
         margin: 0;
-        /*무조건 3줄 제한*/
+        /*무조건 2줄 제한*/
         overflow: hidden;
         line-height: 1.5;
         height: 3em;
@@ -485,5 +485,256 @@
     }
     .notice ul li.active .more{
         display: flex;
+    }
+}
+
+.book{
+    position: relative;/*뒤에 조금만 깔리는 배경색 의 기준점*/
+    padding: 70px 0 0 0;/*h2나 .more를 따로 정렬하지말고 전체를 감싸고 있는 요소에 여백을 준다*/
+}
+.book::before{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;/*position없는 요소들 아래에 깔리게 하는방법*/
+    width: 100%;
+    height: 430px;
+    background-color: #022044;
+    content: "";
+}
+.book h2{
+    position: relative;
+    margin: 0 0 40px 0;
+    font-size: 40px;
+    font-weight: 700;
+    color: #FFF;
+}
+.book h2::before{
+    position: absolute;
+    left: 6px;
+    top: 0;
+    width: 43px;
+    height: 3px;
+    background-color: #FFF;
+    content: "";
+}
+.book .more{
+    position: absolute;
+    right: 0;
+    top: 15px;
+    display: flex;/*span 따로 i 따로 좌우 양옆으로 주는값*/
+    justify-content: space-around;
+    align-items: center;
+    width: 152px;/*감싸는 배경 혹은 보더가 있을때만 높이넓이값을 준다*/
+    height: 40px;
+    background-color: #ededed;
+    border-radius: 20px;
+}
+.book .more i{
+    color: #666;
+    font-size: 15px;
+}
+.book .more:hover{
+    background-color: #003D92;
+    color: #FFF;
+}
+.book .more:hover i{
+    color: rgba(255,255,255,0.6);
+}
+.book .list ul{
+    /*첫번째 li넓이688px + 여백22px + 두번째~마지막li의 넓이248px + 여백22px =270px *4=1080*/
+    width: 1790px;
+}
+.book .list ul li{
+    float: left;
+    width: 248px;
+    margin: 30px 22px 0 0;
+}
+.book .list ul li a{
+    display: block;
+}
+.book .list ul li a .pic{
+    overflow: hidden;/*마우스 오버 됬을때 영역안에서 늘어나야해서(영역밖으로 사진이 나가지않게끔)*/
+    border: 1px solid #ccc;
+    font-size: 0;/*img테그를 글자로 인식해서 아주 작은 여백이 생기기때문에 그걸 없애주는값*/
+    line-height: 0;
+}
+.book .list ul li a .pic img{
+    width: 100%;
+    /*이미지는 큰데, li는 248px 이라서 100%로를 줘야함*/
+    transition: 0.3s;/*마우스오버가 될때 천천히 바뀌는 효과(단 똑같은 선택자에게 줘야함)*/
+}
+.book .list ul li a:hover .pic img{
+    transform: scale3d(1.2,1.2,1);
+}
+.book .list ul li a .cnt h3{
+    margin: 20px 0 0 0;
+    font-size: 17px;
+    font-weight: 700;
+    /*2줄로 제한*/
+    overflow: hidden;
+    line-height: 1.5;
+    height: 3em;
+}
+.book .list ul li a .cnt p{
+    display: none;
+}
+/*첫번째 li만 스타일이 다름*/
+.book .list ul li:first-child{
+    width: 688px;
+    margin-top: 0;
+}
+.book .list ul li:first-child a .pic{
+    float: left;
+    width: 318px;
+}
+.book .list ul li:first-child a .cnt{
+    padding: 25px 0 0 0;/*상단여백은 패딩으로 줘야 내려옴 */
+    margin: 0 12px 0 348px;/*왼쪽에 있는 이미지 포함 왼쪽여백을마진으로 무조건 재야함*/
+    color: #FFF;
+}
+.book .list ul li:first-child a .cnt h3{
+    margin: 0;/*위에서 준값 다시 가져와서 다시 값을 줘야함(위에여백은 패딩으로 cnt에 이미줌)*/
+    font-size: 25px;
+}
+.book .list ul li:first-child a .cnt p{
+    display: block;
+    margin: 25px 0 0 0;
+    font-size: 17px;
+    line-height: 2;
+}
+@media screen and (max-width:640px){
+    .book{
+        padding: 45px 0 0 0;/*h2나 .more를 따로 정렬하지말고 전체를 감싸고 있는 요소에 여백을 준다*/
+    }
+    .book::before{
+        height: 203px;
+    }
+    .book h2{
+        margin: 0 0 28px 0;
+        /*모든요소가 스타일이 똑같다면 위에서 카피해서 가져온다*/
+        font-size: 20px;
+        line-height: 1.2;
+    }
+    .book h2::before{
+        left: 4px;
+        top: -8px;
+        width: 21px;
+    }
+    .book .list{
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding-bottom: 10px;
+    }
+    .book .more{
+        top: 3px;
+        justify-content: center;
+        width: 20px;/*감싸는 배경 혹은 보더가 있을때만 높이넓이값을 준다*/
+        height: 20px;
+        border: 1px solid rgba(255,255,255,0.6);
+        background-color: transparent;
+        border-radius: 10px;
+    }
+    .book .more span{
+        display: none;/*"더보기" 글자 숨기기*/
+    }
+    .book .more i{
+        font-size: 10px;
+        color: rgba(255,255,255,0.6);
+    }
+    .book .list ul{
+        /**/
+        width: 824px;
+    }
+    .book .list ul li{
+        width: 152px;
+        margin: 0 16px 0 0;
+    }
+    .book .list ul li:last-child{
+        margin-right: 0;
+    }
+    .book .list ul li a .cnt h3{
+        margin: 10px 0 0 0;
+        font-size: 15px;
+    }
+    /*첫번째 li만 스타일이 다름*/
+    .book .list ul li:first-child{
+        width: 152px;
+    }
+    .book .list ul li:first-child a .pic{
+        float: none;
+        width: auto;/*넓이해제 나를감싸는 사이즈로 똑같이 들어감 =li넓이값*/
+    }
+    .book .list ul li:first-child a .cnt{
+        padding: 0;/*상단여백은 패딩으로 줘야 내려옴 */
+        margin: 0;/*왼쪽에 있는 이미지 포함 왼쪽여백을마진으로 무조건 재야함*/
+        color: #3d3d3d;
+    }
+    .book .list ul li:first-child a .cnt h3{/*위에서준 값 .cnt h3값 똑같이 줘야함*/
+        margin: 10px 0 0 0;
+        font-size: 15px;
+    }
+    .book .list ul li:first-child a .cnt p{
+        display: none;
+    }
+}
+.banner{
+    margin: 170px 0 107px 0;
+}
+.banner ul li{
+    float: left;
+    width: 680px;
+    margin: 0 40px 0 0;
+    color: #FFF;
+}
+.banner ul li:last-child{
+    margin-right: 0;
+}
+.banner ul li.edu{
+    background-color: #67A9DD;
+}
+.banner ul li.dic{
+    background-color: #003D92;
+}
+.banner ul li a{
+    display: block;
+    position: relative;
+    height: 165px;/*ul li의 높이를 가져와야함*/
+    padding: 45px 0 0 40px;/*li한테 주면 안됨 무조건 a 한테 여백을 줘야함*/
+}
+.banner ul li a i{
+    position: absolute;
+    right: 50px;
+    top: 50px;
+    font-size: 63px;
+    color: rgba(255,255,255,0.6);
+}
+.banner ul li a h2{
+    margin: 0 0 5px 0;
+    font-size: 30px;
+    font-weight: 700;
+}
+@media screen and (max-width:640px){
+    .banner{
+        margin: 45px 0 60px 0;
+    }
+    .banner ul li{
+        float: none;
+        width: auto;
+        margin: 0 0 10px 0;
+    }
+    .banner ul li:last-child{
+        margin-bottom: 0;
+    }
+    .banner ul li a{
+        height: 95px;/*ul li의 높이를 가져와야함*/
+        padding: 20px 0 0 20px;/*li한테 주면 안됨 무조건 a 한테 여백을 줘야함*/
+    }
+    .banner ul li a i{
+        display: none;
+    }
+    .banner ul li a h2{
+        margin: 0 0 2px 0;
+        font-size: 20px;
     }
 }
