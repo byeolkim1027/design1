@@ -10,6 +10,8 @@
     <script src="js/main.js"></script>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/main.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"><!--AOS animation : 스크롤 애니메이션-->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <title>한국해양재단</title>
 </head>
 <body>
@@ -97,10 +99,10 @@
                 (wrapper 사용X)
             -->
             <div class="visual_wrap">
-                <h2>무한한 잠재력과 가능성으로<br />
+                <h2 data-aos="fade-up">무한한 잠재력과 가능성으로<br />
                     하늘만큼 높고 육지보다 넓은곳<br />
                     <strong>해양은 우리의 미래</strong></h2>
-                <div class="search">
+                <div class="search" data-aos="fade-up" data-aos-delay="200">
                     <form>
                         <fieldset>
                             <legend>검색</legend>
@@ -124,8 +126,8 @@
         </section>
         <section class="part">
             <div class="wrapper cnt_wrap">
-                <h2>해양 참여 행사</h2>
-                <div class="list"><!--wrapper 밖으로 컨텐츠가 나가는건 div로 따로 묶는게 좋다-->
+                <h2 data-aos="fade-up">해양 참여 행사</h2>
+                <div class="list" data-aos="fade-up"><!--wrapper 밖으로 컨텐츠가 나가는건 div로 따로 묶는게 좋다-->
                     <ul class="clearfix">
                         <li>
                             <a href="contents/part01.html"><!--마우스오버했을때 이미지가 늘어날거라서div로 따로 묶어준다-->
@@ -164,7 +166,7 @@
                         </li>
                     </ul>
                 </div>
-                <a href="contents/part05.html" class="more">
+                <a href="contents/part05.html" class="more" data-aos="fade-up">
                     <span>더보기</span>
                     <i class="fa-solid fa-plus"></i>
                 </a>
@@ -179,8 +181,8 @@
                         그래서 처음에 보일 탭에 active 클래스를 줘야함
                         지우면 안됌!!!!-->
                     <li class="active">
-                        <h2><button>공지사항</button></h2>
-                        <div class="detail"><!--좌우로 슬라이드 되야해서 div한번더 묶는다-->
+                        <h2 data-aos="fade-up"><button>공지사항</button></h2>
+                        <div class="detail" data-aos="fade-up"><!--좌우로 슬라이드 되야해서 div한번더 묶는다-->
                             <ul>
                                 <li>
                                     <a href="contents/notice.html">
@@ -239,14 +241,14 @@
                                 </li>
                             </ul>
                         </div>
-                        <a href="contents/notice.html" class="more">
+                        <a href="contents/notice.html" class="more" data-aos="fade-up">
                             <span>더보기</span>
                             <i class="fa-solid fa-plus"></i>
                         </a>
                     </li>
                     <li>
-                        <h2><button>보도자료</button></h2>
-                        <div class="detail"><!--좌우로 슬라이드 되야해서 div한번더 묶는다-->
+                        <h2 data-aos="fade-up"><button>보도자료</button></h2>
+                        <div class="detail" data-aos="fade-up"><!--좌우로 슬라이드 되야해서 div한번더 묶는다-->
                             <ul>
                                 <li>
                                     <a href="contents/press.html">
@@ -305,7 +307,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <a href="contents/press.html" class="more">
+                        <a href="contents/press.html" class="more" data-aos="fade-up">
                             <span>더보기</span>
                             <i class="fa-solid fa-plus"></i>
                         </a>
@@ -315,8 +317,8 @@
         </section>
         <section class="book">
             <div class="wrapper cnt_wrap">
-                <h2>최신 간행물</h2>
-                <div class="list">
+                <h2 data-aos="fade-up">최신 간행물</h2>
+                <div class="list" data-aos="fade-up">
                     <ul class="clearfix">
                         <li>
                             <a href="contents/search.html">
@@ -365,7 +367,7 @@
                         </li>
                     </ul>
                 </div>
-                <a href="contents/search.html" class="more">
+                <a href="contents/search.html" class="more" data-aos="fade-up">
                     <span>더보기</span>
                     <i class="fa-solid fa-plus"></i>
                 </a>
@@ -374,14 +376,14 @@
         <section class="banner">
             <div class="wrapper">
                 <ul class="clearfix">
-                    <li class="edu">
+                    <li class="edu" data-aos="fade-up">
                         <a href="https://www.ilovesea.or.kr" target="_blank" title="새창열림">
                             <i class="fa-solid fa-desktop"></i>
                             <h2>해양교육포털</h2>
                             <p>해양강국 실현을 위한 해양교육의 장을 소개합니다.</p>
                         </a>
                     </li>
-                    <li class="dic">
+                    <li class="dic" data-aos="fade-up" data-aos-delay="200">
                         <a href="https://www.ilovesea.or.kr/peopledic/main" target="_blank" title="새창열림">
                             <i class="fa-regular fa-user"></i>
                             <h2>해양역사 인물사전</h2>
@@ -393,7 +395,33 @@
         </section>
         <aside class="top"><button><span>상단으로 이동</span><i class="fa-solid fa-angles-up"></i></button></aside>
         <footer class="footer">
-
+            <div class="wrapper cnt_wrap clearfix">
+                <div class="sns">
+                    <ul>
+                        <li><a href="http://maritimenet.blog.me/" target="_blank" title="새창열림"><img src="images/common/sns_naver.svg" alt="한국해양재단 블로그"></a></li>
+                        <li><a href="https://www.youtube.com/channel/UC8s0tvXtLB4KY8Bt2rjqtEg" target="_blank" title="새창열림"><img src="images/common/sns_youtube.svg" alt="한국해양재단 유튜브"></a></li>
+                        <li><a href="https://www.instagram.com/koreaoceanfoundation/" target="_blank" title="새창열림"><img src="images/common/sns_insta.svg" alt="한국해양재단 인스타"></a></li>
+                        <li><a href="https://www.facebook.com/Koreaocean.Found/" target="_blank" title="새창열림"><img src="images/common/sns_facebook.svg" alt="한국해양재단 페이스북"></a></li>
+                    </ul>
+                </div>
+                <div class="f_logo"><img src="images/common/logo_w.svg" alt="한국해양재단 로고"></div>
+                <div class="inner">
+                    <ul class="f_nav clearfix">
+                        <li class="privacy"><a href="#n">개인정보처리방침</a></li>
+                        <li><a href="#n">이용약관</a></li>
+                        <li><a href="#n">이메일수집거부</a></li>
+                        <li><a href="#n">자주하는질문</a></li>
+                        <li><a href="#n">사이트맵</a></li>
+                        <li><a href="#n">찾아오시는길</a></li>
+                    </ul>
+                    <div class="f_info">
+                        <span>서울시 종로구 창경궁로 112-7(인의동) 인의빌딩</span>
+                        <span>전화 02-741-5278</span>
+                        <span>팩스 02-3673-3312</span>
+                    </div>
+                    <div class="copyright">Copyright 2012. korea  maritime  foundation.  All  Rights  Reserved.</div>
+                </div>
+            </div>
         </footer>
     </div>
 </body>
