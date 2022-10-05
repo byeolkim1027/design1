@@ -3,7 +3,7 @@
 
 
 /*브라우저에서 기본으로 제공하는 모든여백을 빼주는 테그*/
-body,header,footer,div,p,nav,section,h1,h2,h3,h4,h5,h6,button,a,ol,ul,li,address,strong,span,em,i,dl,dt,dd,form,fieldset,legend,input,textarea,select{
+body,header,footer,div,p,nav,section,h1,h2,h3,h4,h5,h6,button,a,ol,ul,li,address,strong,span,em,i,dl,dt,dd,form,fieldset,legend,input,textarea,select,table,caption,colgroup,col,thead,tbody,tfoot,tr,th,td{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -46,4 +46,7 @@ button{
     /* background: none; */
     border: 0;
     cursor: pointer;/*마우스오버시에 손바닥모양으로 바꿔줌*/
+}
+table caption{
+    display: none;
 }

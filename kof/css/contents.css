@@ -1,0 +1,82 @@
+/* 컨텐츠 페이지 스타일 */
+
+/*소개의장 > 인사말*/
+.cnt_greeting{
+    margin: 0 0 185px 0;/*전부를 감싸고있는 컨텐츠 영역의 하단여백을 준다*/
+}
+.cnt_greeting .tit{
+    margin: 0 0 20px 0;/*위에 여백은 container에서 줘서 안줘도 된다*/
+    font-size: 20px;
+    text-align: center;
+}
+.cnt_greeting .tit strong{
+    color: #003D92;
+    font-weight: 700;
+}
+.cnt_greeting .bg{
+    /*width: calc(100% + 260px);    100% = wrapper를 감싸는 전부의 넓이*/
+    position: relative;
+    width: calc(50% + 700px);
+    left: calc(50% - 700px);/*700px=컨텐츠영역(1400)의 반절값을 px로 줌*/
+    height: 250px;
+    background: url(../images/contents/greeting_img01.png) no-repeat center top/cover;
+    /*원하는 이미지의 위치가 안나올경우 center, center 가아니라 top으로 해서 조정한다*/
+}
+.cnt_greeting .txt_wrap{
+    margin: 45px 0 0 0;
+}
+.cnt_greeting .txt_wrap .colgroup1{
+    float: left;
+    width: 670px;
+}
+.cnt_greeting .txt_wrap .colgroup2{
+    float: right;
+    width: 670px;
+}
+.cnt_greeting .txt_wrap p{
+    /*경계없이 단락을 오른쪽왼쪽으로 나누는 디자인은 양쪽정렬값을 줘야함다*/
+    text-align: justify;
+    word-break: normal;/*word break: keep all 을 유지하면 자간이 늘어남,그래서 노말로 바꿔야함*/
+}
+.cnt_greeting .txt_wrap .sign{
+    margin: 66px 0 0 0;
+    font-size: 30px;
+    text-align: right;
+}
+@media screen and (max-width:640px){
+    .cnt_greeting{
+        margin: 0 0 80px 0;/*전부를 감싸고있는 컨텐츠 영역의 하단여백을 준다*/
+    }
+    .cnt_greeting .tit{
+        margin: 0 0 30px 0;/*위에 여백은 container에서 줘서 안줘도 된다*/
+        font-size: 15px;
+    }
+    .cnt_greeting .bg{
+        width: 100%;
+        left: auto;/*넓이는 백프로 왼쪽값은 오토로 해제*/
+        height: 165px;
+        background: url(../images/contents/greeting_img01.png) no-repeat center center/cover;
+        /*원하는 이미지의 위치가 안나올경우 center, center 가아니라 top으로 해서 조정한다*/
+    }
+    .cnt_greeting .txt_wrap{
+        margin: 20px 0 0 0;
+    }
+    .cnt_greeting .txt_wrap .colgroup1{
+        float: none;
+        width: auto;
+    }
+    .cnt_greeting .txt_wrap .colgroup2{
+        float: none;
+        width: auto;
+        margin: 15px 0 0 0;
+    }
+    .cnt_greeting .txt_wrap p{
+        /*모바일에서는 (문단을 좌우로 나누는게 아니라)양쪽정렬은 너무 답답해서 다 해지해준다*/
+        text-align: left;
+        word-break: keep-all;
+    }
+    .cnt_greeting .txt_wrap .sign{
+        margin: 23px 0 0 0;
+        font-size: 20px;
+    }
+}

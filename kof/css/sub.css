@@ -33,3 +33,213 @@
     line-height: 1.2;
     color: #fff;
 }
+@media screen and (max-width:640px){
+    .sub_visual{
+        height: 200px;
+    }
+    .sub_visual strong{
+        padding: 130px 0 0 10px;
+        font-size: 25px;
+        line-height: 1.5;
+    }
+}
+.lnb{
+    position: relative;/*z-index는 포지션값이 필요함*/
+    z-index: 200;
+    height: 70px;
+    background-color: #003D92;
+    color: #fff;
+}
+.lnb .menu{
+    float: left;
+}
+.lnb .menu .home{
+    float: left;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    border-width: 0 1px 0 1px;
+    border-style: solid;
+    border-color: rgba(255,255,255,0.2);
+    text-align: center;
+}
+.lnb .menu .home i{
+    font-size: 20px;
+    color: rgba(255,255,255,0.5);
+}
+.lnb .menu .depth{
+    position: relative;/* ul의 absolute의 기준점*/
+    float: left;
+    width: 247px;
+    border-width: 0 1px 0 0;
+    border-style: solid;
+    border-color: rgba(255,255,255,0.2);
+}
+.lnb .menu .depth .btn{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;/*넓이를 100%줘야 flex가 적용이 된다*/
+    /*flex는 inline 요소일때 하위 컨텐츠가 존재하는 만큼만 넓이를 갖음*/
+    height: 70px;/*lnb의 높이만큼 같은값을 준다*/
+    padding: 0 30px 0 30px;
+}
+.lnb .menu .depth .btn i{
+    color: rgba(255,255,255,0.5);
+    font-size: 15px;
+    /*애니메이션 준비값*/
+    transition: 0.2s;
+}
+.lnb .menu .depth ul{
+    display: none;
+    position: absolute;/*마우스 오버나 클릭으로 없다가 나타나는 메뉴는 반드시 absolute여야함(안그럼 컨텐츠가 밀림)*/
+    left: 0;
+    top: 70px;/*lnb 높이를 같은값*/
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    color: #3d3d3d;
+}
+.lnb .menu .depth ul li a{
+    display: block;
+    padding: 0 0 0 30px;/*박스안에있는 글자와 박스사이의 여백(왼쪽만)*/
+    border-bottom: 1px solid #ededed;
+    line-height: 50px;/*박스한칸의 높이값을 행간으로 준다*/
+}
+.lnb .menu .depth ul li:last-child a{
+    border-bottom: 0;
+}
+.lnb .menu .depth ul li.now a,
+.lnb .menu .depth ul li a:hover{
+    background-color: #003D92;
+    color: #fff;
+}
+/*메뉴가 열렸을때*/
+.lnb .menu .depth.open ul{
+    /* display: block;  - jquery에서 보이게 할 예정= $(this).next().slideDown(200)*/
+}
+.lnb .menu .depth.open .btn span{
+    font-weight: 700;
+}
+.lnb .menu .depth.open .btn i{
+    transform: rotate(-180deg);/*아이콘을 180도 회전시키는값*/
+}
+
+.lnb .print{
+    float: right;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;/*a테그로 html에서 바꿨을때 위아래 가운데정렬되게끔*/
+    border-width: 0 1px 0 1px;
+    border-style: solid;
+    border-color: rgba(255,255,255,0.2);
+    text-align: center;
+}
+.lnb .print i{
+    font-size: 20px;
+    color: rgba(255,255,255,0.5);
+}
+@media screen and (max-width:640px){
+    .lnb{
+        height: 60px;
+    }
+    .lnb .wrapper{
+        margin: 0;
+        /*lnb 는 모바일에서 컨텐츠 영역의 여백이 필요없음
+          wrapper 영역밖까지 메뉴가 나가게끔 하는값*/
+    }
+    .lnb .menu{
+        float: none;/*left값 해제*/
+    }
+    .lnb .menu .home{
+        display: none;
+    }
+    .lnb .menu .depth{
+        width: 50%;
+        border-width: 0 1px 0 0;
+        border-style: solid;
+        border-color: rgba(255,255,255,0.2);
+    }
+    .lnb .menu .depth:last-child{
+        border-right-width: 0;
+    }
+    .lnb .menu .depth .btn{
+        height: 60px;/*lnb의 높이만큼 같은값을 준다*/
+        padding: 0 15px 0 20px;
+    }
+    .lnb .menu .depth .btn span{
+        font-size: 15px;
+    }
+    .lnb .menu .depth .btn i{
+        font-size: 10px;
+    }
+    .lnb .menu .depth ul{
+        top: 60px;/*lnb 높이를 같은값*/
+    }
+    .lnb .menu .depth ul li a{
+        padding: 0 0 0 20px;/*박스안에있는 글자와 박스사이의 여백(왼쪽만)*/
+        line-height: 40px;/*박스한칸의 높이값을 행간으로 준다*/
+    }
+    .lnb .print{
+        display: none;
+    }
+}
+
+.container{
+    min-height: 300px;
+}
+.container .sub_tit{
+    margin: 100px 0 100px 0;
+}
+.container .sub_tit h2{
+    color: #1D1D1D;
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+}
+@media screen and (max-width:640px){
+    .container .sub_tit{
+        margin: 50px 0 60px 0;
+    }
+    .container .sub_tit h2{
+        font-size: 40px;
+    }
+}
+
+.contents .table_wrap table{
+    width: 100%;
+    border-collapse: collapse;/*th/td에 준선을 겹쳐서 표현하는방법*/
+}
+.contents .table_wrap table th,
+.contents .table_wrap table td{
+    border: 1px solid #ccc;
+}
+.contents .table_wrap table th:first-child,
+.contents .table_wrap table td:first-child{
+    border-left: 0;
+}
+.contents .table_wrap table th:last-child,
+.contents .table_wrap table td:last-child{
+    border-right: 0;
+}
+.contents .table_wrap table thead th,
+.contents .table_wrap table thead td{
+    padding: 17px 5px;
+    background-color: #ededed;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+.contents .table_wrap table tbody th{
+    font-weight: 400;
+}
+.contents .table_wrap table tbody th,
+.contents .table_wrap table tbody td{
+    padding: 7px 5px;
+    text-align: center;
+}
+.contents .table_wrap table tbody td ul{
+    padding: 25px 0 20px 80px;
+    text-align: left;
+}

@@ -54,6 +54,28 @@ html,body{
     position: relative;
 }
 
+.skip_nav{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1000000;/*제일높은 그무엇보다 제일많은값을준다*/
+    width: 100%;
+}
+.skip_nav a{
+    position: absolute;
+    left: 0;
+    top: -10000px;/*tap키로 이동할때만 보인다 그냥은 안보인다*/
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    background-color: #0051A7;
+    color: #fff;
+    text-align: center;
+}
+.skip_nav a:focus{
+    top: 0;/*tap키로 이동할때만 보인다 그냥은 안보인다*/
+}
+
 .header {
     position: absolute;/*visual 위에 메뉴가겹쳐서 올라와야 하기때문에*/
     left: 0;
