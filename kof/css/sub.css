@@ -115,9 +115,9 @@
     color: #fff;
 }
 /*메뉴가 열렸을때*/
-.lnb .menu .depth.open ul{
-    /* display: block;  - jquery에서 보이게 할 예정= $(this).next().slideDown(200)*/
-}
+/*.lnb .menu .depth.open ul{
+     display: block;  - jquery에서 보이게 할 예정= $(this).next().slideDown(200)
+}*/
 .lnb .menu .depth.open .btn span{
     font-weight: 700;
 }
@@ -210,6 +210,7 @@
 .contents .table_wrap table{
     width: 100%;
     border-collapse: collapse;/*th/td에 준선을 겹쳐서 표현하는방법*/
+    border-top: 3px solid #ccc;/*테이블 제일 상단의 윗선의 두꺼운 줄*/
 }
 .contents .table_wrap table th,
 .contents .table_wrap table td{
@@ -242,4 +243,48 @@
 .contents .table_wrap table tbody td ul{
     padding: 25px 0 20px 80px;
     text-align: left;
+}
+.contents .table_wrap table tbody td ul li{
+    position: relative;
+}
+.contents .table_wrap table tbody td ul li::before{
+    position: absolute;
+    left: -11px;
+    top: 9px;
+    width: 3px;
+    height: 3px;
+    border-radius: 2px;
+    background-color: #ccc;
+    content: "";
+}
+@media screen and (max-width:640px){
+    /*모바일에서 테이블을 좌우로 스크롤 해서 보기 위해서
+      감싸는 div에 overflow-x:scroll 를 주고, table에는 최소 넓이값을 준다*/
+    .contents .table_wrap{
+        overflow-x: scroll;
+        padding-bottom: 10px;/*스크롤바를 하단으로 내리기*/
+    }
+    .contents .table_wrap table{
+        min-width: 500px;
+    }
+
+    .contents .table_wrap table thead th,
+    .contents .table_wrap table thead td{
+        padding: 10px 3px;
+        font-size: 15px;
+    }
+    .contents .table_wrap table tbody th,
+    .contents .table_wrap table tbody td{
+        padding: 4px 2px;
+    }
+    .contents .table_wrap table tbody td ul{
+        padding: 5px 5px 5px 10px;
+    }
+    .contents .table_wrap table tbody td ul li::before{
+        position: absolute;
+        left: -5px;
+        top: 9px;
+        width: 2px;
+        height: 2px;
+    }
 }

@@ -1,0 +1,155 @@
+.cnt_introduce{
+    margin: 0 0 128px 0;
+}
+.cnt_introduce .cnt01 .tit{
+    margin: 0 0 30px 0;
+    font-size: 50px;
+    font-weight: 700;
+    text-align: center;
+}
+.cnt_introduce .cnt01 .bg{
+    background: url(../images/contents/cnt01_img.png) no-repeat center bottom 15%/cover;
+    height: 400px;
+}
+.cnt_introduce .cnt01 .txt_wrap{
+    margin: 40px 0 0 0;
+}
+.cnt_introduce .cnt01 .txt_wrap .colgroup1{
+    float: left;
+    width: 680px;
+}
+.cnt_introduce .cnt01 .txt_wrap .colgroup2{
+    float: right;
+    width: 680px;
+}
+.cnt_introduce .cnt01 .txt_wrap p{
+    text-align: justify;
+    word-break: normal;
+}
+@media screen and (max-width:640px){
+    .cnt_introduce{
+        margin: 0 0 65px 0;
+    }
+    .cnt_introduce .cnt01 .tit{
+        margin: 0 0 20px 0;
+        font-size: 30px;
+        line-height: 1.2;
+    }
+    .cnt_introduce .cnt01 .bg{
+        height: 205px;
+        width: 100%;
+    }
+    .cnt_introduce .cnt01 .txt_wrap{
+        margin: 20px 0 0 0;
+    }
+    .cnt_introduce .cnt01 .txt_wrap .colgroup1{
+        float: none;
+        width: auto;
+    }
+    .cnt_introduce .cnt01 .txt_wrap .colgroup2{
+        float: none;
+        width: auto;
+        margin: 10px 0 0 0;
+    }
+    .cnt_introduce .cnt01 .txt_wrap p{
+        text-align: left;
+        word-break: keep-all;
+    }
+}
+
+.cnt_introduce .cnt02{
+    margin: 130px 0 158px 0;
+}
+.cnt_introduce .cnt02 .inner{
+    width: 680px;
+}
+.cnt_introduce .cnt02 .protect img{
+    float: left;
+}
+.cnt_introduce .cnt02 .protect .inner{
+    float: left;
+    margin: 55px 0 0 40px;
+}
+.cnt_introduce .cnt02 .trust img{
+    float: right;
+}
+.cnt_introduce .cnt02 .trust .inner{
+    float: right;
+    margin: 80px 40px 0 0;
+}
+.cnt_introduce .cnt02 h3{
+    margin: 0 0 40px 0;
+    font-size: 25px;
+    font-weight: 700;
+}
+@media screen and (max-width:640px){
+    .cnt_introduce .cnt02{
+        margin: 40px 0 45px 0;
+    }
+    .cnt_introduce .cnt02 .inner{
+        width: auto;
+    }
+    .cnt_introduce .cnt02 .protect img{
+        float: none;
+        width: 100%;
+    }
+    .cnt_introduce .cnt02 .protect .inner{
+        float: none;
+        margin: 0 0 40px 0;
+    }
+    .cnt_introduce .cnt02 .trust img{
+        float: none;
+        width: 100%;
+    }
+    .cnt_introduce .cnt02 .trust .inner{
+        float: none;
+        margin: 0;
+    }
+    .cnt_introduce .cnt02 h3{
+        margin: 0 0 10px 0;
+        font-size: 17px;
+    }
+}
+
+.cnt_introduce .cnt03{
+    background: url(../images/contents/cnt04_img.png) no-repeat center center/cover;
+    height: 420px;
+    color: #fff;
+}
+.cnt_introduce .cnt03 .cnt_wrap{
+    position: relative;
+}
+.cnt_introduce .cnt03 .inner{
+    position: absolute;
+    right: 0;
+    top: 100px;
+    width: 680px;
+}
+.cnt_introduce .cnt03 p{
+    font-size: 25px;
+    font-weight: 700;
+}
+.cnt_introduce .cnt03 p strong{
+    font-weight: 700;
+}
+@media screen and (max-width:640px){
+    .cnt_introduce .cnt03{
+        background: url(../images/contents/cnt04_img.png) no-repeat center top/auto 203px;
+        height: auto;
+        color: #3d3d3d;
+    }
+    .cnt_introduce .cnt03 .inner{
+        position: relative;
+        right: auto;
+        top: auto;
+        width: auto;
+        padding: 172px 0 0 0;
+    }
+    .cnt_introduce .cnt03 p{
+        font-size: 15px;
+    }
+    .cnt_introduce .cnt03 p strong{
+        color: #fff;
+        font-size: 20px;
+    }
+}

@@ -80,3 +80,63 @@
         font-size: 20px;
     }
 }
+
+.cnt_org{
+    margin: 0 0 100px 0;
+}
+
+/*해양학술정보DB센터 > 통합검색*/
+.cnt_search{
+    margin: 0 0 100px 0;
+}
+.cnt_search ul li a{
+    display: block;
+}
+.cnt_search ul li a h3{
+    color: #0053AA;
+    font-size: 20px;
+    font-weight: 700;
+}
+.cnt_search ul li a p{
+    margin: 10px 0 24px 0;
+}
+.cnt_search ul li a span{
+    display: block;
+    color: #666;
+}
+
+/*float코딩*/
+/* .cnt_search ul li{
+    float: left;
+    width: 25%;
+    height: 245px;
+    border-width: 1px 1px 1px 0;
+    border-style:  solid;
+    border-color: #ccc;
+}
+.cnt_search ul li:first-child{
+    border-left-width: 1px;
+}
+.cnt_search ul li a{
+    padding: 55px 0 0 40px;
+} */
+
+/*table코딩*/
+.cnt_search ul{
+    display: table;/*좌우로 배치될 요소를 감싸는 코드에 table을 주고*/
+    width: 100%;
+    border-collapse: collapse;
+}
+.cnt_search ul li{
+    display: table-cell;/*좌우로 배치되는 요소에 table-cell: td로 변화*/
+    width: 25%;/*같은 넓이로 주려면 li 갯수를 %로 준다 (li갯수:4개)*/
+    height: 245px;
+    border: 1px solid #ccc;
+    vertical-align: middle;
+    /*테이블코딩은 vertical-align 과 border-collapse 가 적용이 된다
+      (위아래 정렬과 테이블사이의 겹쳐지는 선을 합쳐준다)*/
+}
+.cnt_search ul li a{
+    display: block;
+    padding: 0 0 0 40px;
+}
