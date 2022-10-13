@@ -1,0 +1,187 @@
+@import url(default.css);
+@import url(common.css);
+
+h1{
+    font-size: 4rem;
+}
+h1 span{
+    font-size: 2rem;
+}
+
+.event h2{
+    color: #1d1d1d;
+    font-size: 50px;
+    font-weight: 400;
+    margin: 2em 0 2em;
+}
+.event ul li{
+    float: left;
+    /*1440px 이하로 떨어지게 되면 li들이 %로 되어있어야 li들이 밑으로 떨어지지 않는다
+        반응형을 자유롭게 들어가려면 픽셀로 넓이와 마진을 주는대신에 처음부터
+        퍼센트% 로 처음부터 값을 주면 1400px 밑으로 줄어들었을때 li들이 아래로 떨어지지 않는다*/
+    width: 47%;
+    /*li넓이값(660px) 나누기 컨텐츠 넓이값(1400px) 곱하기 100 = 47%
+        넓이가 660px -> 1400에서 660px 은 몇%?*/
+    margin: 0 6% 0 0;
+    /*100%-47%-47% =6%
+      한줄에 li가 두개가 나타나고 여백이 한개가 나타난다 
+      100 - (li하나의 넓이 * 2) = 100 -(47*2)= 6
+      한줄에 들어가는 여백과 li 의 총 넓이값 합이 100프로가 되어야 한다*/
+
+    /*여백값을 고정으로 주는경우 ->%가 아니라 px 로 값을 줌(여백이 적은경우)
+        li넓이 계산법 - 100% / li의 갯수 = 50%
+        한줄에 들어가야하는 여백의 총합 / li의 갯수 = 80px / 2 =40px
+        li의 width = calc(100%/li갯수 - 한줄여백의총합/li갯수)
+    */
+    /* width: calc(50% - 40px);
+    margin: 0 80px 0 0; */
+}
+.event ul li:nth-child(2),
+.event ul li:last-child{
+    margin-right: 0;
+}
+.event ul li a img{
+    width: 100%;
+    /*그 안에 들어가는 이미지들은 li에서 받은 퍼센트로준 넓이값의 백프로가 들어가야해서
+      넓이값을 100%를 줘야 따로 떨어지지않는다*/
+}
+
+@media screen and (max-width:640px){
+    .event h2{
+        font-size: 30px;
+    }
+}
+
+.product{
+    padding: 4.333rem 0 5.667rem 0;
+    background-color: #ff9b39;
+}
+.product h2{
+    display: none;
+} 
+.product ul li{
+    /*
+    여백고정일 경우
+        100% / li 갯수 = 100/4 = 25%
+        한줄에 들어가는 모든 여백(40px * 3) / 한줄에 들어가는 li의 갯수 = 120px / 4 = 30px
+        width: calc(25% - 30px)
+    */
+    width: calc(25% - 30px);
+    float: left;
+    margin: 0 40px 0 0;
+    background-color: #fff;
+    border-radius: 30px 0 30px 30px;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.1);
+    background-position: right 10% bottom 6%;
+    background-repeat: no-repeat;
+    /* background-size: 54% auto; */
+    /*가로는 background를 주는 영역의 넓이의 몇% 높이를 auto를 주면 비율에 맞게 조정*/
+    background-size: 173px auto; /*배경이미지 사이즈를 고정 px로 입력*/
+}
+.product ul li:last-child{
+    margin-right: 0;
+}
+.product ul li.product1{
+    background-image: url(../images/main/product01.png);
+}
+.product ul li.product2{
+    background-image: url(../images/main/product02.png);
+}
+.product ul li.product3{
+    background-image: url(../images/main/product03.png);
+}
+.product ul li.product4{
+    background-image: url(../images/main/product04.png);
+}
+.product ul li a{
+    display: block;
+    padding: 2.333rem 2.667rem 2.667rem 2.667rem;
+}
+.product ul li a h3{
+    margin: 0 0 0.667rem 0;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.4;
+    /*제목 1줄제한하고 그 뒤는 점점으로 표시*/
+    overflow: hidden;
+    white-space: nowrap;/*줄바꿈금지*/
+    text-overflow: ellipsis;/*짤린 글자는 끝에 ... 으로 표시*/
+}
+.product ul li a h3 span{
+    display: block;
+    font-size: 1rem;
+    font-weight: 400;
+}
+.product ul li a p{
+    margin: 0 0 7.667rem 0;
+    /*3줄 고정*/
+    overflow: hidden;
+    line-height: 1.5;
+    height: 4.5em;
+}
+.product ul li a img{
+    /* width: 20%;   -> a사이즈로 기준으로 그영역에 맞게 20% 사이즈*/
+    
+}
+@media screen and (max-width:1050px){
+    .product ul li{
+        /*
+        li 가 3개만 보일 예정
+            여백 80px / 3 = 26.1111(소수점은 반올림 해서 무조건 조금더 높은값을 준다)    
+        */
+        width: calc(33.33% - 27px);
+        margin: 0 40px 0 0;
+        background-size: 140px auto;
+    }
+    .product ul li:nth-child(4){
+        display: none;
+    }
+    .product ul li:nth-child(3){
+        margin-right: 0;
+    }
+    .product ul li a h3{
+        font-size: 1.8rem;
+    }
+    .product ul li a img{
+        transform: scale(0.8,0.8);/*원래 이미지 크기에 비례해서 0.8=80% 크기로 변환*/
+    }
+}
+@media screen and (max-width:750px){
+    .product ul li{
+        /*
+        li 가 2개만 보일 예정
+            여백 30px / 2 = 15(소수점은 반올림 해서 무조건 조금더 높은값을 준다)    
+        */
+        width: calc(50% - 15px);
+        margin: 0 30px 0 0;
+    }
+    .product ul li:nth-child(3){
+        display: none;
+    }
+    .product ul li:nth-child(2){
+        margin-right: 0;
+    }
+    .product ul li a h3{
+        font-size: 1.5rem;
+    }
+    .product ul li a p{
+        margin: 0 0 6rem 0;
+    }
+    .product ul li a img{
+        transform: scale(0.7,0.7);/*원래 이미지 크기에 비례해서 0.=70% 크기로 변환*/
+    }
+}
+@media screen and (max-width:500px){
+    .product ul li{
+        /*
+        li 가 1개만 보일 예정
+            여백 없음 = 넓이 백프로    
+        */
+        float: none;
+        width: 100%;
+        margin: 0;
+    }
+    .product ul li:nth-child(2){
+        display: none;
+    }
+}
