@@ -1,18 +1,13 @@
 @import url(default.css);
 @import url(common.css);
 
-h1{
-    font-size: 4rem;
+.event{
+    margin: 7.667rem 0 0.467rem 0;
 }
-h1 span{
-    font-size: 2rem;
-}
-
 .event h2{
     color: #1d1d1d;
-    font-size: 50px;
-    font-weight: 400;
-    margin: 2em 0 2em;
+    margin: 0 0 6.667rem 0;
+    font-size: 3.333rem;
 }
 .event ul li{
     float: left;
@@ -22,7 +17,7 @@ h1 span{
     width: 47%;
     /*li넓이값(660px) 나누기 컨텐츠 넓이값(1400px) 곱하기 100 = 47%
         넓이가 660px -> 1400에서 660px 은 몇%?*/
-    margin: 0 6% 0 0;
+    margin: 0 6% 10rem 0;
     /*100%-47%-47% =6%
       한줄에 li가 두개가 나타나고 여백이 한개가 나타난다 
       100 - (li하나의 넓이 * 2) = 100 -(47*2)= 6
@@ -40,16 +35,151 @@ h1 span{
 .event ul li:last-child{
     margin-right: 0;
 }
+.event ul li:nth-child(2),
+.event ul li:nth-child(4){
+    margin-top: -12.667rem;
+    /*마진값은 마이너스가 가능 두번째,마지막li가 디자인에서처럼 위로 올라가야해서 무조건 top으로 준다*/
+}
+.event ul li a{
+    display: block;
+}
+.event ul li a strong{
+    display: block;
+    margin: 0 0 1rem 0;
+    font-size: 1.667rem;
+    font-weight: 700;
+}
+.event ul li a strong span{
+    display: block;
+    margin: 0 0 0.200rem 0;
+    font-size: 1rem;
+    font-weight: 400;
+}
 .event ul li a img{
     width: 100%;
     /*그 안에 들어가는 이미지들은 li에서 받은 퍼센트로준 넓이값의 백프로가 들어가야해서
       넓이값을 100%를 줘야 따로 떨어지지않는다*/
+    border-radius: 2rem;
+}
+.event .more{
+    position: absolute;
+    left: 14.333rem;
+    top: 6.333rem;
 }
 
-@media screen and (max-width:640px){
+@media screen and (max-width:1120px){
     .event h2{
-        font-size: 30px;
+        font-size: 3rem;
     }
+    .event ul li{
+        margin-bottom: 8rem;
+    }
+    .event ul li:nth-child(2),
+    .event ul li:nth-child(4){
+        margin-top: -8.667rem;
+    }
+    .event ul li a strong{
+        font-size: 1.50rem;
+    }
+    .event .more{
+        left: 13.333rem;
+        top: 5.5rem;
+    }
+    .event .more img{
+        width: 90%;
+    }
+}
+@media screen and (max-width:800px){
+    .event h2{
+        font-size: 2.5rem;
+        margin: 0 0 5rem 0;
+    }
+    .event ul li{
+        margin-bottom: 6rem;
+    }
+    .event ul li:nth-child(2),
+    .event ul li:nth-child(4){
+        margin-top: -6.667rem;
+    }
+    .event ul li a strong{
+        font-size: 1.25rem;
+    }
+    .event .more{
+        left: 11.333rem;
+        top: 4.7rem;
+    }
+    .event .more img{
+        width: 70%;
+    }
+}
+@media screen and (max-width:500px){
+    .event h2{
+        font-size: 2.0rem;
+        margin: 0 0 3.5rem 0;
+    }
+    .event ul li{
+        margin-bottom: 4rem;
+    }
+    .event ul li:nth-child(2),
+    .event ul li:nth-child(4){
+        margin-top: -4.667rem;
+    }
+    .event ul li a strong em{
+        display: block;
+        font-size: 1.2rem;
+        /*제목줄 2줄로 제한*/
+        line-height: 1.5;
+        height: 3em;
+        overflow: hidden;
+    }
+    .event ul li a img{
+        border-radius: 1rem;
+    }
+    .event .more{
+        left: 9.5rem;
+        top: 3.7rem;
+    }
+    .event .more img{
+        width: 60%;
+    }   
+}
+@media screen and (max-width:350px){
+    .event h2{
+        font-size: 1.5rem;
+        margin: 0 0 2rem 0;
+    }
+    .event ul li{
+        float: none;
+        width: 100%;
+        margin-bottom: 1.1rem;
+    }
+    .event ul li:nth-child(2),
+    .event ul li:nth-child(4){
+        margin-top: 0;
+    }
+    .event ul li a strong{
+        margin: 0 0 0.5rem 0;
+        font-size: 1.1rem;
+    }
+    .event ul li a strong em{
+        height: auto;
+        overflow: hidden;
+        white-space: nowrap;/*줄바꿈금지*/
+        text-overflow: ellipsis;
+    }
+    .event ul li a strong span{
+        margin: 0 0 0.100rem 0;
+    }
+    .event ul li a img{
+        border-radius: 0.7rem;
+    }
+    .event .more{
+        left: 7.5rem;
+        top: 2.7rem;
+    }
+    .event .more img{
+        width: 50%;
+    }   
 }
 
 .product{
@@ -71,7 +201,6 @@ h1 span{
     margin: 0 40px 0 0;
     background-color: #fff;
     border-radius: 30px 0 30px 30px;
-    box-shadow: 10px 10px 10px rgba(0,0,0,0.1);
     background-position: right 10% bottom 6%;
     background-repeat: no-repeat;
     /* background-size: 54% auto; */
@@ -92,6 +221,17 @@ h1 span{
 }
 .product ul li.product4{
     background-image: url(../images/main/product04.png);
+}
+.product ul li:nth-child(2),.product ul li:nth-child(4){
+    margin-top: 4.667rem;
+}
+.product ul li{
+    transition: 0.2s;/*마우스 오버시 효과가 부드럽게 나타나게*/
+}
+.product ul li:hover{
+    transform: translate(-0.667rem,-0.667rem);
+    box-shadow: 0.667rem 0.667rem 0.667rem rgba(0,0,0,0.1);
+    /*transform 으로 위쪽 왼쪽으로 10px씩 움직였으면 shadow도 그만큼의 값을 주는게 좋다*/
 }
 .product ul li a{
     display: block;
@@ -139,6 +279,9 @@ h1 span{
     .product ul li:nth-child(3){
         margin-right: 0;
     }
+    .product ul li:nth-child(2),.product ul li:nth-child(4){
+        margin-top: 2.667rem;
+    }
     .product ul li a h3{
         font-size: 1.8rem;
     }
@@ -183,5 +326,8 @@ h1 span{
     }
     .product ul li:nth-child(2){
         display: none;
+    }
+    .product ul li:nth-child(2),.product ul li:nth-child(4){
+        margin-top: 0;
     }
 }
