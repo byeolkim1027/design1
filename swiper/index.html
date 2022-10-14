@@ -37,9 +37,17 @@
                     <img src="images/popup03.png" alt="산 사진">
                 </li>
             </ul>
-            <button class="swiper-button-prev">이전팝업 보기</button>
-            <button class="swiper-button-next">다음팝업 보기</button>
-            <div class="swiper-pagination"></div>
+            <button class="ctrl_prev">이전팝업 보기</button>
+            <button class="ctrl_next">다음팝업 보기</button>
+            <div class="ctrl_group">
+                <div class="ctrl_paging"></div>
+                <button class="ctrl_stop">정지</button>
+                <button class="ctrl_play">재생</button>
+            </div>
+            <!--swiper-pagination swiper 에서 기본제공하는 각 요소별 class명을 
+                그대로 사용하면 기본스타일이 적용됨.(스타일을 변경해서 써도 됨)
+                스타일을 내가 전부 제어하려면 클래스명을 바꾸면 됨
+                단 jquery에서 swiper init 요소의 클래스 명을 같이 변경해야함-->
         </section>
     </div>
 </body>

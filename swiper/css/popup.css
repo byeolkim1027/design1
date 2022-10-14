@@ -23,6 +23,34 @@
     display: block;
     font-size: 25px;
 }
-.swiper{
-    
+
+.visual1 .ctrl_prev,
+.visual1 .ctrl_next{
+    position: absolute;
+    top: calc(50% - 52px);
+    z-index: 10;
+    font-size: 0;
+    line-height: 0;/*대체텍스트 안보이게*/
+}
+.visual1 .ctrl_prev{
+    left: 5%;
+}
+.visual1 .ctrl_next{
+    right: 5%;
+}
+.visual1 .ctrl_prev::before,
+.visual1 .ctrl_next::before{
+    position: absolute;/*before테그는인라인 테그가 되버려서 무조건 엡솔루트 줘야함*/
+    left: 0;
+    top: 0;
+    opacity: 0.5;/*투명도값 낮춘다*/
+    width: 26px;
+    height: 52px;
+    background: url(../images/popup_arrow.svg) no-repeat center center/contain;/*contain=높이넓이값 내가 준값들어가게끔*/
+    content: "";
+}
+.visual1 .ctrl_next::before{
+    left: auto;
+    right: 0;
+    transform: rotate(180deg);
 }
