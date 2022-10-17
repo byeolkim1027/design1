@@ -6,7 +6,8 @@
 }
 .popup .popup_round{
     position: absolute;
-    right: 50%;
+    right: calc(50% + 832px);
+    /*가운데가 700px + 내가 조금더 컨텐츠 밖으로 나간값 = 832px*/
     top: 0;
     z-index: 100;
     width: 50%;
@@ -47,9 +48,29 @@
 .popup ul li a .mobile{
     display: none;
 }
+
+@media screen and (max-width:1720px){
+    .popup .popup_round{
+        right: auto;
+        /*가운데가 700px + 내가 조금더 컨텐츠 밖으로 나간값 = 832px*/
+        left: 0;
+        width: 20px;/*흰색모서리의 넓이값*/
+    }
+}
 @media screen and (max-width:1120px){
     .popup{
         height: 470px;
+    }
+    .popup .popup_round::before{
+        /*70px = 팝업의 높이가 줄어들때 같이바뀌는게 좋다*/
+        right: -60px;
+        width: 60px;
+        height: 60px;
+    }
+    .popup .popup_round::after{
+        right: -60px;
+        width: 60px;
+        height: 60px;
     }
 }
 @media screen and (max-width:800px){
