@@ -1,6 +1,74 @@
 @import url(default.css);
 @import url(common.css);
 
+.popup{
+    height: 500px;
+}
+.popup .popup_round{
+    position: absolute;
+    right: 50%;
+    top: 0;
+    z-index: 100;
+    width: 50%;
+    height: 100%;
+    background-color: #fff;
+}
+.popup .popup_round::before{
+    position: absolute;
+    /*100px = 내가디자인한 박스의 코너라운드값*/
+    right: -100px;
+    top: 0;
+    width: 100px;
+    height: 100px;
+    background: url(../images/main/popup_round.svg) no-repeat left top/contain;/*왼쪽상단에 배치되야해서(left,top)*/
+    transform: rotate(90deg);
+    content: "";
+}
+.popup .popup_round::after{
+    position: absolute;
+    /*100px = 내가디자인한 박스의 코너라운드값*/
+    right: -100px;
+    bottom: 0;
+    width: 100px;
+    height: 100px;
+    background: url(../images/main/popup_round.svg) no-repeat left top/contain;/*왼쪽상단에 배치되야해서(left,top)*/
+    content: "";
+}
+.popup h2{
+    display: none;
+}
+.popup ul li a img{
+    /*popup에서 높이를 제한해줘야 그 높이에 꽉맞는 이미지가 가운데로 정렬*/
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;/*해당이미지를 브라우저가 줄어들어도 가운데에 보이게 하는값*/
+}
+.popup ul li a .mobile{
+    display: none;
+}
+@media screen and (max-width:1120px){
+    .popup{
+        height: 470px;
+    }
+}
+@media screen and (max-width:800px){
+    .popup{
+        height: 400px;
+    }
+}
+@media screen and (max-width:640px){
+    .popup{
+        height: 350px;
+    }
+    .popup ul li a .pc{
+        display: none;
+    }
+    .popup ul li a .mobile{
+        display: block;
+    }
+}
+
 .event{
     margin: 7.667rem 0 0.467rem 0;
 }

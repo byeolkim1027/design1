@@ -54,7 +54,7 @@ html,body{
     }
     .wrapper{
         width: auto;
-        margin: 0 20px;
+        margin: 0;/*pc에서부터 패딩을 20 을줘서 모바일에서는 안줘도 된다*/
     }
 }/*media 종료*/
 .clearfix::after{display:block;clear:both;content:".";visibility:hidden;height:0;}
@@ -87,3 +87,183 @@ html,body{
     top: 0;/*tap키로 이동할때만 보인다 그냥은 안보인다*/
 }
 
+.header{
+    height: 100px;
+}
+.header .logo{
+    float: left;
+    margin: 35px 0 0 0;
+    /*h1테그를 사용해서 logo를 감쌌기때문에 글자크기행간을 없애야 내가준값에 맞게 크기가 들어간다*/
+    font-size: 0;
+    line-height: 0;
+}
+.header .logo img{
+    width: 130px;
+}
+.header .gnb{
+    float: right;
+}
+.header .gnb .gnb_open{
+    display: none;
+}
+.header .gnb ul li{
+    float: left;
+}
+.header .gnb ul li a{
+    display: block;
+    padding: 0 35px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 100px;/*헤더의높이값*/
+    color: #1d1d1d;
+}
+@media screen and (max-width:1200px){
+    .header .logo{
+        margin: 30px 0 0 0;
+    }
+    .header .logo img{
+        width: 100px;
+    }
+    .header .gnb ul li a{
+        padding: 0 25px;
+        font-size: 17px;
+    }
+}
+@media screen and (max-width:640px){
+    .header{
+        height: 60px;
+    }
+    .header .logo{
+        margin: 20px 0 0 0;
+    }
+    .header .logo img{
+        width: 70px;
+    }
+    .header .gnb .gnb_open{
+        display: block;
+        padding: 22px 0 0 0;
+    }
+    .header .gnb .gnb_open img{
+        width: 15px;
+    }
+    .header .gnb ul{
+        display: none;
+    }
+}
+
+.footer{
+    position: relative;
+}
+.footer .family{
+    position: absolute;
+    /*wrapper 없이 컨텐츠 영역의 오른쪽 끝에 familysite 버튼 배치
+        -> right:50%에서 컨텐츠의 넓이 절반(700px) 을 빼줌*/
+    right: calc(50% - 700px);
+    top: 100px;
+}
+.footer .family button{
+    width: 150px;
+    height: 40px;
+    border: 1px solid #cccccc;
+    color: #666;
+}
+.footer .f_top{
+    height: 60px;
+    border-bottom: 1px solid #cccccc;
+    border-top: 1px solid #cccccc;
+}
+.footer .f_top .f_nav li{
+    position: relative;
+    float: left;
+    margin-right: 35px;
+}
+.footer .f_top .f_nav li::after{
+    position: absolute;
+    right: -19px;
+    top: 23px;
+    width: 1px;
+    height: 12px;
+    background-color: #cccccc;
+    content: "";
+}
+.footer .f_top .f_nav li:last-child::after{
+    display: none;
+}
+.footer .f_top .f_nav li.privacy a{
+    font-weight: 700;
+}
+.footer .f_top .f_nav li a{
+    display: block;
+    color: #666666;
+    line-height: 60px;/*글자를 위아래 가운데 배치하는방법은 footer의 높이값을 같이 주면된다*/
+}
+.footer .f_sub .f_logo{
+    float: left;
+}
+.footer .f_sub .f_logo img{
+    width: 100px;
+    opacity: 60%;
+    filter: grayscale(100%);/* 이미지 색 회색으로 색 바꾸는값*/
+}
+.footer .f_sub .inner{
+    margin: 65px 0 100px 145px;
+}
+.footer .f_sub .f_info span{
+    display: inline-block;
+    margin: 0 35px 8px 0;
+    color: #666666;
+}
+.footer .f_sub .copyright{
+    margin: 20px 0 0 0;
+    color: #cccccc;
+}
+@media screen and (max-width:1440px){
+    .footer .family{
+        /*1440px 아래로 줄어들게되면 그 끝에있는 패딩값(20px)을줘야
+          family버튼이 브라우저 사이즈를 줄였을때 따라다닌다*/
+        right: 20px;
+
+    }
+}
+@media screen and (max-width:1000px){
+    .footer .family{
+        position: relative;
+        /*아래로 떨어져야해서 해지값 auto를 준다*/
+        right: auto;
+        top: auto;
+        margin: 25px 0 17px 20px;
+    }
+    .footer .family button{
+        width: 120px;
+        height: 30px;
+    }
+    .footer .f_top{
+        height: auto;
+        border-bottom: 0;
+        border-top: 0;
+    }
+    .footer .f_top .f_nav li{
+        margin-right: 25px;
+    }
+    .footer .f_top .f_nav li::after{
+        right: -15px;
+        top: 10px;
+        height: 10px;
+    }
+    .footer .f_top .f_nav li a{
+        line-height: 30px;/*모바일에서는 글자행간을 봐가면서 픽셀로 주면된다*/
+    }
+    .footer .f_sub .f_logo{
+        display: none;
+    }
+    .footer .f_sub .inner{
+        margin: 40px 0 80px 0;
+    }
+    .footer .f_sub .f_info span{
+        margin: 0 20px 8px 0;
+    }
+    .footer .f_sub .copyright{
+        margin: 20px 0 0 0;
+        color: #cccccc;
+    }
+}

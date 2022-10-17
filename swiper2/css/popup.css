@@ -1,0 +1,180 @@
+@import url(default.css);
+@import url(common.css);
+
+body{
+    padding-bottom: 100px;
+}
+.popup{
+    height: 800px;
+}
+.popup ul li .txt{
+    position: absolute;
+    /* 텍스트를 왼쪽정렬과 위아래 가운데 두는 
+    left: calc(50% - 700px);
+    transform: translate(0,-50%); */
+    left: 50%;
+    top: 50%;
+    color: #FFF;
+    /*텍스트를 가운데 정렬*/
+    transform: translate(-50%,-50%);/*해당 요소의 넓이를 기준으로 % 로계산*/
+    text-align: center;
+    
+}
+.popup ul li .txt strong{
+    display: block;
+    font-size: 40px;
+    font-weight: 700;
+}
+.popup ul li .txt span{
+    display: block;
+    font-size: 25px;
+}
+.popup ul li img{/*팝업에 이미지를 img테그로 처리한경우 img에 주는 필수값*/
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.popup .btn_prev,.popup .btn_next{
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    font-size: 0;
+    line-height: 0;
+}
+.popup .btn_prev{
+    left: 20px;/*%로 값을 줘도됨*/
+}
+.popup .btn_next{
+    right: 20px;
+}
+.popup .btn_prev::before,.popup .btn_next::before{
+    position: absolute;
+    top: -25px;/*height 준값의 반절값을 마이너스로 준다(위아래 가운데 배치)*/
+    width: 26px;
+    height: 52px;
+    background: url(../images/popup_arrow.svg) no-repeat center center/contain;
+    opacity: 0.7;
+    content: "";
+}
+.popup .btn_prev::before{
+    left: 0;
+}
+.popup .btn_next::before{
+    right: 0;
+    transform: rotate(180deg);/*아이콘회전*/
+}
+.popup .ctrl_wrap{
+    display: flex;/*flaot보단 flex가 이상황에선 더 낫다*/
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    bottom: 80px;
+    z-index: 10;
+    transform: translate(-50%,0);/*페이징버튼을 브라우저 크기가 줄었을때도 가운데에 가게끔하는값*/
+}
+/*css 스타일이 중복될때 - 플러그인에서 준 스타일을 수정할때
+  css 선택자를 우선 적용될수 있도록 설계해야함
+    1. 더 먼요소부터 선언한(body부터 지정)
+    2. 스타일을 줄 요소를 정확하게 지칭해야함
+        -> 테그명보다 스타일명이 더 정확한 지칭(적용우선순위가 높음)
+        span ->(제일 낮은값)
+        .swiper-pagination-bullet ->
+        span.swiper-pagination-bullet (이게 제일 높은값)
+    
+    3. css가 우선적용되지 않을때
+        속성에 important를 추가해서 무조건 적용하게 한다
+        예시, width: 10px !important;(추천하진 않음)*/
+.popup .btn_paging span.swiper-pagination-bullet{
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    opacity: 1;
+    background-color: #FFF;
+}
+/*.popup .btn_paging span.swiper-pagination-bullet-active
+    이렇게만 지칭하면 .popup .btn_paging span.swiper-pagination-bullet(위에값과 충돌됨)
+    그래서 모두다! 불러야함*/
+.popup .btn_paging span.swiper-pagination-bullet.swiper-pagination-bullet-active{
+    background-color: #F80D0D;
+}
+.popup .btn_stop{
+    margin-left: 10px;
+    width: 16px;
+    height: 12px;
+    background-image: url(../images/popup_stop.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    font-size: 0;
+    line-height: 0;
+}
+.popup .btn_stop.play{
+    background-image: url(../images/popup_play.svg);
+}
+
+@media screen and (max-width:1000px){
+    .popup{
+        height: 600px;
+    }
+    .popup ul li .txt strong{
+        font-size: 30px;
+    }
+    .popup ul li .txt span{
+        font-size: 15px;
+    }
+    .popup .btn_prev::before,.popup .btn_next::before{
+        position: absolute;
+        top: -17px;/*height 준값의 반절값을 마이너스로 준다(위아래 가운데 배치)*/
+        width: 17px;
+        height: 35px;
+    }
+}
+@media screen and (max-width:640px){
+    .popup{
+        height: 400px;
+    }
+    .popup ul li .txt strong{
+        font-size: 20px;
+    }
+    .popup ul li .txt span{
+        font-size: 13px;
+    }
+    .popup .btn_prev::before,.popup .btn_next::before{
+        display: none;
+    }
+}
+
+h1{
+    margin: 50px 0 10px 0;
+    font-size: 50px;
+    font-weight: 700;
+}
+.banner1 ul li img{
+    width: 100%;/*li의 사이즈에 맞춰서 가로를 꽉채워서 들어감 - 높이는 비율에 맞게*/
+}
+.banner1 ul li strong{
+    display: block;
+    font-size: 20px;
+}
+
+.banner2 ul li{
+    width: 320px;
+}
+.banner2 ul li img{
+    width: 100%;/*li의 사이즈에 맞춰서 가로를 꽉채워서 들어감 - 높이는 비율에 맞게*/
+}
+.banner2 ul li strong{
+    display: block;
+    font-size: 20px;
+}
+@media screen and (max-width:1024px){
+    .banner2 ul li{
+        width: 250px;
+    }
+}
+@media screen and (max-width:640px){
+    .banner2 ul li{
+        width: 170px;
+    }
+}
