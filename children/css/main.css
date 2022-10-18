@@ -1,26 +1,19 @@
 @import url(../css/default.css);
 @import url(../css/common.css);
 
-.visual{
-    background-color: #ED1B2D;
-    color: #fff;
+.visual h2{
+    display: none;
 }
-.numbers{
-    background-color: #2680EB;
-    color: #fff;
+.visual video{
+    position:absolute;
+    right:0;
+    bottom:0;
+    top:0;
+    width:100%;
+    height:100%;
+    object-fit:cover; 
 }
-.biz{
-    background-color: #FEEA02;
-    color: #1d1d1d;
-}
-.news{
-    background-color: #926D49;
-    color: #fff;
-}
-.support{
-    background-color: #7BAB00;
-    color: #fff;
-}
+
 .fp-watermark{
     display: none;
 }
