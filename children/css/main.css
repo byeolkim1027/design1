@@ -1,0 +1,26 @@
+@import url(../css/default.css);
+@import url(../css/common.css);
+
+.visual{
+    background-color: #ED1B2D;
+    color: #fff;
+}
+.numbers{
+    background-color: #2680EB;
+    color: #fff;
+}
+.biz{
+    background-color: #FEEA02;
+    color: #1d1d1d;
+}
+.news{
+    background-color: #926D49;
+    color: #fff;
+}
+.support{
+    background-color: #7BAB00;
+    color: #fff;
+}
+.fp-watermark{
+    display: none;
+}
