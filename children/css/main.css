@@ -2,18 +2,303 @@
 @import url(../css/common.css);
 
 .visual h2{
-    display: none;
+    position: absolute;
+    left: calc(50% - 700px);/*글자를 왼쪽으로 정렬값*/
+    top: 50%;
+    z-index: 12;
+    font-size: 65px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #FFF;
+    transform: translate(0,-50%);/*글자를 위아래 가운대로 정렬값*/
+    /*fullpage.js 플러그인에서 한 section에 글자가 단 하나만 존재할때
+      해당 글자에 line-height가 들어가면 해당 section에서는 scroll이 작동안됨*/
+}
+
+.visual .bg{
+    position: absolute;
+    /*top,bottom,left,right 모두 다 0 으로 주면
+      width:100%; height:100%; 적용되는거와 같은값이 적용된다*/
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 11;
+    background-color: rgba(0,0,0,0.3);
 }
 .visual video{
     position:absolute;
-    right:0;
+    left:0;
     bottom:0;
     top:0;
+    z-index: 10;
     width:100%;
     height:100%;
     object-fit:cover; 
 }
+@media screen and (max-width:1440px){
+    .visual h2{
+        left: 20px;/*컨텐츠영역(1400px) + 양쪽 여백(20px + 20px) = 1440px 부터*/
+    }
+}
+@media screen and (max-width:1200px){
+    .visual h2{
+        font-size: 50px;
+    }
+}
+@media screen and (max-width:1000px){
+    .visual h2{
+        font-size: 40px;
+    }
+}
+@media screen and (max-width:640px){
+    /*만약 fullpage를 모바일에서 해제하고 높이를 제한해야한다면,
+      section 클래스를 준 요소말고 그 아에 있는 요소한테 높이를 줘야함
+      (div로 따로 한번더 묶어줘야한다는 소리)*/
+    .visual .inner{
+        height: 422px;
+    }
+    .visual h2{
+        font-size: 30px;
+    }
+}
 
-.fp-watermark{
+.numbers{
+    background-color: #926D49;
+    color: #FFF;
+}
+.numbers .tit{
+    margin: 0 0 0 120px;
+}
+.numbers .tit h2{
+    margin: 0 0 30px 0;
+    font-size: 40px;
+    line-height: 1.2;
+}
+.numbers .tit h2 strong{
+    font-weight: 700;
+}
+.numbers .tit p{
+    line-height: 1.3;
+}
+.numbers .tit p span{
+    display: block;
+}
+.numbers .rate{
+    position: absolute;/*영역의 기준은 fullpage(1920px의 기준으로) 때문에 이미 잡혀있다*/
+    left: calc(50% + 100px);
+    top: 50%;
+    width: 50%;
+    transform: translate(0,-50%);
+}
+.numbers .rate ul li{
+    position: relative;
+    margin-bottom: 60px;
+}
+.numbers .rate ul li::after{
+    position: absolute;
+    left: 0;
+    top: 90px;
+    z-index: -1;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255,255,255,0.5);
+    content: "";
+}
+.numbers .rate ul li:last-child{
+    margin-bottom: 0;
+}
+.numbers .rate ul li .num strong{
+    display: inline-block;
+    background-color: #926D49;
+    font-size: 65px;
+    font-weight: 700;
+}
+.numbers .rate ul li .num span{
+    display: inline-block;
+    position: relative;
+    padding: 0 10px 0 5px; /*뒤에 after로 그은선 안보이게 하려면 margin 말고 padding 줘야함*/
+    background-color: #926D49;
+    font-size: 25px;
+    font-weight: 700;
+}
+/*after로 선긋는 방법 2번째 */
+/* .numbers .rate ul li .num span::after{
+    position: absolute;
+    top: 20px;
+    left: 140%;
+    width: 100000%;
+    height: 1px;
+    background-color: rgba(255,255,255,0.5);
+    content: "";
+} */
+@media screen and (max-width:1440px){
+    .numbers .tit{
+        margin: 0 0 0 80px;
+    }
+}
+@media screen and (max-width:1200px){
+    /* .numbers .rate{
+        left: 50%;
+    } */
+}
+@media screen and (max-width:1000px){
+    .numbers .tit{
+        margin: 0 0 0 50px;
+    }
+    .numbers .tit h2{
+        margin: 0 0 20px 0;
+        font-size: 30px;
+    }
+    .numbers .rate ul li .num strong{
+        font-size: 50px;
+    }
+    .numbers .rate ul li .num span{
+        font-size: 17px;
+    }
+}
+@media screen and (max-width:800px){
+    .numbers .tit{
+        margin: 0;
+    }
+}
+@media screen and (max-width:640px){
+    .numbers{
+        padding: 20px 0 33px 0;
+    }
+    .numbers .tit{
+        margin: 0 0 50px 0;
+    }
+    .numbers .tit h2{
+        margin: 0 0 10px 0;
+        font-size: 25px;
+    }
+    .numbers .tit p span{
+        display: inline;
+    }
+    .numbers .rate{
+        position: relative;/*영역의 기준은 fullpage(1920px의 기준으로) 때문에 이미 잡혀있다*/
+        left: auto;
+        top: auto;
+        width: auto;
+        transform: translate(0,0);
+    }
+    .numbers .rate ul li{
+        margin-bottom: 30px;
+    }
+    .numbers .rate ul li::after{
+        top: 72px;
+        width: 120%;/*20% 더 줘야한다(wrapper 영역 20 프로를 넘어가게끔)*/
+    }
+    .numbers .rate ul li .num strong{
+        font-size: 50px;
+    }
+    .numbers .rate ul li .num span{
+        padding: 0 7px 0 3px; /*뒤에 after로 그은선 안보이게 하려면 margin 말고 padding 줘야함*/
+        font-size: 17px;
+    }
+}
+
+.biz{
+    background-color: #FBF6F1;
+}
+.news{
+    
+}
+.support{
+    background-color: #FFF3F3;
+}
+.footer{
+    
+}
+/*오른쪽 네비게이션 디자인 변경
+  선택자가 #fp-nav ul li인 것과 body #fp-nav ul li 인것이 동시에 존재한다면
+  body 부터 선언한 요소가 먼저 적용됩니다(단,뒤에불리는 선택자가 무조건 똑같아야함)*/
+body #fp-nav ul li{
+    width: 12px;
+    height: 12px;
+    margin: 10px;
+}
+body #fp-nav ul li:last-child{/*푸터의네비게이션 마지막 동그라미 삭제*/
     display: none;
+}
+body #fp-nav ul li a span,
+body #fp-nav ul li:hover a span{
+    height: 6px;
+    width: 6px;
+    border: 0;
+    background: #fff;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    margin: 0;
+}
+body #fp-nav ul li a.active span,
+body #fp-nav ul li:hover a.active span{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    background: #ED1B2D;
+}
+body #fp-nav ul li .fp-tooltip {
+    top: -2px;
+    right: 30px !important;
+    background-color: #ED1B2D;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 13px;
+    font-family: 'Noto Sans KR', 'NanumGothic', 'Malgun Gothic', 'Apple SD Gothic', 'Apple SD Gothic Neo', 'Dotum', sans-serif;
+    max-width: max-content;/*컨텐츠 있는만큼 영역 다 */
+    padding: 1px 10px 2px 10px;
+    overflow: visible;
+    width: auto;
+}
+body #fp-nav ul li .fp-tooltip::after{
+    position: absolute;
+    right: -2px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    background-color: #ED1B2D;
+    transform: rotate(45deg);
+    content: "";
+}
+
+/*어두운 툴팁*/
+body #fp-nav.black ul li a span,
+body #fp-nav.black ul li:hover a span{
+    background: #ccc;
+}
+body #fp-nav.black ul li a.active span,
+body #fp-nav.black ul li:hover a.active span{
+    background: #1d1d1d;
+}
+body #fp-nav.black ul li .fp-tooltip {
+    background-color: #1d1d1d;
+}
+body #fp-nav.black ul li .fp-tooltip::after{
+    background-color: #1d1d1d;
+}
+
+
+.fp-watermark{/*fullpage copyright 삭제*/
+    display: none;
+}
+body .section .fp-overflow{
+    overflow: hidden;
+}
+
+/*모바일에서 fullpage적용 해제하는데 발생하는 오류 수정*/
+@media screen and (max-width:640px){
+    .fp-responsive .fp-is-overflow.fp-section{
+        min-height: auto !important;
+        /*fullpage.js 에서 640 이하일때는 fullpage 적용하지 않도록함
+          근데 이때 min-height이 해제 되지않아서 이전 fullpage 높이가 잡힘
+          그래서 min-height: auto; 를 줘야하는 상황
+          visual에 min-height:auto; 적용되지않음(css 적용 우선순위에 밀려서)
+          이때 내가 적용한 값을 먼저 적용하게 하는게
+          min-height: auto !important;
+          
+          이때 플러그인을 써서 내가 주지않을 스타일을 고쳐서 쓸때만 !important;*/
+    }
 }
