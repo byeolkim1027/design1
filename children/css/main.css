@@ -64,6 +64,9 @@
 }
 
 .numbers{
+    padding: 60px 0 0 0;
+    /* 컨텐츠가 header의 높이와 무관하게 위아래 가운데 배치되서(메뉴바가 같이 내려와 자리를 더 차지해서)
+       약간 상단여백이 부족해보임 - 그래서 상단 여백을 추가로 줌*/
     background-color: #926D49;
     color: #FFF;
 }
@@ -87,7 +90,7 @@
 .numbers .rate{
     position: absolute;/*영역의 기준은 fullpage(1920px의 기준으로) 때문에 이미 잡혀있다*/
     left: calc(50% + 100px);
-    top: 50%;
+    top: calc(50% + 35px);/*.numbers 에서 준 상단 패딩값으로 컨텐츠를 조금 내려서 .rate도 같이 내려준다*/
     width: 50%;
     transform: translate(0,-50%);
 }
@@ -141,6 +144,12 @@
     /* .numbers .rate{
         left: 50%;
     } */
+    .numbers .rate ul li::after{
+        top: 79px;
+    }
+    .numbers .rate ul li .num strong{
+        font-size: 55px;
+    }
 }
 @media screen and (max-width:1000px){
     .numbers .tit{
@@ -148,7 +157,11 @@
     }
     .numbers .tit h2{
         margin: 0 0 20px 0;
-        font-size: 30px;
+        font-size: 40px;
+    }
+    .numbers .rate ul li::after{
+        top: 72px;
+        width: 120%;/*20% 더 줘야한다(wrapper 영역 20 프로를 넘어가게끔)*/
     }
     .numbers .rate ul li .num strong{
         font-size: 50px;
@@ -158,8 +171,24 @@
     }
 }
 @media screen and (max-width:800px){
+    .numbers .rate{
+        left: 50%;
+    }
     .numbers .tit{
         margin: 0;
+    }
+    .numbers .tit h2{
+        margin: 0 0 10px 0;
+        font-size: 30px;
+    }
+    .numbers .rate ul li::after{
+        top: 60px;
+    }
+    .numbers .rate ul li .num strong{
+        font-size: 40px;
+    }
+    .numbers .rate ul li .num span{
+        font-size: 15px;
     }
 }
 @media screen and (max-width:640px){
@@ -170,7 +199,6 @@
         margin: 0 0 50px 0;
     }
     .numbers .tit h2{
-        margin: 0 0 10px 0;
         font-size: 25px;
     }
     .numbers .tit p span{
@@ -184,33 +212,319 @@
         transform: translate(0,0);
     }
     .numbers .rate ul li{
-        margin-bottom: 30px;
+        margin-bottom: 20px;
     }
     .numbers .rate ul li::after{
-        top: 72px;
-        width: 120%;/*20% 더 줘야한다(wrapper 영역 20 프로를 넘어가게끔)*/
+        top: 48px;
     }
     .numbers .rate ul li .num strong{
-        font-size: 50px;
+        font-size: 30px;
     }
     .numbers .rate ul li .num span{
         padding: 0 7px 0 3px; /*뒤에 after로 그은선 안보이게 하려면 margin 말고 padding 줘야함*/
-        font-size: 17px;
+        font-size: 15px;
     }
 }
 
 .biz{
+    padding: 50px 0 0 0;/*메뉴바때문에 상단 여백이 하단이랑 안맞을거 같을때 주는여백*/
     background-color: #FBF6F1;
 }
-.news{
-    
+.biz .biz_wrap{
+    /*반응형 브라우저가 줄어들때 이미지와 이너안에 있는 글자들이 양옆으로 나란히 줄어들게 하는값*/
+    display: flex;
+    align-items: center;
 }
+.biz img{
+    width: calc(100% - 523px);/*wrapper 1440, 그안에 이미지가 877px = 877/1440*100=60.90%*/
+}
+.biz .inner{
+    width: 340px; /*340/1440*100=23.61%*/
+    margin: 0 0 0 80px;
+}
+.biz a strong{
+    display: block;/*인라인 요소라서 블록을 주는게좋다*/
+}
+.biz a h2{
+    margin: 5px 0 30px 0;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+.biz a .country{
+    margin: 20px 0 43px 0;
+    color: #666;
+}
+.biz a .more{/*more버튼 아이콘 대신 css로 그린다*/
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #666;
+    border-radius: 50%;/*정사각형인 경우에만, border-radius:50% 를 주면 사이즈에 상관없이 원형이 그려짐*/
+    transition: 0.5s;/*more:hover에 transform 값을 줘서 원래 선언한값에 transition 줘야 적용이 된다*/
+}
+.biz a .more::before{/*모어 버튼의 동그라미 안에있는 십자가 모양(가로선모양)*/
+    position: absolute;
+    left: 25%;/*넓이값을 50%를 줬기때문에 나머지 50을 좌우값으로 나눈다면 25가 되기때문에 left를 25%를 준다*/
+    top: 50%;
+    width: 50%;/*브라우저 사이즈에 맞게 모양이 변형되려면 %로 주는게 좋다*/
+    height: 1px;
+    background: #666;
+    content: "";
+}
+.biz a .more::after{/*(세로선모양)*/
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    width: 1px;/*브라우저 사이즈에 맞게 모양이 변형되려면 %로 주는게 좋다*/
+    height: 50%;
+    background: #666;
+    content: "";
+}
+.biz a .more:hover{
+    transform: rotate(180deg);/*a 에 마우스를 오버하면 more 버튼이 내가준 각도에 맞게 돌아간다*/
+}
+@media screen and (max-width:1200px){
+    .biz img{
+        width: calc(100% - 450px);/*wrapper 1440, 그안에 이미지가 877px = 877/1440*100=60.90%*/
+    }
+    .biz .inner{
+        width: 340px; /*340/1440*100=23.61%*/
+        margin: 0 0 0 40px;
+    }
+    .biz a h2{
+        margin: 5px 0 25px 0;
+        font-size: 35px;
+    }
+    .biz a .country{
+        margin: 20px 0 0 0;
+    }
+    .biz a .more{
+        display: none;
+    }
+}
+@media screen and (max-width:1000px){
+    .biz img{
+        width: calc(100% - 400px);/*wrapper 1440, 그안에 이미지가 877px = 877/1440*100=60.90%*/
+    }
+    .biz .inner{
+        width: 300px; /*340/1440*100=23.61%*/
+        margin: 0 0 0 30px;
+    }
+    .biz a h2{
+        margin: 0 0 15px 0;
+        font-size: 30px;
+    }
+}
+@media screen and (max-width:800px){
+    .biz img{
+        width: calc(100% - 350px);/*wrapper 1440, 그안에 이미지가 877px = 877/1440*100=60.90%*/
+    }
+    .biz .inner{
+        margin: 0 0 0 20px;
+    }
+    .biz a h2{
+        margin: 0 0 10px 0;
+        font-size: 25px;
+    }
+}
+@media screen and (max-width:640px){
+    .biz{
+        padding: 62px 0 64px 0;
+    }
+    .biz .biz_wrap{
+        display: block; /*사진과 이너를 양옆으로 배치하는걸 해지*/
+    }
+    .biz img{
+        width: 100%;/*모바일에선 영역에 맞게 꽉차야해서*/
+    }
+    .biz .inner{
+        width: auto;/*pc에서 준 넓이값을 해제시키는게 auto*/
+        margin: 20px 0 0 0;
+    }
+    .biz a h2{
+        margin: 0 0 20px 0;
+        font-size: 25px;
+    }
+    .biz a .country{
+        margin: 10px 0 0 0;
+    }
+    .biz a .more{/*more버튼 아이콘 대신 css로 그린다*/
+       display: none;
+    }
+}
+
+.news{
+    padding: 50px 0 0 0;
+}
+.news h2{
+    margin: 0 55px 40px 0;
+    /*제목 오른쪽(55px)에 more버튼이 엡솔루트로 들어갈걸 감안해서 more가 들어갈 만한 영역을 여백으로줌*/
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+.news .list ul li a{/*a 테그 안에 있는 인라인테그는 블록테그로 값을줘야한다*/
+    display: block;
+}
+.news .list ul li a span{
+    display: block;
+    overflow: hidden;/*마우스 오버시 영역안에서만 바껴야해서 이값을 줘야 자기 영역안에서만 늘어남*/
+    /*이미지가 마우스 오버시overflow:hidden을줘도 
+      img테그가 블록 요소라 사이즈를 가지고있기때문에 글자행간크기를 0을 줘야함*/
+    font-size: 0;
+    line-height: 0;
+}
+.news .list ul li a span img{
+    width: 100%;
+    transition: 0.4s;
+}
+.news .list ul li a:hover span img{
+    transform: scale3d(1.2,1.2,1);/*마지막숫자는 무조건 1*/
+}
+.news .list ul li a strong{
+    display: block;
+    margin: 15px 0 0 0;
+    font-size: 17px;
+    font-weight: 700;
+    /*제목을 2줄로 고정(브라우저사이즈 줄어들때를 대비해서)*/
+    line-height: 1.5;
+    height: 3em;
+    overflow: hidden;
+}
+.news .list .btn_paging{
+    margin: 30px 0 0 0;
+    display: flex;
+    justify-content: center;
+}
+.news .list .btn_paging span{/*플러그인으로 기본으로 스타일 들어갔던거 바꾸는 값*/
+    display: block;
+    width: 7px;
+    height: 7px;
+    margin: 0 5px;
+    border-radius: 50%;
+    border: 1px solid #ED1B2D;
+    background-color: #fff;
+    opacity: 1;
+}
+.news .list .btn_paging span.swiper-pagination-bullet-active{
+    background-color: #ED1B2D;
+}
+.news .more{/*more버튼 아이콘 대신 css로 그린다*/
+    position: absolute;
+    right: 20px;/*반응형 이후 wrapper 사이즈 = 1440(+40양옆20씩) 그래서 시작점이 20을 잡아줘야함 */
+    top: 25px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #666;
+    border-radius: 50%;/*정사각형인 경우에만, border-radius:50% 를 주면 사이즈에 상관없이 원형이 그려짐*/
+    transition: 0.5s;/*more:hover에 transform 값을 줘서 원래 선언한값에 transition 줘야 적용이 된다*/
+    font-size: 0;
+    line-height: 0;
+}
+.news .more::before{/*모어 버튼의 동그라미 안에있는 십자가 모양(가로선모양)*/
+    position: absolute;
+    left: 25%;/*넓이값을 50%를 줬기때문에 나머지 50을 좌우값으로 나눈다면 25가 되기때문에 left를 25%를 준다*/
+    top: 50%;
+    width: 50%;/*브라우저 사이즈에 맞게 모양이 변형되려면 %로 주는게 좋다*/
+    height: 1px;
+    background: #666;
+    content: "";
+}
+.news .more::after{/*(세로선모양)*/
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    width: 1px;/*브라우저 사이즈에 맞게 모양이 변형되려면 %로 주는게 좋다*/
+    height: 50%;
+    background: #666;
+    content: "";
+}
+.news .more:hover{
+    transform: rotate(180deg);/*a 에 마우스를 오버하면 more 버튼이 내가준 각도에 맞게 돌아간다*/
+}
+@media screen and (max-width:1000px){
+    .news h2{
+        margin: 0 55px 30px 0;
+        /*제목 오른쪽(55px)에 more버튼이 엡솔루트로 들어갈걸 감안해서 more가 들어갈 만한 영역을 여백으로줌*/
+        font-size: 35px;
+    }
+}
+@media screen and (max-width:800px){
+    .news h2{
+        margin: 0 55px 20px 0;
+        /*제목 오른쪽(55px)에 more버튼이 엡솔루트로 들어갈걸 감안해서 more가 들어갈 만한 영역을 여백으로줌*/
+        font-size: 35px;
+    }
+    .news h2 span{
+        display: block;
+    }
+    .news .more{/*more버튼 아이콘 대신 css로 그린다*/
+        top: 50px;
+    }
+}
+@media screen and (max-width:640px){
+    .news{
+        padding: 0 0 32px 0;
+    }
+    .news h2{
+        margin: 0 55px 20px 0;
+        font-size: 25px;
+    }
+    .news h2 span{
+        display: block;
+    }
+    .news .list ul li a strong{
+        margin: 10px 0 0 0;
+        font-size: 15px;
+    }
+    .news .more{/*more버튼 아이콘 대신 css로 그린다*/
+        top: 32px;
+    }
+}
+
 .support{
     background-color: #FFF3F3;
 }
-.footer{
-    
+.support .support_wrap{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+.support h2{
+    margin: 0 0 30px 0;
+    font-size: 40px;
+    line-height: 1.2;
+    color: #1d1d1d;
+}
+.support h2 strong{
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1;
+}
+.support h2 span{/*pc 에서 줄바꿈*/
+    display: block;
+}
+.support ul{/*브라우저가 늘고 줄을때, 조금더 수월하게 li들의 크기를 조정하려면 ul을 100%로 바라봐야한다*/
+    width: 54.3%;/* 760(ul의총넓이) / 1400 * 100*/
+}
+.support ul li{
+    float: left;
+    /*ul의 총넓이760px - li한개의 넓이360px :  360/760*100 =47.4%*/
+    width: 47.4%;
+    height: 250px;/*높이값은 고정*/
+    background-color: #ededed;
+    margin: 0 5.2% 40px 0;/*47.4 *2 - 100(총 넓이 마진 합쳐서 총합이 100 이 되야해서)*/
+}
+.support ul li:nth-child(2),
+.support ul li:nth-child(4){
+    margin-right: 0;
+}
+
+
+/* fullpage 공통사항 */
+
+
 /*오른쪽 네비게이션 디자인 변경
   선택자가 #fp-nav ul li인 것과 body #fp-nav ul li 인것이 동시에 존재한다면
   body 부터 선언한 요소가 먼저 적용됩니다(단,뒤에불리는 선택자가 무조건 똑같아야함)*/
