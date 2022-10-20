@@ -484,12 +484,16 @@
 }
 
 .support{
+    padding: 50px 0 0 0;
     background-color: #FFF3F3;
 }
 .support .support_wrap{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+.support .inner{
+    margin: 0 0 0 2.1%; /*퍼센트로 여백줘야함 30px / 1400 *100*/
 }
 .support h2{
     margin: 0 0 30px 0;
@@ -506,20 +510,53 @@
     display: block;
 }
 .support ul{/*브라우저가 늘고 줄을때, 조금더 수월하게 li들의 크기를 조정하려면 ul을 100%로 바라봐야한다*/
-    width: 54.3%;/* 760(ul의총넓이) / 1400 * 100*/
+    width: 54.3%; /*760(ul의총넓이) / 1400 * 100 */
+    margin: 0 2.2% 0 0;
+    
 }
 .support ul li{
     float: left;
-    /*ul의 총넓이760px - li한개의 넓이360px :  360/760*100 =47.4%*/
-    width: 47.4%;
-    height: 250px;/*높이값은 고정*/
-    background-color: #ededed;
-    margin: 0 5.2% 40px 0;/*47.4 *2 - 100(총 넓이 마진 합쳐서 총합이 100 이 되야해서)*/
+    /*퍼센트로 li값 주는것*/
+    /*ul의 총넓이760px - li한개의 넓이360px :  360/760*100 =47.4%
+    width: 47.4%;*/
+    
+    /*여백이 위아래,좌우 고정일때 100% / li갯수 = 50% -(한줄에 들어가는 모든여백의 합(40px)/li의갯수)
+      (100/2)% - (40/2)px = calc(50% - 20px)*/
+    width: calc(50% - 20px);
+    margin: 20px 40px 20px 0;/*47.4 *2 - 100(총 넓이 마진 합쳐서 총합이 100 이 되야해서)*/
+    /*li하나의 하단여백이 40px인데, 컨텐츠 가운데에 배치해야해서 위아래 여백을 반으로 나눠서 준다*/
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.support ul li a{
+    display: block;
+    height: 250px;/*높이값은 고정. a테그에 줘야 브라우저에서 잘눌린다*/
+    /*a 의 사이즈의 기준으로 %코딩
+      가로패딩 = 50(px) / 360(하나의li값px) * 100 = 13.88%
+      세로패딩 = 60(px) / 360 * 100 = 16.66% */
+    padding: 16.66% 13.88% 0 13.88%;
+    /*가로는 브라우저의 넓이의 따라서 사이즈의 변화가 심함, % 여백주면 좋음
+      단, 세로(높이)는 대부분 px로 여백을 주는게 더좋음*/
+}
+.support ul li a span{
+    display: block;
+}
+.support ul li a strong{
+    display: block;
+    margin: 5px 0 0 0;
+    font-size: 30px;
+    font-weight: 700;
+}
+.support ul li:nth-child(1),
+.support ul li:nth-child(3){
+    transform: translate(0,-30px);/*li의 1,3번째 위로 올리는값*/
 }
 .support ul li:nth-child(2),
 .support ul li:nth-child(4){
     margin-right: 0;
+    transform: translate(0,30px);/*li의 2,4번째 아래로 내리는값*/
 }
+
 
 
 /* fullpage 공통사항 */
@@ -599,7 +636,7 @@ body #fp-nav.black ul li .fp-tooltip::after{
     display: none;
 }
 body .section .fp-overflow{
-    overflow: hidden;
+    overflow: visible;
 }
 
 /*모바일에서 fullpage적용 해제하는데 발생하는 오류 수정*/
