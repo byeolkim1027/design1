@@ -19,7 +19,7 @@
 </head>
 <body>
     <div id="wrap">
-        <header class="header">
+        <header class="header"><!--fullpage 효과가 안들어갔을때 스크롤 내리면 fixed클래스 추가-->
             <h1 class="logo"><a href="index.html">save the children</a></h1>
             <nav class="gnb">
                 <button class="gnb_open"><span>메뉴열기</span><span></span><span></span></button>
@@ -34,52 +34,15 @@
         </header>
         <div id="fullpage">
         <!--id=fullpage 는 fullpage 효과를 줄 모든 테그를 감싸는 요소(이름변경가능)-->
-            <section class="section support">
-                <div class="wrapper">
-                    <div class="support_wrap"><!--float말고 flex로 코딩해야해서 한번더 묶어줘야함(반응형)-->
-                        <div class="inner"><!--inner로 묶어야 양옆으로 플렉스코딩가능-->
-                            <h2>월<strong>3</strong>만 원이면,<br> 
-                                <span>연간 <strong>10</strong>명의 아동에게</span>
-                                <span>학용품을 지원하고</span>
-                                <span><strong>4</strong>명의 산모에게 출산물품을</span>
-                                지원할 수 있습니다.</h2>
-                            <p>매월 정기후원을 통해, 더 많은 아이들에게 장기적인 도움을 주실 수 있습니다.</p>
-                        </div>
-                        <ul><!--모바일순서에맞게 배치-->
-                            <li>
-                                <a href="#n">
-                                    <span>캠페인 분야를 선택하여 기금</span>
-                                    <strong>사회공헌기금</strong>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#n">
-                                    <span>#랜선구호활동가</span>
-                                    <strong>골든타임세이버</strong>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#n">
-                                    <span>매월 3만원 정기후원</span>
-                                    <strong>후원하기</strong>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#n">
-                                    <span>세이브더칠드런의 멤버십</span>
-                                    <strong>Giving Club</strong>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
             <section class="section visual">
             <!--클래스명section 을 주면 해당 요소는 한페이지(1page) 전부를 차지함(이름변경 불가)-->
                 <div class="inner">
-                    <h2>모든 아동은<br>
-                        건강하게 태어나 자랄<Br>
-                        권리가 있습니다.</h2>
+                    <!--h2를 span으로 감싸줘야 나중에 css에서 애니메이션 효과를 줄때
+                        transform 을이용해서 주는데, 클래스명으로 선언을 하고, 또 span으로 감싸줘야한다
+                         위치도 잘들어가고 애니메이션도 잘 들어간다 -->
+                    <h2><span class="block"><span>모든 아동은</span></span>
+                        <span class="block"><span>건강하게 태어나 자랄</span></span>
+                        <span class="block"><span>권리가 있습니다.</span></span></h2>
                     <!--비디오 파일이 사용자의 컴퓨터에 다운로드가 완료된 이후에 재생
                         즉, 용량이 엄청 작아야함-->
                     <video loop muted data-autoplay playsinline>   <!-- 비디오 자동실행 무한반복 -->
@@ -170,10 +133,59 @@
                     <a href="#n" class="more">뉴스더보기</a>
                 </div>
             </section>
-           
+            <section class="section support">
+                <div class="wrapper">
+                    <div class="support_wrap"><!--float말고 flex로 코딩해야해서 한번더 묶어줘야함(반응형)-->
+                        <div class="inner"><!--inner로 묶어야 양옆으로 플렉스코딩가능-->
+                            <h2>월<strong>3</strong>만 원이면,<br> 
+                                <span>연간 <strong>10</strong>명의 아동에게</span>
+                                <span>학용품을 지원하고</span>
+                                <span><strong>4</strong>명의 산모에게 출산물품을</span>
+                                지원할 수 있습니다.</h2>
+                            <p>매월 정기후원을 통해, 더 많은 아이들에게 장기적인 도움을 주실 수 있습니다.</p>
+                        </div>
+                        <ul><!--모바일순서에맞게 배치-->
+                            <li class="campaign">
+                                <a href="#n">
+                                    <span>캠페인 분야를 선택하여 기금</span>
+                                    <strong>사회공헌기금</strong>
+                                </a>
+                            </li>
+                            <li class="lan">
+                                <a href="#n">
+                                    <span>#랜선구호활동가</span>
+                                    <strong>골든타임세이버</strong>
+                                </a>
+                            </li>
+                            <li class="spon active">
+                                <a href="#n">
+                                    <span>매월 3만원 정기후원</span>
+                                    <strong>후원하기</strong>
+                                </a>
+                            </li>
+                            <li class="member">
+                                <a href="#n">
+                                    <span>세이브더칠드런의 멤버십</span>
+                                    <strong>Giving Club</strong>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
             <footer class="section fp-auto-height footer">
-                <!--section 과 fp-auto-height 를 동시에 선언하면 footer 처럼 높이가 낮은 컨텐츠를 배치할수 있음-->
-                <div><br><br>footer<br><br></div>
+            <!--section 과 fp-auto-height 를 동시에 선언하면 footer 처럼 높이가 낮은 컨텐츠를 배치할수 있음-->
+                <div class="wrapper">
+                    <ul class="f_nav">
+                        <li><a href="#n">이용약관</a></li>
+                        <li class="privacy"><a href="#n">개인정보처리방침</a></li>
+                        <li><a href="#n">이메일 집단수집거부</a></li>
+                    </ul>
+                    <div class="inner">
+                        <div class="f_logo"></div>
+                        <div class="copyright">Copyright ⓒ Save the Children Korea All Rights Reserved.</div>
+                    </div>
+                </div>
             </footer>
         </div>
     </div>

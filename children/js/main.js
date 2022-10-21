@@ -68,4 +68,21 @@ $(document).ready(function(){
 
 	});
 
+	let scrolling //변수선언
+    scrollChk()
+
+    $(window).scroll(function(){
+        scrollChk() //함수실행 - header 고정
+    })
+
+	function scrollChk(){//함수선언
+        scrolling=$(window).scrollTop()
+        console.log(scrolling)
+        if(scrolling>0){
+            $('.header').addClass('fixed')
+        }else{
+            $('.header').removeClass('fixed')
+        }
+    }
+
 })//document.ready finished
