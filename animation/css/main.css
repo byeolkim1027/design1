@@ -1,0 +1,139 @@
+@import url(default.css);
+@import url(common.css);
+
+.tour{
+    height: 515px;
+    background-color: #13885E;
+    color: #fff;
+}
+.tour h2{
+    padding: 50px 0 60px 0;
+    font-size: 50px;
+    font-weight: 700;
+}
+.tour ul li{
+    overflow: hidden;
+    position: relative;
+    float: left;
+    width: 200px;
+    margin: 0 20px;
+    border: 1px solid rgba(255,255,255,0.4);
+    text-align: center;
+}
+.tour ul li a{
+    display: block;
+    height: 195px;
+}
+.tour ul li a i{
+    padding: 30px 0 20px 0;
+    font-size: 65px;
+}
+.tour ul li a strong{
+    display: block;
+}
+.tour ul li a .btn_wrap{
+    display: block;
+}
+.tour ul li a .out,
+.tour ul li a .over{
+    display: block;
+    height: 195px;/*a 높이와 동일한 값*/
+}
+.tour ul li a .over{
+    background-color: #fff;
+    color: #13885E;
+}
+.tour ul li a .up_wrap{
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    bottom: 0; /* bottom 정렬인데 높이가 늘어나면 밑에서부터 위로 늘어남*/
+    width: 100%;
+    height: 0;
+}
+.tour ul li a .up_wrap .up{/*사이즈를 유지할 영역 (픽셀로 고정을 해줘야함) */
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 195px;/*a의 높이값 동일하게 준다*/
+    background-color: #fff;
+    color: #13885E;
+}
+
+/* 오버효과 - transition */
+.tour ul li.ico1 a i{
+    transition: 1s;
+    transition-timing-function: ease-in-out;
+}
+.tour ul li.ico1 a:hover i{
+    transform: rotateY(360deg);
+}
+.tour ul li.ico2 a {
+    transition: 0.3s;
+    transition-timing-function: ease-in-out;
+}
+.tour ul li.ico2 a:hover{
+    background-color: #fff;
+    color: #13885E;
+}
+.tour ul li.ico3 a .btn_wrap {
+    transition: 0.5s;
+}
+.tour ul li.ico3 a:hover .btn_wrap {
+    transform: translate(0,-195px); /*a 의 높이값만큼 이동*/
+    transition-timing-function: ease-in-out;
+}
+.tour ul li.ico4 a .up_wrap{
+    transition: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+.tour ul li.ico4 a:hover .up_wrap{
+    height: 100%;
+}
+
+.slide{
+    margin: 100px 0;
+}
+.slide .slide_wrap{
+    overflow: hidden;
+    width: 0; 
+    /*넓이가 0 -> 100% 로 변경되는 애니메이션을 줄 예정
+      첫 설정에서 넓이를 50%로 제한하고 그 내부요소가 slide_cnt와 영역이 동일해야함
+      slide_cnt의 영역이 짤리면 안됨*/
+}
+.slide .slide_wrap .slide_cnt{/*h2 의 기준점*/
+    position: relative;
+    width: 1400px;/*영역을 높이 넓이를 고정값을 줌으로써, wrap이 늘고줄었을때 그안에 컨텐츠는 그대로 있는다.*/
+    height: 513px;
+}
+.slide .slide_wrap .slide_cnt h2{
+    position: absolute;
+    right: 80px;
+    top: 272px;
+    font-size: 40px;
+    color: #fff;
+    text-align: right;
+}
+/* 애니메이션 - transition : 마우스아웃효과가 무조건 들어감 */
+/* .slide .slide_wrap{
+    transition: 1s;
+}
+.slide:hover .slide_wrap{
+    width: 100%;
+} */
+
+/* 애니메이션 animation 효과 - 마우스가 오버하고 아웃해도 효과가 사라지지않았으면 
+    slide에 hover이 아니라 jquery에서 slide에 오버를 하면 over라는 클래스를 추가함
+    해당 클래스가추가됬을때 animate가 작동됨*/
+.slide.over .slide_wrap{
+    animation-name: size100;
+    animation-duration: 1s;/* 애니메이션 실행 시간 */ 
+    animation-fill-mode: forwards;
+    /*animation은 효과후 내가 준 값(원래의값) 으로 돌아가는데
+      fill-mode: forwards 를 주면, 애니메이션 종료후 100% 상태 유지하는값*/
+}
+@keyframes size100{
+    0%{width: 0;}
+    100%{width: 100%;}
+}

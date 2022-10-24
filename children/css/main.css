@@ -36,6 +36,41 @@
     height:100%;
     object-fit:cover; 
 }
+.visual .scroll{
+    position: absolute;
+    left: 50%;
+    bottom: 25px;
+    z-index: 12;
+    color: #FFF;
+    text-align: center;
+    transform: translate(-50%,0);
+    /*컨텐츠 넓이의 절반을 왼쪽으로 이동(left:50%로 가운데 정렬해도 글자가 정가운데로 가야해서)*/
+}
+.visual .scroll strong{
+    display: block;/*strong 테그가 인라인요소라 블록으로 바꿔줘야함 그래야 이미지 밑으로 글자가 내려감*/
+    margin-top: 8px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+}
+/*fullpage 아래쪽에있는 스크롤되는 애니메이션값*/
+.visual .scroll img{
+    animation-name: scroll_move;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;/*무제한*/
+    animation-timing-function: cubic-bezier(.96,.08,.37,.98);/*가속도*/
+}
+@keyframes scroll_move{
+    0%{transform: translate(0,0);}
+    50%{transform: translate(0,-20px);}
+    100%{transform: translate(0,0);}
+}
+/*
+    transition과의 차이점
+    1. 가만히 있어도 애니메이션 효과가 적용됨(hover 하거나)
+    2. keyframes로 선언한 애니메이션의 재활용이 가능
+        a에도 적용할수있고, button에도 적용할수있다.
+    3. 애니메이션 효과를 무한반복 할수있음(transition 은 단한번만 가능)
+*/
 @media screen and (max-width:1440px){
     .visual h2{
         left: 20px;/*컨텐츠영역(1400px) + 양쪽 여백(20px + 20px) = 1440px 부터*/
