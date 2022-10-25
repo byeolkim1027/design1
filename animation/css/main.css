@@ -91,6 +91,267 @@
 .tour ul li.ico4 a:hover .up_wrap{
     height: 100%;
 }
+/* 오버효과 - animation */
+.tour ul li.ico5 a:hover i{
+    animation-name: ico_rotate;
+    animation-duration: 1s; /*!필수값!애니메이션 0~100%까지 0.5초동안 실행*/
+    animation-iteration-count: infinite;/*애니메이션 무한반복*/
+    /*animation-timing-function: linear;애니메이션 무한반복할때 부드럽게 하는 값*/
+    animation-timing-function: ease-in-out;
+}
+@keyframes ico_rotate{
+    0%{transform: rotateY(0deg);}
+    100%{transform: rotateY(360deg);}
+}
+.tour .circle_txt{
+    position: absolute;
+    right: -100px;/*.tour 의 cnt_wrap을기분으로 컨텐츠 바깥으로 오른쪽으로 얼마나 나가는지 */
+    top: 30px;/*위에서 얼마나 떨어지는지*/
+    width: 300px;
+    /*회전할 오브젝트는 정사각형으로 주는게 좋다
+        - 원의 중심을 기준으로 회전가능
+        - 정사각형이 아닌 도형을 돌리면 회전하면서 위아래로 위치가 이동된다.*/
+    height: 300px;/*넓이값을 같이 줘서 정사각형을 만들어줌*/
+    background: url(../images/circle_txt.svg) no-repeat right bottom;
+    animation-name: circle_rotate;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes circle_rotate{
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
+}
+.tour .circle{
+    position: absolute;
+    left: -185px;
+    top: 10px;
+    width: 238px;/*마찬가지로 정사각형으로줘야 제자리에서 회전된다*/
+    height: 238px;
+    background: url(../images/circle.svg) no-repeat center center;
+    /*동그라미가 중간에 구멍이 없어서 center center 줘도됨(대신, 글자가 들어가면 안됨)*/
+    
+    animation-name: circle_rotate;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    /*circle_rotate 라는 애니메이션 이름을 같이 줘도된다 시간조절은 따로가능*/
+}
+.tour .fire{
+    position: absolute;
+    background: url(../images/firework.svg) no-repeat center center/contain;
+    /*포지션은 센터센터 = 크기가 일정하지않아서
+      사이지는 컨테인 = 내가 저장한 사이즈만큼 사이즈 들어가게끔*/
+    
+    animation-name: fire_ani;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+.tour .fire.po1{
+    left: -150px;
+    top: 300px;
+    width: 150px;/*마찬가지로 정사각형 사이즈로 높넓이를 줘야한다*/
+    height: 150px;
+    animation-duration: 4s;
+}
+.tour .fire.po2{
+    right: 150px;
+    top: 350px;
+    width: 120px;/*마찬가지로 정사각형 사이즈로 높넓이를 줘야한다*/
+    height: 120px;
+    animation-duration: 4s;
+    animation-delay: 1s;/*딜레이 기간동안은 애니메이션 적용이 안됨(즉, 기본 css 스타일을 따름)*/
+    opacity: 0;/*딜레이 시간동안 기본css가 안보이게 하기위해서 오퍼서티를 낮춘다*/
+}
+.tour .fire.po3{
+    right: -230px;
+    top: 20px;
+    width: 150px;/*마찬가지로 정사각형 사이즈로 높넓이를 줘야한다*/
+    height: 150px;
+    animation-duration: 4s;
+    animation-delay: 1s;/*딜레이 기간동안은 애니메이션 적용이 안됨(즉, 기본 css 스타일을 따름)*/
+    opacity: 0;/*딜레이 시간동안 기본css가 안보이게 하기위해서 오퍼서티를 낮춘다*/
+}
+@keyframes fire_ani{
+    0%{opacity: 0; transform: scale3d(0,0,1);}/*가운데 기점으로 늘어나야함 그래서 3번째 숫자가 1*/
+    30%{opacity: 1; transform: scale3d(1,1,1);}
+    70%{opacity: 1; transform: scale3d(1,1,1);}
+    100%{opacity: 0; transform: scale3d(1.5,1.5,1);}/*opacity가 없어지면서 스케일이 커지면서 사라짐*/
+}
+
+.media h2{
+    margin: 85px 0 35px 0;
+    font-size: 50px;
+    font-weight: 700;
+}
+.media ul li{
+    overflow: hidden;
+    position: relative;/*.over 의 테그 엡솔루트의 기준점이 된다*/
+    float: left;
+    width: 440px;/*우선 넓이만 준다 */
+    margin: 0 40px 0 0;
+}
+.media ul li:last-child{
+    margin-right: 0;
+}
+.media ul li a{
+    display: block;
+}
+.media ul li.list1 a{
+    height: 332px;
+    padding: 20px 20px 0 20px ;
+    border: 1px solid #ccc;
+}
+.media ul li.list1 a .pic{
+    overflow: hidden;
+    height: 209px;
+}
+.media ul li.list1 a .pic img{
+    /*제한된 사이즈 안에서(감싸는 영역)overflow: hidden; 으로 이미지를 제한할때
+      이미지를 block, width&height:100%; object-fit:cover를 주면 영역에 맞게 꽉차게
+      위치는 좌우에 가운데 위아래 가운데에 이미지를 배치*/
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.media ul li.list1 a h3{
+    margin: 20px 0 0 0;
+    font-size: 20px;
+}
+.media ul li.list1 a .over{
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    height: 100%;
+    padding: 35px 20px 0 20px;
+    background-color: #007AB4;
+    color: #fff;
+}
+.media ul li.list1 a .over strong{
+    display: block;
+    margin: 0 0 10px 0;
+    font-size: 20px;
+}
+.media ul li.list1 a .over .txt{
+    display: block;
+    /*6줄제한*/
+    overflow: hidden;
+    line-height: 1.5;
+    height: 9em;
+    color: rgba(255,255,255,0.8);
+}
+.media ul li.list1 a .over .date{
+    display: block;
+    margin: 25px 0 0 0;
+    color: rgba(255,255,255,0.8);
+}
+/* 애니메이션 - transition */
+.media ul li.list1 a .over{
+    transition: 0.5s;
+}
+.media ul li.list1 a:hover .over{
+    top: 0;
+}
+.media ul li.list2 a .pic img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* 사진위로 글자가올라오게 하려면 모두 따로 불러서 absoulte 줘야함 */
+.media ul li.list2 a h3{
+    position: absolute;
+    left: 20px;
+    top: 242px;
+    width: calc(100% - 40px);/*calc(100% - 양쪽 여백의 값(20 + 20 =40))*/
+    color: #fff;
+    font-size: 20px;
+}
+.media ul li.list2 a p{
+    opacity: 0;
+    position: absolute;
+    left: 20px;
+    top: 300px;
+    width: calc(100% - 40px);
+    color: rgba(255,255,255,0.8);
+    /*3줄제한*/
+    overflow: hidden;
+    line-height: 1.5;
+    height: 4.5em;
+}
+/* 마우스 오버 효과 */
+.media ul li.list2 a .pic::after{
+    /*모든값을 .pic::after 가 가지고 있는대신 opacity로 0 을 만들어서 안보이게했다가
+      마우스 오버시에 opacity를 1로 올려서 보여지게하는 효과*/
+    transition: 0.5s;
+    opacity: 0;
+    position: absolute; /*li 가 realtive 를 가지고 있어서 거기 기준으로 absolute가 된다*/
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /* background-color: rgba(0,0,0,0.3); */
+    /*그라데이션 넣는법(밑에부터 검은색)*/
+    background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.8));
+    content: "";
+}
+.media ul li.list2 a:hover .pic::after{
+    opacity: 1;
+}
+.media ul li.list2 a h3{
+    transition: 0.5s;
+}
+.media ul li.list2 a p{
+    transition: 0.5s;
+}
+.media ul li.list2 a:hover h3{
+    top: 162px;
+}
+.media ul li.list2 a:hover p{
+    opacity: 1;
+    top: 242px;
+}
+.media ul li.list3 a .pic{
+    overflow: hidden;
+    height: 206px;
+}
+.media ul li.list3 a .pic img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.media ul li.list3 a h3{
+    position: relative;
+    margin: 15px 0 0 0;
+    font-size: 20px;
+}
+
+.media ul li.list3 a h3::after{
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;/*모든값을 다 주고 width 넓이값을 0 을 주고 마우스오버시 100%를 줘서 나타나게 한다*/
+    height: 2px;
+    background-color: #3D3D3D;
+    content: "";
+}
+.media ul li.list3 a p{
+    margin: 5px 0 0 0;
+    overflow: hidden;
+    line-height: 1.5;
+    height: 3em;
+}
+/* 마우스오버시 - transition*/
+.media ul li.list3 a h3::after{
+    transition: 0.5s;
+}
+.media ul li.list3 a:hover h3::after{
+    width: 100%;/* 원래h3 after 에 들어가있던 모든값을 0 -> 100%로로 바꿔서 나타나게 한다*/
+}
+
 
 .slide{
     margin: 100px 0;
@@ -136,4 +397,45 @@
 @keyframes size100{
     0%{width: 0;}
     100%{width: 100%;}
+}
+
+.menu{
+    margin: 100px 100px;
+}
+.menu .gnb_open{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #3D3D3D;
+}
+.menu .gnb_open span{
+    position: absolute;
+    left: 40px;/*네모안에 좌우값*/
+    width: 120px;/*총 넓이값이 200 이니까 좌우 여백 40씩빼고 남은값*/
+    height: 10px;
+    background-color: #fff;
+    transition: 0.3s;
+}
+.menu .gnb_open span.line1{
+    top: 50px;
+}
+.menu .gnb_open span.line2{
+    top: 90px;
+}
+.menu .gnb_open span.line3{
+    top: 130px;
+}
+/*원래 마우스오버가 아니라 클릭할때 효과를 줘야한다*/
+.menu .gnb_open:hover span.line1{
+    transform: translate(0,40px) rotate(45deg);
+    /*조금더 다이나믹한 효과를 주려면 rotate(45 + 360 = 406deg)*/
+}
+.menu .gnb_open:hover span.line2{
+    transform: translate(-170px,0);
+    opacity: 0;/*2번째 라인은 안보이게*/
+}
+.menu .gnb_open:hover span.line3{
+    transform: translate(0,-40px) rotate(-45deg);
 }
