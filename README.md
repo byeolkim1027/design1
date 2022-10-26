@@ -1,4 +1,3 @@
-### hello
 #Byeol Kim's Coding record
 ##pc version mainpage and publishing
 - Daejeon express bus terminal : https://byeolkim1027.github.io/design1/djbus/index.html
