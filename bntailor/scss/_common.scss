@@ -4,7 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&display=swap');
 html,body{
     /*브라우저사이즈가 작아졌을때 배경이 안잘리게 하는테그,(가로스크롤이 생성되었을때 배경이 않잘리기위해*/
-    color: #3d3d3d;
+    color: $basic_color;
     line-height: 1.5;
     /*폰트 적용 우선순위
       만약에 웹폰트가 지원되지 않으면 그 다음에 선언된 폰트가 적용됨
@@ -94,3 +94,97 @@ html,body{
 ::selection{background: #6E4029;color: #fff;}
 ::-moz-selection{background: #6E4029;color: #fff;}
 ::-webkit-selection{background: #6E4029;color: #fff;}
+
+.header{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 300;
+    width: 100%;/*영역에 맞게 꽉차게*/
+    height: 100px;
+    border: 1px solid rgba(255,255,255,0.2);
+    .logo{
+        float: left;
+        margin: 28px 0 0 50px;
+    }
+    .gnb{
+        float: right;
+        margin: 0 27px 0 0;
+        .gnb_open{
+            display: none;
+        }
+        ul{
+            li{
+                float: left;
+                a{
+                    display: block;
+                    padding: 0 23px;
+                    color: $w_tit_color;
+                    font-size: 20px;
+                    line-height: 100px;/*header의 높이만큼 주면 글자가 헤더의 가운데 배치됨*/
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:1440px){
+    .header .logo a img{
+        width: 120px;
+    }
+    .header .gnb ul li a{
+        font-size: 17px;
+    }
+}
+@media screen and (max-width:1200px){
+    .header .logo a img{
+        width: 100px;
+    }
+    .header .gnb ul li a{
+        padding: 0 15px;
+        font-size: 15px;
+    }
+}
+@media screen and (max-width:1000px){
+    .header{
+        height: 60px;
+        .logo{
+            margin: 10px 0 0 20px;
+            a img{
+                width: 91px;
+            }
+        }
+        .gnb{
+            margin: 0;
+            .gnb_open{
+                display: block;
+                position: relative;/*absolute로 span 을 준다음에 모바일 메뉴바를 만드는 기준점*/
+                width: 63px;
+                height: 60px;
+                strong{
+                    display: none;
+                }
+                span{
+                    position: absolute;
+                    right: 20px;
+                    /*top값은 다 달라서 따로 클래스 불러서 준다*/
+                    width: 23px;/*3줄중에서 많이 있는거*/
+                    height: 2px;
+                    background-color: #fff;/*back color는 변수명 쓰지않고 바로 값준다*/
+                    &.line1{/* span.line1 과 동일한값(&를 꼭 붙혀서 써야함 scss 에서)*/
+                        top: 22px;
+                    }
+                    &.line2{
+                        top: 29px;
+                        width: 18px;
+                    }
+                    &.line3{
+                        top: 36px;
+                    }
+                }
+            }
+            ul{
+                display: none;
+            }
+        }
+    }
+}

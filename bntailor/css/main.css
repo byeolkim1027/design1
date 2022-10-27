@@ -1,4 +1,15 @@
 @charset "UTF-8";
+/*기본글자색*/
+/* 제목에 들어가는 색*/
+/*기본회색*/
+/*밝은회색*/
+/*어두운 배경에 기본 흰글씨*/
+/* 어두운 배경에 흰글씨*/
+/*
+    scss에서 mixin 은 특정스타일의 속성명과 속성값을 모두 선언하는 방식(여러개)
+    변수는 특정 속성값 단 한개를 저장하는 방식(변수 1개 = 1개 속성값)
+    --> 변수의 값은 어느 속성에 사용하든 상관없음
+*/
 /* 모든 테그의 스타일 초기화*/
 /*브라우저에서 기본으로 제공하는 모든여백을 빼주는 테그*/
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;700&display=swap");
@@ -184,6 +195,98 @@ html, body {
   color: #fff;
 }
 
+.header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 300;
+  width: 100%; /*영역에 맞게 꽉차게*/
+  height: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.header .logo {
+  float: left;
+  margin: 28px 0 0 50px;
+}
+.header .gnb {
+  float: right;
+  margin: 0 27px 0 0;
+}
+.header .gnb .gnb_open {
+  display: none;
+}
+.header .gnb ul li {
+  float: left;
+}
+.header .gnb ul li a {
+  display: block;
+  padding: 0 23px;
+  color: #ffffff;
+  font-size: 20px;
+  line-height: 100px; /*header의 높이만큼 주면 글자가 헤더의 가운데 배치됨*/
+}
+
+@media screen and (max-width: 1440px) {
+  .header .logo a img {
+    width: 120px;
+  }
+  .header .gnb ul li a {
+    font-size: 17px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .header .logo a img {
+    width: 100px;
+  }
+  .header .gnb ul li a {
+    padding: 0 15px;
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .header {
+    height: 60px;
+  }
+  .header .logo {
+    margin: 10px 0 0 20px;
+  }
+  .header .logo a img {
+    width: 91px;
+  }
+  .header .gnb {
+    margin: 0;
+  }
+  .header .gnb .gnb_open {
+    display: block;
+    position: relative; /*absolute로 span 을 준다음에 모바일 메뉴바를 만드는 기준점*/
+    width: 63px;
+    height: 60px;
+  }
+  .header .gnb .gnb_open strong {
+    display: none;
+  }
+  .header .gnb .gnb_open span {
+    position: absolute;
+    right: 20px;
+    /*top값은 다 달라서 따로 클래스 불러서 준다*/
+    width: 23px; /*3줄중에서 많이 있는거*/
+    height: 2px;
+    background-color: #fff; /*back color는 변수명 쓰지않고 바로 값준다*/
+  }
+  .header .gnb .gnb_open span.line1 { /* span.line1 과 동일한값(&를 꼭 붙혀서 써야함 scss 에서)*/
+    top: 22px;
+  }
+  .header .gnb .gnb_open span.line2 {
+    top: 29px;
+    width: 18px;
+  }
+  .header .gnb .gnb_open span.line3 {
+    top: 36px;
+  }
+  .header .gnb ul {
+    display: none;
+  }
+}
 /*
     scss 내에서 import할 default와 common 등의 파일은 
     파일명 앞에 _(언더바)를 입력하면 sass 컴파일러가 해당 파일은 컴파일 하지않음
@@ -198,7 +301,7 @@ html, body {
   /*컨텐츠영역 왼쪽에맞게 글자가 배치된다(글자가 가운데 배치되면 그냥 50%만주면됨)*/
   top: 50%;
   z-index: 10;
-  color: #fff;
+  color: #ffffff;
   transform: translate(0, -50%); /*컨텐츠 영역 위아래 가운데 배치*/
 }
 .visual .tit strong {
@@ -217,12 +320,31 @@ html, body {
 .visual .popup { /* .visual .popup */
   height: 100vh;
 }
+.visual .popup ul li img {
+  /*이미지를 최대한 리사이즈에 맞게 주는 값(브라우저 늘고 줄었을때 이미지가 그거에맞게 가운데 포커스 맞게)*/
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 .visual .popup .btn_wrap {
+  display: flex;
+  align-items: center;
   position: absolute;
   left: calc(50% - 700px);
   /*.visual .tit 과 같은값을 줌*/
   top: calc(50% + 150px); /*글자 맨꼭대기부터 버튼이있는곳까지*/
   z-index: 10;
+}
+.visual .popup .btn_wrap .btn_paging {
+  /*.btn_paging 테그도 span 테그로 글자요소로 인지해서 여백이 안맞는다
+     그래서 행간, 글자크기를 0을줘서 여백을 맞춘다*/
+  font-size: 0;
+  line-height: 0;
+  display: flex;
+  /* span이 여러개 발생해도 한줄로 나타남(페이징 갯수가아래로 떠러지지않음)
+      단, 내가 준 넓이보다 작게 구현될수 있음 */
 }
 .visual .popup .btn_wrap .btn_paging span {
   opacity: 0.4;
@@ -239,4 +361,151 @@ html, body {
 }
 .visual .popup .btn_wrap .btn_paging span.swiper-pagination-bullet-active {
   opacity: 1;
+}
+.visual .popup .btn_wrap .btn_stop {
+  width: 7px;
+  height: 5px;
+  /*절대경로 url 연결해야함*/
+  background-image: url(/design1/bntailor/images/main/visual_button_stop.svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  font-size: 0;
+  line-height: 0;
+}
+.visual .popup .btn_wrap .btn_stop.play { /* btn_stop.play -> &.play 로 표기(scss 에서)*/
+  background-image: url(/design1/bntailor/images/main/visual_button_play.svg);
+}
+
+@media screen and (max-width: 1440px) {
+  .visual .tit {
+    left: 20px;
+    /*wrapper 1440(양쪽여백 20씩)*/
+  }
+  .visual .popup { /* .visual .popup */ }
+  .visual .popup .btn_wrap {
+    left: 20px;
+    /*.visual .tit 과 같은값을 줌*/
+  }
+}
+@media screen and (max-width: 1000px) {
+  .visual .tit h2 {
+    font-size: 50px;
+  }
+  .visual .tit strong {
+    font-size: 17px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .visual .tit {
+    left: 50%;
+    /*calc(50% - 20px); -> pc버전과 같이 왼쪽 정렬값*/
+    width: calc(100% - 40px); /*tit안에있는 글자컨텐츠들이 브라우저사이즈가 줄어들면 글자줄수가 바뀌는거 방지*/
+    /*모바일상태일때만 width값을 준다*/
+    transform: translate(-50%, -50%); /*정렬값 즉 left값이 변경되어서 transform 값도 -50% 로 바꿔줘야한다 동일하다면 그대로 둔다*/
+    text-align: center;
+  }
+  .visual .tit strong {
+    font-size: 15px;
+  }
+  .visual .tit h2 {
+    font-size: 40px;
+    line-height: 1.1;
+  }
+  .visual .popup { /* .visual .popup */
+    /*height 이 300 or 400px 로 고정이라면 그값을 주면된다*/
+  }
+  .visual .popup .btn_wrap {
+    left: 50%; /*.visual .tit 과 같은값을 줌*/
+    top: calc(50% + 100px); /*글자 맨꼭대기부터 버튼이있는곳까지*/
+    transform: translate(-50%, 0);
+  }
+  .visual .popup .btn_wrap .btn_paging span {
+    width: 35px;
+    height: 2px;
+  }
+  .visual .popup .btn_wrap .btn_stop {
+    display: none;
+  }
+}
+.fabric {
+  position: relative; /*이미지가 엡솔루트로 fabric 중심으로 들어갈거라서 기준점을 여기에 둔다*/
+  padding: 0 0 240px 0;
+  background-color: #433930;
+  color: rgba(255, 255, 255, 0.8);
+}
+.fabric h2 {
+  position: relative;
+  z-index: 10;
+  padding: 245px 0 5px 0;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.fabric .tit {
+  position: relative;
+  z-index: 10;
+  font-family: "Noto Serif KR", serif;
+  color: #ffffff;
+  font-size: 40px;
+  line-height: 1.2;
+}
+.fabric .cnt {
+  position: relative;
+  z-index: 10;
+  margin: 40px 0 85px 0;
+  width: 680px;
+}
+.fabric .tag {
+  position: relative;
+  z-index: 10;
+  color: #9D856D;
+}
+.fabric .tag span {
+  display: inline-block; /*인라인블록을 줘야 좌우 여백이 잘들어감(span이 인라인요소라서)특히 위아래 여백은더필요*/
+  margin: 0 20px 0 0;
+}
+.fabric .bg {
+  position: absolute;
+  z-index: 1;
+  overflow: hidden;
+  /*bg 영역안에는 bg보다 더 큰 이미지가 포함됨,
+    이미지는 스크롤에 따라 bg영역 안에서 이동
+    그래서 overflow:hidden -> 영역밖에 나간이미지는 안보이게함*/
+  left: calc(50% - 100px);
+  top: 79px;
+  width: 800px; /*pc버전에서 디자인한 가로세로 값주면됨*/
+  height: 800px;
+}
+.fabric .bg img {
+  display: block;
+  width: 120%;
+  height: 120%;
+  -o-object-fit: cover;
+     object-fit: cover; /*이미지 사진이 찌그러지지않고 제대로 들어가게하는값*/
+}
+.fabric .bg2 {
+  position: absolute;
+  z-index: 1;
+  overflow: hidden;
+  /*bg 영역안에는 bg보다 더 큰 이미지가 포함됨,
+    이미지는 스크롤에 따라 bg영역 안에서 이동
+    그래서 overflow:hidden -> 영역밖에 나간이미지는 안보이게함*/
+  left: calc(50% + 600px);
+  top: 560px;
+  width: 309px; /*pc버전에서 디자인한 가로세로 값주면됨*/
+  height: 306px;
+}
+.fabric .bg2 img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover; /**/
+  transition: 0.5s;
+}
+
+.product {
+  height: 2000px;
+  background-image: url(/design1/bntailor/images/main/product.png);
 }

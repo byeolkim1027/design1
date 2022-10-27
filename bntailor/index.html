@@ -4,17 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="/design1/bntailor/js/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-    <script src="js/main.js"></script>
-    <link rel="stylesheet" href="css/main.css">
+    <script src="/design1/bntailor/js/main.js"></script>
+    <link rel="stylesheet" href="/design1/bntailor/css/main.css">
     <!--html에서는 scss를 컴파일한 css를 호출해서 사용-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
     <title>B&tailor</title>
 </head>
 <body>
     <div id="wrap">
-        <header class="header"></header>
+        <header class="header">
+            <h1 class="logo"><a href="/design1/bntailor/index.html"><img src="/design1/bntailor/images/common/logo.svg" alt="B&TAILOR"></a></h1>
+            <nav class="gnb">
+                <button class="gnb_open">
+                    <strong>메뉴열기</strong>
+                    <span class="line1"></span>
+                    <span class="line2"></span>
+                    <span class="line3"></span>
+                </button>
+                <ul>
+                    <li><a href="#n">About Us</a></li>
+                    <li><a href="#n">Line</a></li>
+                    <li><a href="#n">Artwork</a></li>
+                    <li><a href="#n">Trunkshow</a></li>
+                    <li><a href="#n">Contact</a></li>
+                    <li><a href="#n">Journal</a></li>
+                    <li><a href="#n">Stock notice</a></li>
+                    <li><a href="#n">Mall</a></li>
+                </ul>
+            </nav>
+        </header>
         <section class="visual">
             <div class="tit">
                 <strong>아틀리에는 예술 작업을 진행하는 공간</strong>
@@ -23,10 +43,10 @@
             </div>
             <div class="popup swiper">
                 <ul class="swiper-wrapper">
-                    <li class="swiper-slide"><img src="images/main/visual01.png" alt="손으로 테일링하는 사진"></li>
-                    <li class="swiper-slide"><img src="images/main/visual02.png" alt="실 바늘 시계 향수병 사진"></li>
-                    <li class="swiper-slide"><img src="images/main/visual03.png" alt="수염난 외국남자 사진"></li>
-                    <li class="swiper-slide"><img src="images/main/visual04.png" alt="양복 사진"></li>
+                    <li class="swiper-slide"><img src="/design1/bntailor/images/main/visual01.png" alt="손으로 테일링하는 사진"></li>
+                    <li class="swiper-slide"><img src="/design1/bntailor/images/main/visual02.png" alt="실 바늘 시계 향수병 사진"></li>
+                    <li class="swiper-slide"><img src="/design1/bntailor/images/main/visual03.png" alt="수염난 외국남자 사진"></li>
+                    <li class="swiper-slide"><img src="/design1/bntailor/images/main/visual04.png" alt="양복 사진"></li>
                 </ul>
                 <div class="btn_wrap">
                     <div class="btn_paging"></div>
@@ -34,6 +54,19 @@
                 </div>
             </div>
         </section>
+        <section class="product"></section>
+        <section class="fabric">
+            <div class="wrapper">
+                <h2>이달의 원단</h2>
+                <p class="tit">드라고(Drago) 180수 그레이 헤링본<br class="m_no">
+                    코트원단 14.5 micron 180수 울"SKYFALL"</p>
+                <p class="cnt">캐시미어처럼 굉장히 부드럽고 포근하며, 따뜻하게 입을수 있는 두께감 방수까지 생각한 코트 감입니다. 보통 물기가 닿자마자 젖는게 울이거나 코트 원단 이렇게 물로 뿌려도 젖기 보다는 툭툭 털면 물기가 없어지는 원단입니다. 원단이 방수 관련된 폴리나 합성섬유나 나일론 이런 원단이 아닌기에 정확히 방수 원단이라기 보다는 워터프루프 기능이 있는 원단으로 봐주시면 좋을것 같습니다. 겨울에 눈오거나 비올때도 아주 좋을 원단임에 틀림없습니다.</p>
+                <p class="tag"><span>#비앤테일러</span><span>#bntailor</span><span>#bespoke</span><span>#fullhandmade</span></p>
+                <div class="bg"><img src="/design1/bntailor/images/main/fabric.png" alt="정장자켓 두개 사진"></div>
+                <div class="bg2"><img src="/design1/bntailor/images/main/fabric02.png" alt="미싱바늘 사진"></div>
+            </div>
+        </section>
+        <section class="product"></section>
     </div>
 </body>
 </html>

@@ -1,6 +1,7 @@
+@import "_var.scss";
 @import "_default.scss";
 @import "_common.scss";
-@import "_var.scss";
+
 
 /*
     scss 내에서 import할 default와 common 등의 파일은 
@@ -16,7 +17,7 @@
         /*컨텐츠영역 왼쪽에맞게 글자가 배치된다(글자가 가운데 배치되면 그냥 50%만주면됨)*/
         top: 50%;
         z-index: 10;
-        color: #fff;
+        color: $w_tit_color;
         transform: translate(0,-50%);/*컨텐츠 영역 위아래 가운데 배치*/
         strong{
             display: block;
@@ -34,13 +35,29 @@
     }
     .popup{/* .visual .popup */
         height: 100vh;
+        ul li img{
+            /*이미지를 최대한 리사이즈에 맞게 주는 값(브라우저 늘고 줄었을때 이미지가 그거에맞게 가운데 포커스 맞게)*/
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
         .btn_wrap{
+            display: flex;
+            align-items: center;
             position: absolute;
             left: calc(50% - 700px);
             /*.visual .tit 과 같은값을 줌*/
             top: calc(50% + 150px);/*글자 맨꼭대기부터 버튼이있는곳까지*/
             z-index: 10;
             .btn_paging{
+                /*.btn_paging 테그도 span 테그로 글자요소로 인지해서 여백이 안맞는다
+                   그래서 행간, 글자크기를 0을줘서 여백을 맞춘다*/
+                font-size: 0;
+                line-height: 0;
+                display: flex; 
+                /* span이 여러개 발생해도 한줄로 나타남(페이징 갯수가아래로 떠러지지않음)
+                    단, 내가 준 넓이보다 작게 구현될수 있음 */
                 span{
                     opacity: 0.4;
                     width: 50px;
@@ -58,6 +75,156 @@
                     }
                 }
             }
+            .btn_stop{
+                width: 7px;
+                height: 5px;
+                /*절대경로 url 연결해야함*/
+                background-image: url(/design1/bntailor/images/main/visual_button_stop.svg);
+                background-position: center center;
+                background-repeat: no-repeat;
+                font-size: 0;
+                line-height: 0;
+                &.play{/* btn_stop.play -> &.play 로 표기(scss 에서)*/
+                    background-image: url(/design1/bntailor/images/main/visual_button_play.svg);
+                }
+            }
         }
     }
+}
+@media screen and (max-width:1440px){
+    //wrapper의 기준사이즈(브라우저가 줄어들었을때 밀려서 왼쪽에 배치된 텍스트가 안보이는걸 방지하기위해서)
+    .visual{
+        .tit{
+            left: 20px;
+            /*wrapper 1440(양쪽여백 20씩)*/
+        }
+        .popup{/* .visual .popup */
+            .btn_wrap{
+                left: 20px;
+                /*.visual .tit 과 같은값을 줌*/
+                }
+            }
+        }
+}
+@media screen and (max-width:1000px){
+    .visual .tit h2{
+        font-size: 50px;
+    }
+    .visual .tit strong{
+        font-size: 17px;
+    }
+}
+@media screen and (max-width:640px){
+    .visual{
+        .tit{
+            left: 50%;
+            /*calc(50% - 20px); -> pc버전과 같이 왼쪽 정렬값*/
+            width: calc(100% - 40px);/*tit안에있는 글자컨텐츠들이 브라우저사이즈가 줄어들면 글자줄수가 바뀌는거 방지*/
+            /*모바일상태일때만 width값을 준다*/
+            transform: translate(-50%,-50%);/*정렬값 즉 left값이 변경되어서 transform 값도 -50% 로 바꿔줘야한다 동일하다면 그대로 둔다*/
+            text-align: center;
+            strong{
+                font-size: 15px;
+            }
+            h2{
+                font-size: 40px;
+                line-height: 1.1;
+            }
+        }
+        .popup{/* .visual .popup */
+            /*height 이 300 or 400px 로 고정이라면 그값을 주면된다*/
+            .btn_wrap{
+                left: 50%;/*.visual .tit 과 같은값을 줌*/
+                top: calc(50% + 100px);/*글자 맨꼭대기부터 버튼이있는곳까지*/
+                transform: translate(-50%,0);
+                .btn_paging{
+                    span{
+                        width: 35px;
+                        height: 2px;
+                    }
+                }
+                .btn_stop{
+                   display: none;
+                }
+            }
+        }
+    }
+}
+
+
+.fabric{
+    position: relative;/*이미지가 엡솔루트로 fabric 중심으로 들어갈거라서 기준점을 여기에 둔다*/
+    padding: 0 0 240px 0;//이미지는 엡솔루트 라서 밑에 여백을 패딩으로 줘야 영역이 제대로 잡힌다
+    background-color: #433930;
+    color: $w_basic_color;
+    h2{
+        @include zindex_top;
+        padding: 245px 0 5px 0;
+        color: $w_tit_color;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 1.2;
+    }
+    .tit{
+        @include zindex_top;
+        @include font_serif;
+        color: $w_tit_color;
+        font-size: 40px;
+        line-height: 1.2;
+    }
+    .cnt{
+        @include zindex_top;
+        margin: 40px 0 85px 0;
+        width: 680px;
+    }
+    .tag{
+        @include zindex_top;
+        color: $point_color;
+        span{
+            display: inline-block;/*인라인블록을 줘야 좌우 여백이 잘들어감(span이 인라인요소라서)특히 위아래 여백은더필요*/
+            margin: 0 20px 0 0;
+        }
+    }
+    .bg{
+        position: absolute;
+        z-index: 1;
+        overflow: hidden;
+        /*bg 영역안에는 bg보다 더 큰 이미지가 포함됨,
+          이미지는 스크롤에 따라 bg영역 안에서 이동
+          그래서 overflow:hidden -> 영역밖에 나간이미지는 안보이게함*/
+        left: calc(50% - 100px);
+        top: 79px;
+        width: 800px;/*pc버전에서 디자인한 가로세로 값주면됨*/
+        height: 800px;
+        img{
+            display: block;
+            width: 120%;
+            height: 120%;
+            object-fit: cover;/*이미지 사진이 찌그러지지않고 제대로 들어가게하는값*/
+        }
+    }
+    .bg2{
+        position: absolute;
+        z-index: 1;
+        overflow: hidden;
+        /*bg 영역안에는 bg보다 더 큰 이미지가 포함됨,
+          이미지는 스크롤에 따라 bg영역 안에서 이동
+          그래서 overflow:hidden -> 영역밖에 나간이미지는 안보이게함*/
+        left: calc(50% + 600px);//가운데에서 얼마나 오른쪽으로 가는지
+        top: 560px;
+        width: 309px;/*pc버전에서 디자인한 가로세로 값주면됨*/
+        height: 306px;
+        img{
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;/**/
+            transition: 0.5s;
+        }
+    }
+}
+
+.product{
+    height: 2000px;
+    background-image: url(/design1/bntailor/images/main/product.png);
 }
