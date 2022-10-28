@@ -40,23 +40,63 @@ $(document).ready(function(){
 		}
 	})//visual stop button
 
-	/* fabric 이미지 스크롤 효과 */
-	let scrolling
-	let moveTop
-	fabricScroll() //로딩됬을때 한번
-	$(window).scroll(function(){ //스크롤 할때마다 실행하는 함수
-		fabricScroll()
-	})
+	
+	/*
+		이미지가 스크롤 될때 object가 움직이는 효과
+		움직이는 시작을 object가 화면에 나타나기 시작했을때 부터 스크롤된 값을 계산해서 
+		움직일 값으로 변환해줘야함
+			1. 브라우저가 스크롤 되는값 - $(window).scrollTop()
+			2. object가 화면 하단에 나타나기 시작하는 값
+				-- offset().top - 상단 맨 위에서부터 object까지의 거리값
+				offset().top 과 $(window).scrollTop값이 같아지는 시기는 object가 화면
+				산단에 딱 붙었을때
+				--> 필요한건 object가 화면 하단에서 보이기 시작할때...
+				두 값의 차이가 브라우저의 높이값....
+				
+				object가 화면 하단에서 나타나기 시작하는 값은 
+				object의 offset().top - 윈도우의 높이값 만큼 스크롤 됬을때
 
-	function fabricScroll(){ //스크롤 값을 계산해서 fabric의 이미지를 움직일 함수
-		/* 스크롤값을 요소의 위치값으로 변경해서 스타일을 적용
-			효과를 줄 요소가 화면의 하단에 등장하기 시작했을때부터
-			스크롤 한값을 새로 계산해서 해당 요소에 줘야 해당요소가 화면 어디에 배치되어 있든 
-			자연스럽게 패럴럭스 효과를 줄수 있음*/
+			3. object를 어떻게 움직일 방법
+				animate - transform X
+				CSS로 transform: translate() 로 움직일 예정
+				
+	*/
+
+	let winH
+	let moveval //오브젝트가 움직일값(연산값)
+	let offTop
+	let scrolling
+	
+	/*
+		objMove : 실제움직일 오브젝트
+		objParent : 움직일 오브젝트의 기준이 되는 요소(offset.top()을 계산할 오브젝트)
+		moveDir : 스크롤 방향(left-좌우, top-위아래)
+		moveRate : 움직일 속도/비율(숫자에는 '' 표시 없음)
+	*/
+	objParallax($('.fabric .bg img'),$('.fabric .bg'),'top',0.1) //윈도우가 처음 실행됬을때
+	// objParallax($('.sns p'),$('.sns p'),'left',0.3) ->스크롤 될때마다 .sns p 글자가 좌우로 움직이는거
+	
+	function objParallax(objMove,objParent,moveDir,moveRate){//오브젝트를 움직이는 애니메이션(한번세팅)
+		objMove.css('transition','0.5s')
+		moveAni(objMove,objParent,moveDir,moveRate)
+		$(window).scroll(function(){
+			moveAni(objMove,objParent,moveDir,moveRate) //윈도우가 스크롤링 됬을때
+		})
+		$(window).resize(function(){
+			moveAni(objMove,objParent,moveDir,moveRate) //윈도우가 리사이즈 됬을때
+		})
+	}
+	function moveAni(objMove,objParent,moveDir,moveRate){//오브젝트를 실제 움직이는 함수(반복실행)
+		winH=$(window).height()
+		offTop=objParent.offset().top
 		scrolling=$(window).scrollTop()
-		console.log(scrolling)
-		moveTop=scrolling*0.15
-		$('.fabric .bg img').css('transform','translate(0,-'+moveTop+'px)')
+		moveval=(scrolling - offTop + winH)*moveRate
+		console.log(moveval,'moveval')
+		if(moveDir=='left'){
+			objMove.css('transform','translateX(-'+moveval+'px)')
+		}else{//top
+			objMove.css('transform','translateY(-'+moveval+'px)')
+		}
 	}
 
 })//document ready

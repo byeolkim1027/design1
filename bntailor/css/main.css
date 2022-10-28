@@ -502,10 +502,241 @@ html, body {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover; /**/
-  transition: 0.5s;
 }
 
+@media screen and (max-width: 1440px) {
+  .fabric .bg2 {
+    display: none;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .fabric h2 {
+    font-size: 17px;
+  }
+  .fabric .tit {
+    font-size: 30px;
+  }
+  .fabric .cnt {
+    margin: 40px 0 60px 0;
+    width: 600px;
+  }
+  .fabric .bg {
+    position: absolute;
+    z-index: 1;
+    overflow: hidden;
+    /*bg 영역안에는 bg보다 더 큰 이미지가 포함됨,
+      이미지는 스크롤에 따라 bg영역 안에서 이동
+      그래서 overflow:hidden -> 영역밖에 나간이미지는 안보이게함*/
+    left: calc(50% - 50px);
+    top: 79px;
+    height: 720px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .fabric {
+    padding: 0 0 150px 0;
+  }
+  .fabric h2 {
+    padding: 150px 0 5px 0;
+  }
+  .fabric .tit {
+    font-size: 30px;
+    width: 400px;
+  }
+  .fabric .tit .m_no {
+    display: none;
+  }
+  .fabric .cnt {
+    margin: 40px 0 60px 0;
+    width: 450px;
+  }
+  .fabric .bg {
+    left: 50%;
+    top: 70px;
+    width: 600px;
+    height: 600px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .fabric {
+    padding: 0 0 48px 0;
+  }
+  .fabric h2 {
+    padding: 43px 0 10px 0;
+    font-size: 16px;
+  }
+  .fabric .tit {
+    width: auto;
+    font-size: 25px;
+    line-height: 1.1;
+  }
+  .fabric .cnt {
+    display: none;
+  }
+  .fabric .tag {
+    margin: 10px 0 15px 0;
+  }
+  .fabric .tag span {
+    margin: 0 15px 0 0;
+  }
+  .fabric .bg {
+    position: relative;
+    overflow: hidden;
+    /*bg 영역안에는 bg보다 더 큰 이미지가 포함됨,
+      이미지는 스크롤에 따라 bg영역 안에서 이동
+      그래서 overflow:hidden -> 영역밖에 나간이미지는 안보이게함*/
+    left: auto;
+    top: auto;
+    width: auto; /*영역에 맞게*/
+    height: 320px;
+  }
+  .fabric .bg img {
+    transform: translateY(0) !important; /*모바일에서 애니메이션 없애는값*/
+    width: 150%;
+    height: 150%;
+    -o-object-fit: cover;
+       object-fit: cover; /*이미지 사진이 찌그러지지않고 제대로 들어가게하는값*/
+  }
+}
 .product {
-  height: 2000px;
   background-image: url(/design1/bntailor/images/main/product.png);
+  padding: 0 0 109px 0;
+  color: rgba(255, 255, 255, 0.8);
+}
+.product h2 {
+  font-family: "Noto Serif KR", serif;
+  padding: 140px 0 85px 535px;
+  color: #ffffff;
+  font-size: 60px;
+  line-height: 1.2;
+}
+.product .list {
+  display: block;
+  position: relative;
+}
+.product .list::after {
+  display: block;
+  clear: both;
+  content: ".";
+  visibility: hidden;
+  height: 0;
+}
+.product .list .tit {
+  position: absolute; /*왼쪽 상단에서 스크롤될때 고정되서 같이 스크롤 될거라서 absolute값준다*/
+  left: 0;
+  top: 0;
+  font-size: 25px;
+}
+.product .list ul {
+  float: right;
+}
+.product .list ul li {
+  width: 440px;
+  margin-bottom: 105px;
+}
+.product .list ul li a {
+  display: block;
+}
+.product .list ul li a .pic {
+  overflow: hidden;
+  height: 590px;
+}
+.product .list ul li a .pic img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.product .list ul li a h3 {
+  margin-top: -25px; /*유일하게 마이너스가 된다(글자위로 겹쳐져서 올라간다)*/
+  color: #ffffff;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.product .list ul li a p {
+  margin: 10px 0 0 0;
+}
+.product .list ul.item1 {
+  margin: 376px 0 0 80px;
+}
+
+@media screen and (max-width: 1280px) {
+  .product .list .tit {
+    position: relative;
+  }
+  .product .list .tit .m_no {
+    display: none;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .product .list ul {
+    width: calc(50% - 40px);
+  }
+  .product .list ul li {
+    width: auto;
+  }
+  .product .list ul.item1 {
+    margin: 200px 0 0 40px;
+  }
+}
+@media screen and (max-width: 640px) {
+  .product {
+    padding: 0 0 20px 0;
+  }
+  .product h2 {
+    padding: 50px 0 10px 0;
+    font-size: 35px;
+  }
+  .product .list .tit {
+    position: relative; /*엡솔루트해제*/
+    left: auto;
+    top: auto;
+    margin: 0 0 40px 0;
+    font-size: 17px;
+  }
+  .product .list .tit .m_no {
+    display: none;
+  }
+  .product .list ul {
+    float: none;
+  }
+  .product .list ul li {
+    width: auto;
+    margin-bottom: 30px;
+  }
+  .product .list ul li a .pic {
+    height: 148px;
+  }
+  .product .list ul li a h3 {
+    margin-top: -15px; /*유일하게 마이너스가 된다(글자위로 겹쳐져서 올라간다)*/
+    font-size: 25px;
+    line-height: 1;
+  }
+  .product .list ul li a p {
+    margin: 5px 0 0 0;
+  }
+  .product .list ul li:nth-child(1) .pic, .product .list ul li:nth-child(3) .pic, .product .list ul li:nth-child(5) .pic {
+    width: 70%;
+    height: 148px;
+    margin-left: 30%;
+  }
+  .product .list ul li:nth-child(1) p, .product .list ul li:nth-child(3) p, .product .list ul li:nth-child(5) p {
+    margin-right: 35%;
+  }
+  .product .list ul li:nth-child(2) .pic, .product .list ul li:nth-child(5) .pic {
+    width: 70%;
+    height: 148px;
+    margin-right: 30%;
+  }
+  .product .list ul li:nth-child(2) h3, .product .list ul li:nth-child(5) h3 {
+    margin-left: 30%;
+  }
+  .product .list ul li:nth-child(2) p, .product .list ul li:nth-child(5) p {
+    margin-left: 30%;
+  }
+  .product .list ul.item1 {
+    margin: 0;
+  }
 }
