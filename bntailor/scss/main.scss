@@ -333,10 +333,36 @@
         @include clearfix;
         position: relative;
         .tit{
-            position: absolute;/*왼쪽 상단에서 스크롤될때 고정되서 같이 스크롤 될거라서 absolute값준다*/
-            left: 0;
+            /*
+                position:sticky는 감싸는 요소에 overflow:hidden 이 없어야 한다
+                하지만 홈페이지 전체를 감싸는 id=wrap 이 스타일에 overflow:hidden이 기본으로 들어감
+                overflow 를 주지않고 코딩자체가 어려움 그래서 sticky는 사용불가
+                
+                고정될 요소에 고정될때는 position:fixed를 줘야함
+                fixed는 body와만 정렬함
+                <div class="list">          -- relative
+                  <div class="tit"></div>   -- absolute
+                </div>
+                tit 이 absolute 일때는 relative를 준 list를 기준으로 정렬함.
+                하지만 fixed로 변경되면 무조건 body랑 정렬
+                정렬의 기분값이 변경됨...(left가 fixed일때랑 absolute일때랑 바뀜)
+                실제 화면상에서도 left의 위치는 변경 X
+                absolute일때와 fixed일때 위치를 동일하게 left값을 줘야함.
+            */
+            position: absolute;
+            left: calc(50% - 700px);//가운데를 기준으로 왼쪽으로 얼마나 떨어졌는지
             top: 0;
             font-size: 25px;
+
+            &.fixed{//.tit.fixed 클래스 추가됨
+                position: fixed;
+                top: 150px;
+            }
+            &.end{
+                position: absolute;
+                top: auto;
+                bottom: 60px;
+            }
         }
         ul{
             float: right;
@@ -373,11 +399,50 @@
         }
     }
 }
+@media screen and (max-width:1440px){
+    .product .list .tit{
+        left: 0;
+        &.fixed{
+            left: 20px;
+        }
+    }
+    .product .list ul li{
+        width: 400px;
+    }
+}
 @media screen and (max-width:1280px){
+    .product h2{
+        padding: 100px 0 30px 0;
+        color: #ffffff;
+        font-size: 60px;
+        line-height: 1.2;
+    }
     .product .list .tit{
         position: relative;
+        margin: 0 0 50px 0;
         .m_no{
             display: none;
+        }
+        &.fixed{//.tit.fixed 클래스 추가됨
+            position: relative;
+            top: auto;
+        }
+        &.end{
+            position: relative;
+            bottom: auto;
+        }
+    }
+    .product{
+        .list{
+            ul{
+                width: calc(50% - 80px);
+                li{
+                    width: auto;
+                }
+                &.item1{//트라우저,이지웨어의 ul
+                    margin: 200px 0 0 40px; //h2 와 item2(ul) 사이의 위와 왼쪽여백
+                }
+            }
         }
     }
 }
@@ -387,7 +452,7 @@
             ul{
                 width: calc(50% - 40px);
                 li{
-                    width: auto;
+                    margin-bottom: 55px;
                 }
                 &.item1{//트라우저,이지웨어의 ul
                     margin: 200px 0 0 40px; //h2 와 item2(ul) 사이의 위와 왼쪽여백
@@ -416,6 +481,7 @@
                 }
             }
             ul{
+                width: auto;
                 float: none;
                 li{
                     width: auto;
@@ -463,4 +529,8 @@
             }
         }
     }
+}
+.sns{
+    height: 1500px;
+    background-color: #2B2724;
 }

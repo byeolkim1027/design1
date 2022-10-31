@@ -1,0 +1,647 @@
+@import url(default.css);
+
+header{
+    position: absolute;/*비쥬얼 위로 올리기 위해서*/
+    left: 0;/*헤더가 꽉차게 들어가는 건 레프트 탑 둘다 0,*/
+    top: 0;
+    width: 100%;/*헤더가 꽉 차게 들어가면 넓이를 무조건 100 프로 준다*/
+    height: 100px;
+    color: #fff;
+    z-index: 100;/*항상 제일 먼저 제일 위에 있어야 해서 제일 높은값을 준다*/
+}
+header::after{
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100px;/*헤더가 이미 높이 100px 를 가지고 있기때문에 100에서 시작한다*/
+    width: 100%;
+    height: 368px;/*메뉴컨텐츠의 높이에 따라 늘었다 줄었다 해야한다 원래(Jquery) */
+    background-color: #fff;
+    border-bottom: 1px solid #DDDDDD;/*2차메뉴 백그라운드의 밑에 보더라인*/
+    content: "";
+}
+header h1{
+    float: left;
+    margin: 37px 0 0 0;
+}
+header h1 a{
+    display: block;
+    width: 119px;
+    height: 30px;
+    background: url(../images/logo.svg) no-repeat left top/100% auto;
+    /*사이즈가 정해져있는곳에 이미지를 넣을때 left,top을 줘야 잘 들어간다
+      또한 로고가 짤리면(cover 주면 안됨) 안되서 사이즈가 100% 넓이에 꽉차게, 높이는 auto 높이 비율에 맞게*/
+    font-size: 0;
+    line-height: 0;  
+}
+header nav{
+    position: relative;/*z-index가 구현이 되려면 position이 필요하다*/
+    z-index: 110;
+    float: right;
+    margin: 17px 0 0 0;
+}
+header nav .gnb_open{
+    display: none;
+}
+header nav .gnb_close{
+    display: none;
+}
+/*
+    <nav>
+        <ul>
+            <li>
+                <a href="#">1차메뉴</a>
+                <ul>
+                    <li><a href="#">2차메뉴</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    이렇게 동일한 테그가 반복된느 경우(메뉴) 사용하는게 자식선택자
+    1. 자식선택의 시작이 반복되는 테그는 안됨, <nav>처럼 한번 나오는 테그만 가능
+    2. 자식선택으로 선택시 중간에 감싸는 테그를 누락할수 없음
+        nav > ul > ul => 불가
+    그래서 1차메뉴의 a를 선택하는 선택자는 nav > ul > li > a
+           2차 메뉴의 a를 선택하는 선택자는 nav > ul > li > ul > li > a
+*/
+header nav>ul>li{/*1차 메뉴 li*/
+    float: left;
+    width: 179px;
+    text-align: center;
+}
+header nav>ul>li>a{/*1차 메뉴*/
+    display: block;
+    padding: 20px 0;/*눌려야하니까 위아래 100px 넘지않게 패딩을 주고 여백은 nav 전체한테 마진으로 준다*/
+    font-size: 20px;
+}
+header nav>ul>li:hover>a{
+    /*hover를 a에 주는게 아니라 li 에 줌으로써 하위메뉴(2차메뉴)에 마우스 오버가 되도 
+      "dot"과 "color"는 없어지지않고 유지가 된다*/
+    color: #DB7843;
+}
+header nav>ul>li>a>span{
+    position: relative;/*hover:before에 들어가는 하나의 점의 기준점*/
+}
+header nav>ul>li:hover>a span::before{/*1차메뉴에 있는 왼쪽 상단에 있는 조그마한 점*/
+    /*a 가 영역이 넓기때문에"dot"이 위치가 같지않다,그러므로
+      span으로 글자를 영역을 새로 잡아주고 그 영역(span)에 효과를 줘서 효과가 일정하게 나오게 한다 */
+    position: absolute;
+    left: 2px;
+    top: -5px;
+    width: 5px;
+    height: 5px;
+    border-radius: 3px;
+    background-color: #DB7843;
+    content:""
+}
+header nav>ul>li>ul{/*2차 메뉴*/
+    display: none;
+    padding: 33px 0 0 0;
+    /*
+        1차메뉴와 2차메뉴 사이에는 여백(margin)이 존재하면 안됨
+        padding은 내부 여백으로 테그 영역 자체가 늘어나는것이라 여백이 아님
+        -->여백이 존재하면 1차메뉴에서 2차메뉴로 이동할때(내려갈때)
+            메뉴가 아웃되어버림 
+    */
+}
+header nav>ul>li>ul>li>a{
+    display: block;
+    color: #666666;
+    line-height: 3.34;
+}
+header nav>ul>li>ul>li>a:hover{/*마우스를 ul의 li에 하나하나에 마우스 오버를 했을경우에*/
+    color: #1d1d1d;
+    font-weight: 700;
+    /* text-decoration: underline; */
+}
+
+/*header 가 고정되거나(fixed), 메뉴에 마우스를 오버했을때(open)*/
+header.fixed{
+    position: fixed;
+}
+header.fixed,
+header.open{
+    border-bottom: 1px solid #DDDDDD;
+    background-color: #fff;
+    color: #1d1d1d;
+}
+header.fixed h1 a,
+header.open h1 a{
+    background-image: url(../images/logo_b.svg);
+}
+header.open::after{/*2차메뉴의 백그라운드*/
+    display: block;
+}
+header.open nav>ul>li>ul{/*2차 메뉴*/
+    display: block;
+}
+
+@media screen and (max-width:640px){
+    header{
+        height: 45px;
+    }
+    header h1{
+        margin: 16px 0 0 0;
+    }
+    header h1 a{
+        width: 51px;
+        height: 13px;
+    }
+    header nav{
+        margin: 0;
+    }
+    header nav .gnb_open{
+        display: block;
+        padding: 0 0 0 10px;/*왼쪽만 패딩을 주고 다른건 높이로 full 로 준다*/
+        height: 45px;/*버튼이 잘눌려야하기때문에 header의 높이만큼 높이를 같이 준다*/
+    }
+    header nav .gnb_open span{
+        display: none;
+    }
+    header nav .gnb_open i{
+        margin: 3px 0 0 0;
+        font-size: 18px;
+        font-weight: 300;    
+    }
+    header nav>ul{/*1차 메뉴 li*/
+        display: none;
+    }
+}
+
+
+.visual{
+    height: 870px;
+    background: url(../images/visual_bg.png) no-repeat center center/cover;
+    color: #fff;
+}
+.visual h2{
+    padding: 336px 0 20px 0;
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1.15;
+}
+.visual p{
+    font-size: 20px;
+}
+@media screen and (max-width:640px){
+    .visual{
+        height: auto;
+        text-align: center;
+    }
+    .visual h2{
+        padding: 194px 0 200px 0;
+        font-size: 30px;
+        line-height: 1.15;
+    }
+    .visual p{
+        display: none;
+    }
+}
+
+.product{
+    position: relative;/*h2 의 고정이되야하는 기준값*/
+    margin: 137px 0 0 0;
+}
+.product h2{
+    position: absolute;
+    left: calc(50% - 640);/*가운데서부터 최대한 왼쪽(컨텐츠영역에 맞게=1280 나누기 2)*/
+    top: 0;/*.product relative 사이즈에 맞게*/
+    float: left;
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1.16;
+}
+.product h2.fixed{
+    position: fixed;
+    top: 130px;
+}
+.product h2.end{
+    position: absolute;
+    top: auto;
+    bottom: 100px;
+}
+.product h2 span{/*pc에서만 줄바꿈*/
+    display: block;
+}
+.product .list{/*float; right 주지않고 margin 으로 여백을 띈다*/
+    margin-left: 438px;
+}
+.product .list ul li{
+    width: 400px;
+    margin: 0 0 100px 0;/*화살표 아이콘 밑의 여백*/
+}
+.product .list ul li:nth-child(1),
+.product .list ul li:nth-child(3),
+.product .list ul li:nth-child(5){
+    float: left;
+}
+.product .list ul li:nth-child(2),
+.product .list ul li:nth-child(4){
+    float: right;
+}
+.product .list ul li:nth-child(2){
+    margin-top: 210px;
+}
+.product .list ul li a{
+    display: block;
+}
+.product .list ul li a strong{
+    display: block;
+    margin: 20px 0 20px 0;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1.16;
+    /*2줄*/
+    height: 2.32em;
+    overflow: hidden;
+}
+.product .list ul li a span{
+    display: block;
+    margin: 0 0 30px 0;
+    /*4줄*/
+    line-height: 1.5;
+    height: 6em;
+    overflow: hidden;
+}
+.product .list ul li a i{
+    display: block;
+    font-size: 40px;
+    font-weight: 300;
+}
+@media screen and (max-width:640px){
+    .product{
+        margin: 35px 0 46px 0;
+    }
+    .product h2{
+        position: relative;
+        left: auto;
+        top: auto;
+        float: none;
+        font-size: 25px;
+    }
+    .product h2 span{/*모바일에서 줄바꿈 안함*/
+        display: inline;
+    }
+    .product .list{/*float; right 주지않고 margin 으로 여백을 띈다*/
+        overflow-y: hidden;
+        overflow-x: auto;/* 스크롤이 맘대로 생기게 하지않기 위해서 */
+        margin-left: 0;
+    }
+    .product .list ul{/* (208+16)x5=1120 */ /* (208+16)x5 - 16 = 1104*/
+        width: 1104px;/*ul의 li의 여백 포함 총 넓이*/
+        /*영역안에 딱 들어오게 하려면 마지막 li에서 오른쪽 여백을 빼고, ul의 총넓이에서도 똑같이 빼준다*/
+        padding: 24px 0;/*좌우 스크롤바가 콘텐츠 바로 아래 생성되는걸 막기위해서 패딩을 ul에 여백을 준다*/
+    }
+    .product .list ul li{
+        width: 208px;
+        margin: 0 16px 0 0;/*모바일 에서 이미지와 이미지 사이의 여백*/
+    }
+    .product .list ul li:nth-child(2),
+    .product .list ul li:nth-child(4){
+        float: left;
+    }
+    .product .list ul li:nth-child(2){
+        margin-top: 0;
+    }
+    .product .list ul li:last-child{
+        margin-right: 0;/*마지막 여백을 빼야 영역안에 딱맞게 들어온다*/
+    }
+    .product .list ul li a img{
+        width: 100%;/*pc버전에서 적용해도됨*/
+    }
+    .product .list ul li a strong{
+        margin: 9px 0 18px 0;
+        font-size: 20px;
+    }
+    .product .list ul li a span{
+        margin: 0 0 14px 0;
+        /*2줄*/
+        height: 3em;
+    }
+    .product .list ul li a i{
+        font-size: 20px;
+    }
+}
+
+.brand{
+    margin: 15px 0 0 0;
+    padding: 0 0 116px 0;
+    background-color: #F5F5F5;
+    text-align: center;
+}
+.brand h2{
+    padding: 73px 0 80px 0;
+    font-size: 30px;
+    font-weight: 700;
+}
+.brand h2 strong{
+    display: block;
+    margin: 0 0 8px 0;
+    font-size: 15px;
+    font-weight: 400;
+}
+.brand ul li{
+    float: left;
+    width: 290px;
+    margin: 0 40px 0 0;
+}
+.brand ul li:last-child{
+    margin-right: 0;
+}
+.brand ul li i{
+    font-size: 35px;
+    font-weight: 300;
+    color: #4D4D4D;
+}
+.brand ul li h3{
+    margin: 35px 0 18px 0;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.16;
+}
+@media screen and (max-width:640px){
+    .brand{
+        margin: 22px 0 0 0;
+        padding: 0 0 58px 0;
+    }
+    .brand h2{
+        padding: 55px 0 19px 0;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 1.16;
+    }
+    .brand h2 strong{
+        display: none;
+    }
+    .brand h2 span{
+        display: block;
+    }
+    .brand ul li{
+        position: relative;
+        width: 50%;
+        padding: 17px 0 22px 0;
+        margin: 0;
+    }
+    .brand ul li::after{
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 1px;/*가운데 세로줄*/
+        height: 100%;
+        background-color: #ccc;
+        content: "";
+    }
+    .brand ul li:nth-child(1)::after{
+        top: 19px;
+        height: calc(100% - 19px);
+    }
+    .brand ul li:nth-child(3)::after{
+        top: auto;
+        bottom: 21px;
+        height: calc(100% - 21px);/*선이 안겹치게 하기 위해서*/
+    }
+    .brand ul li:nth-child(3)::before,
+    .brand ul li:nth-child(4)::before{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 1px;/*가운데 가로줄*/
+        background-color: #ccc;
+        content: "";
+    }
+    
+    .brand ul li:nth-child(2)::after,
+    .brand ul li:last-child::after{
+        display: none;
+    }
+    .brand ul li i{
+        font-size: 20px;
+    }
+    .brand ul li h3{
+        margin: 21px 0 5px 0;
+        font-size: 15px;
+    }
+}
+
+.service h2{
+    display: none;
+}
+.service ul li{
+    float: left;
+    width: 33.33%;
+    /*영역에 넓이의 꽉차게 3개로 나눌때(반올림하면 절대 안됨)
+        10/3 = 33.333333333333 인데 반올림해서 33.34%를 주면 3개가 안나온다
+        33.33 x 3 = 100 이하여야 구현이 된다.*/
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    color: #fff;
+} 
+.service ul li.how{
+    background-image: url(../images/service01.png);
+}
+.service ul li.store{
+    background-image: url(../images/service02.png);
+}
+.service ul li.color{
+    background-image: url(../images/service03.png);
+}
+.service ul li a{
+    display: block;
+    height: 415px;
+    padding: 70px 0 0 70px;
+}
+.service ul li a span{
+    display: block;
+}
+.service ul li a strong{
+    display: block;
+    margin: 8px 0 54px 0;
+    font-size: 35px;
+    line-height: 1.16;
+}
+.service ul li a i{
+    font-size: 40px;
+    font-weight: 300;
+}
+@media screen and (max-width:640px){
+    .service ul li{
+        float: none;
+        width: auto;/*auto를 주면 영역에 맞춰 알아서 들어간다*/
+    }
+    .service ul li a{
+        height: 138px;/*원래 모바일에서 높이값을 묶어주면 안됌
+                        여기선 320px(최소넓이)안에만 들어오면 되기때문 그냥 높이를 잡아주고 간다*/
+        padding: 20px 0 0 40px;
+    }
+    .service ul li a strong{
+        margin: 3px 0 10px 0;
+        font-size: 25px;
+    }
+    .service ul li a i{
+        font-size: 20px;
+    }
+}
+
+aside{
+    position: fixed;
+    bottom: 174px;
+    right: 50px;
+    z-index: 10;/*제일 밑에 깔려야 하기때문에 최대한 낮은 숫자값을 준다*/
+    /*1280 컨텐츠 옆에 붙이는방법
+      기본적으로 왼쪽으로 정렬
+      left;50%
+      margin left;  = 640px (1280/2) + 여백*/
+}
+aside button{
+    width: 45px;
+    height: 45px;
+    padding: 0 0 5px 0;
+    border-radius: 22px;/*높이의 반절*/
+    background-color: #3d3d3d;
+    color: #fff;
+    text-align: center;
+    line-height: 0.8    
+}
+aside button i.material-symbols-sharp{
+    font-size: 15px;
+}
+aside button span{
+    display: block;
+    margin: 3px 0 0 0;
+    font-size: 13px;
+    font-weight: 700;
+}
+@media screen and (max-width:1400px){
+    aside{
+        display: none;
+    }
+}
+
+footer{
+    padding: 0 0 176px 0;
+    background-color: #222222;
+    color: rgba(255,255,255,0.7);
+}
+footer .inner{
+    position: relative;/*f_logo의 정렬의 기준점이 된다*/
+}
+footer .sns{
+    height: 71px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+footer .sns ul{/*sns섹션전체가 오른쪽으로 가야함*/
+    float: right;
+    margin: 18px 0 0 0;
+}
+footer .sns ul li{/*그 안에서 하나하나 li 들이 양옆으로 들어가야함*/
+    float: left;
+    margin: 0 9px 0 0;
+}
+footer .sns ul li:last-child{
+    margin-right: 0;
+}
+footer .sns ul li a{
+    display: block;
+    width: 34px;
+    height: 34px;
+    border-radius: 17px;/*높이(height)의 반절*/
+    /*처음에 로고 이미지를 저장했던 그 사이즈 그대로 넓이만 주고 높이는 auto로 준다*/
+    background-size: 25px auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border: 1px solid rgba(255,255,255,0.5);
+    /*따로 테그에 글자가 묶여있는게 아니라면, 이런식으로 글자를 안보이게 해준다*/
+    font-size: 0;
+    line-height: 0;    
+}
+footer .sns ul li.facebook a{
+    background-image: url(../images/sns_face.svg);
+}
+footer .sns ul li.naver a{
+    background-image: url(../images/sns_naver.svg);
+}
+footer .sns ul li.insta a{
+    background-image: url(../images/sns_insta.svg);
+}
+footer .sns ul li.youtube a{
+    background-image: url(../images/sns_youtube.svg);
+}
+footer .f_logo{
+    position: absolute;
+    left: 0;
+    top: 23px;
+}
+footer .f_logo img{
+    width: 88px;/*넓이만 준다 높이는 안준다*/
+    opacity: 0.7;/*색(color)를 바꾸지는 못한다, 그래서 opacity로 채도를 낮춘다*/
+}
+footer .f_info{
+    margin: 30px 0 28px 0;
+}
+footer .f_info span{
+    display: inline;/*글자 사이사이에 여백을 주려고"inline" 을 줌 */
+}
+footer .f_info span.brd{
+    position: relative;/*after(조그만한 짝대기)의 기준점*/
+    margin-right: 34px;
+}
+footer .f_info span.brd::after{
+    position: absolute;
+    right: -22px;
+    top: 7px;
+    width: 1px;
+    height: 10px;
+    background-color: rgba(255,255,255,0.2);
+    content: "";
+}
+footer .copyright{
+    color: rgba(255,255,255,0.4);
+}
+@media screen and (max-width:640px){
+    footer{
+        padding: 0 0 76px 0;
+    }
+    footer .sns{
+        height: 45px;
+        text-align: center;/*float가 들어가면 원래 text-align이 안되는데,ul 에게
+                            inline- block 을 주면 가운데 정렬이 됨*/
+    }
+    footer .sns ul{/*sns섹션전체가 오른쪽으로 가야함*/
+        display: inline-block;
+        float: none;
+        padding: 13px 0 0 0;
+        margin: 0 0 0 0;/*모바일에서는 0 처리를 하고 패딩을 새로 줘야한다*/
+    }
+    footer .sns ul li{/*그 안에서 하나하나 li 들이 양옆으로 들어가야함*/
+        margin: 0 10px 0 0;
+    }
+    footer .sns ul li a{
+        width: 20px;
+        height: 20px;
+        border-radius: 10px;/*높이(height)의 반절*/
+        /*처음에 로고 이미지를 저장했던 그 사이즈 그대로 넓이만 주고 높이는 auto로 준다*/
+        background-size: 15px auto;
+    }
+    footer .f_logo{
+        position: relative;/*sns 섹션 옆에 있는게 아니라 밑으로 들어가야하기때문에 다 풀어준다*/
+        left: auto;
+        top: auto;
+        margin: 23px 0 15px 0;
+    }
+    footer .f_logo img{
+        width: 65px;/*넓이만 준다 높이는 안준다*/
+    }
+    footer .f_info{
+        margin: 0 0 23px 0;
+    }
+    footer .f_info span.brd{
+        position: relative;/*after(조그만한 짝대기)의 기준점*/
+        margin-right: 16px;
+    }
+    footer .f_info span.brd::after{
+        right: -12px;
+        height: 7px;
+    }
+}

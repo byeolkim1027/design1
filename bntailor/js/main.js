@@ -91,11 +91,59 @@ $(document).ready(function(){
 		offTop=objParent.offset().top
 		scrolling=$(window).scrollTop()
 		moveval=(scrolling - offTop + winH)*moveRate
-		console.log(moveval,'moveval')
+		// console.log(moveval,'moveval')
 		if(moveDir=='left'){
 			objMove.css('transform','translateX(-'+moveval+'px)')
 		}else{//top
 			objMove.css('transform','translateY(-'+moveval+'px)')
+		}
+	}
+
+	/* 
+		.product .list .tit 고정
+		-- 스크롤을 내리다가 화면에 .product 컨텐츠가 보일때 .tit에 fixed 클래스 추가
+		product 컨텐츠가 화면에 보이는 구간 (scroll 된값) 1986 ~ 4484
+		.product .list 가 페이지 상단에 도달했을때 : 컨텐츠 보일 시작점
+
+		offset().top == 해당컨텐츠가 브라우저 상단 위쪽에 닿았을때의 값
+
+		--- 처음에 tit이 나타나기전 영역(다른 컨텐츠와 같이 스크롤되어 따라올라옴)
+			tit이 고정되는 영역(고정되어 옆에 컨텐츠만 스크롤됨)-> fixed 클래스추가
+			tit이 고정된 이후 영역(다른 컨텐츠를 따라서 사라짐)-> end 클래스 추가
+			
+	*/
+	let fixObj=$('.product .list .tit') //고정요소
+	let fixArea=$('.product .list') //고정요소를 감싸는 영역
+	let fixTop=150 //css에서 .fixed 에 준 top 값
+	let fixBtm=60 //css에서 .end에 준 bottom 값
+	let fixStart //fixed 시작점
+	let fixEnd //fixed 종료점
+	// console.log(fixStart,'fixStart')
+	// console.log(fixEnd,'fixEnd')
+
+	objFixed()// 브라우저 시작하자마자
+
+	$(window).scroll(function(){
+		objFixed() // 스크롤 할때마다
+	})
+
+	$(window).resize(function(){
+		objFixed()//브라우저사이즈 바뀔때마다
+	})
+
+	function objFixed(){
+		// console.log(scrolling)
+		fixStart=fixArea.offset().top - fixTop// 2145 - 150
+		fixEnd=fixArea.offset().top + fixArea.height() - fixObj.height() - fixBtm - fixTop
+		if(scrolling<fixStart){ //위에서 부터 tit이 고정되기 전
+			fixObj.removeClass('fixed')
+			fixObj.removeClass('end')
+		}else if((scrolling>=fixStart)&&(scrolling<fixEnd)){ //tit이 고정될때
+			fixObj.addClass('fixed')
+			fixObj.removeClass('end')
+		}else{ //고정된 이후
+			fixObj.addClass('end')
+			fixObj.removeClass('fixed')
 		}
 	}
 
