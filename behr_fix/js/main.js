@@ -61,6 +61,12 @@ $(document).ready(function(){
         $('header').removeClass('open')
     })/*마지막 ul의 li에 또 마지막 ul 하위메뉴 li에서 탭을했을때 하위메뉴가 클로즈 되게끔 하는 선언*/
 
+
+    /*
+        컨텐츠 고정 jquery
+        css 로 fixed 고정일때, end - fixed 종료후 css 를 줘야함
+    */
+
     let fixObj=$('.product h2') //고정요소
 	let fixArea=$('.product') //고정요소를 감싸는 영역
 	let fixTop=130 //css에서 .fixed 에 준 top 값

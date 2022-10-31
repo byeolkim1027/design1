@@ -531,6 +531,132 @@
     }
 }
 .sns{
-    height: 1500px;
+    padding: 0 0 230px 0;
     background-color: #2B2724;
+    color: #fff;
+    h2{
+        @include font_serif;
+        padding: 85px 0 100px 0;
+        font-size: 60px;
+        line-height: 1.2;
+    }
+    .list{
+        ul{
+            li{
+                width: 360px;
+                /*li(a) 와 img 사이의 여백을 빼줘야함*/
+                font-size: 0;
+                line-height: 0;
+                a{
+                    display: block;
+                    overflow: hidden;/*내가준 border-raidus 만큼만 보이고 나머지는 잘려서 안보이게*/
+                    border-radius: 20px;
+                    img{
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+                &:nth-child(1),&:nth-child(3),&:nth-child(5){
+                    width: 275px;
+                    padding: 40px 0 0 0;
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+    .bg_txt{
+        @include font_serif;
+        position: absolute;
+        left: 0;
+        bottom: 100px;
+        color: $w_light_color;
+        font-size: 150px;
+        white-space: nowrap;/*줄바꿈 금지*/
+
+        animation-name: bg_txt_ani;
+        animation-duration: 45s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;//가속도를 지워주고 일정하게 들어가게하는값
+    }
+}
+@keyframes bg_txt_ani{
+    0% { transform:translateX(0); }  /* 애니메이션을 시작할때의 속성 */
+	100% { transform:translateX(-50.3%); } /* 애니메이션이 종료될때의 속성 */
+    /* 무조건 html 에서 글자를 동일한 글자를 두번 입력(중요! 무조건 두번 입력해야함)
+        css 애니메이션으로 절반을 이동
+        그럼 두번째 단락의 글자가 다시 나타남*/
+}
+@media screen and (min-width:1441px){
+    .list{ // 1440이하 일때만 양옆으로 슬라이드 되고 그 이상일땐 슬라이드 안된다
+        width: calc(100% + 760px);//두개의 li의넓이+ 하나의여백 = 360*2 + 40 =
+        margin-left: -360px !important;
+    }
+}
+@media screen and (max-width:1280px){
+    .sns{
+        h2{
+            padding: 70px 0 90px 0;
+            font-size: 50px;
+        }
+        .list{
+            ul{
+                li{
+                    width:  320px;
+                    &:nth-child(1),&:nth-child(3),&:nth-child(5){
+                        width: 250px;
+                        padding: 35px 0 0 0;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:800px){
+    .sns{
+        h2{
+            padding: 50px 0 60px 0;
+            font-size: 40px;
+        }
+        .list{
+            ul{
+                li{
+                    &:nth-child(1),&:nth-child(3),&:nth-child(5){
+                        width: 320px;
+                        padding: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:640px){
+    .sns{
+        padding: 0 0 100px 0;
+        h2{
+            padding: 40px 0 30px 0;
+            font-size: 30px;
+            line-height: 1;
+        }
+        .list{
+            ul{
+                li{
+                    width: 220px;
+                    a{
+                        border-radius: 10px;
+                    }
+                    &:nth-child(1),&:nth-child(3),&:nth-child(5){
+                        width: 220px;
+                        padding: 0;
+
+                    }
+                }
+            }
+        }
+        .bg_txt{
+            bottom: 40px;
+            font-size: 80px;
+        }
+    }
 }
