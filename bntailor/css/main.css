@@ -216,10 +216,10 @@ html, body {
 .header .gnb .gnb_open {
   display: none;
 }
-.header .gnb ul li {
+.header .gnb .gnb_wrap ul li {
   float: left;
 }
-.header .gnb ul li a {
+.header .gnb .gnb_wrap ul li a {
   display: block;
   padding: 0 23px;
   color: #ffffff;
@@ -238,7 +238,7 @@ html, body {
   .header .logo a img {
     width: 120px;
   }
-  .header .gnb ul li a {
+  .header .gnb .gnb_wrap ul li a {
     font-size: 17px;
   }
 }
@@ -246,7 +246,7 @@ html, body {
   .header .logo a img {
     width: 100px;
   }
-  .header .gnb ul li a {
+  .header .gnb .gnb_wrap ul li a {
     padding: 0 15px;
     font-size: 15px;
   }
@@ -263,10 +263,12 @@ html, body {
   }
   .header .gnb {
     margin: 0;
+    /*모바일 메뉴가 열렸을때*/
   }
   .header .gnb .gnb_open {
     display: block;
     position: relative; /*absolute로 span 을 준다음에 모바일 메뉴바를 만드는 기준점*/
+    z-index: 2;
     width: 63px;
     height: 60px;
   }
@@ -280,6 +282,7 @@ html, body {
     width: 23px; /*3줄중에서 많이 있는거*/
     height: 2px;
     background-color: #fff; /*back color는 변수명 쓰지않고 바로 값준다*/
+    transition: 0.3s;
   }
   .header .gnb .gnb_open span.line1 { /* span.line1 과 동일한값(&를 꼭 붙혀서 써야함 scss 에서)*/
     top: 22px;
@@ -291,11 +294,184 @@ html, body {
   .header .gnb .gnb_open span.line3 {
     top: 36px;
   }
-  .header .gnb ul {
-    display: none;
+  .header .gnb .gnb_wrap {
+    display: block;
+    position: fixed;
+    right: -100%;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    max-width: 375px;
+    height: 100vh;
+    background-color: #fff;
+    color: #1d1d1d;
+    transition: right 0.5s;
+  }
+  .header .gnb .gnb_wrap ul {
+    margin: 60px 0 0 0;
+  }
+  .header .gnb .gnb_wrap ul li {
+    float: none;
+    border-bottom: 1px solid #f4f4f4;
+  }
+  .header .gnb .gnb_wrap ul li a {
+    font-family: "Noto Serif KR", serif;
+    padding: 0;
+    color: #1d1d1d;
+    font-size: 20px;
+    line-height: 60px; /*header의 높이만큼 주면 글자가 헤더의 가운데 배치됨*/
+    text-align: center;
+  }
+  .header .gnb .gnb_wrap ul li:first-child {
+    border-top: 1px solid #f4f4f4;
+  }
+  .header .gnb::after {
+    /*
+        메뉴하단에 검은 배경을 채울때는 position:fixed; 값이 들어가야 전체 꽉차게 들어감
+
+        화면에 꽉차는 배경은
+        좌우 위아래 사방을 모두 0을주면
+        width와 height를 100% 주는거와 동일
+
+        <div class="gnb">
+            <button class="gnb_open"></button>
+            <div class="gnb_wrap"></div>
+            ::after -- gnb::after
+        </div>
+        이런구조에서 
+        gnb_open과 gnb_wrap, gnb::after 의 보여질 순서를 조정할수 있음
+        --> z-index는 이렇게 나란히 들어간 요소들 사이에서 높은숫자가 위로 올라감
+
+        <button class="gnb_open"></button>
+        <div class="gnb_wrap">
+            ::after -- gnb_wrap::after
+        </div>
+        이런구조라면 gnb_wrap::after 는 gnb_wrap안에 존재하기 때문에 
+        그밖에 잇는 gnb_open,gnb_wrap과의 보여질 순서를 조절 불가능
+    */
+    position: fixed;
+    opacity: 0;
+    transition: opacity 0.5s;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    content: "";
+  }
+  .header .gnb.mobile_open .gnb_open span {
+    /*top값은 다 달라서 따로 클래스 불러서 준다*/
+    background-color: #3d3d3d; /*back color는 변수명 쓰지않고 바로 값준다*/
+  }
+  .header .gnb.mobile_open .gnb_open span.line1 { /* span.line1 과 동일한값(&를 꼭 붙혀서 써야함 scss 에서)*/
+    top: 30px;
+    transform: rotate(33deg);
+  }
+  .header .gnb.mobile_open .gnb_open span.line2 {
+    right: -23px;
+  }
+  .header .gnb.mobile_open .gnb_open span.line3 {
+    top: 30px;
+    transform: rotate(-33deg);
+  }
+  .header .gnb.mobile_open .gnb_wrap {
+    right: 0;
+  }
+  .header .gnb.mobile_open::after {
+    opacity: 1;
   }
 }
 /* header가 고정일때 */
+.footer {
+  font-family: "Noto Serif KR", serif;
+  display: block;
+  padding: 70px 0 100px 0;
+  background-color: #000000;
+  color: rgba(255, 255, 255, 0.8);
+}
+.footer::after {
+  display: block;
+  clear: both;
+  content: ".";
+  visibility: hidden;
+  height: 0;
+}
+.footer .social {
+  float: right;
+}
+.footer .social ul li {
+  float: left;
+}
+.footer .social ul li a {
+  position: relative;
+  display: block;
+  width: 49px;
+  height: 49px;
+  font-size: 0;
+  line-height: 0;
+}
+.footer .social ul li a::before {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); /*네모영역안에 가운데주는 값*/
+  /*배경이미지가 한개를 보이는 영역을 제한해서 써야하기 때문에 
+    before,after에서 표시
+    이때 before,after의 사이즈는 내가 사용할 아이콘의 넓이
+    - 저장할때 활용된 아이콘의 넓이*/
+  width: 40px;
+  height: 40px;
+  background-image: url(/design1/bntailor/images/common/footer_ico.svg);
+  background-repeat: no-repeat;
+  content: "";
+}
+.footer .social ul li.insta a::before {
+  background-position: left top;
+}
+.footer .social ul li.face a::before {
+  background-position: left -40px top;
+}
+.footer .social ul li.naver a::before {
+  background-position: left -80px top;
+}
+.footer .inner {
+  float: left;
+}
+.footer .inner span {
+  display: inline-block;
+  margin: 0 40px 20px 0;
+}
+.footer .inner .copyright {
+  color: rgba(255, 255, 255, 0.6);
+  margin: 50px 0 0 0;
+}
+
+@media screen and (max-width: 1000px) {
+  .footer {
+    padding: 40px 0 65px 0;
+  }
+  .footer .social {
+    display: block;
+    float: none;
+  }
+  .footer .social::after {
+    display: block;
+    clear: both;
+    content: ".";
+    visibility: hidden;
+    height: 0;
+  }
+  .footer .inner {
+    margin: 20px 0 0 0;
+  }
+  .footer .inner span {
+    margin: 0 30px 10px 0;
+  }
+  .footer .inner .copyright {
+    margin: 40px 0 0 0;
+  }
+}
 /*
     scss 내에서 import할 default와 common 등의 파일은 
     파일명 앞에 _(언더바)를 입력하면 sass 컴파일러가 해당 파일은 컴파일 하지않음
@@ -329,6 +505,9 @@ html, body {
 .visual .popup { /* .visual .popup */
   height: 100vh;
 }
+.visual .popup ul li {
+  /*현재 나타나는 팝업에 swiper가 주는 class명*/
+}
 .visual .popup ul li img {
   /*이미지를 최대한 리사이즈에 맞게 주는 값(브라우저 늘고 줄었을때 이미지가 그거에맞게 가운데 포커스 맞게)*/
   display: block;
@@ -336,6 +515,11 @@ html, body {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  transform: scale3d(1.1, 1.1, 1);
+  transition: 2s;
+}
+.visual .popup ul li.swiper-slide-active img {
+  transform: scale3d(1, 1, 1);
 }
 .visual .popup .btn_wrap {
   display: flex;
@@ -811,6 +995,7 @@ html, body {
   }
 }
 .sns {
+  position: relative;
   padding: 0 0 230px 0;
   background-color: #2B2724;
   color: #fff;
@@ -848,7 +1033,7 @@ html, body {
   font-family: "Noto Serif KR", serif;
   position: absolute;
   left: 0;
-  bottom: 100px;
+  bottom: 110px;
   color: rgba(255, 255, 255, 0.1);
   font-size: 150px;
   white-space: nowrap; /*줄바꿈 금지*/
@@ -886,7 +1071,7 @@ html, body {
       그럼 두번째 단락의 글자가 다시 나타남*/
 }
 @media screen and (min-width: 1441px) {
-  .list {
+  .sns .list {
     width: calc(100% + 760px);
     margin-left: -360px !important;
   }
@@ -934,7 +1119,7 @@ html, body {
     padding: 0;
   }
   .sns .bg_txt {
-    bottom: 40px;
+    bottom: 30px;
     font-size: 80px;
   }
 }

@@ -35,12 +35,24 @@
     }
     .popup{/* .visual .popup */
         height: 100vh;
-        ul li img{
-            /*이미지를 최대한 리사이즈에 맞게 주는 값(브라우저 늘고 줄었을때 이미지가 그거에맞게 가운데 포커스 맞게)*/
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        ul{
+            li{ 
+                img{
+                    /*이미지를 최대한 리사이즈에 맞게 주는 값(브라우저 늘고 줄었을때 이미지가 그거에맞게 가운데 포커스 맞게)*/
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transform: scale3d(1.1,1.1,1);
+                    transition: 2s;
+                }
+                  /*현재 나타나는 팝업에 swiper가 주는 class명*/
+                &.swiper-slide-active{
+                    img{
+                        transform: scale3d(1,1,1);
+                    }
+                }
+            }
         }
         .btn_wrap{
             display: flex;
@@ -531,6 +543,7 @@
     }
 }
 .sns{
+    position: relative;
     padding: 0 0 230px 0;
     background-color: #2B2724;
     color: #fff;
@@ -570,7 +583,7 @@
         @include font_serif;
         position: absolute;
         left: 0;
-        bottom: 100px;
+        bottom: 110px;
         color: $w_light_color;
         font-size: 150px;
         white-space: nowrap;/*줄바꿈 금지*/
@@ -589,7 +602,7 @@
         그럼 두번째 단락의 글자가 다시 나타남*/
 }
 @media screen and (min-width:1441px){
-    .list{ // 1440이하 일때만 양옆으로 슬라이드 되고 그 이상일땐 슬라이드 안된다
+    .sns .list{ // 1440이하 일때만 양옆으로 슬라이드 되고 그 이상일땐 슬라이드 안된다
         width: calc(100% + 760px);//두개의 li의넓이+ 하나의여백 = 360*2 + 40 =
         margin-left: -360px !important;
     }
@@ -655,7 +668,7 @@
             }
         }
         .bg_txt{
-            bottom: 40px;
+            bottom: 30px;
             font-size: 80px;
         }
     }

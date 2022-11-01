@@ -114,15 +114,17 @@ html,body{
         .gnb_open{
             display: none;
         }
-        ul{
-            li{
-                float: left;
-                a{
-                    display: block;
-                    padding: 0 23px;
-                    color: $w_tit_color;
-                    font-size: 20px;
-                    line-height: 100px;/*header의 높이만큼 주면 글자가 헤더의 가운데 배치됨*/
+        .gnb_wrap{
+            ul{
+                li{
+                    float: left;
+                    a{
+                        display: block;
+                        padding: 0 23px;
+                        color: $w_tit_color;
+                        font-size: 20px;
+                        line-height: 100px;/*header의 높이만큼 주면 글자가 헤더의 가운데 배치됨*/
+                    }
                 }
             }
         }
@@ -139,7 +141,7 @@ html,body{
     .header .logo a img{
         width: 120px;
     }
-    .header .gnb ul li a{
+    .header .gnb .gnb_wrap ul li a{
         font-size: 17px;
     }
 }
@@ -147,7 +149,7 @@ html,body{
     .header .logo a img{
         width: 100px;
     }
-    .header .gnb ul li a{
+    .header .gnb .gnb_wrap ul li a{
         padding: 0 15px;
         font-size: 15px;
     }
@@ -166,6 +168,7 @@ html,body{
             .gnb_open{
                 display: block;
                 position: relative;/*absolute로 span 을 준다음에 모바일 메뉴바를 만드는 기준점*/
+                z-index: 2;
                 width: 63px;
                 height: 60px;
                 strong{
@@ -178,6 +181,7 @@ html,body{
                     width: 23px;/*3줄중에서 많이 있는거*/
                     height: 2px;
                     background-color: #fff;/*back color는 변수명 쓰지않고 바로 값준다*/
+                    transition: 0.3s;
                     &.line1{/* span.line1 과 동일한값(&를 꼭 붙혀서 써야함 scss 에서)*/
                         top: 22px;
                     }
@@ -190,10 +194,176 @@ html,body{
                     }
                 }
             }
-            ul{
-                display: none;
+            .gnb_wrap{
+                display: block;
+                position: fixed;
+                right: -100%;
+                top: 0;
+                z-index: 1;
+                width: 100%;
+                max-width: 375px;
+                height: 100vh;
+                background-color: #fff;
+                color: #1d1d1d;
+                transition: right 0.5s;
+                ul{
+                    margin: 60px 0 0 0;
+                    li{
+                        float: none;
+                        border-bottom: 1px solid #f4f4f4;
+                        a{
+                            @include font_serif;
+                            padding: 0;
+                            color: $tit_color;
+                            font-size: 20px;
+                            line-height: 60px;/*header의 높이만큼 주면 글자가 헤더의 가운데 배치됨*/
+                            text-align: center;
+                        }
+                        &:first-child{
+                            border-top: 1px solid #f4f4f4;
+                        }
+                    }
+                }
+            }
+            &::after{
+                /*
+                    메뉴하단에 검은 배경을 채울때는 position:fixed; 값이 들어가야 전체 꽉차게 들어감
+
+                    화면에 꽉차는 배경은
+                    좌우 위아래 사방을 모두 0을주면
+                    width와 height를 100% 주는거와 동일
+
+                    <div class="gnb">
+                        <button class="gnb_open"></button>
+                        <div class="gnb_wrap"></div>
+                        ::after -- gnb::after
+                    </div>
+                    이런구조에서 
+                    gnb_open과 gnb_wrap, gnb::after 의 보여질 순서를 조정할수 있음
+                    --> z-index는 이렇게 나란히 들어간 요소들 사이에서 높은숫자가 위로 올라감
+
+                    <button class="gnb_open"></button>
+                    <div class="gnb_wrap">
+                        ::after -- gnb_wrap::after
+                    </div>
+                    이런구조라면 gnb_wrap::after 는 gnb_wrap안에 존재하기 때문에 
+                    그밖에 잇는 gnb_open,gnb_wrap과의 보여질 순서를 조절 불가능
+                */
+                position: fixed;
+                opacity: 0;
+                transition: opacity 0.5s;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                height: 100vh;
+                background-color: rgba(0,0,0,0.5);
+                content: "";
+            }
+            /*모바일 메뉴가 열렸을때*/
+            &.mobile_open{
+                .gnb_open{
+                    span{
+                        /*top값은 다 달라서 따로 클래스 불러서 준다*/
+                        background-color: #3d3d3d;/*back color는 변수명 쓰지않고 바로 값준다*/
+                        &.line1{/* span.line1 과 동일한값(&를 꼭 붙혀서 써야함 scss 에서)*/
+                            top: 30px;
+                            transform: rotate(33deg);
+                        }
+                        &.line2{
+                            right: -23px;
+                        }
+                        &.line3{
+                            top: 30px;
+                            transform: rotate(-33deg);
+                        }
+                    }
+                }
+                .gnb_wrap{
+                    right: 0;
+                }
+                &::after{
+                    opacity: 1;
+                }
             }
         }
     }
 }
 /* header가 고정일때 */
+
+.footer{
+    @include font_serif;
+    @include clearfix;
+    padding: 70px 0 100px 0;
+    background-color: #000000;
+    color: $w_basic_color;
+    .social{
+        float: right;
+        ul{
+            li{
+                float: left;
+                a{
+                    position: relative;
+                    display: block;
+                    width: 49px;
+                    height: 49px;
+                    font-size: 0;
+                    line-height: 0;
+                    &::before{
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%,-50%);/*네모영역안에 가운데주는 값*/
+                        /*배경이미지가 한개를 보이는 영역을 제한해서 써야하기 때문에 
+                          before,after에서 표시
+                          이때 before,after의 사이즈는 내가 사용할 아이콘의 넓이
+                          - 저장할때 활용된 아이콘의 넓이*/
+                        width: 40px;
+                        height: 40px;
+                        background-image: url(/design1/bntailor/images/common/footer_ico.svg);
+                        background-repeat: no-repeat;
+                        content: "";
+                    }
+                }
+                &.insta a::before{
+                    background-position: left top;
+                }
+                &.face a::before{
+                    background-position: left -40px top;
+                }
+                &.naver a::before{
+                    background-position: left -80px top;
+                }
+            }//li 종료
+        }
+    }
+    .inner{
+        float: left;
+        span{
+            display: inline-block;
+            margin: 0 40px 20px 0;
+        }
+        .copyright{
+            color: $w_dark_light_color;
+            margin: 50px 0 0 0;
+        }
+    }
+}
+@media screen and (max-width:1000px){
+    .footer{
+        padding: 40px 0 65px 0;
+        .social{
+            @include clearfix;
+            float: none;
+        }
+        .inner{
+            margin: 20px 0 0 0;
+            span{
+                margin: 0 30px 10px 0;
+            }
+            .copyright{
+                margin: 40px 0 0 0;
+            }
+        }
+    }
+}
