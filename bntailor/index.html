@@ -16,7 +16,23 @@
 <body>
     <div id="wrap">
         <header class="header">
-            <h1 class="logo"><a href="/design1/bntailor/index.html"><img src="/design1/bntailor/images/common/logo.svg" alt="B&TAILOR"></a></h1>
+            <h1 class="logo">
+                <a href="/design1/bntailor/index.html">
+                    <!-- svg파일을 img테그가 아니라 svg코드로 삽입하는 방법
+                         1. svg파일을 코딩프로그램에서 열면 코드가 나타남
+                         2. <svg></svg>까지의 소스를 복사해서 html에서 삽일할 위치에 추가
+
+                         css에서 svg를 불러서 사이즈를 조절(주의사항! 넓이만 조절하면됨/높이조절X)
+                         1. svg안에 있는 text,path,polygon 등의 테그를 불러서 fill로 색상 변경
+                            -> 장점1. svg파일이 없어도 코드로 아이콘 표현 가능
+                               장점2. 크기와 색상을 원하는대로 변경 가능
+                            -> 단점2. 모든 브라우저에서 지원이 되지는않음
+                    -->
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 36">
+                        <text id="logo" transform="translate(0 29)" font-size="25" font-family="NotoSerifKR-Bold, Noto Serif KR" font-weight="700"><tspan x="0" y="0">B&amp;TAILOR</tspan></text>
+                    </svg>
+                </a>
+            </h1>
             <!--모바일에서 메뉴를 열면 gnb에 mobile_open 클래스를 줄거임
                 gnb_open 은 버튼은 메뉴 바에서 -> X 애니메이션
                 gnb_wrap은 오른쪽에서 왼쪽으로 이동해서 나타남

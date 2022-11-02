@@ -15,7 +15,13 @@
 <body>
     <div id="wrap">
         <header class="header">
-            <h1 class="logo"><a href="/design1/bntailor/index.html"><img src="/design1/bntailor/images/common/logo.svg" alt="B&TAILOR"></a></h1>
+            <h1 class="logo">
+                <a href="/design1/bntailor/index.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 36">
+                        <text id="logo" transform="translate(0 29)" font-size="25" font-family="NotoSerifKR-Bold, Noto Serif KR" font-weight="700"><tspan x="0" y="0">B&amp;TAILOR</tspan></text>
+                    </svg>
+                </a>
+            </h1>
             <!--모바일에서 메뉴를 열면 gnb에 mobile_open 클래스를 줄거임
                 gnb_open 은 버튼은 메뉴 바에서 -> X 애니메이션
                 gnb_wrap은 오른쪽에서 왼쪽으로 이동해서 나타남
@@ -58,6 +64,21 @@
                 </div>
                 <div class="tit">About Us</div>
             </div>
+            <div class="sub_visual_bg"></div>
+            <div class="sub_visual_path">
+                <svg xmlns="http://www.w3.org/2000/svg">
+                    <clipPath id="sub_visual_path" clipPathUnits="objectBoundingBox" transform="scale(0.00078125,0.0013888888888889)">
+                        <path d="M-11627.829,2301.2l-209.671-94.485V1671.5h1921v499.854L-11627.83,2301.2Z" transform="translate(11837.5 -1671.501)"/>
+                    </clipPath>
+                </svg>
+            </div>
+            <!-- svg에 clipPath를 추가하면 svg는 화면에 출력되지 않습니다
+                 css에서 clip-path로 사용하기 위해서 변환한것
+                 svg가 눈에 보이지않을뿐 공간은 차지함
+
+                 display:none으로 숨기면 clip-path효과가 사라짐(적용이 안됨)
+                 absolute로 한쪽으로 치워두고 svg를 css로 불러와서 1px로 작게 수정
+            -->
         </div>
         <nav class="lnb"><!-- local navigation bar 서브메뉴-->
             <div class="wrapper">
@@ -70,9 +91,7 @@
         </nav>
         <!-- 위쪽은 공통 서브메뉴 부분 -->
         <div class="container"><!--컨텐츠 부분-->
-            <svg xmlns="http://www.w3.org/2000/svg" width="1921" height="629.697" viewBox="0 0 1921 629.697">
-                <path id="sub_visual_bg" d="M-11627.829,2301.2l-209.671-94.485V1671.5h1921v499.854L-11627.83,2301.2Z" transform="translate(11837.5 -1671.501)"/>
-              </svg>
+            
         </div>
         <footer class="footer">
             <div class="wrapper">

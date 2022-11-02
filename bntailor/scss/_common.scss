@@ -107,6 +107,12 @@ html,body{
     .logo{
         float: left;
         margin: 28px 0 0 50px;
+        svg{
+            width: 135px;
+            text{
+                fill: #FFF;
+            }            
+        }
     }
     .gnb{
         float: right;
@@ -138,7 +144,7 @@ html,body{
     }
 }
 @media screen and (max-width:1440px){
-    .header .logo a img{
+    .header .logo a svg{
         width: 120px;
     }
     .header .gnb .gnb_wrap ul li a{
@@ -146,7 +152,7 @@ html,body{
     }
 }
 @media screen and (max-width:1200px){
-    .header .logo a img{
+    .header .logo a svg{
         width: 100px;
     }
     .header .gnb .gnb_wrap ul li a{
@@ -159,7 +165,7 @@ html,body{
         height: 60px;
         .logo{
             margin: 10px 0 0 20px;
-            a img{
+            a svg{
                 width: 91px;
             }
         }
