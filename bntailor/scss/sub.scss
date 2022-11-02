@@ -24,7 +24,28 @@
             배경이 표시될 영역으로 활용됨.
             path로 직접 경로를 사용했는데 안되는 경우, svg path의 크기를 변경해야하는경우 
             이런방식으로 사용
-        */
+        */    
+    }
+    &.sub_bg1 .sub_visual_bg{
+        background-image: url(/design1/bntailor/images/sub/sub_visual1.png);
+    }
+    &.sub_bg2 .sub_visual_bg{
+        background-image: url(/design1/bntailor/images/sub/sub_visual2.png);
+    }
+    &.sub_bg3 .sub_visual_bg{
+        background-image: url(/design1/bntailor/images/sub/sub_visual3.png);
+    }
+    &.sub_bg4 .sub_visual_bg{
+        background-image: url(/design1/bntailor/images/sub/sub_visual4.png);
+    }
+    &.sub_bg5 .sub_visual_bg{
+        background-image: url(/design1/bntailor/images/sub/sub_visual5.png);
+    }
+    &.sub_bg6 .sub_visual_bg{
+        background-image: url(/design1/bntailor/images/sub/sub_visual6.png);
+    }
+    &.sub_bg7 .sub_visual_bg{
+        background-image: url(/design1/bntailor/images/sub/sub_visual7.png);
     }
     .sub_visual_path{
         position: absolute;
@@ -71,5 +92,71 @@
         color: $w_tit_color;
         font-size: 70px;
         line-height: 1.2;
+    }
+}
+@media screen and (max-width: 1000px){
+    .sub_visual{
+        height: 300px;
+        .sub_visual_bg{
+            height: 100%;/*clip-path가 정확하지 않아 배경을 별도의 요소에 줌*/
+            clip-path: none;
+            /*
+                클립패스 모바일에서는 안함
+            */    
+        }
+        .location{
+            padding: 180px 0 0 0;
+            span{
+                margin-right: 15px;
+                &::after{
+                    right: -9px;
+                    top: 8px;
+                    width: 3px;
+                    height: 5px;
+                }
+            }
+    
+        }
+        .tit{
+            font-size: 50px;
+        }
+    }
+}
+.lnb{
+    height: 100px;
+    .lnb_wrap{
+        ul{
+            li{
+                float: left;//flex로 하게되면 모바일에서 좌우로 슬라이드 되지않는다
+                a{
+                    display: block;
+                    padding: 0 30px;
+                    font-size: 30px;
+                    color: #999;
+                }
+                &:first-child{
+                    a{
+                        padding-left: 0;
+                    }
+                }
+                &.active{
+                    a{
+                        position: relative;
+                        color: #1d1d1d;
+                        font-weight: 700;
+                        &::before{
+                            position: absolute;
+                            right: 24px;
+                            top: 2px;
+                            width: 6px;
+                            height: 6px;
+                            border-radius: 4px;
+                            background-color: #A39161;
+                            content: "";
+                        }
+                    }
+                }
+            }
+        }
     }
 }
