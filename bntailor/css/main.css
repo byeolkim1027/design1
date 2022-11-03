@@ -355,6 +355,7 @@ html, body {
         이런구조라면 gnb_wrap::after 는 gnb_wrap안에 존재하기 때문에 
         그밖에 잇는 gnb_open,gnb_wrap과의 보여질 순서를 조절 불가능
     */
+    display: none;
     position: fixed;
     opacity: 0;
     transition: opacity 0.5s;
@@ -385,6 +386,7 @@ html, body {
     right: 0;
   }
   .header .gnb.mobile_open::after {
+    display: block;
     opacity: 1;
   }
 }

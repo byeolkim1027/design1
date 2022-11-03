@@ -355,6 +355,7 @@ html, body {
         이런구조라면 gnb_wrap::after 는 gnb_wrap안에 존재하기 때문에 
         그밖에 잇는 gnb_open,gnb_wrap과의 보여질 순서를 조절 불가능
     */
+    display: none;
     position: fixed;
     opacity: 0;
     transition: opacity 0.5s;
@@ -385,6 +386,7 @@ html, body {
     right: 0;
   }
   .header .gnb.mobile_open::after {
+    display: block;
     opacity: 1;
   }
 }
@@ -601,12 +603,25 @@ html, body {
 .lnb {
   height: 100px;
 }
+.lnb .lnb_wrap {
+  overflow-x: auto; /* lnb_wrap의 넓이보다 ul의 넓이가 더 길어질때만 스크롤바가 생성*/
+  overflow-y: hidden;
+  margin: 40px 0 0 0; /*sub_visual과 lnb 사이에 떨어지는 마진값*/
+}
+.lnb .lnb_wrap ul {
+  white-space: nowrap;
+  /* 하위 요소들 줄바꿈 금지 - 블럭요소는 안됨, float 들어간 요소도 안됨.
+      inline 요소나 inline-block만 적용됨.
+      단, inline-block 요소의 사이사이에 space 한칸의 여백이 들어감
+      그럼 요소들 사이의 여백을 이를 감안해서 줄이면됨
+  */
+}
 .lnb .lnb_wrap ul li {
-  float: left;
+  display: inline-block;
 }
 .lnb .lnb_wrap ul li a {
   display: block;
-  padding: 0 30px;
+  padding: 0 22px;
   font-size: 30px;
   color: #999;
 }
@@ -627,4 +642,26 @@ html, body {
   border-radius: 4px;
   background-color: #A39161;
   content: "";
+}
+
+@media screen and (max-width: 640px) {
+  .lnb {
+    height: 40px;
+  }
+  .lnb .lnb_wrap {
+    margin: 10px 0 0 0; /*sub_visual과 lnb 사이에 떨어지는 마진값*/
+  }
+  .lnb .lnb_wrap ul li {
+    display: inline-block;
+  }
+  .lnb .lnb_wrap ul li a {
+    padding: 0 15px;
+    font-size: 17px;
+  }
+  .lnb .lnb_wrap ul li.active a::before {
+    right: 14px;
+    top: 3px;
+    width: 3px;
+    height: 3px;
+  }
 }
