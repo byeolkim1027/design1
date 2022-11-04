@@ -135,13 +135,7 @@ html,body{
             }
         }
     }
-    &.fixed{ //header.fixed ->header에 fixed 클래스가 추가됬을때 - header 고정
-        position: fixed;
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);// 브라우저 호환성때문에 줘야한다
-        background-color: rgba(0,0,0,0.2);
-        border-bottom: none;
-    }
+    
 }
 @media screen and (max-width:1440px){
     .header .logo a svg{

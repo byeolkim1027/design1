@@ -80,14 +80,22 @@
                  absolute로 한쪽으로 치워두고 svg를 css로 불러와서 1px로 작게 수정
             -->
         </div>
+        <!--lnb를 고정할때는 lnb 전체를 fixed로 변경하면 안됨
+            lnb가 공간을 차지하지 않아서 하단의 컨텐츠가 따라 올라옴
+            (lnb 가 고정되는 순간 밑에 컨텐츠가 올라오는 현상이 나타남)
+            lnb는 그대로 있고 안에 일부 컨텐츠만 fixed로 고정되어야함
+        
+            lnb에 fixed 클래스가 추가되면 lnb_fix가 position: fixed; 로 고정-->
         <nav class="lnb"><!-- local navigation bar 서브메뉴-->
-            <div class="wrapper">
-                <div class="lnb_wrap">
-                    <ul>
-                        <li class="active"><a href="#n">Chairman</a></li>
-                        <li><a href="#n">Family</a></li>
-                        <li><a href="#n">Our Business</a></li>
-                    </ul>
+            <div class="lnb_fix"><!--상단에 fixed될 컨텐츠 영역-->
+                <div class="wrapper">
+                    <div class="lnb_wrap">
+                        <ul>
+                            <li class="active"><a href="#n">Chairman</a></li>
+                            <li><a href="#n">Family</a></li>
+                            <li><a href="#n">Our Business</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </nav>

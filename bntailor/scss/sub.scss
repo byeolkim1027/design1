@@ -2,6 +2,20 @@
 @import "_default.scss";
 @import "_common.scss";
 
+.header.fixed{
+    position: fixed;
+    background-color: rgba(255,255,255,0.6);
+    .logo svg text{
+        fill: #1d1d1d;
+    }
+    .gnb .gnb_wrap ul li a{
+        color: #1d1d1d;
+    }
+    .gnb .gnb_open span{
+        background-color: #3d3d3d;
+    }
+}
+
 /* 서브 공통 레이아웃 */
 
 .sub_visual{
@@ -123,7 +137,22 @@
     }
 }
 .lnb{
+    position: relative;
     height: 100px;
+    .lnb_fix{
+        /*나중에 fixed로 변경될 컨텐츠 - absolute로 코딩한는게좋음*/
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 200;
+        width: 100%;//absolute는 inline요소로 변경되기때문에 넓이값을 줘야함
+        height: 100px;//lnb의 높이값과 같이 px로 준다 - %로 주면 fixed로 변경될때 화면에 꽉차서 안됨
+    }
+    &.fixed .lnb_fix{
+        position: fixed;
+        top: 100px;//header 높이만큼 아래
+        background-color: rgba(255,255,255,0.6);
+    }
     .lnb_wrap{
         overflow-x: auto; /* lnb_wrap의 넓이보다 ul의 넓이가 더 길어질때만 스크롤바가 생성*/
         overflow-y: hidden;
@@ -169,9 +198,20 @@
         }
     }
 }
-@media screen and (max-width:640px){
+@media screen and (max-width:1200px){
+    .lnb .lnb_wrap ul li a{
+        font-size: 25px;
+    }
+}
+@media screen and (max-width:1000px){
     .lnb{
         height: 40px;
+        .lnb_fix{
+            height: 40px;//lnb와 같은 높이값
+        }
+        &.fixed .lnb_fix{
+            top: 60px;// 총 lnb의 값이 100, 
+        }
         .lnb_wrap{
             margin: 10px 0 0 0;/*sub_visual과 lnb 사이에 떨어지는 마진값*/
             ul{
