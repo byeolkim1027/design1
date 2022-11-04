@@ -1,0 +1,104 @@
+@import url('default.css');
+@import url('common.css');
+
+.visual{
+    position: relative;
+}
+.visual .popup{
+    height: 100vh;
+}
+.visual .popup ul li .txt{
+    position: absolute;
+    left: calc(50% - 700px);
+    top: calc(50% + 120px);
+    z-index: 10;
+    color: #FFF;
+    transform: translate(0,-50%);
+}
+.visual .popup ul li .txt span{
+    display: block;
+}
+.visual .popup ul li .txt strong{
+    display: block;
+    margin: 10px 0 0 0;
+    font-size: 50px;
+    line-height: 1.2;
+}
+.visual .popup ul li img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.visual .popup .btn_prev,.visual .popup .btn_next{
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    width: 40px;
+}
+.visual .popup .btn_prev{
+    left: 20px;/*%로 값을 줘도됨*/
+}
+.visual .popup .btn_prev i{
+    font-size: 50px;
+    color: rgba(255,255,255,0.2);
+}
+.visual .popup .btn_next{
+    right: 20px;
+}
+.visual .popup .btn_next i{
+    font-size: 50px;
+    color: rgba(255,255,255,0.2);
+}
+.visual .popup .ctrl_wrap{
+    display: flex;/*flaot보단 flex가 이상황에선 더 낫다*/
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    bottom: 80px;
+    z-index: 10;
+    transform: translate(-50%,0);/*페이징버튼을 브라우저 크기가 줄었을때도 가운데에 가게끔하는값*/
+}
+.visual .popup .btn_paging span.swiper-pagination-bullet{
+    width: 7px;
+    height: 7px;
+    margin: 0 5px;
+    opacity: 1;
+    background-color: rgba(255,255,255,0.5);
+}
+.visual .popup .btn_paging span.swiper-pagination-bullet.swiper-pagination-bullet-active{
+    width: 10px;
+    height: 10px;
+    background-color: #0054A5;
+}
+.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+    display: flex;
+    align-items: center;
+}
+.visual .popup .ctrl_wrap .btn_wrap{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /*button 안에 있는 span과 i 테그를 좌우끝/위아래 가운데 에 배치*/
+    padding: 0;
+}
+.visual .popup .ctrl_wrap .btn_wrap button i{
+    font-size: 15px;
+    line-height: 0;
+    color: #FFF;
+}
+.visual .popup .ctrl_wrap .btn_wrap .btn_play{
+    display: none;
+}
+.visual .popup .ctrl_wrap .btn_wrap.play .btn_play{
+    display: block;
+}
+.visual .popup .ctrl_wrap .btn_wrap.play .btn_stop{
+    display: none;
+}
+@media screen and (max-width: 1440px) {
+    .visual .popup ul li .txt {
+      left: 20px;
+      /*wrapper 1440(양쪽여백 20씩)*/
+    }
+  }
