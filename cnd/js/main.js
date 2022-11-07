@@ -40,4 +40,12 @@ $(document).ready(function(){
         $('.visual .popup .ctrl_wrap .btn_wrap').addClass('play')
     })
 
+
+    
+    $('.notice ul li').on('click',function(){
+        $('.notice ul li').removeClass('active')
+        $(this).addClass('active')
+    })
+
+
 })
