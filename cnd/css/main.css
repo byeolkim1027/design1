@@ -101,6 +101,22 @@
       left: 20px;
       /*wrapper 1440(양쪽여백 20씩)*/
     }
+    .visual .popup .btn_prev,.visual .popup .btn_next{
+        display: none;
+    }
+}
+@media screen and (max-width: 1280px){
+    .visual .popup ul li .txt span{
+        font-size: 15px;
+    }
+    .visual .popup ul li .txt strong{
+        font-size: 45px;
+    }
+}
+@media screen and (max-width: 1000px){
+    .visual .popup ul li .txt strong{
+        font-size: 40px;
+    }
 }
 @media screen and (max-width: 640px){
     .visual .popup{
@@ -112,9 +128,6 @@
         width: calc(100% - 40px);
         transform: translate(-50%,-50%);
         text-align: center;
-    }
-    .visual .popup ul li .txt span{
-        font-size: 15px;
     }
     .visual .popup ul li .txt strong{
         margin: 10px 0 0 0;
@@ -191,6 +204,35 @@
 .service ul li a h3{
     margin: 30px 0 0 0;
 }
+@media screen and (max-width: 1280px){
+    .service{
+        padding: 50px 0 100px 0;
+    }
+    .service h2{
+        font-size: 40px;
+    }
+    .service strong{
+        margin: 5px 0 90px 0;
+        font-size: 17px;
+    }
+    .service ul li{
+        width: 180px;
+        margin: 0 30px 0 0;
+    }
+    .service ul li a i{
+        font-size: 50px;
+    }
+    .service ul li a h3{
+        margin: 30px 0 0 0;
+        font-size: 17px;
+    }
+}
+@media screen and (max-width: 1000px){
+    .service ul li{
+        width: 150px;
+        margin: 0 20px 0 0;
+    }
+}
 @media screen and (max-width: 640px){
     .service{
         padding: 40px 0 20px 0;
@@ -256,9 +298,6 @@
     .service ul li a i{
         transition: none;
     }
-    .service ul li a i{
-        font-size: 50px;
-    }
     .service ul li a h3{
         margin: 15px 0 0 0;
     }
@@ -276,7 +315,6 @@
     margin: 0 60px 0 0;
 }
 .notice ul li h2{
-    margin: 0 0 30px 0;
     color: #999;
     font-size: 50px;
     font-weight: 700;
@@ -414,7 +452,61 @@
 .notice ul li.active .more{
     display: flex;
 }
-@media screen and (max-width: 640px){
+@media screen and (max-width: 1440px){
+    .notice{
+        height: 900px;
+        margin: 80px 0 0 0;
+    }
+    .notice ul li .detail ul li a span{
+        font-size: 17px;
+    }
+    .notice ul li .detail ul li a h3{
+        font-size: 25px;
+    }
+    .notice ul li .detail ul li a p{
+        font-size: 17px;
+    }
+}
+@media screen and (max-width: 1280px){
+    .notice{
+        height: 800px;
+    }
+    .notice ul li h2{
+        font-size: 40px;
+    }
+    .notice ul li .detail{/*모든 ul li를 감싼 .detail이 엡솔루트로 상단 왼쪽으로 정렬된다*/
+        top: 100px;
+    }
+    .notice ul li .detail ul li a .inner{
+        left: 20px;
+        bottom: -11%;
+        width: calc(100% - 40px);
+    }
+    .notice ul li .detail ul li a h3 .m_no{
+        display: none;
+    }
+    .notice ul li .more{
+        top: 10px;
+    }
+}
+@media screen and (max-width: 1100px){
+    .notice{
+        height: 700px;
+    }
+}
+@media screen and (max-width: 1000px){
+    .notice{
+        height: 600px;
+        margin: 60px 0 0 0;
+    }
+}
+/* @media screen and (max-width: 800px){
+    .notice{
+        height: 500px;
+        margin: 80px 0 0 0;
+    }
+} */
+@media screen and (max-width: 800px){
     .notice{
         height: 740px;
         margin: 45px 0 0 0;
@@ -424,8 +516,7 @@
         margin: 0 30px 0 0;
     }
     .notice ul li h2{
-        margin: 0 0 30px 0;
-        font-size: 20px;
+        font-size: 30px;
     }
     .notice ul li.active h2 span::before{
         right: 0;
@@ -437,7 +528,7 @@
         display: none;
         position: absolute;
         left: 0;
-        top: 50px;
+        top: 60px;
     }
     .notice ul li .detail ul li{
         float: none;
@@ -461,13 +552,17 @@
     }
     .notice ul li .detail ul li a .inner{
         position: absolute;
-        left: 20px;
-        top: 110px;
-        width: calc(100% - 40px);
+        bottom: 11%;
     }
     .notice ul li .detail ul li a h3{
         margin: 0;
         font-size: 20px;
+    }
+    .notice ul li .detail ul li a h3 .m_no{
+        display: block;
+    }
+    .notice ul li .detail ul li a h3::before{
+        display: none;
     }
     .notice ul li .detail ul li a p{
         display: none;
@@ -479,7 +574,7 @@
         background-color: rgba(0,0,0,0.4);
     }
     .notice ul li .more{
-        top: -4px;
+        top: 6px;
         width: 40px;/*감싸는 배경 혹은 보더가 있을때만 높이넓이값을 준다*/
         height: 40px;
         border-radius: 20px;
@@ -490,6 +585,18 @@
     }
     .notice ul li .more i{
         font-size: 25px;
+    }
+}
+@media screen and (max-width: 640px){
+    .notice ul li h2{
+        margin: 0 0 30px 0;
+        font-size: 20px;
+    }
+    .notice ul li .detail{
+        top: 50px;
+    }
+    .notice ul li .more{
+        top: -3px;
     }
 }
 
@@ -523,6 +630,38 @@
     font-weight: 700;
     color: #FFF;
 }
+@media screen and (max-width: 1280px){
+    .slogan h2{
+        font-size: 35px;
+    }
+    .slogan h2 span{
+        font-size: 45px;
+    }
+}
+@media screen and (max-width: 1024px){
+    .slogan{
+        height: 450px;
+    }
+    .slogan h2{
+        padding: 157px 0 0 0;
+        font-size: 30px;
+    }
+    .slogan h2 span{
+        font-size: 40px;
+    }
+}
+@media screen and (max-width: 800px){
+    .slogan{
+        height: 400px;
+    }
+    .slogan h2{
+        padding: 148px 0 0 0;
+        font-size: 25px;
+    }
+    .slogan h2 span{
+        font-size: 35px;
+    }
+}
 @media screen and (max-width: 640px){
     .slogan{
         height: auto;
@@ -536,7 +675,7 @@
     }
     .slogan h2 strong{
         display: block;
-        margin: 0 0 50px 0;
+        margin: 0 0 40px 0;
         font-size: 30px;
         color: #FFF;
     }
@@ -544,5 +683,161 @@
         font-size: 30px;
         font-weight: 400;
         color: #FFF;
+    }
+}
+
+.health{
+    margin: 70px 0 120px 0;
+}
+.health .tit h2{
+    float: left;
+    margin: 0 0 40px 0;
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+.health .tit .btn{
+    float: right;
+    margin: 15px 0 0 0;
+}
+.health .tit .btn button{
+    float: left;
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    background-color: #ededed;
+}
+.health .tit .btn button span{
+    display: none;
+}
+.health .tit .btn button i{
+    margin: 3px 0 0 3px;
+    font-size: 15px;
+    color: #666;
+}
+.health .list{
+    width: calc(100% + 960px);
+    margin-left: -480px;
+}
+.health .list ul li{
+    padding: 0 10px 10px 0;
+    width: 440px;
+    text-align: center;
+}
+.health .list ul li a{
+    display: block;
+    padding: 0 0 25px 0;
+    box-shadow: 5px 5px 5px rgb(0 0 0 / 10%);
+}
+.health .list ul li a .pic img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.health .list ul li a .play_ico{
+    position: relative;
+    z-index: 1;
+    margin-left: calc(50% - 20px);
+    margin-top: -20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    font-size: 0;
+    line-height: 0;
+    background-color: #0054A5;
+}
+.health .list ul li a .play_ico i{
+    color: #FFF;
+    font-size: 40px;
+}
+.health .list ul li a h3{
+    padding: 10px 60px;
+    font-size: 25px;
+    font-weight: 700;
+}
+.health .list ul li a p{
+    font-size: 15px;
+}
+@media screen and (max-width: 1440px){
+    .health .list{
+        width: auto;
+        margin-left: 0;
+    }
+}
+@media screen and (max-width: 1280px){
+    .health{
+        margin: 50px 0 100px 0;
+    }
+    .health .tit h2{
+        margin: 0 0 30px 0;
+        font-size: 40px;
+    }
+}
+@media screen and (max-width: 1024px){
+    .health .list ul li{
+        width: 400px;
+    }
+    .health .list ul li a h3{
+        padding: 10px 20px;
+        font-size: 20px;
+    }
+    .health .list ul li a .play_ico{
+        margin-left: calc(50% - 20px);
+        margin-top: -19px;
+        width: 35px;
+        height: 35px;
+    }
+    .health .list ul li a .play_ico i{
+        font-size: 35px;
+    }
+}
+@media screen and (max-width: 800px){
+    .health .list ul li{
+        width: 300px;
+    }
+}
+@media screen and (max-width: 640px){
+    .health{
+        margin: 40px 0 60px 0;
+    }
+    .health .tit h2{
+        margin: 0 0 30px 0;
+        font-size: 30px;
+    }
+    .health .tit .btn{
+        margin: 12px 0 0 0;
+    }
+    .health .tit .btn button{
+        width: 20px;
+        height: 20px;
+        margin-right: 3px;
+    }
+    .health .tit .btn button i{
+        margin: 4px 0 0 4px;
+        font-size: 12px;
+    }
+    .health .list ul li{
+        width: 208px;
+    }
+    .health .list ul li a{
+        padding: 0 0 15px 0;
+    }
+    .health .list ul li a .play_ico{
+        margin-left: calc(50% - 15px);
+        margin-top: -15px;
+        width: 30px;
+        height: 30px;
+    }
+    .health .list ul li a .play_ico i{
+        font-size: 30px;
+    }
+    .health .list ul li a h3{
+        padding: 10px 20px;
+        font-size: 17px;
+        line-height: 1.1;
+    }
+    .health .list ul li a p{
+        font-size: 13px;
     }
 }

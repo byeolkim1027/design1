@@ -47,5 +47,26 @@ $(document).ready(function(){
         $(this).addClass('active')
     })
 
+    const swiper_health = new Swiper('.health .list', { /* 팝업을 감싼는 요소의 class명 */
+        slidesPerView: "auto", /* li의 넓이 비율로 안함 - css에서 준 넓이대로 함 */
+        spaceBetween: 16, /* li와 li사이 - 제일 작은 여백 */
+        breakpoints: {
+            640: {  /* 640px 이상이 되면 적용 */
+                spaceBetween: 20, 
+            },
+            1000: {
+                spaceBetween: 30, 
+            },
+            1280: {
+                spaceBetween: 40, 
+            },
+            
+        },
+        navigation: {
+            nextEl: '.health .btn_next',
+            prevEl: '.health .btn_prev',
+        },
+    });
+
 
 })
