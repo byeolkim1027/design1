@@ -4,6 +4,9 @@
 .visual{
     position: relative;
 }
+.visual h2{
+    display: none;
+}
 .visual .popup{
     height: 100vh;
 }
