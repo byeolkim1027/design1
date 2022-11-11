@@ -583,7 +583,6 @@ html, body {
     left: 20px;
     /*wrapper 1440(양쪽여백 20씩)*/
   }
-  .visual .popup { /* .visual .popup */ }
   .visual .popup .btn_wrap {
     left: 20px;
     /*.visual .tit 과 같은값을 줌*/

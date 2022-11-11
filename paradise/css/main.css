@@ -1,0 +1,155 @@
+@import url('default.css');
+@import url('common.css');
+
+.visual{
+    position: relative;
+}
+.visual h2{
+    display: none;
+}
+.visual .popup{
+    height: 1200px;
+}
+.visual .popup ul li .txt{
+    position: absolute;
+    left: 50%;
+    top: calc(50% - 180px);
+    z-index: 10;
+    color: #FFF;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+.visual .popup ul li .txt strong{
+    display: block;
+    margin: 0 0 20px 0;
+    font-family: 'GyeonggiBatang';
+    font-size: 50px;
+    line-height: 1.2;
+}
+.visual .popup ul li .txt span{
+    display: block;
+}
+.visual .popup ul li .txt .reserv_main{
+    display: none;
+}
+.visual .popup ul li img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale3d(1.1, 1.1, 1);
+    transition: 2s;
+}
+.visual .popup ul li.swiper-slide-active img{
+    transform: scale3d(1, 1, 1);
+}
+.visual .popup .btn_ctrl{
+    position: absolute;
+    display: flex;
+    left: 50%;
+    top: 50%;
+    z-index: 10;
+    transform: translate(-50%,-50%);
+    color: #fff;
+    
+}
+.visual .popup .btn_ctrl button span{
+    display: none;
+}
+.visual .popup .btn_ctrl button i{
+    font-size: 25px;
+}
+.visual .popup .btn_ctrl .btn_prev{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: -10px;
+    width: 80px;
+    height: 80px;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 40px;
+}
+.visual .popup .btn_ctrl .btn_next{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -10px;
+    width: 80px;
+    height: 80px;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 40px;
+}
+.visual .popup .scroll{
+    position: absolute;
+    left: 50%;
+    bottom: calc(50% - 300px);
+    z-index: 12;
+    color: #FFF;
+    text-align: center;
+    transform: translate(-50%,0);
+}
+.visual .popup .scroll strong{
+    display: block;
+    margin-top: 8px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+}
+.visual .popup .scroll img{
+    animation-name: scroll_move;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;/*무제한*/
+    animation-timing-function: cubic-bezier(.96,.08,.37,.98);/*가속도*/
+}
+@keyframes scroll_move{
+    0%{transform: translate(0,0);}
+    50%{transform: translate(0,-20px);}
+    100%{transform: translate(0,0);}
+}
+@media screen and (max-width:640px){
+    .visual .popup{
+        height: 800px;
+    }
+    .visual .popup ul li .txt{
+        left: 50%;
+        top: 50%;
+        width: calc(100% - 40px);
+    }
+    .visual .popup ul li .txt strong{
+        margin: 0;
+        font-size: 30px;
+    }
+    .visual .popup ul li .txt span{
+        display: none;
+    }
+    .visual .popup ul li .txt .reserv_main{
+        display: inline-block;
+        margin-top: 40px;
+    }
+    .visual .popup ul li .txt .reserv_main a{
+        display: block;
+        padding: 9px 0 0 0;
+        width: 150px;
+        height: 40px;
+        background-color: rgba(255,255,255,0.4);
+    }
+    .visual .popup ul li .txt .reserv_main span{
+        display: block;
+        font-size: 15px;
+        color: #fff;
+    }
+    .visual .popup .btn_ctrl{
+        display: none;
+    }
+    .visual .popup .scroll{
+        bottom: calc(50% - 340px);
+        transform: translate(-50%,0);
+    }
+    .visual .popup .scroll strong{
+        margin-top: 0;
+    }
+    @keyframes scroll_move{
+        0%{transform: translate(0,0);}
+        50%{transform: translate(0,-10px);}
+        100%{transform: translate(0,0);}
+    }
+}
