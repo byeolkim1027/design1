@@ -153,3 +153,324 @@
         100%{transform: translate(0,0);}
     }
 }
+
+.stay{
+    position: relative;
+    margin: 40px 0 120px 0;
+}
+.stay h2{
+    font-size: 50px;
+    font-weight: 700;
+    color: #1d1d1d;
+}
+.stay .stay_popup ul li .cnt{
+    margin-top: 40px;
+    margin-bottom: 20px;
+    margin-left: 680px;
+    text-align: right;
+}
+.stay .stay_popup ul li .cnt h3{
+    font-family: 'GyeonggiBatang';
+    font-size: 40px;
+    font-weight: 700;
+    color: #1d1d1d;
+}
+.stay .stay_popup ul li .cnt strong{
+    margin: 10px 0 20px 0;
+    font-family: 'GyeonggiBatang';
+    font-size: 25px;
+    font-weight: 700;
+}
+.stay .stay_popup ul li .cnt p{
+    margin: 20px 0;
+}
+.stay .stay_popup ul li .cnt p span{
+    display: block;
+}
+.stay .stay_popup ul li .cnt .more{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.stay .stay_popup ul li .cnt .more::after{
+    position: absolute;
+    right: 0;
+    bottom: -4px;
+    width: 109px;
+    height: 1px;
+    background-color: #666;
+    content: "";
+}
+.stay .stay_popup ul li .cnt .more i{
+    margin-left: 10px;
+    font-size: 19px;
+}
+.stay .stay_popup ul li img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.stay .btn_prev{
+    position: absolute;
+    top: calc(50% + 200px);
+    z-index: 10;
+    color: #ccc;
+}
+.stay .btn_next{
+    position: absolute;
+    top: calc(50% + 200px);
+    z-index: 10;
+    color: #ccc;
+}
+.stay .btn_prev{
+    left: calc(50% - 765px);
+}
+.stay .btn_next{
+    right: calc(50% - 765px);
+}
+.stay .btn_prev span{
+    display: none;
+}
+.stay .btn_next span{
+    display: none;
+}
+.stay .btn_prev i{
+    font-size: 40px;
+}
+.stay .btn_next i{
+    font-size: 40px;
+}
+.stay .btn_paging{
+    display: none;
+}
+@media screen and (max-width:640px){
+    .stay{
+        margin: 15px 0 30px 0;
+    }
+    .stay h2{
+        font-size: 30px;
+        line-height: 1.2;
+    }
+    .stay .stay_popup ul li .cnt{
+        margin-top: 30px;
+        margin-bottom: 15px;
+        margin-left: auto;
+    }
+    .stay .stay_popup ul li .cnt h3{
+        font-size: 25px;
+    }
+    .stay .stay_popup ul li .cnt strong{
+        margin: 10px 0 0 0;
+        font-size: 20px;
+    }
+    .stay .stay_popup ul li .cnt p{
+        margin: 10px 0;
+    }
+    .stay .stay_popup ul li .cnt p .m_no{
+        display: none;
+    }
+    .stay .stay_popup ul li .cnt p span{
+        display: none;
+    }
+    .stay .stay_popup ul li .cnt .more{
+        font-size: 12px;
+    }
+    .stay .stay_popup ul li .cnt .more::after{
+        bottom: -2px;
+        width: 90px;
+    }
+    .stay .stay_popup ul li .cnt .more i{
+        font-size: 15px;
+    }
+    .stay .stay_popup ul li img{
+        height: 250px;
+    }
+    .stay .btn_prev{
+        position: absolute;
+        top: auto;
+        bottom: calc(50% - 273px);
+        z-index: 10;
+        color: #ccc;
+    }
+    .stay .btn_next{
+        position: absolute;
+        top: auto;
+        bottom: calc(50% - 273px);
+        z-index: 10;
+        color: #ccc;
+    }
+    .stay .btn_prev{
+        left: calc(50% - 30px);
+    }
+    .stay .btn_next{
+        right: calc(50% - 30px);
+    }
+    .stay .btn_prev i{
+        font-size: 12px;
+    }
+    .stay .btn_next i{
+        font-size: 12px;
+    }
+    .stay .btn_paging{
+        display: block;
+        margin: 10px 0 0 0;
+        text-align: center;
+        color: #666;
+    }
+}
+
+.rest{
+    position: relative;
+    height: 700px;
+}
+.rest .tit{
+    float: left;
+    margin: 120px 0 0 0;
+    width: 27%;
+}
+.rest .tit h2{
+    font-family: 'GyeonggiBatang';
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1;
+    color: #1d1d1d;
+}
+.rest .tit .sub_tit{
+    font-family: 'GyeonggiBatang';
+    font-size: 25px;
+    font-weight: 700;
+}
+.rest .tit .cnt_tit{
+    margin: 20px 0 10px 0;
+}
+.rest .tit .more{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.rest .tit .more::after{
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 109px;
+    height: 1px;
+    background-color: #666;
+    content: "";
+}
+.rest .tit .more i{
+    margin-left: 10px;
+    font-size: 19px;
+}
+.rest .list{
+    position: absolute;
+    top: 0;
+    left: calc(50% - 250px);
+    width: 100%;
+}
+.rest .list ul li{
+    float: left;
+    width: 440px;
+    margin: 0 40px 0 0;
+}
+.rest .list ul li a{
+    display: block;
+}
+.rest .list ul li a .subject{
+    display: block;
+    margin: 15px 0 5px 0;
+    font-family: 'GyeonggiBatang';
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+.rest .btn_ctrl{
+    position: absolute;
+    right: 0;
+    bottom: 100px;
+}
+.rest .btn_ctrl span{
+    display: none;
+}
+.rest .btn_ctrl i{
+    margin-left: 20px;
+    font-size: 36px;
+    color: #ededed;
+}
+.rest .swiper-horizontal>.swiper-pagination-progressbar, .swiper-pagination-progressbar.swiper-pagination-horizontal, .swiper-pagination-progressbar.swiper-pagination-vertical.swiper-pagination-progressbar-opposite, .swiper-vertical>.swiper-pagination-progressbar.swiper-pagination-progressbar-opposite{
+    width: calc(50% + 240px);
+    height: 2px;
+    left: auto;
+    top: auto;
+    right: 0;
+    bottom: calc(50% - 260px);
+    background: #ededed;
+}
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill{
+    background-color: #ccc;
+}
+@media screen and (max-width:640px){
+    .rest{
+        height: 500px;
+    }
+    .rest .tit{
+        float: none;
+        margin: 20px 0 0 0;
+        width: auto;
+        height: 140px;
+    }
+    .rest .tit h2{
+        font-size: 35px;
+    }
+    .rest .tit .sub_tit{
+        display: none;
+    }
+    .rest .tit .cnt_tit{
+        margin: 5px 0 10px 0;
+    }
+    .rest .tit .more::after{
+        bottom: -3px;
+        width: 96px;
+    }
+    .rest .tit .more i{
+        font-size: 15px;
+    }
+    .rest .list{
+        position: relative;
+        top: 0;
+        left: auto;
+        width: 100%;
+        height: 315px;
+    }
+    .rest .list ul li{
+        float: left;
+        width: 208px;
+    }
+    .rest .list ul li a{
+        display: block;
+    }
+    .rest .list ul li a .pic{
+        height: 220px;
+    }
+    .rest .list ul li a .pic img{
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .rest .list ul li a .subject{
+        margin: 10px 0 5px 0;
+        font-size: 20px;
+    }
+    .rest .list ul li a .content{
+        display: block;
+        line-height: 1.5;
+        height: 3em;
+        overflow: hidden;    
+    }
+    .rest .btn_ctrl{
+        display: none;
+    }
+}

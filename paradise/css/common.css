@@ -132,30 +132,30 @@ html,body{
 .header .gnb .gnb_close{
     display: none;
 }
-.header .gnb>ul{
+.header .gnb>.gnb_wrap>ul{
     display: flex;
     justify-content: center;
 }
-.header .gnb>ul>li{
+.header .gnb>.gnb_wrap>ul>li{
     position: relative;
     width: 160px;
     text-align: center;
 }
-.header .gnb>ul>li>a{
+.header .gnb>.gnb_wrap>ul>li>a{
     display: block;
     font-size: 20px;
     line-height: 99px;
 }
-.header .gnb>ul>li.now>a{
+.header .gnb>.gnb_wrap>ul>li.now>a{
     font-weight: 700;
 }
-.header .gnb>ul>li:hover>a{
+.header .gnb>.gnb_wrap>ul>li:hover>a{
     font-weight: 700;
 }
-.header .gnb>ul>li:hover>a>span{
+.header .gnb>.gnb_wrap>ul>li:hover>a>span{
     position: relative;
 }
-.header .gnb>ul>li:hover>a>span::after{
+.header .gnb>.gnb_wrap>ul>li:hover>a>span::after{
     position: absolute;
     left: 0;
     bottom: -10px;
@@ -164,7 +164,7 @@ html,body{
     background-color: #fff;
     content: "";
 }
-.header .gnb>ul>li>ul{
+.header .gnb>.gnb_wrap>ul>li>ul{
     display: none;
     position: absolute;
     left: 0;
@@ -172,18 +172,18 @@ html,body{
     width: 100%;
     height: 210px;
 }
-.header .gnb>ul>li>ul>li>a{
+.header .gnb>.gnb_wrap>ul>li>ul>li>a{
     display: block;
     line-height: 40px;
 }
-.header .gnb>ul>li>ul>li.now>a,
-.header .gnb>ul>li>ul>li>a:hover{
+.header .gnb>.gnb_wrap>ul>li>ul>li.now>a,
+.header .gnb>.gnb_wrap>ul>li>ul>li>a:hover{
     font-weight: 700;
 }
-.header .gnb>ul>li>ul>li:hover>a>span{
+.header .gnb>.gnb_wrap>ul>li>ul>li:hover>a>span{
     position: relative;
 }
-.header .gnb>ul>li>ul>li:hover>a>span::after{
+.header .gnb>.gnb_wrap>ul>li>ul>li:hover>a>span::after{
     position: absolute;
     left: 0;
     bottom: -5px;
@@ -264,107 +264,115 @@ html,body{
     display: block;
     font-size: 20px;
 }
-.header.menu_open::before{
+/*pc버전에서 1차메뉴에 마우스 오버했을때 애니메이션 되서 뒷배경이 자연스럽게 내려오는 효과
+  모든 값을 header:before에 주고 높이값만 menu_open이 됬을때 값을 줌으로써, 자연스럽게 나타나게 한다*/
+.header::before{
     position: absolute;
     left: 0;
     top: 0;
     z-index: 101;
     width: 100%;
-    height: 315px;
+    height: 0;
     background-color: rgba(0,0,0,0.4);
     content: "";
+    transition: 0.5s;
 }
-.header.menu_open .gnb>ul>li>ul{
-    display: block;
+.header.menu_open::before{
+    height: 340px;
 }
+/*header에 fixed 클래스 추가됬을때*/
+
+.header.fixed{
+    position: fixed;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.2);
+    border-bottom: none;
+}
+
 @media screen and (max-width:640px){
     .header{
         height: 60px;
     }
     .header .logo{
-        top: 21px;
+        top: 23px;
         left: 20px;
     }
     .header .logo a img{
         width: 95px;
     }
     .header .gnb .gnb_open{
-        /* display: block; */
+        display: block;
         float: right;
         position: absolute;
+        z-index: 103;
         right: 15px;
-        top: 20px;
+        top: 21px;
     }
     .header .gnb .gnb_open i{
         font-size: 19px;
     }
     .header .gnb .gnb_close{
-        display: block;
+        /* display: block; */
         float: right;
         position: absolute;
         right: 15px;
-        top: 20px;
+        top: 21px;
     }
     .header .gnb .gnb_close i{
         font-size: 19px;
     }
-    .header .gnb>ul{
-        display: none;
+    .header .gnb>.gnb_wrap{
+        display: block;
+        position: fixed;
+        right: -100%;
+        top: 0;
+        z-index: 1;
+        width: 100%;
+        max-width: 375px;
+        height: 100vh;
+        background-color: rgba(0,0,0,0.7);
+        color: #fff;
+        transition: right 0.5s;
+    }
+    .header .gnb>.gnb_wrap>ul{
+        font-family: 'GyeonggiBatang';
+        display: flex;
         justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        margin: 60px 0 0 0;
     }
-    .header .gnb>ul>li{
-        width: auto;
-    }
-    .header .gnb>ul>li>a{
-        display: block;
-        font-size: 20px;
-        line-height: 99px;
-    }
-    .header .gnb>ul>li.now>a{
-        font-weight: 700;
-    }
-    .header .gnb>ul>li:hover>a{
-        font-weight: 700;
-    }
-    .header .gnb>ul>li:hover>a>span{
-        position: relative;
-    }
-    .header .gnb>ul>li:hover>a>span::after{
-        position: absolute;
-        left: 0;
-        bottom: -10px;
+    .header .gnb>.gnb_wrap>ul>li{
+        border-bottom: 1px solid rgba(255,255,255,0.4);
         width: 100%;
-        height: 2px;
-        background-color: #fff;
-        content: "";
     }
-    .header .gnb>ul>li>ul{
+    .header .gnb>.gnb_wrap>ul>li>a{
+        line-height: 60px;
+    }
+    .header .gnb>.gnb_wrap>ul>li>ul{
+        font-family: 'GyeonggiBatang';
         display: none;
-        position: absolute;
-        left: 0;
-        top: 99px;
-        width: 100%;
-        height: 210px;
+        position: relative;
+        left: auto;
+        top: auto;
+        width: auto;
+        height: auto;
+        padding: 15px 0 20px 0;
+        background-color: #808080;
+        font-size: 15px;
     }
-    .header .gnb>ul>li>ul>li>a{
-        display: block;
+    .header .gnb>.gnb_wrap>ul>li>ul>li>a{
         line-height: 40px;
     }
-    .header .gnb>ul>li>ul>li.now>a,
-    .header .gnb>ul>li>ul>li>a:hover{
-        font-weight: 700;
+    /* .header .gnb>.gnb_wrap>ul>li.sub_open>ul{
+        display: block;
+    } */
+    .header .gnb>.gnb_wrap>ul>li:hover>a>span::after{
+        display: none;
     }
-    .header .gnb>ul>li>ul>li:hover>a>span{
-        position: relative;
-    }
-    .header .gnb>ul>li>ul>li:hover>a>span::after{
-        position: absolute;
-        left: 0;
-        bottom: -5px;
-        width: 100%;
-        height: 2px;
-        background-color: #fff;
-        content: "";
+    .header .gnb>.gnb_wrap>ul>li>ul>li:hover>a>span::after{
+        display: none;
     }
     .header .tnb{
         position: relative;
@@ -390,17 +398,7 @@ html,body{
     .header .tnb .reserv span{
         font-size: 13px;
     }
-    .header.menu_open::before{
-        position: absolute;
-        left: 0;
-        top: 0;
-        z-index: 101;
-        width: 100%;
-        height: 315px;
-        background-color: rgba(0,0,0,0.4);
-        content: "";
-    }
-    .header.menu_open .gnb>ul>li>ul{
-        display: block;
+    .header .gnb.mobile_open .gnb_wrap{
+        right: 0;
     }
 }
