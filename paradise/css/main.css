@@ -192,6 +192,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    color: rgba(0,0,0,0.5);
 }
 .stay .stay_popup ul li .cnt .more::after{
     position: absolute;
@@ -199,7 +200,7 @@
     bottom: -4px;
     width: 109px;
     height: 1px;
-    background-color: #666;
+    background-color: rgba(0,0,0,0.2);
     content: "";
 }
 .stay .stay_popup ul li .cnt .more i{
@@ -290,14 +291,14 @@
     .stay .btn_prev{
         position: absolute;
         top: auto;
-        bottom: calc(50% - 273px);
+        bottom: 0;
         z-index: 10;
         color: #ccc;
     }
     .stay .btn_next{
         position: absolute;
         top: auto;
-        bottom: calc(50% - 273px);
+        bottom: 0;
         z-index: 10;
         color: #ccc;
     }
@@ -322,13 +323,14 @@
 }
 
 .rest{
+    display: flex;
     position: relative;
-    height: 700px;
+    left: calc(50% - 700px);
+    padding: 0 0 190px 0;
 }
 .rest .tit{
-    float: left;
-    margin: 120px 0 0 0;
-    width: 27%;
+    padding: 120px 3% 0 0;
+    width: 100%;
 }
 .rest .tit h2{
     font-family: 'GyeonggiBatang';
@@ -343,13 +345,15 @@
     font-weight: 700;
 }
 .rest .tit .cnt_tit{
-    margin: 20px 0 10px 0;
+    margin: 20px 0;
+    font-size: 17px;
 }
 .rest .tit .more{
     position: relative;
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    color: rgba(0,0,0,0.5);
 }
 .rest .tit .more::after{
     position: absolute;
@@ -357,23 +361,16 @@
     bottom: -4px;
     width: 109px;
     height: 1px;
-    background-color: #666;
+    background-color: rgba(0,0,0,0.2);
     content: "";
 }
 .rest .tit .more i{
     margin-left: 10px;
     font-size: 19px;
 }
-.rest .list{
-    position: absolute;
-    top: 0;
-    left: calc(50% - 250px);
-    width: 100%;
-}
 .rest .list ul li{
     float: left;
     width: 440px;
-    margin: 0 40px 0 0;
 }
 .rest .list ul li a{
     display: block;
@@ -388,7 +385,7 @@
 }
 .rest .btn_ctrl{
     position: absolute;
-    right: 0;
+    right: calc(50% - 680px);
     bottom: 100px;
 }
 .rest .btn_ctrl span{
@@ -400,7 +397,7 @@
     color: #ededed;
 }
 .rest .swiper-horizontal>.swiper-pagination-progressbar, .swiper-pagination-progressbar.swiper-pagination-horizontal, .swiper-pagination-progressbar.swiper-pagination-vertical.swiper-pagination-progressbar-opposite, .swiper-vertical>.swiper-pagination-progressbar.swiper-pagination-progressbar-opposite{
-    width: calc(50% + 240px);
+    width: 50%;
     height: 2px;
     left: auto;
     top: auto;
@@ -413,13 +410,12 @@
 }
 @media screen and (max-width:640px){
     .rest{
-        height: 500px;
+        display: block;
+        left: auto;
+        padding: 0 20px 50px 20px;
     }
     .rest .tit{
-        float: none;
-        margin: 20px 0 0 0;
-        width: auto;
-        height: 140px;
+        padding: 30px 0 30px 0;
     }
     .rest .tit h2{
         font-size: 35px;
@@ -429,6 +425,10 @@
     }
     .rest .tit .cnt_tit{
         margin: 5px 0 10px 0;
+        font-size: 13px;
+    }
+    .rest .tit .cnt_tit .m_no{
+        display: none;
     }
     .rest .tit .more::after{
         bottom: -3px;
@@ -437,15 +437,7 @@
     .rest .tit .more i{
         font-size: 15px;
     }
-    .rest .list{
-        position: relative;
-        top: 0;
-        left: auto;
-        width: 100%;
-        height: 315px;
-    }
     .rest .list ul li{
-        float: left;
         width: 208px;
     }
     .rest .list ul li a{
@@ -473,4 +465,395 @@
     .rest .btn_ctrl{
         display: none;
     }
+    .rest .swiper-horizontal>.swiper-pagination-progressbar, .swiper-pagination-progressbar.swiper-pagination-horizontal, .swiper-pagination-progressbar.swiper-pagination-vertical.swiper-pagination-progressbar-opposite, .swiper-vertical>.swiper-pagination-progressbar.swiper-pagination-progressbar-opposite{
+        display: none;
+    }
+}
+
+.offer{
+    height: 220px;
+    background-color: #544636;
+    color: rgba(255,255,255,0.8);
+}
+.offer .inner{
+    padding: 45px 60px 40px 60px;
+}
+.offer .tit{
+    float: right;
+    font-family: 'GyeonggiBatang';
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #fff;
+    text-align: center;
+}
+.offer .cnts p{
+    padding: 20px 0 20px 0;
+    line-height: 1.7;
+}
+.offer .cnts .more{
+    display: block;
+    padding: 10px 0;
+    width: 160px;
+    height: 50px;
+    border: 1px solid rgba(255,255,255,0.5);
+    text-align: center;
+}
+.offer .cnts .more span{
+    display: block;
+    font-size: 17px;
+}
+@media screen and (max-width:640px){
+    .offer{
+        height: 200px;
+    }
+    .offer .inner{
+        padding: 35px 0 25px 0;
+    }
+    .offer .tit{
+        float: none;
+        font-size: 35px;
+    }
+    .offer .cnts{
+        /* 가운데 배치 - more 를 감싸는 요소가 center값을 가지고 more자체는 inline으로 치환*/
+        text-align: center;
+    }
+    .offer .cnts p{
+        display: none;
+    }
+    .offer .cnts .more{
+        display: inline-block;
+        padding: 8px 0;
+        margin: 15px 0 0 0;
+        width: 120px;
+        height: 40px;
+    }
+    .offer .cnts .more span{
+        font-size: 13px;
+    }
+}
+
+.event{
+    margin: 80px 0 70px 0;
+    text-align: center;
+}
+.event .tit h2{
+    font-family: 'GyeonggiBatang';
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+.event .tit p{
+    font-size: 17px;
+}
+.event ul{
+    display: flex;
+    justify-content: space-between;
+    margin: 95px 0 100px 0;
+}
+.event ul li{
+    position: relative;
+    width: 420px;
+}
+.event ul li::after{
+    position: absolute;
+    right: -40px;
+    top: 0;
+    width: 1px;
+    height: 120px;
+    background-color: #ededed;
+    content: "";
+}
+.event ul li:last-child::after{
+    display: none;
+}
+.event ul li a{
+    display: block;
+}
+.event ul li a .subj{
+    font-family: 'GyeonggiBatang';
+    font-size: 30px;
+    font-weight: 700;
+}
+.event ul li a .cnt{
+    display: block;
+    margin: 20px 0;
+    line-height: 1.5;
+    height: 3em;
+    overflow: hidden;
+}
+.event ul li a .date{
+    color: #666;
+}
+.event .more{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(0,0,0,0.5);
+}
+.event .more::after{
+    position: absolute;
+    bottom: -4px;
+    width: 109px;
+    height: 1px;
+    background-color: rgba(0,0,0,0.2);
+    content: "";
+}
+.event .more i{
+    margin-left: 10px;
+    font-size: 19px;
+}
+@media screen and (max-width:640px){
+    .event{
+        margin: 45px 0 40px 0;
+    }
+    .event .tit h2{
+        font-size: 35px;
+    }
+    .event .tit p{
+        font-size: 13px;
+    }
+    .event ul{
+        flex-direction: column;
+        margin: 30px 0 20px 0;
+        text-align: left;
+    }
+    .event ul li{
+        width: auto;
+        margin-bottom: 30px;
+    }
+    .event ul li::after{
+        right: 0;
+        top: auto;
+        bottom: -17px;
+        width: 100%;
+        height: 1px;
+    }
+    .event ul li a .subj{
+        display: block;
+        margin: 0 0 10px 0;
+        font-size: 25px;
+    }
+    .event ul li a .cnt{
+        display: none;
+    }
+    .event .more::after{
+        width: 96px;
+    }
+    .event .more i{
+        font-size: 15px;
+    }
+}
+
+.dining{
+    position: relative;
+    height: 900px;
+    background: url(../images/main/dining_bg.png) no-repeat center center/cover;
+    color: rgba(255,255,255,0.8);
+}
+.dining h2{
+    display: none;
+}
+.dining .dining_popup ul{
+    padding: 125px 0 0 0;
+}
+/* slide fade 효과를 줄때 줘야하는 값*/
+.dining .dining_popup ul li{
+    opacity: 0 !important;
+}
+.dining .dining_popup ul li.swiper-slide-active{
+    opacity: 1 !important;
+}
+.dining .dining_popup ul li .txt{
+    float: right;
+    width: 30%;
+    padding: 70px 0 0 20px;
+}
+.dining .dining_popup ul li .txt .tap{
+    display: block;
+    font-family: 'GyeonggiBatang';
+}
+.dining .dining_popup ul li .txt h3{
+    margin: 0 0 25px 0;
+    font-family: 'GyeonggiBatang';
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #fff;
+}
+.dining .dining_popup ul li .txt p{
+    font-family: 'GyeonggiBatang';
+    font-size: 17px;
+}
+.dining .dining_popup ul li .txt .info{
+    margin: 50px 0 90px 0;
+    color: rgba(255,255,255,0.6);
+}
+.dining .dining_popup ul li .txt .info span{
+    display: block;
+    margin: 0 0 10px 0;
+}
+.dining .dining_popup ul li .txt .reserv{
+    display: block;
+    padding: 7px 0;
+    width: 200px;
+    height: 45px;
+    border: 1px solid rgba(255,255,255,0.4);
+    text-align: center;
+}
+
+.dining .dining_popup ul li .txt .reserv span{
+    font-size: 17px;
+}
+.dining .dining_popup ul li .pic{
+    width: 65%;
+    height: 615px;
+}
+.dining .dining_popup ul li .pic img{
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+}
+.dining .swiper-pagination{
+    text-align: left;
+}
+.dining .swiper-pagination-bullet{
+    position: relative;
+    width: 126px;
+    height: auto;
+    border-radius: 0;
+    background: transparent;
+    opacity: 0.5;
+}
+.dining .swiper-pagination-bullet::after{
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    height: 2px;
+    width: 120px;
+    background-color: rgba(255,255,255,0.8);
+    content: "";
+}
+.dining .swiper-pagination-bullet-active{
+    background: transparent;
+    color: #fff;
+    opacity: 1;
+}
+.dining .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction{
+    bottom: 110px;
+    left: auto;
+    width: 100%;
+}
+.dining .swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet{
+    margin: 0 10px 0 0;
+}
+@media screen and (max-width:640px){
+    .dining{
+        height: 585px;
+    }
+    .dining .dining_popup ul{
+        padding: 45px 0 0 0;
+    }
+    .dining .dining_popup ul li .txt{
+        float: none;
+        width: 100%;
+        padding: 0;
+    }
+    .dining .dining_popup ul li .txt h3{
+        margin: 0;
+        font-size: 35px;
+    }
+    .dining .dining_popup ul li .txt p{
+        display: none;
+    }
+    .dining .dining_popup ul li .txt .info{
+        margin: 20px 0 10px 0;
+    }
+    .dining .dining_popup ul li .txt .info span{
+        margin: 0 0 7px 0;
+    }
+    .dining .dining_popup ul li .txt .reserv{
+        padding: 7px 0;
+        margin: 0 0 20px 0;
+        width: 150px;
+        height: 35px;
+    }
+    .dining .dining_popup ul li .txt .reserv span{
+        font-size: 13px;
+    }
+    .dining .dining_popup ul li .pic{
+        width: auto;
+        height: 200px;
+    }
+    .dining .swiper-pagination-bullet{
+        position: relative;
+        width: 100px;
+        height: auto;
+        border-radius: 0;
+        background: transparent;
+        opacity: 0.5;
+    }
+    .dining .swiper-pagination-bullet::after{
+        bottom: -3px;
+        width: 93px;
+    }
+    .dining .swiper-pagination-bullet-active{
+        opacity: 1;
+    }
+    .dining .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction{
+        bottom: 50px;
+    }
+    .dining .swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet{
+        margin: 0 7px 10px 0;
+    }
+}
+
+.banquet{
+    position: relative;
+}
+.banquet::before{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    height: 500px;
+    background-color: #EDE4E1;
+    content: "";
+}
+.banquet .tit{
+    padding: 100px 0 60px 0;
+    color: #1d1d1d;
+}
+.banquet .tit h2{
+    font-family: 'GyeonggiBatang';
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+.banquet .tit p{
+    font-size: 17px;
+}
+.banquet .list ul li{
+    position: relative;
+    width: 440px;
+    float: left;
+}
+.banquet .list ul li:last-child{
+    margin-right: 0;
+}
+.banquet .list ul li a .pic{
+    border-radius: 50px 0 50px 50px;
+    overflow: hidden;
+}
+.banquet .list ul li a .pic img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.banquet .list ul li .reserv{
+    opacity: 0;
 }
