@@ -76,12 +76,20 @@ $(document).ready(function(){
     })
     
     const swiperBanquet = new Swiper('.banquet .list', { /* 팝업을 감싼는 요소의 class명 */
-        slidesPerView: 2, /* 한번에 보일 팝업의 수 - 모바일 제일 작은 사이즈일때 */
+        slidesPerView: "auto", /* 한번에 보일 팝업의 수 - 모바일 제일 작은 사이즈일때 */
         spaceBetween: 16, /* 팝업과 팝업 사이 여백 */
         breakpoints: {
-            1280: {    /* 1280px 이상일때 적용 */
-                slidesPerView: 3,
-                spaceBetween: 40,
+            640: {  /* 640px 이상이 되면 적용 */
+                // slidesPerView: 2,
+                spaceBetween: 20, 
+            },
+            1000: {
+                // slidesPerView: 3,
+                spaceBetween: 30, 
+            },
+            1280: {
+                // slidesPerView: 3,
+                spaceBetween: 40, 
             },
         },
     });

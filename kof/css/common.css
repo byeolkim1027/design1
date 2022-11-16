@@ -503,10 +503,6 @@ aside.top i{
         margin: 40px 0 15px 0;
     }
     .footer .f_info span{
-        display: inline-block;
-        /*온라인으로 변경됬을시에
-            - 전화번호나 팩스처럼 짧은 span테그로 묶인 요소들이
-              display :inline-block 을 주면 두줄로 분리되서 나타나지 않는다.*/
         margin: 0 23px 10px 0;/*두줄로 바꼈을때 행간때문에 아래쪽에 10px 여백을 준다*/
     }
     .footer .copyright{

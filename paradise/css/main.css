@@ -812,6 +812,8 @@
 
 .banquet{
     position: relative;
+    margin: 0 0 150px 0;
+    text-align: center;
 }
 .banquet::before{
     position: absolute;
@@ -826,6 +828,7 @@
 .banquet .tit{
     padding: 100px 0 60px 0;
     color: #1d1d1d;
+    text-align: left;
 }
 .banquet .tit h2{
     font-family: 'GyeonggiBatang';
@@ -836,6 +839,9 @@
 .banquet .tit p{
     font-size: 17px;
 }
+.banquet .list{
+    text-align: left;
+}
 .banquet .list ul li{
     position: relative;
     width: 440px;
@@ -843,6 +849,9 @@
 }
 .banquet .list ul li:last-child{
     margin-right: 0;
+}
+.banquet .list ul li a{
+    display: block;
 }
 .banquet .list ul li a .pic{
     border-radius: 50px 0 50px 50px;
@@ -854,6 +863,113 @@
     height: 100%;
     object-fit: cover;
 }
-.banquet .list ul li .reserv{
+.banquet .list ul li a .txt{
+    position: absolute;
+    left: 30px;
+    bottom: -20px;
+    width: calc(100% - 60px);
+    color: rgba(255,255,255,0.8);
+    transition: 0.5s;
+}
+.banquet .list ul li a .txt h3{
+    margin: 0 0 5px 0;
+    font-family: 'GyeonggiBatang';
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #fff;
+}
+.banquet .list ul li a .txt p{
+    line-height: 1.5;
+    height: 4.5em;
+    overflow: hidden;
+}
+.banquet .list ul li a .txt .reserv{
     opacity: 0;
+    padding: 8px 0;
+    margin: 10px 0 0 0;
+    width: 140px;
+    height: 40px;
+    border: 1px solid rgba(255,255,255,0.5);
+    text-align: center;
+}
+.banquet .list ul li a .txt .reserv span{
+    display: block;
+    font-size: 13px;
+}
+.banquet .list ul li a:hover .txt{
+    bottom: 7%;
+}
+.banquet .list ul li a:hover .reserv{
+    opacity: 1;
+}
+.banquet .more{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 65px 0 0 0;
+    color: rgba(0,0,0,0.5);
+}
+.banquet .more::after{
+    position: absolute;
+    bottom: -4px;
+    width: 109px;
+    height: 1px;
+    background-color: rgba(0,0,0,0.2);
+    content: "";
+}
+.banquet .more i{
+    margin-left: 10px;
+    font-size: 19px;
+}
+@media screen and (max-width:640px){
+    .banquet{
+        margin: 0 0 60px 0;
+    }
+    .banquet::before{
+        height: 250px;
+    }
+    .banquet .tit{
+        padding: 30px 0 15px 0;
+    }
+    .banquet .tit h2{
+        font-size: 35px;
+    }
+    .banquet .tit p{
+        font-size: 13px;
+    }
+    .banquet .list ul li{
+        width: 208px;
+    }
+    .banquet .list ul li a .pic{
+        border-radius: 15px 0 15px 15px;
+    }
+    .banquet .list ul li a .txt{
+        left: 10px;
+        bottom: 12px;
+        width: calc(100% - 20px);
+    }
+    .banquet .list ul li a .txt h3{
+        margin: 0 0 5px 0;
+        font-size: 20px;
+    }
+    .banquet .list ul li a .txt p{
+        height: 3em;
+    }
+    .banquet .list ul li a .txt .reserv{
+        display: none;
+    }
+    .banquet .list ul li a:hover .txt{
+        bottom: auto;
+    }
+    .banquet .more{
+        margin: 30px 0 0 0;
+    }
+    .banquet .more::after{
+        width: 96px;
+    }
+    .banquet .more i{
+        font-size: 15px;
+    }
 }
