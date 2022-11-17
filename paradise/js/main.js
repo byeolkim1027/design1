@@ -45,6 +45,9 @@ $(document).ready(function(){
             1024: {  /* 1024px 이상이 되면 적용 */
                 spaceBetween: 30,
             },
+            1440: {  /* 1024px 이상이 되면 적용 */
+                spaceBetween: 40,
+            },
         },
         navigation: {
             nextEl: '.rest .btn_ctrl .btn_next',
@@ -93,5 +96,7 @@ $(document).ready(function(){
             },
         },
     });
+
+    AOS.init();
 
 })

@@ -27,7 +27,7 @@ $(document).ready(function(){
     let winW=$(window).width()
     let pcMobile //현재 pc 모드 인지 mobile 모드인지 알려주는 변수
 
-    if(winW>640){
+    if(winW>1000){
         pcMobile='pc'
         console.log(pcMobile)
     }else{
@@ -37,7 +37,7 @@ $(document).ready(function(){
     /*윈도우 사이즈가 리사이즈 될때마다 pc모드인지 mobile 모드인지 알려주는 선언*/
     $(window).resize(function(){
         winW=$(window).width()
-        if(winW>640){
+        if(winW>1000){
             pcMobile='pc'
             console.log(pcMobile)
         }else{
@@ -74,6 +74,8 @@ $(document).ready(function(){
             $('.header .logo').hide()
             $('.visual .popup ul li .txt').hide()
             $('.visual .popup .scroll').hide()
+            $('.visual .popup .btn_ctrl').hide()
+            $('.header .gnb>.gnb_wrap>ul>li.sub_open>ul').slideDown()
         }
     })
 

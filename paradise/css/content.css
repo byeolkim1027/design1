@@ -69,13 +69,13 @@
     }
 }
 
-.slogan{
+.cnt_about .slogan{
     margin: 110px 0;
     padding: 100px 0;
     position: relative;
     text-align: center;
 }
-.slogan::after{
+.cnt_about .slogan::after{
     position: absolute;
     top: 0;
     left: 0;
@@ -84,7 +84,7 @@
     background-color: #ccc;
     content: "";
 }
-.slogan::before{
+.cnt_about .slogan::before{
     position: absolute;
     bottom: 0;
     left: 0;
@@ -93,115 +93,115 @@
     background-color: #ccc;
     content: "";
 }
-.slogan strong{
+.cnt_about .slogan strong{
     display: block;
     font-family: 'GyeonggiBatang';
     font-size: 35px;
     font-weight: 700;
 }
-.slogan .slogan_tit{
+.cnt_about .slogan .slogan_tit{
     font-family: 'GyeonggiBatang';
     font-size: 70px;
     font-weight: 700;
     line-height: 1.2;
 }
-.slogan .slogan_tit p .m_yes{
+.cnt_about .slogan .slogan_tit p .m_yes{
     display: none;
 }
-.slogan .slogan_txt{
+.cnt_about .slogan .slogan_txt{
     display: block;
     margin: 50px 0 0 0;
     font-size: 17px;
     text-align: center;
 }
-.slogan .slogan_txt p{
+.cnt_about .slogan .slogan_txt p{
     display: inline-block;
     width: 780px;
 }
 @media screen and (max-width:640px){
-    .slogan{
+    .cnt_about .slogan{
         margin: 45px 0 55px 0;
         padding: 40px 0;
     }
-    .slogan strong{
+    .cnt_about .slogan strong{
         font-size: 25px;
     }
-    .slogan .slogan_tit{
+    .cnt_about .slogan .slogan_tit{
         font-size: 35px;
     }
-    .slogan .slogan_tit p .m_yes{
+    .cnt_about .slogan .slogan_tit p .m_yes{
         display: block;
     }
-    .slogan .slogan_txt{
+    .cnt_about .slogan .slogan_txt{
         margin: 25px 0 0 0;
         font-size: 13px;
     }
-    .slogan .slogan_txt p{
+    .cnt_about .slogan .slogan_txt p{
         width: auto;
     }
 }
 
-.eco .eco_wrap{
+.cnt_about .eco .eco_wrap{
     display: flex;
 }
-.eco .eco_pic{
+.cnt_about .eco .eco_pic{
     border-radius: 50px 0 50px 50px;
     overflow: hidden;
 }
-.eco .eco_pic img{
+.cnt_about .eco .eco_pic img{
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-.eco .eco_inner{
+.cnt_about .eco .eco_inner{
     margin-top: 4%;
     margin-left: 8%;
     width: 37%;
 }
-.eco .eco_tit{
+.cnt_about .eco .eco_tit{
     margin: 0 0 95px 50px;
     font-family: 'GyeonggiBatang';
     font-size: 50px;
     font-weight: 700;
 }
-.eco ul li{
+.cnt_about .eco ul li{
     margin: 0 0 100px 0;
 }
-.eco ul li strong{
+.cnt_about .eco ul li strong{
     display: block;
     margin: 0 0 10px 0;
     font-family: 'GyeonggiBatang';
     font-size: 25px;
     font-weight: 700;
 }
-.eco ul li span{
+.cnt_about .eco ul li span{
     display: block;
 }
 @media screen and (max-width:640px){
-    .eco .eco_wrap{
+    .cnt_about .eco .eco_wrap{
         flex-direction: column;
     }
-    .eco .eco_pic{
+    .cnt_about .eco .eco_pic{
         border-radius: 15px 0 15px 15px;
         height: 300px;
     }
-    .eco .eco_inner{
+    .cnt_about .eco .eco_inner{
         margin-top: 20px;
         margin-left: 0;
         width: auto;
     }
-    .eco .eco_tit{
+    .cnt_about .eco .eco_tit{
         margin: 0 0 20px 0;
         font-size: 35px;
     }
-    .eco ul li{
+    .cnt_about .eco ul li{
         margin: 0 0 45px 0;
     }
-    .eco ul li:last-child{
+    .cnt_about .eco ul li:last-child{
         margin-bottom: 0;
     }
-    .eco ul li strong{
+    .cnt_about .eco ul li strong{
         font-size: 20px;
     }
 }
@@ -217,6 +217,9 @@
     font-weight: 700;
     line-height: 1.2;
     text-align: right;
+}
+.cnt_spa .spa_tit .m_yes{
+    display: none;
 }
 .cnt_spa .spa_pic{
     margin: 30px 0 45px 0;
@@ -258,13 +261,55 @@
 .cnt_spa .txt_wrap .txt{
     font-size: 17px;
 }
+@media screen and (max-width:640px){
+    .cnt_spa{
+        margin: 0 0 95px 0;
+    }
+    .cnt_spa .spa_tit{
+        font-size: 25px;
+    }
+    .cnt_spa .spa_tit .m_yes{
+        display: block;
+    }
+    .cnt_spa .spa_pic{
+        margin: 20px 0 20px 0;
+        height: 230px;
+    }
+    .cnt_spa .txt_wrap .colgroup1{
+        float: none;
+        width: auto;
+        margin: 0 0 30px 0;
+    }
+    .cnt_spa .txt_wrap .colgroup1::after{
+        right: auto;
+        top: auto;
+        bottom: -16px;
+        width: 100%;
+        height: 1px;
+    }
+    .cnt_spa .txt_wrap .colgroup2{
+        float: none;
+        width: auto;
+    }
+    .cnt_spa .txt_wrap p{
+        text-align: left;
+        word-break: keep-all;
+    }
+    .cnt_spa .txt_wrap .spa_sub{
+        margin: 0 0 5px 0;
+        font-size: 20px;
+    }
+    .cnt_spa .txt_wrap .txt{
+        font-size: 13px;
+    }
+}
 
-.info{
+.cnt_spa .info{
     position: relative;
     margin: 140px 0 130px 0;
-    padding: 40px 0 85px 0;
+    padding: 65px 0 85px 0;
 }
-.info::before{
+.cnt_spa .info::before{
     position: absolute;
     top: 0;
     left: 0;
@@ -273,7 +318,7 @@
     background-color: #ccc;
     content: "";
 }
-.info::after{
+.cnt_spa .info::after{
     position: absolute;
     bottom: 0;
     left: 0;
@@ -282,22 +327,144 @@
     background-color: #ccc;
     content: "";
 }
-.info .info_tit{
+.cnt_spa .info .info_tit{
     display: block;
     text-align: center;
 }
-.info .info_tit p{
+.cnt_spa .info .info_tit p{
     display: inline-block;
     font-size: 30px;
 }
-.info ul{
-    padding: 60px 60px 0 100px;
+.cnt_spa .info ul{
+    padding: 4% 4% 0 14%;
 }
-.info ul li{
+.cnt_spa .info ul li{
     float: left;
-    width: 21%;
-    margin: 0 4% 0 0;
+    width: 19%;
+    margin: 0 6% 0 0;
 }
-.info ul li:last-child{
+.cnt_spa .info ul li:last-child{
     margin-right: 0;
+}
+.cnt_spa .info ul li strong{
+    display: block;
+    margin: 0 0 20px 0;
+    font-size: 20px;
+    font-weight: 700;
+}
+.cnt_spa .info ul li span{
+    display: block;
+    margin: 0 0 20px 0;
+}
+@media screen and (max-width:640px){
+    .cnt_spa .info{
+        margin: 40px 0 40px 0;
+        padding: 25px 0 30px 0;
+    }
+    .cnt_spa .info .info_tit p{
+        font-size: 25px;
+    }
+    .cnt_spa .info ul{
+        padding: 6% 0 0 0;
+    }
+    .cnt_spa .info ul li{
+        float: none;
+        width: auto;
+        margin: 0 0 20px 0;
+    }
+    .cnt_spa .info ul li:last-child{
+        margin-right: 0;
+    }
+    .cnt_spa .info ul li strong{
+        margin: 0 0 10px 0;
+        font-size: 15px;
+    }
+    .cnt_spa .info ul li span{
+        margin: 0 0 10px 0;
+    }
+}
+
+.cnt_spa .other .other_tit{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    margin: 0 0 60px 0;
+    font-family: 'GyeonggiBatang';
+}
+.cnt_spa .other .other_tit strong{
+    display: block;
+    font-size: 50px;
+    font-weight: 700;
+}
+.cnt_spa .other .other_tit p{
+    margin: 0 0 0 20px;
+    font-size: 25px;
+    font-weight: 700;
+}
+.cnt_spa .other ul li{
+    float: left;
+    width: 31%;
+    margin: 0 3% 0 0;
+}
+.cnt_spa .other ul li:last-child{
+    margin-right: 0;
+}
+.cnt_spa .other ul li a{
+    display: block;
+}
+.cnt_spa .other ul li a .other_pic{
+    border-radius: 20px 0 20px 20px;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+}
+.cnt_spa .other ul li a .other_pic img{
+    width: 100%;
+    transition: 0.5s;
+}
+.cnt_spa .other ul li a:hover .other_pic img{
+    transform: scale3d(1.2,1.2,1);
+}
+.cnt_spa .other ul li a .other_txt{
+    margin: 20px 0 0 0;
+}
+.cnt_spa .other ul li a .other_txt strong{
+    display: block;
+    margin: 0 0 8px 0;
+    font-family: 'GyeonggiBatang';
+    font-size: 30px;
+}
+@media screen and (max-width:640px){
+    .cnt_spa .other .other_tit{
+        margin: 0 0 25px 0;
+    }
+    .cnt_spa .other .other_tit strong{
+        font-size: 30px;
+    }
+    .cnt_spa .other .other_tit p{
+        margin: 0 0 0 10px;
+        font-size: 20px;
+    }
+    .cnt_spa .other ul li{
+        float: none;
+        width: auto;
+        margin: 0 0 15px 0;
+    }
+    .cnt_spa .other ul li:last-child{
+        margin-bottom: 0;
+    }
+    .cnt_spa .other ul li a .other_pic{
+        border-radius: 10px 0 10px 10px;
+        height: 200px;
+    }
+    .cnt_spa .other ul li a .other_pic img{
+        width: 100%;
+    }
+    .cnt_spa .other ul li a .other_txt{
+        margin: 5px 0 0 0;
+    }
+    .cnt_spa .other ul li a .other_txt strong{
+        margin: 0 0 3px 0;
+        font-size: 20px;
+    }
 }

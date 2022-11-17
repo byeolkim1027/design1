@@ -50,8 +50,7 @@
     top: 50%;
     z-index: 10;
     transform: translate(-50%,-50%);
-    color: #fff;
-    
+    color: #fff; 
 }
 .visual .popup .btn_ctrl button span{
     display: none;
@@ -105,7 +104,34 @@
     50%{transform: translate(0,-20px);}
     100%{transform: translate(0,0);}
 }
-@media screen and (max-width:640px){
+@media screen and (max-width:1440px){
+    .visual .popup ul li .txt strong{
+        font-size: 45px;
+    }
+}
+@media screen and (max-width:1200px){
+    .visual .popup ul li .txt strong{
+        margin: 0 0 15px 0;
+        font-size: 40px;
+    }
+    .visual .popup .btn_ctrl{
+        top: 48%;
+    }
+    .visual .popup .btn_ctrl button i{
+        font-size: 20px;
+    }
+    .visual .popup .btn_ctrl .btn_prev{
+        margin-right: -10px;
+        width: 70px;
+        height: 70px;
+    }
+    .visual .popup .btn_ctrl .btn_next{
+        margin-left: -10px;
+        width: 70px;
+        height: 70px;
+    }
+}
+@media screen and (max-width:1000px){
     .visual .popup{
         height: 800px;
     }
@@ -116,7 +142,7 @@
     }
     .visual .popup ul li .txt strong{
         margin: 0;
-        font-size: 30px;
+        font-size: 35px;
     }
     .visual .popup ul li .txt span{
         display: none;
@@ -153,6 +179,11 @@
         100%{transform: translate(0,0);}
     }
 }
+@media screen and (max-width:640px){
+    .visual .popup ul li .txt strong{
+        font-size: 30px;
+    }
+}
 
 .stay{
     position: relative;
@@ -176,10 +207,11 @@
     color: #1d1d1d;
 }
 .stay .stay_popup ul li .cnt strong{
-    margin: 10px 0 20px 0;
+    display: block;
     font-family: 'GyeonggiBatang';
     font-size: 25px;
     font-weight: 700;
+    line-height: 1;
 }
 .stay .stay_popup ul li .cnt p{
     margin: 20px 0;
@@ -212,25 +244,22 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    position: relative;
 }
 .stay .btn_prev{
     position: absolute;
     top: calc(50% + 200px);
-    z-index: 10;
-    color: #ccc;
-}
-.stay .btn_next{
-    position: absolute;
-    top: calc(50% + 200px);
-    z-index: 10;
-    color: #ccc;
-}
-.stay .btn_prev{
     left: calc(50% - 765px);
+    z-index: 10;
+    color: #ccc;
 }
 .stay .btn_next{
+    position: absolute;
+    top: calc(50% + 200px);
     right: calc(50% - 765px);
-}
+    z-index: 10;
+    color: #ccc;
+} 
 .stay .btn_prev span{
     display: none;
 }
@@ -245,6 +274,120 @@
 }
 .stay .btn_paging{
     display: none;
+}
+@media screen and (max-width:1530px){
+    .stay .stay_popup ul li .cnt{
+        margin-left: 540px;
+    }
+    .stay .stay_popup{
+        margin: 0 30px;
+    }
+    .stay .btn_prev{
+        left: 0;
+        top: 73%;
+    }
+    .stay .btn_next{
+        right: 0;
+        top: 73%;
+    }
+}
+@media screen and (max-width:1440px){
+    .stay{
+        margin: 30px 0 110px 0;
+    }
+    .stay h2{
+        font-size: 45px;
+    }
+    .stay .stay_popup ul li .cnt{
+        margin-top: 30px;
+        margin-left: 500px;
+    }
+    .stay .stay_popup ul li .cnt h3{
+        font-size: 35px;
+    }
+    .stay .stay_popup ul li .cnt strong{
+        font-size: 20px;
+    }
+    .stay .stay_popup ul li .cnt p{
+        margin: 15px 0;
+    }
+}
+@media screen and (max-width:1200px){
+    .stay{
+        margin: 30px 0 100px 0;
+    }
+    .stay .stay_popup{
+        margin: 0 20px;
+    }
+    .stay h2{
+        font-size: 40px;
+    }
+    .stay .stay_popup ul li .cnt{
+        margin-top: 20px;
+        margin-left: 330px;
+    }
+    .stay .stay_popup ul li .cnt h3{
+        font-size: 30px;
+    }
+    .stay .stay_popup ul li .cnt p{
+        margin: 15px 0;
+    }
+    .stay .btn_prev i{
+        font-size: 30px;
+    }
+    .stay .btn_next i{
+        font-size: 30px;
+    }
+}
+@media screen and (max-width:1000px){
+    .stay{
+        margin: 20px 0 60px 0;
+    }
+    .stay h2{
+        font-size: 35px;
+    }
+    .stay .stay_popup ul li .cnt{
+        margin-bottom: 15px;
+        margin-left: 200px;
+    }
+    .stay .stay_popup ul li .cnt p .m_no{
+        display: none;
+    }
+    .stay .stay_popup ul li img{
+        height: 300px;
+    }
+    .stay .btn_prev{
+        position: absolute;
+        top: auto;
+        bottom: -2px;
+        z-index: 10;
+        color: #ccc;
+    }
+    .stay .btn_next{
+        position: absolute;
+        top: auto;
+        bottom: -2px;
+        z-index: 10;
+        color: #ccc;
+    }
+    .stay .btn_prev{
+        left: calc(50% - 30px);
+    }
+    .stay .btn_next{
+        right: calc(50% - 30px);
+    }
+    .stay .btn_prev i{
+        font-size: 15px;
+    }
+    .stay .btn_next i{
+        font-size: 15px;
+    }
+    .stay .btn_paging{
+        display: block;
+        margin: 20px 0 0 0;
+        text-align: center;
+        color: #666;
+    }
 }
 @media screen and (max-width:640px){
     .stay{
@@ -264,7 +407,7 @@
     }
     .stay .stay_popup ul li .cnt strong{
         margin: 10px 0 0 0;
-        font-size: 20px;
+        font-size: 17px;
     }
     .stay .stay_popup ul li .cnt p{
         margin: 10px 0;
@@ -289,24 +432,10 @@
         height: 250px;
     }
     .stay .btn_prev{
-        position: absolute;
-        top: auto;
         bottom: 0;
-        z-index: 10;
-        color: #ccc;
     }
     .stay .btn_next{
-        position: absolute;
-        top: auto;
         bottom: 0;
-        z-index: 10;
-        color: #ccc;
-    }
-    .stay .btn_prev{
-        left: calc(50% - 30px);
-    }
-    .stay .btn_next{
-        right: calc(50% - 30px);
     }
     .stay .btn_prev i{
         font-size: 12px;
@@ -315,10 +444,7 @@
         font-size: 12px;
     }
     .stay .btn_paging{
-        display: block;
         margin: 10px 0 0 0;
-        text-align: center;
-        color: #666;
     }
 }
 
@@ -375,6 +501,12 @@
 .rest .list ul li a{
     display: block;
 }
+.rest .list ul li a .pic img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 .rest .list ul li a .subject{
     display: block;
     margin: 15px 0 5px 0;
@@ -408,24 +540,79 @@
 .swiper-pagination-progressbar .swiper-pagination-progressbar-fill{
     background-color: #ccc;
 }
-@media screen and (max-width:640px){
+@media screen and (max-width:1530px){
+    .rest{
+        left: 3%;
+    }
+    .rest .tit{
+        padding: 120px 0 0 0;
+    }
+    .rest .tit h2{
+        font-size: 55px;
+    }
+    .rest .list ul li{
+        width: 400px;
+    }
+}
+@media screen and (max-width:1440px){
+    .rest .tit{
+        width: 20%;
+    }
+    .rest .tit h2{
+        font-size: 50px;
+    }
+    .rest .tit .sub_tit{
+        font-size: 20px;
+    }
+    .rest .tit .cnt_tit{
+        margin: 20px 0;
+        font-size: 15px;
+    }
+    .rest .list{
+        width: 75%;
+    }
+    
+}
+@media screen and (max-width:1300px){
+    .rest .tit{
+        padding: 100px 0 0 0;
+        width: 22%;
+    }
+    .rest .tit h2{
+        font-size: 40px;
+    }
+    .rest .tit .sub_tit{
+        font-size: 17px;
+    }
+    .rest .tit .cnt_tit{
+        font-size: 15px;
+    }
+    .rest .list{
+        width: 70%;
+    }
+    .rest .list ul li{
+        width: 350px;
+    }
+    .rest .list ul li a .subject{
+        margin: 10px 0 5px 0;
+        font-size: 25px;
+    }
+}
+@media screen and (max-width:1000px){
     .rest{
         display: block;
         left: auto;
-        padding: 0 20px 50px 20px;
+        padding: 0 20px 85px 20px;
     }
     .rest .tit{
-        padding: 30px 0 30px 0;
-    }
-    .rest .tit h2{
-        font-size: 35px;
+        padding: 20px 0 30px 0;
+        width: auto;
     }
     .rest .tit .sub_tit{
-        display: none;
+        margin: 5px 0 0 0;
     }
     .rest .tit .cnt_tit{
-        margin: 5px 0 10px 0;
-        font-size: 13px;
+        margin: 10px 0 10px 0;
     }
     .rest .tit .cnt_tit .m_no{
         display: none;
@@ -437,20 +624,17 @@
     .rest .tit .more i{
         font-size: 15px;
     }
+    .rest .list{
+        width: auto;
+    }
     .rest .list ul li{
-        width: 208px;
+        width: 260px;
     }
     .rest .list ul li a{
         display: block;
     }
     .rest .list ul li a .pic{
-        height: 220px;
-    }
-    .rest .list ul li a .pic img{
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+        height: 240px;
     }
     .rest .list ul li a .subject{
         margin: 10px 0 5px 0;
@@ -469,14 +653,39 @@
         display: none;
     }
 }
+@media screen and (max-width:640px){
+    .rest{
+        padding: 0 20px 50px 20px;
+    }
+    .rest .tit{
+        padding: 30px 0 30px 0;
+    }
+    .rest .tit h2{
+        font-size: 35px;
+    }
+    .rest .tit .sub_tit{
+        display: none;
+    }
+    .rest .tit .cnt_tit{
+        margin: 5px 0 10px 0;
+        font-size: 13px;
+    }
+    .rest .list ul li{
+        width: 210px;
+    }
+    .rest .list ul li a .pic{
+        height: 220px;
+    }
+    .rest .list ul li a .subject{
+        font-size: 17px;
+    }
+}
 
 .offer{
     height: 220px;
+    padding: 40px 0;
     background-color: #544636;
     color: rgba(255,255,255,0.8);
-}
-.offer .inner{
-    padding: 45px 60px 40px 60px;
 }
 .offer .tit{
     float: right;
@@ -503,16 +712,40 @@
     display: block;
     font-size: 17px;
 }
-@media screen and (max-width:640px){
-    .offer{
-        height: 200px;
+@media screen and (max-width:1440px){
+    .offer .tit{
+        float: right;
+        font-family: 'GyeonggiBatang';
+        font-size: 60px;
+        font-weight: 700;
+        line-height: 1.2;
+        color: #fff;
+        text-align: center;
     }
-    .offer .inner{
-        padding: 35px 0 25px 0;
+    .offer .tit{
+        font-size: 55px;
+    }
+    .offer .cnts p{
+        padding: 10px 0 20px 0;
+        line-height: 1.5;
+    }
+    .offer .cnts .more{
+        padding: 7px 0;
+        width: 140px;
+        height: 40px;
+    }
+    .offer .cnts .more span{
+        font-size: 15px;
+    }
+}
+@media screen and (max-width:1000px){
+    .offer{
+        padding: 45px 0;
+        height: 240px;
     }
     .offer .tit{
         float: none;
-        font-size: 35px;
+        font-size: 45px;
     }
     .offer .cnts{
         /* 가운데 배치 - more 를 감싸는 요소가 center값을 가지고 more자체는 inline으로 치환*/
@@ -525,8 +758,22 @@
         display: inline-block;
         padding: 8px 0;
         margin: 15px 0 0 0;
-        width: 120px;
         height: 40px;
+    }
+    .offer .cnts .more span{
+        font-size: 15px;
+    }
+}
+@media screen and (max-width:640px){
+    .offer{
+        padding: 35px 0;
+        height: 200px;
+    }
+    .offer .tit{
+        font-size: 35px;
+    }
+    .offer .cnts .more{
+        width: 120px;
     }
     .offer .cnts .more span{
         font-size: 13px;
@@ -553,7 +800,7 @@
 }
 .event ul li{
     position: relative;
-    width: 420px;
+    width: 30%;
 }
 .event ul li::after{
     position: absolute;
@@ -578,9 +825,6 @@
 .event ul li a .cnt{
     display: block;
     margin: 20px 0;
-    line-height: 1.5;
-    height: 3em;
-    overflow: hidden;
 }
 .event ul li a .date{
     color: #666;
@@ -604,6 +848,65 @@
     margin-left: 10px;
     font-size: 19px;
 }
+@media screen and (max-width:1530px){
+    .event .tit h2{
+        font-size: 55px;
+    }
+}
+@media screen and (max-width:1440px){
+    .event .tit h2{
+        font-size: 50px;
+    }
+    .event .tit p{
+        font-size: 15px;
+    }
+}
+@media screen and (max-width:1200px){
+    .event ul li a .subj{
+        font-size: 25px;
+    }
+    .event ul li a .cnt{
+        margin: 10px 0;
+    }
+}
+@media screen and (max-width:1000px){
+    .event{
+        margin: 65px 0 60px 0;
+    }
+    .event .tit h2{
+        font-size: 40px;
+    }
+    .event ul{
+        flex-direction: column;
+        margin: 50px 0 0 0;
+        text-align: left;
+    }
+    .event ul li{
+        width: auto;
+        margin-bottom: 50px;
+    }
+    .event ul li::after{
+        right: 0;
+        top: auto;
+        bottom: -28px;
+        width: 100%;
+        height: 1px;
+    }
+    .event ul li a .subj{
+        display: block;
+        margin: 0;
+        font-size: 30px;
+    }
+    .event ul li a .cnt{
+        margin: 0 0 10px 0;
+    }
+    .event .more::after{
+        width: 96px;
+    }
+    .event .more i{
+        font-size: 15px;
+    }
+}
 @media screen and (max-width:640px){
     .event{
         margin: 45px 0 40px 0;
@@ -615,34 +918,20 @@
         font-size: 13px;
     }
     .event ul{
-        flex-direction: column;
         margin: 30px 0 20px 0;
-        text-align: left;
     }
     .event ul li{
-        width: auto;
         margin-bottom: 30px;
     }
     .event ul li::after{
-        right: 0;
-        top: auto;
         bottom: -17px;
-        width: 100%;
-        height: 1px;
     }
     .event ul li a .subj{
-        display: block;
         margin: 0 0 10px 0;
         font-size: 25px;
     }
     .event ul li a .cnt{
         display: none;
-    }
-    .event .more::after{
-        width: 96px;
-    }
-    .event .more i{
-        font-size: 15px;
     }
 }
 
@@ -749,9 +1038,39 @@
 .dining .swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet{
     margin: 0 10px 0 0;
 }
-@media screen and (max-width:640px){
+@media screen and (max-width:1530px){
+    .dining .dining_popup ul li .txt{
+        width: 32%;
+    }
+}
+@media screen and (max-width:1440px){
+    .dining .dining_popup ul li .txt{
+        width: 34%;
+    }
+    .dining .dining_popup ul li .txt h3{
+        margin: 0 0 20px 0;
+        font-size: 50px;
+    }
+}
+@media screen and (max-width:1200px){
+    .dining .dining_popup ul li .txt h3{
+        margin: 0 0 15px 0;
+        font-size: 40px;
+    }
+    .dining .dining_popup ul li .txt p{
+        font-size: 15px;
+    }
+    .dining .swiper-pagination-bullet{
+        width: 110px;
+    }
+    .dining .swiper-pagination-bullet::after{
+        bottom: -3px;
+        width: 110px;
+    }
+}
+@media screen and (max-width:1000px){
     .dining{
-        height: 585px;
+        height: 670px;
     }
     .dining .dining_popup ul{
         padding: 45px 0 0 0;
@@ -763,6 +1082,48 @@
     }
     .dining .dining_popup ul li .txt h3{
         margin: 0;
+    }
+    .dining .dining_popup ul li .txt p{
+        display: none;
+    }
+    .dining .dining_popup ul li .txt .info{
+        margin: 20px 0 10px 0;
+    }
+    .dining .dining_popup ul li .txt .reserv{
+        padding: 7px 0;
+        margin: 0 0 20px 0;
+        width: 170px;
+        height: 40px;
+    }
+    .dining .dining_popup ul li .txt .reserv span{
+        font-size: 15px;
+    }
+    .dining .dining_popup ul li .pic{
+        width: auto;
+        height: 300px;
+    }
+    .dining .swiper-pagination-bullet{
+        position: relative;
+        height: auto;
+        border-radius: 0;
+        background: transparent;
+        opacity: 0.5;
+    }
+    .dining .swiper-pagination-bullet-active{
+        opacity: 1;
+    }
+    .dining .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction{
+        bottom: 35px;
+    }
+    .dining .swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet{
+        margin: 0 7px 10px 0;
+    }
+}
+@media screen and (max-width:640px){
+    .dining{
+        height: 585px;
+    }
+    .dining .dining_popup ul li .txt h3{
         font-size: 35px;
     }
     .dining .dining_popup ul li .txt p{
@@ -775,8 +1136,6 @@
         margin: 0 0 7px 0;
     }
     .dining .dining_popup ul li .txt .reserv{
-        padding: 7px 0;
-        margin: 0 0 20px 0;
         width: 150px;
         height: 35px;
     }
@@ -784,29 +1143,19 @@
         font-size: 13px;
     }
     .dining .dining_popup ul li .pic{
-        width: auto;
         height: 200px;
     }
     .dining .swiper-pagination-bullet{
-        position: relative;
         width: 100px;
-        height: auto;
-        border-radius: 0;
-        background: transparent;
-        opacity: 0.5;
     }
     .dining .swiper-pagination-bullet::after{
-        bottom: -3px;
         width: 93px;
     }
-    .dining .swiper-pagination-bullet-active{
-        opacity: 1;
-    }
     .dining .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction{
-        bottom: 50px;
+        bottom: auto;
     }
     .dining .swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet{
-        margin: 0 7px 10px 0;
+        margin: 9px 7px 5px 0;
     }
 }
 
@@ -923,36 +1272,49 @@
     margin-left: 10px;
     font-size: 19px;
 }
-@media screen and (max-width:640px){
+@media screen and (max-width:1200px){
+    .banquet .tit{
+        padding: 80px 0 40px 0;
+    }
+    .banquet .tit h2{
+        font-size: 50px;
+    }
+    .banquet .list ul li{
+        width: 400px;
+    }
+    .banquet .list ul li a .pic{
+        border-radius: 40px 0 40px 40px;
+    }
+    .banquet .list ul li a .txt h3{
+        font-size: 25px;
+    }
+}
+@media screen and (max-width:1000px){
     .banquet{
         margin: 0 0 60px 0;
     }
     .banquet::before{
-        height: 250px;
-    }
-    .banquet .tit{
-        padding: 30px 0 15px 0;
+        height: 380px;
     }
     .banquet .tit h2{
-        font-size: 35px;
+        font-size: 45px;
     }
     .banquet .tit p{
-        font-size: 13px;
+        font-size: 15px;
     }
     .banquet .list ul li{
-        width: 208px;
+        width: 350px;
     }
     .banquet .list ul li a .pic{
-        border-radius: 15px 0 15px 15px;
+        border-radius: 25px 0 25px 25px;
     }
     .banquet .list ul li a .txt{
-        left: 10px;
-        bottom: 12px;
-        width: calc(100% - 20px);
+        left: 25px;
+        bottom: 25px;
+        width: calc(100% - 50px);
     }
     .banquet .list ul li a .txt h3{
         margin: 0 0 5px 0;
-        font-size: 20px;
     }
     .banquet .list ul li a .txt p{
         height: 3em;
@@ -971,5 +1333,41 @@
     }
     .banquet .more i{
         font-size: 15px;
+    }
+}
+@media screen and (max-width:800px){
+    .banquet .list ul li{
+        width: 280px;
+    }
+    .banquet .list ul li a .pic{
+        border-radius: 20px 0 20px 20px;
+    }
+}
+@media screen and (max-width:640px){
+    .banquet::before{
+        height: 250px;
+    }
+    .banquet .tit{
+        padding: 30px 0 25px 0;
+    }
+    .banquet .tit h2{
+        font-size: 35px;
+    }
+    .banquet .tit p{
+        font-size: 13px;
+    }
+    .banquet .list ul li{
+        width: 240px;
+    }
+    .banquet .list ul li a .pic{
+        border-radius: 15px 0 15px 15px;
+    }
+    .banquet .list ul li a .txt{
+        left: 15px;
+        bottom: 15px;
+        width: calc(100% - 30px);
+    }
+    .banquet .list ul li a .txt h3{
+        font-size: 20px;
     }
 }
