@@ -7,9 +7,11 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <script src="../js/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="../js/common.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,300,0,0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="../css/sub.css">
     <title>Ocean Spa | Spa | 파라다이스호텔 부산</title>
 </head>
@@ -100,7 +102,7 @@
         
         <div class="sub_visual sub2"></div>
         <div class="container">
-            <div class="sub_tit">
+            <div class="sub_tit" data-aos="fade-up" data-aos-delay="300">
                 <div class="wrapper">
                     <h2>Ocean Spa</h2>
                     <p>하늘과 바다가 맞닿은 곳<strong>,</strong></p>
@@ -109,7 +111,7 @@
             <div id="contents">
                 <div class="cnt_spa">
                     <div class="wrapper">
-                        <div class="intro">
+                        <div class="intro" data-aos="fade-up" data-aos-delay="300">
                             <p class="spa_tit">아름다운 바다풍경과<br class="m_yes"> 환상의 조화를 이루어내는</p>
                             <div class="spa_pic"><img src="../images/contents/content3.png" alt=""></div>
                             <div class="txt_wrap clearfix">
@@ -123,7 +125,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="info">
+                        <div class="info" data-aos="fade-up" data-aos-delay="300">
                             <div class="info_tit"><p>INFORMATION</p></div>
                             <ul class="clearfix">
                                 <li>
@@ -149,12 +151,12 @@
                             </ul>
                         </div>
                         <div class="other">
-                            <div class="other_tit">
+                            <div class="other_tit" data-aos="fade-up" data-aos-delay="400">
                                 <strong>더 많은,</strong>
                                 <p>For More</p>
                             </div>
                             <ul class="clearfix">
-                                <li>
+                                <li data-aos="fade-up" data-aos-delay="500">
                                     <a href="#n">
                                         <div class="other_pic"><img src="../images/contents/content4.png" alt=""></div>
                                         <div class="other_txt">
@@ -163,7 +165,7 @@
                                         </div>
                                     </a>
                                 </li>
-                                <li>
+                                <li data-aos="fade-up" data-aos-delay="600">
                                     <a href="#n">
                                         <div class="other_pic"><img src="../images/contents/content5.png" alt=""></div>
                                         <div class="other_txt">
@@ -172,7 +174,7 @@
                                         </div>
                                     </a>
                                 </li>
-                                <li>
+                                <li data-aos="fade-up" data-aos-delay="700">
                                     <a href="#n">
                                         <div class="other_pic"><img src="../images/contents/content6.png" alt=""></div>
                                         <div class="other_txt">
@@ -216,5 +218,8 @@
             </div>
         </footer>
     </div>
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>

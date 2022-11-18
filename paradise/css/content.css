@@ -39,7 +39,26 @@
 .cnt_about .intro .intro_txt{
     font-size: 17px;
 }
-@media screen and (max-width:640px){
+@media screen and (max-width:1200px){
+    /*wrapper 바깥으로 영역밖으로 이미지가 나가야하는 값
+      absolute로 값을 주고 밀어낸다음 높이값을 무조건 줘야한다- 이유: 브라우저 사이즈가 
+      늘고줄었을때 고정된 높이값을 가지고 있어야 한없이 늘어나지 않는다
+       right 값은 가운데서 부터 얼마나 더 들어오고 나오는지를 계산해서 calc로 주면됨*/
+    .cnt_about .intro_pic{
+        right: calc(50% - 65px);
+        width: calc(50% + 65px);
+    }
+    /* txt 자체가 영역을 가지고 있어야해서 마진으로 준다.*/
+    .cnt_about .intro{
+        margin-left: 60%;
+        padding: 120px 0 0 0;
+    }
+    .cnt_about .intro .intro_tit{
+        margin: 0 0 35px 0;
+        font-size: 45px;
+    }
+}
+@media screen and (max-width:1000px){
     .cnt_about .intro_wrap{
         height: auto;
     }
@@ -53,7 +72,7 @@
         right: auto;
         left: -20px;
         width: calc(100% + 40px);
-        height: 200px;
+        height: 400px;
     }
     /* txt 자체가 영역을 가지고 있어야해서 마진으로 준다.*/
     .cnt_about .intro{
@@ -62,10 +81,20 @@
     }
     .cnt_about .intro .intro_tit{
         margin: 0 0 10px 0;
-        font-size: 30px;
+        font-size: 40px;
     }
     .cnt_about .intro .intro_txt{
         font-size: 15px;
+    }
+}
+@media screen and (max-width:640px){
+
+    .cnt_about .intro_pic{
+        height: 200px;
+    }
+    /* txt 자체가 영역을 가지고 있어야해서 마진으로 준다.*/
+    .cnt_about .intro .intro_tit{
+        font-size: 30px;
     }
 }
 
@@ -118,6 +147,36 @@
     display: inline-block;
     width: 780px;
 }
+@media screen and (max-width:1200px){
+    .cnt_about .slogan strong{
+        font-size: 30px;
+    }
+    .cnt_about .slogan .slogan_tit{
+        font-size: 60px;
+    }
+}
+@media screen and (max-width:1000px){
+    .cnt_about .slogan{
+        margin: 90px 0 95px 0;
+        padding: 70px 0;
+    }
+    .cnt_about .slogan strong{
+        font-size: 30px;
+    }
+    .cnt_about .slogan .slogan_tit{
+        font-size: 50px;
+    }
+    .cnt_about .slogan .slogan_tit p .m_yes{
+        display: block;
+    }
+    .cnt_about .slogan .slogan_txt{
+        margin: 25px 0 0 0;
+        font-size: 15px;
+    }
+    .cnt_about .slogan .slogan_txt p{
+        width: auto;
+    }
+}
 @media screen and (max-width:640px){
     .cnt_about .slogan{
         margin: 45px 0 55px 0;
@@ -129,15 +188,8 @@
     .cnt_about .slogan .slogan_tit{
         font-size: 35px;
     }
-    .cnt_about .slogan .slogan_tit p .m_yes{
-        display: block;
-    }
     .cnt_about .slogan .slogan_txt{
-        margin: 25px 0 0 0;
         font-size: 13px;
-    }
-    .cnt_about .slogan .slogan_txt p{
-        width: auto;
     }
 }
 
@@ -145,6 +197,7 @@
     display: flex;
 }
 .cnt_about .eco .eco_pic{
+    height: 950px;
     border-radius: 50px 0 50px 50px;
     overflow: hidden;
 }
@@ -178,28 +231,62 @@
 .cnt_about .eco ul li span{
     display: block;
 }
-@media screen and (max-width:640px){
+@media screen and (max-width:1440px){
+    .cnt_about .eco .eco_inner{
+        margin-left: 6%;
+    }
+    .cnt_about .eco .eco_tit{
+        margin: 0 0 95px 0;
+    }
+}
+@media screen and (max-width:1200px){
+    .cnt_about .eco .eco_inner{
+        margin-left: 4%;
+        margin-top: 6%;
+        width: 40%;
+    }
+    .cnt_about .eco .eco_tit{
+        margin: 0 0 70px 0;
+        font-size: 40px;
+    }
+    .cnt_about .eco ul li{
+        margin: 0 0 75px 0;
+    }
+}
+@media screen and (max-width:1000px){
     .cnt_about .eco .eco_wrap{
         flex-direction: column;
     }
     .cnt_about .eco .eco_pic{
-        border-radius: 15px 0 15px 15px;
-        height: 300px;
+        border-radius: 20px 0 20px 20px;
+        height: 365px;
     }
     .cnt_about .eco .eco_inner{
-        margin-top: 20px;
+        margin-top: 35px;
         margin-left: 0;
         width: auto;
     }
     .cnt_about .eco .eco_tit{
         margin: 0 0 20px 0;
-        font-size: 35px;
+        font-size: 45px;
     }
     .cnt_about .eco ul li{
         margin: 0 0 45px 0;
     }
     .cnt_about .eco ul li:last-child{
         margin-bottom: 0;
+    }
+}
+@media screen and (max-width:640px){
+    .cnt_about .eco .eco_pic{
+        border-radius: 15px 0 15px 15px;
+        height: 300px;
+    }
+    .cnt_about .eco .eco_inner{
+        margin-top: 20px;
+    }
+    .cnt_about .eco .eco_tit{
+        font-size: 35px;
     }
     .cnt_about .eco ul li strong{
         font-size: 20px;
@@ -238,7 +325,7 @@
 }
 .cnt_spa .txt_wrap .colgroup1::after{
     position: absolute;
-    right: -112px;
+    right: -19%;
     top: 0;
     width: 1px;
     height: 210px;
@@ -261,29 +348,37 @@
 .cnt_spa .txt_wrap .txt{
     font-size: 17px;
 }
-@media screen and (max-width:640px){
+@media screen and (max-width:1200px){
+    .cnt_spa .spa_tit{
+        font-size: 35px;
+    }
+    .cnt_spa .spa_pic{
+        margin: 20px 0 35px 0;
+    }
+    .cnt_spa .txt_wrap .spa_sub{
+        font-size: 25px;
+    }
+}
+@media screen and (max-width:1000px){
     .cnt_spa{
         margin: 0 0 95px 0;
     }
     .cnt_spa .spa_tit{
-        font-size: 25px;
-    }
-    .cnt_spa .spa_tit .m_yes{
-        display: block;
+        font-size: 30px;
     }
     .cnt_spa .spa_pic{
         margin: 20px 0 20px 0;
-        height: 230px;
+        height: 310px;
     }
     .cnt_spa .txt_wrap .colgroup1{
         float: none;
         width: auto;
-        margin: 0 0 30px 0;
+        margin: 0 0 50px 0;
     }
     .cnt_spa .txt_wrap .colgroup1::after{
         right: auto;
         top: auto;
-        bottom: -16px;
+        bottom: -29px;
         width: 100%;
         height: 1px;
     }
@@ -297,6 +392,28 @@
     }
     .cnt_spa .txt_wrap .spa_sub{
         margin: 0 0 5px 0;
+    }
+    .cnt_spa .txt_wrap .txt{
+        font-size: 15px;
+    }
+}
+@media screen and (max-width:640px){
+    .cnt_spa .spa_tit{
+        font-size: 25px;
+    }
+    .cnt_spa .spa_tit .m_yes{
+        display: block;
+    }
+    .cnt_spa .spa_pic{
+        height: 230px;
+    }
+    .cnt_spa .txt_wrap .colgroup1{
+        margin: 0 0 30px 0;
+    }
+    .cnt_spa .txt_wrap .colgroup1::after{
+        bottom: -16px;
+    }
+    .cnt_spa .txt_wrap .spa_sub{
         font-size: 20px;
     }
     .cnt_spa .txt_wrap .txt{
@@ -356,6 +473,39 @@
     display: block;
     margin: 0 0 20px 0;
 }
+@media screen and (max-width:1200px){
+    .cnt_spa .info{
+        margin: 120px 0 100px 0;
+    }
+    .cnt_spa .info ul{
+        padding: 4% 4% 0 16%;
+    }
+    .cnt_spa .info ul li strong{
+        font-size: 17px;
+    }
+    .cnt_spa .info ul li{
+        margin: 0 5% 0 0;
+    }
+}
+@media screen and (max-width:1000px){
+    .cnt_spa .info{
+        margin: 65px 0 70px 0;
+        padding: 40px 0 60px 0;
+    }
+    .cnt_spa .info ul{
+        padding: 4% 0 0 8%;
+    }
+    .cnt_spa .info ul li{
+        width: 21%;
+        margin: 0 5% 0 0;
+    }
+    .cnt_spa .info ul li strong{
+        margin: 0 0 10px 0;
+    }
+    .cnt_spa .info ul li span{
+        margin: 0 0 10px 0;
+    }
+}
 @media screen and (max-width:640px){
     .cnt_spa .info{
         margin: 40px 0 40px 0;
@@ -372,15 +522,8 @@
         width: auto;
         margin: 0 0 20px 0;
     }
-    .cnt_spa .info ul li:last-child{
-        margin-right: 0;
-    }
     .cnt_spa .info ul li strong{
-        margin: 0 0 10px 0;
         font-size: 15px;
-    }
-    .cnt_spa .info ul li span{
-        margin: 0 0 10px 0;
     }
 }
 
@@ -434,6 +577,67 @@
     font-family: 'GyeonggiBatang';
     font-size: 30px;
 }
+@media screen and (max-width:1200px){
+    .cnt_spa .other .other_tit{
+        margin: 0 0 40px 0;
+    }
+    .cnt_spa .other .other_tit strong{
+        font-size: 45px;
+    }
+    .cnt_spa .other .other_tit p{
+        font-size: 22px;
+    }
+    .cnt_spa .other ul li a .other_pic{
+        border-radius: 15px 0 15px 15px;
+    }
+    .cnt_spa .other ul li a .other_txt{
+        margin: 10px 0 0 0;
+    }
+    .cnt_spa .other ul li a .other_txt strong{
+        margin: 0;
+        font-size: 25px;
+    }
+}
+@media screen and (max-width:1000px){
+    .cnt_spa .other .other_tit strong{
+        font-size: 40px;
+    }
+    .cnt_spa .other .other_tit p{
+        font-size: 20px;
+    }
+    .cnt_spa .other ul li a .other_pic{
+        border-radius: 10px 0 10px 10px;
+    }
+}
+@media screen and (max-width:800px){
+    .cnt_spa .other .other_tit{
+        margin: 0 0 30px 0;
+    }
+    .cnt_spa .other .other_tit strong{
+        font-size: 45px;
+    }
+    .cnt_spa .other .other_tit p{
+        font-size: 22px;
+    }
+    .cnt_spa .other ul li{
+        float: none;
+        width: auto;
+        margin: 0 0 15px 0;
+    }
+    .cnt_spa .other ul li:last-child{
+        margin-bottom: 0;
+    }
+    .cnt_spa .other ul li a .other_pic{
+        border-radius: 15px 0 15px 15px;
+        height: 300px;
+    }
+    .cnt_spa .other ul li a .other_pic img{
+        width: 100%;
+    }
+    .cnt_spa .other ul li a .other_txt{
+        margin: 15px 0 0 0;
+    }
+}
 @media screen and (max-width:640px){
     .cnt_spa .other .other_tit{
         margin: 0 0 25px 0;
@@ -446,19 +650,11 @@
         font-size: 20px;
     }
     .cnt_spa .other ul li{
-        float: none;
-        width: auto;
-        margin: 0 0 15px 0;
-    }
-    .cnt_spa .other ul li:last-child{
-        margin-bottom: 0;
+        margin: 0 0 20px 0;
     }
     .cnt_spa .other ul li a .other_pic{
         border-radius: 10px 0 10px 10px;
         height: 200px;
-    }
-    .cnt_spa .other ul li a .other_pic img{
-        width: 100%;
     }
     .cnt_spa .other ul li a .other_txt{
         margin: 5px 0 0 0;

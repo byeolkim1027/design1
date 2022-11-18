@@ -585,31 +585,66 @@ html,body{
     color: #ccc;
 }
 @media screen and (max-width:1200px){
-
-}
-@media screen and (max-width:640px){
     .footer .sns{
-        top: 30px;
-        right: 20px;
+        right: 15px;
+        top: -20px;
+    }
+    .footer .f_logo{
+        float: none;
+    }
+    .footer .inner{
+        float: none;
+    }
+}
+@media screen and (max-width:1000px){
+    .footer .sns{
+        top: -8px;
     }
     .footer .sns ul{
-        width: 95px;
-    }
-    .footer .sns ul li{
-        float: left;
+        width: 100px;
     }
     .footer .sns ul li a img{
-        width: 20px;
-        height: 20px;
+        width: 25px;
+        height: 25px;
     }
     .footer .f_logo{
         margin: 35px 0 0 0;
     }
     .footer .f_logo img{
-        width: 100px;
+        width: 150px;
     }
     .footer .inner{
         margin: 30px 0 0 0;
+    }
+    .footer .f_nav li{
+        margin: 0 30px 10px 0;
+    }
+    .footer .f_nav li::after{
+        right: -14px;
+        top: 5px;
+        height: 10px;
+    }
+    .footer .f_info{
+        margin: 20px 0 20px 0;
+    }
+    .footer .f_info span{
+        margin: 0 30px 10px 0;
+    }
+}
+@media screen and (max-width:640px){
+    .footer .sns{
+        top: -3px;
+        right: 20px;
+    }
+    .footer .sns ul{
+        width: 95px;
+    }
+    .footer .sns ul li a img{
+        width: 20px;
+        height: 20px;
+    }
+    .footer .f_logo img{
+        width: 100px;
     }
     .footer .f_nav li{
         margin: 0 20px 10px 0;
@@ -618,9 +653,6 @@ html,body{
         right: -11px;
         top: 6px;
         height: 8px;
-    }
-    .footer .f_info{
-        margin: 20px 0 20px 0;
     }
     .footer .f_info span{
         margin: 0 20px 10px 0;
