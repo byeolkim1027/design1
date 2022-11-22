@@ -97,10 +97,13 @@ html,body{
 
 .header{
     height: 80px;
+    background-color: #F8F5EE;
+    position: relative;
+    z-index: 100;
 }
 .header .logo{
     position: absolute;
-    top: 50%;
+    top: 39%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 0;
@@ -109,11 +112,30 @@ html,body{
 .header .site_nav{
     display: block;
 }
-.header .site_nav li{
-    display: inline-block;
+.header .site_nav ul{
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.header .site_nav li a{
+.header .site_nav ul li{
+    display: inline-block;
+    width: 8%;
+}
+.header .site_nav ul li:nth-child(3){
+    margin-right: 9%;
+}
+.header .site_nav ul li:nth-child(4){
+    margin-left: 6%;
+}
+.header .site_nav ul li a{
     display: block;
+    font-size: 17px;
+    line-height: 80px;
+    text-align: center;
+}
+.header .site_nav ul li a span{
+    display: inline;
 }
 .header .site_menu{
     display: none;
