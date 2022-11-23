@@ -11,7 +11,10 @@ $(document).ready(function(){
         spaceBetween: 16, /* li와 li사이 - 제일 작은 여백 */
         breakpoints: {
             640: {  /* 640px 이상이 되면 적용 */
-                spaceBetween: 20, 
+                spaceBetween: 16, 
+            },
+            1000: {  /* 1024px 이상이 되면 적용 */
+                spaceBetween: 20,
             },
             1440: {  /* 1024px 이상이 되면 적용 */
                 spaceBetween: 30,
