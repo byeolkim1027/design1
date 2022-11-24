@@ -1,0 +1,25 @@
+@import url('default.css');
+@import url('common.css');
+
+.intro{
+    height: 880px;
+    background: url(../images/portfolio_bg.png) no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+}
+.intro .inner{
+    padding: 280px 0 0 0;
+}
+.intro h1{
+    font-family: 'Cafe24Shiningstar';
+    font-size: 150px;
+    line-height: 0.8;
+}
+.intro .txt_box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    font-size: 40px;
+    font-family: 'Cafe24Shiningstar';
+}
