@@ -241,7 +241,6 @@ html,body{
 }
 
 .footer{
-    height: 275px;
     text-align: center;
     color: #666;
 }
@@ -278,13 +277,10 @@ html,body{
     display: none;
 }
 .footer .copyright{
-    margin: 10px 0 0 0;
+    margin: 10px 0 100px 0;
     color: rgba(102,102,102,0.5);
 }
 @media screen and (max-width:640px){
-    .footer{
-        height: 300px;
-    }
     .footer .f_logo{
         margin: 40px 0 0 0;
     }
