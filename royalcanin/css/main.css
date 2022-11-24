@@ -1201,6 +1201,9 @@
     width: 100%;
     background-color: #F7F6F3;
 }
+.news h2{
+    display: none;
+}
 .news .news_wrap{
     display: flex;
     width: 100%;
