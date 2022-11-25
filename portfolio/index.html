@@ -6,36 +6,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <script src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="js/main.js"></script>
     <link rel="stylesheet" href="css/main.css">
     <title>Byeol Kim's Portfolio</title>
 </head>
 <body>
-    <header class="header">
-        <div class="wrapper">
-            <nav class="gnb">
-                <ul>
-                    <li><a href="">INTRO</a></li>
-                    <li><a href="">ABOUT</a></li>
-                    <li><a href="">WORK</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <section class="intro">
-        <div class="wrapper">
-            <div class="inner">
-                <h1>Welcome to<br>
-                    Byeol Kim's Portfolio</h1>
-                <div class="txt_box" data-trigger>
-                    <span class="txt"></span>
-                </div>
-                <div class="scroll">
-                    <i><img src="images/scroll_ico.svg" alt="scroll 마우스 사진"></i>
-                    <strong>SCROLL</strong>
+    <div id="wrap">
+        <header class="header">
+            <div class="wrapper">
+                <nav class="gnb scroll-moveBox flex flex-br-c">
+                    <ul>
+                        <li class="intro"><a href="#n">INTRO</a></li>
+                        <li class="about"><a href="#n">ABOUT</a></li>
+                        <li class="work"><a href="#n">WORK</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <section class="intro">
+            <div class="wrapper">
+                <div class="inner">
+                    <h1>
+                        <span class="block">Welcome to</span>
+                        <span class="block">Byeol Kim's Portfolio</span>
+                    </h1>
+                    <div class="txt_box" data-trigger>
+                        <span class="txt"></span>
+                    </div>
+                    <div class="scroll">
+                        <i><img src="images/scroll_ico.svg" alt="scroll 마우스 사진"></i>
+                        <strong>SCROLL</strong>
+                    </div>
                 </div>
             </div>
+        </section>
+        <div class="bg_txt_container">
+            <div class="bg_txt">Hello This is Byeol Kim's Portfolio <span class="outline">Hello This is Byeol Kim's Portfolio</span></div>
         </div>
-    </section>
+        <section class="about">
+            <div class="wrapper">
+                <div class="profile">
+                    <div class="about_left">
+                        <h2>
+                            <span class="circle"></span>
+                            <span class="about_tit">All about Byeol</span>
+                        </h2>
+                        <div class="info_left">
+                            <p class="name">김별<br>BYEOL KIM</p>
+                            <span class="hashtag">#긍정적</span>
+                            <span class="hashtag">#책임감</span>
+                            <span class="hashtag">#가능성</span>
+                            <p>무수한 가능성을 한없이 펼치고 싶습니다</p>
+                        </div>
+                        <div></div>
+                    </div>
+                    <div class="about_right">
+                        <div class="contact">
+                            <h3>CONTACT</h3>
+                            <div class="contact_more">
+                                <p>byeolkim1027@gmail.com</p>
+                                <p>010-9891-5129</p>
+                            </div>
+                        </div>
+                        <div class="detail">
+                            <h3>DETAIL</h3>
+                            <div class="detail_more">
+                                <p>Nov 2022 | 반응형 웹디자인(UIUX)&웹퍼블리셔 과정수료</p>
+                                <p>Apr 2022 | Abel Academy conversation instructor</p>
+                                <p>Spring 2020 | CUNY Queensborough Community College in NY</p>
+                                <p>Jun 2011 | Flushing High school in Flushing NY</p>
+                                <p>May 2007 | Adrien Block I.S 25 Middle school in Queens NY</p>
+                            </div>
+                        </div>
+                        <div class="ability">
+                            <h3>ABILITY</h3>
+                            <div class="ability_more">
+                                <p>Photoshop, Illustrator, Figma, HTML</p>
+                                <p>CSS, Javascript, Jquery</p>
+                            </div>
+                        </div>
+                        <div class="language">
+                            <h3>LANGUAGE</h3>
+                            <div class="language_more">
+                                <p>English</p>
+                                <p>Korean</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 </body>
 </html>

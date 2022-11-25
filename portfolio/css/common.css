@@ -99,4 +99,37 @@ html,body{
     top: 0;/*tap키로 이동할때만 보인다 그냥은 안보인다*/
 }
 
-
+.header{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 300;
+    width: 100%;
+    height: 80px;
+    color: #FFF;
+}
+.header .gnb ul{
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header .gnb ul li{
+    width: 152px;
+    text-align: center;
+}
+.header .gnb ul li a{
+    position: relative;
+    height: 80px;
+    font-size: 40px;
+    font-family: 'Cafe24Shiningstar';
+}
+.header .gnb ul li:hover a::before{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    content: "";
+}

@@ -15,11 +15,214 @@
     font-size: 150px;
     line-height: 0.8;
 }
-.intro .txt_box{
+.intro h1 .block{
+    display: block;
+}
+.intro .txt_box span{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 120px;
     font-size: 40px;
     font-family: 'Cafe24Shiningstar';
+}
+.intro .scroll{
+    position: relative;
+    left: 50%;
+    bottom: -130px;
+    z-index: 12;
+    color: #FFF;
+    text-align: center;
+    transform: translate(-50%,0);
+}
+.intro .scroll strong{
+    display: block;
+    margin-top: 8px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+}
+.intro .scroll img{
+    animation-name: scroll_move;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(.96,.08,.37,.98);
+}
+@keyframes scroll_move{
+    0%{transform: translate(0,0);}
+    50%{transform: translate(0,-20px);}
+    100%{transform: translate(0,0);}
+}
+
+.bg_txt_container{
+    position: relative;
+    height: 200px;
+}
+.bg_txt_container .bg_txt .outline{
+    color: #FFF;
+    text-shadow: -2px 0 #B4D3E8, 0 2px #B4D3E8, 2px 0 #B4D3E8, 0 -2px #B4D3E8;
+}
+.bg_txt_container .bg_txt{
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-family: 'Cafe24Shiningstar';
+    font-size: 170px;
+    line-height: 1;
+    color: #B4D3E8;
+    white-space: nowrap;
+    animation-name: bg_txt_ani;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes bg_txt_ani{
+    0% { transform:translateX(0); }  
+    100% { transform:translateX(-50.3%); } 
+}
+
+.about{
+    margin: 85px 0 150px 0;
+}
+.about .profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.about .profile .about_left{
+    width: 34%;
+    margin-right: 7%;
+}
+.about .profile .about_left h2{
+    position: relative;
+    font-family: 'Cafe24Shiningstar';
+    font-size: 120px;
+    line-height: 1;
+}
+.about .profile .about_left h2 .circle{
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    background: #B7DCF5;
+    border-radius: 50%;
+    position: absolute;
+    right: -2%;
+    top: 0;
+    z-index: 100;
+    transform: rotate(45deg);
+    animation: animateHeart 2s infinite;
+}
+.about .profile .about_left h2 .about_tit{
+    position: relative;
+    z-index: 200;
+}
+@keyframes animateHeart {
+    0%{
+      transform: rotate(45deg) scale(0.8);
+    }
+    5%{
+      transform: rotate(45deg) scale(0.9);
+    }
+    10%{
+      transform: rotate(45deg) scale(0.8);
+    }
+    15%{
+      transform: rotate(45deg) scale(1);
+    }
+    50%{
+      transform: rotate(45deg) scale(0.8);
+    }
+    100%{
+      transform: rotate(45deg) scale(0.8);
+    }
+  }
+.about .profile .about_left .info_left{
+    margin: 50px 0 0 80px;
+}
+.about .profile .about_left .info_left .name{
+    font-size: 25px;
+    font-weight: 700;
+}
+.about .profile .about_left .info_left .hashtag{
+    margin: 15px 6% 0 0;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 700;
+    color: #9BBED2;
+}
+.about .profile .about_left .info_left p{
+    font-size: 20px;
+    font-weight: 700;
+}
+.about .profile .about_right{
+    margin: 40px;
+    width: 43%;
+}
+.about .profile .about_right .contact{
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 0 0 20px 0;
+}
+.about .profile .about_right .contact::after{
+    position: absolute;
+    right: 0;
+    bottom: -5%;
+    width: 75%;
+    height: 1px;
+    background-color: #ccc;
+    content: "";
+}
+.about .profile .about_right h3{
+    font-size: 20px;
+    font-weight: 700;
+}
+.about .profile .about_right p{
+    margin: 0 0 10px 0;
+}
+.about .profile .about_right .contact_more{
+    margin-left: 10%;
+}
+.about .profile .about_right .detail{
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 0 0 20px 0;
+}
+.about .profile .about_right .detail::after{
+    position: absolute;
+    right: 0;
+    bottom: -5%;
+    width: 75%;
+    height: 1px;
+    background-color: #ccc;
+    content: "";
+}
+.about .profile .about_right .detail_more{
+    margin-left: 14%;
+}
+.about .profile .about_right .ability{
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 0 0 20px 0;
+}
+.about .profile .about_right .ability::after{
+    position: absolute;
+    right: 0;
+    bottom: -5%;
+    width: 75%;
+    height: 1px;
+    background-color: #ccc;
+    content: "";
+}
+.about .profile .about_right .ability_more{
+    margin-left: 13%;
+}
+.about .profile .about_right .language{
+    display: flex;
+    align-items: center;
+    margin: 0 0 20px 0;
+}
+.about .profile .about_right .language_more{
+    margin-left: 8%;
 }
