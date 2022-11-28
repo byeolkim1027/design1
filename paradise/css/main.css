@@ -1000,10 +1000,10 @@
     height: 615px;
 }
 .dining .dining_popup ul li .pic img{
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 .dining .swiper-pagination{
     text-align: left;
